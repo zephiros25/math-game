@@ -1,18 +1,53 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from 'expo-router';
+import {
+  Fredoka_400Regular,
+  Fredoka_500Medium,
+  Fredoka_600SemiBold,
+  Fredoka_700Bold,
+  useFonts,
+} from '@expo-google-fonts/fredoka';
+import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
-import { useColorScheme } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
+import { useEffect, useState } from 'react';
 
-import { AnimatedSplashOverlay } from '@/components/animated-icon';
-import AppTabs from '@/components/app-tabs';
+import { initFeedback, setMuted } from '@/feedback';
+import { loadProgress } from '@/progress';
+import { theme } from '@/theme';
 
 SplashScreen.preventAutoHideAsync();
+initFeedback();
 
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
+export default function RootLayout() {
+  const [fontsLoaded] = useFonts({ Fredoka_400Regular, Fredoka_500Medium, Fredoka_600SemiBold, Fredoka_700Bold });
+  const [progressLoaded, setProgressLoaded] = useState(false);
+
+  useEffect(() => {
+    loadProgress().then((p) => {
+      setMuted(p.muted);
+      setProgressLoaded(true);
+    });
+  }, []);
+
+  const ready = fontsLoaded && progressLoaded;
+  useEffect(() => {
+    if (ready) SplashScreen.hideAsync();
+  }, [ready]);
+
+  if (!ready) return null;
+
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <AnimatedSplashOverlay />
-      <AppTabs />
-    </ThemeProvider>
+    <>
+      <StatusBar style="dark" />
+      <Stack
+        screenOptions={{
+          headerShown: false,
+          animation: 'fade',
+          contentStyle: { backgroundColor: theme.background },
+        }}
+      >
+        <Stack.Screen name="play" options={{ gestureEnabled: false }} />
+        <Stack.Screen name="results" options={{ gestureEnabled: false }} />
+      </Stack>
+    </>
   );
 }
