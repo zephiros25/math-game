@@ -1,0 +1,113 @@
+{
+  "name": "Diamond",
+  "tagline": "Crystal clear, brilliantly bright",
+  "order": 85,
+  "price": 0,
+  "premium": true,
+  "dark": false,
+  "colors": {
+    "background": "#EEF4FB",
+    "backgroundDeep": "#DCE7F4",
+    "text": "#172A45",
+    "textSoft": "#6B7F9C",
+    "key": "#FFFFFF",
+    "keyEdge": "#C9D8EA",
+    "keyText": "#172A45",
+    "primary": "#2F6BD8",
+    "primaryEdge": "#1F4FAB",
+    "onPrimary": "#FFFFFF",
+    "correct": "#23B3A3",
+    "correctEdge": "#178A7E",
+    "wrong": "#EC6A8C",
+    "wrongEdge": "#C44A6B",
+    "onFeedback": "#FFFFFF",
+    "streak": "#2F6BD8",
+    "streakBg": "#DCE6FA",
+    "card": "#FFFFFF",
+    "cardEdge": "#D2DFEE",
+    "track": "#DAE5F1"
+  },
+  "font": {
+    "name": "Quicksand",
+    "files": {
+      "regular": "font-quicksand-regular.ttf",
+      "medium": "font-quicksand-medium.ttf",
+      "semibold": "font-quicksand-semibold.ttf",
+      "bold": "font-quicksand-bold.ttf"
+    }
+  },
+  "background": {
+    "image": null,
+    "dim": 0
+  },
+  "particles": {
+    "style": "sparkles",
+    "colors": [
+      "#8EC5F5",
+      "#B9A8F7",
+      "#7FDCEB",
+      "#A9BCD6"
+    ],
+    "images": [],
+    "amount": 1.4,
+    "opacity": 0.9
+  },
+  "sounds": {
+    "tap": {
+      "files": [
+        "sound-glass-tap-1.wav",
+        "sound-glass-tap-2.wav",
+        "sound-glass-tap-3.wav"
+      ],
+      "volume": 0.85
+    },
+    "backspace": {
+      "files": [
+        "sound-glass-back.wav"
+      ],
+      "volume": 0.8
+    },
+    "button": {
+      "files": [
+        "sound-glass-pop.wav"
+      ],
+      "volume": 0.9
+    },
+    "correct": {
+      "files": [
+        "sound-crystal-chime.wav"
+      ],
+      "volume": 0.9
+    },
+    "wrong": {
+      "files": [
+        "sound-frosted-thud.wav"
+      ],
+      "volume": 0.9
+    },
+    "levelUp": {
+      "files": [
+        "sound-crystal-rise.wav"
+      ],
+      "volume": 0.7
+    },
+    "fanfare": {
+      "files": [
+        "sound-crystal-fanfare.wav"
+      ],
+      "volume": 0.9
+    },
+    "coin": {
+      "files": [
+        "sound-crystal-coin.wav"
+      ],
+      "volume": 0.6
+    },
+    "gem": {
+      "files": [
+        "sound-diamond-sparkle.wav"
+      ],
+      "volume": 0.9
+    }
+  }
+}

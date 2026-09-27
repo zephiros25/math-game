@@ -365,5 +365,113 @@ export const THEME_DATA: ThemeData[] = [
     "particleAmount": 1,
     "particleOpacity": 1,
     "sounds": {}
+  },
+  {
+    "id": "diamond",
+    "name": "Diamond",
+    "tagline": "Crystal clear, brilliantly bright",
+    "order": 85,
+    "price": 0,
+    "premium": true,
+    "dark": false,
+    "colors": {
+      "background": "#EEF4FB",
+      "backgroundDeep": "#DCE7F4",
+      "text": "#172A45",
+      "textSoft": "#6B7F9C",
+      "key": "#FFFFFF",
+      "keyEdge": "#C9D8EA",
+      "keyText": "#172A45",
+      "primary": "#2F6BD8",
+      "primaryEdge": "#1F4FAB",
+      "onPrimary": "#FFFFFF",
+      "correct": "#23B3A3",
+      "correctEdge": "#178A7E",
+      "wrong": "#EC6A8C",
+      "wrongEdge": "#C44A6B",
+      "onFeedback": "#FFFFFF",
+      "streak": "#2F6BD8",
+      "streakBg": "#DCE6FA",
+      "card": "#FFFFFF",
+      "cardEdge": "#D2DFEE",
+      "track": "#DAE5F1"
+    },
+    "fontName": "Quicksand",
+    "fonts": {
+      "regular": require('../themes/diamond/font-quicksand-regular.ttf'),
+      "medium": require('../themes/diamond/font-quicksand-medium.ttf'),
+      "semibold": require('../themes/diamond/font-quicksand-semibold.ttf'),
+      "bold": require('../themes/diamond/font-quicksand-bold.ttf')
+    },
+    "backgroundImage": null,
+    "backgroundDim": 0,
+    "particleStyle": "sparkles",
+    "particleColors": [
+      "#8EC5F5",
+      "#B9A8F7",
+      "#7FDCEB",
+      "#A9BCD6"
+    ],
+    "particleImages": [],
+    "particleAmount": 1.4,
+    "particleOpacity": 0.9,
+    "sounds": {
+      "tap": {
+        "sources": [
+          require('../themes/diamond/sound-glass-tap-1.wav'),
+          require('../themes/diamond/sound-glass-tap-2.wav'),
+          require('../themes/diamond/sound-glass-tap-3.wav')
+        ],
+        "volume": 0.85
+      },
+      "backspace": {
+        "sources": [
+          require('../themes/diamond/sound-glass-back.wav')
+        ],
+        "volume": 0.8
+      },
+      "button": {
+        "sources": [
+          require('../themes/diamond/sound-glass-pop.wav')
+        ],
+        "volume": 0.9
+      },
+      "correct": {
+        "sources": [
+          require('../themes/diamond/sound-crystal-chime.wav')
+        ],
+        "volume": 0.9
+      },
+      "wrong": {
+        "sources": [
+          require('../themes/diamond/sound-frosted-thud.wav')
+        ],
+        "volume": 0.9
+      },
+      "levelUp": {
+        "sources": [
+          require('../themes/diamond/sound-crystal-rise.wav')
+        ],
+        "volume": 0.7
+      },
+      "fanfare": {
+        "sources": [
+          require('../themes/diamond/sound-crystal-fanfare.wav')
+        ],
+        "volume": 0.9
+      },
+      "coin": {
+        "sources": [
+          require('../themes/diamond/sound-crystal-coin.wav')
+        ],
+        "volume": 0.6
+      },
+      "gem": {
+        "sources": [
+          require('../themes/diamond/sound-diamond-sparkle.wav')
+        ],
+        "volume": 0.9
+      }
+    }
   }
 ];
