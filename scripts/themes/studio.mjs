@@ -17,7 +17,10 @@ import { buildThemes } from './build.mjs';
 import {
   COLOR_KEYS,
   CONTRAST_PAIRS,
+  CURATED_FONTS,
   defaultTheme,
+  FONT_EXTENSIONS,
+  FONT_WEIGHTS,
   ID_PATTERN,
   IMAGE_EXTENSIONS,
   PARTICLE_STYLES,
@@ -34,7 +37,7 @@ const studioHtml = fileURLToPath(new URL('./studio.html', import.meta.url));
 
 // Files the Studio creates get these prefixes; only those are cleaned up
 // automatically when a theme stops referencing them.
-const MANAGED_PREFIXES = ['bg-', 'particle-', 'sound-'];
+const MANAGED_PREFIXES = ['bg-', 'particle-', 'sound-', 'font-'];
 const SAFE_FILE = /^[A-Za-z0-9._-]+$/;
 
 const TYPES = {
@@ -48,6 +51,8 @@ const TYPES = {
   '.mp3': 'audio/mpeg',
   '.m4a': 'audio/mp4',
   '.aac': 'audio/aac',
+  '.ttf': 'font/ttf',
+  '.otf': 'font/otf',
 };
 
 class HttpError extends Error {
@@ -90,6 +95,7 @@ function referencedFiles(theme) {
     theme.background?.image,
     ...(theme.particles?.images ?? []),
     ...Object.values(theme.sounds ?? {}).flatMap((s) => s.files ?? []),
+    ...Object.values(theme.font?.files ?? {}),
   ]);
 }
 
@@ -152,7 +158,53 @@ async function importFile(id, kind, originalName, data) {
     writeFileSync(join(dir, name), data);
     return name;
   }
+  if (kind === 'font') {
+    if (!FONT_EXTENSIONS.includes(ext)) throw new HttpError(400, `Fonts must be ${FONT_EXTENSIONS.join(' or ')} files`);
+    const name = uniqueName(dir, `font-${slug(originalName)}`, ext);
+    writeFileSync(join(dir, name), data);
+    return name;
+  }
   throw new HttpError(400, `Unknown upload kind "${kind}"`);
+}
+
+// Downloads a Google Fonts family (as TTF, which phones can use) into the
+// theme folder. Returns { name, files } ready to put in theme.json.
+async function importGoogleFont(id, family) {
+  const dir = themeDir(id);
+  family = String(family ?? '').trim();
+  if (!/^[A-Za-z0-9 ]{2,40}$/.test(family)) throw new HttpError(400, 'Type a Google Fonts family name, e.g. "Baloo 2"');
+  const weights = Object.values(FONT_WEIGHTS).join(';');
+  const query = encodeURIComponent(family).replace(/%20/g, '+');
+  let res = await fetch(`https://fonts.googleapis.com/css2?family=${query}:wght@${weights}`);
+  // Families with a single weight reject a weight list; ask for the default one.
+  if (!res.ok) res = await fetch(`https://fonts.googleapis.com/css2?family=${query}`);
+  if (!res.ok) throw new HttpError(404, `Google Fonts has no family called "${family}" (check the spelling on fonts.google.com)`);
+  const css = await res.text();
+  const urls = new Map();
+  for (const block of css.split('@font-face').slice(1)) {
+    const weight = Number(block.match(/font-weight:\s*(\d+)/)?.[1] ?? 400);
+    const url = block.match(/url\((https:[^)]+\.ttf)\)/)?.[1];
+    // Google may split a weight into several unicode subsets; the first one is Latin.
+    if (url && !urls.has(weight) && !/font-style:\s*italic/.test(block)) urls.set(weight, url);
+  }
+  if (urls.size === 0) throw new HttpError(502, 'Google Fonts did not return any TTF files for that family');
+  const files = {};
+  for (const [key, weight] of Object.entries(FONT_WEIGHTS)) {
+    const url = urls.get(weight);
+    if (!url) continue;
+    const data = Buffer.from(await (await fetch(url)).arrayBuffer());
+    const name = uniqueName(dir, `font-${slug(family)}-${key}`, '.ttf');
+    writeFileSync(join(dir, name), data);
+    files[key] = name;
+  }
+  if (Object.keys(files).length === 0) {
+    // Only unusual weights (e.g. 300 or 800) exist: take the one closest to regular.
+    const [weight, url] = [...urls.entries()].sort((a, b) => Math.abs(a[0] - 400) - Math.abs(b[0] - 400))[0];
+    const name = uniqueName(dir, `font-${slug(family)}-${weight}`, '.ttf');
+    writeFileSync(join(dir, name), Buffer.from(await (await fetch(url)).arrayBuffer()));
+    files.regular = name;
+  }
+  return { name: family, files };
 }
 
 function createTheme(id, from) {
@@ -224,7 +276,7 @@ async function handle(req, res) {
   if (parts[0] !== 'api') throw new HttpError(404, 'Not found');
 
   if (method === 'GET' && parts[1] === 'meta') {
-    return send(res, 200, { colorKeys: COLOR_KEYS, particleStyles: PARTICLE_STYLES, soundSlots: SOUND_SLOTS, contrastPairs: CONTRAST_PAIRS, defaultTheme: defaultTheme() });
+    return send(res, 200, { colorKeys: COLOR_KEYS, curatedFonts: CURATED_FONTS, fontWeights: FONT_WEIGHTS, particleStyles: PARTICLE_STYLES, soundSlots: SOUND_SLOTS, contrastPairs: CONTRAST_PAIRS, defaultTheme: defaultTheme() });
   }
   if (parts[1] !== 'themes') throw new HttpError(404, 'Not found');
 
@@ -243,6 +295,10 @@ async function handle(req, res) {
   if (method === 'DELETE' && parts.length === 3) {
     deleteTheme(id);
     return send(res, 200, { ok: true });
+  }
+  if (method === 'POST' && parts[3] === 'google-font') {
+    const { family } = JSON.parse((await readBody(req)).toString());
+    return send(res, 200, await importGoogleFont(id, family));
   }
   if (method === 'POST' && parts[3] === 'upload') {
     const kind = url.searchParams.get('kind');

@@ -31,7 +31,8 @@ npm run lint
 
 1. Run `npx expo start` (phone preview) and, in a second terminal, `npm run studio`.
 2. Open http://localhost:4455, then create or duplicate a theme.
-3. Pick colors, drop in a background image, particle sprites (transparent PNGs) and
+3. Pick colors and a font (any Google Fonts family, or your own .ttf/.otf files), drop in
+   a background image, particle sprites (transparent PNGs) and
    sound recordings. The Studio shrinks images and checks formats and contrast.
 4. Save (Ctrl+S). The app's theme registry is regenerated and the phone reloads.
    In development builds the theme shop has a "Developer: unlock & equip" link

@@ -12,12 +12,18 @@ import { useEffect, useState } from 'react';
 
 import { applyThemeSounds, initFeedback, setMuted } from '@/feedback';
 import { loadProgress } from '@/progress';
-import { useTheme } from '@/theme';
+import { THEME_FONT_FILES, useTheme } from '@/theme';
 
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
-  const [fontsLoaded] = useFonts({ Fredoka_400Regular, Fredoka_500Medium, Fredoka_600SemiBold, Fredoka_700Bold });
+  const [fontsLoaded] = useFonts({
+    Fredoka_400Regular,
+    Fredoka_500Medium,
+    Fredoka_600SemiBold,
+    Fredoka_700Bold,
+    ...THEME_FONT_FILES,
+  });
   const [progressLoaded, setProgressLoaded] = useState(false);
   const t = useTheme();
 

@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 import { ChunkyButton } from '@/components/chunky-button';
-import { font, useTheme, type Theme } from '@/theme';
+import { useTheme, type Theme } from '@/theme';
 
 type Props = {
   onDigit: (digit: string) => void;
@@ -74,7 +74,7 @@ const makeStyles = (t: Theme) =>
       flex: 1,
     },
     backspace: {
-      fontFamily: font.medium,
+      fontFamily: t.font.medium,
       fontSize: 28,
       color: t.textSoft,
     },

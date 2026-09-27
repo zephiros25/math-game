@@ -16,7 +16,7 @@ import { Screen } from '@/components/screen';
 import { feedback, setMuted } from '@/feedback';
 import { levelInfo } from '@/game/levels';
 import { updateProgress, useProgress } from '@/progress';
-import { font, useTheme, type Theme } from '@/theme';
+import { useTheme, type Theme } from '@/theme';
 
 const RUN_LENGTHS = [10, 20, 40];
 
@@ -181,7 +181,7 @@ const makeStyles = (t: Theme) =>
       fontSize: 18,
     },
     chipValue: {
-      fontFamily: font.semibold,
+      fontFamily: t.font.semibold,
       fontSize: 18,
       color: t.text,
     },
@@ -198,14 +198,14 @@ const makeStyles = (t: Theme) =>
       gap: 24,
     },
     titleSmall: {
-      fontFamily: font.bold,
+      fontFamily: t.font.bold,
       fontSize: 36,
       letterSpacing: 8,
       color: t.primary,
       textAlign: 'center',
     },
     title: {
-      fontFamily: font.bold,
+      fontFamily: t.font.bold,
       fontSize: 96,
       lineHeight: 100,
       color: t.text,
@@ -216,7 +216,7 @@ const makeStyles = (t: Theme) =>
       gap: 10,
     },
     bubble: {
-      fontFamily: font.semibold,
+      fontFamily: t.font.semibold,
       fontSize: 18,
       color: t.textSoft,
       backgroundColor: t.card,
@@ -247,17 +247,17 @@ const makeStyles = (t: Theme) =>
       fontSize: 24,
     },
     themesLabel: {
-      fontFamily: font.semibold,
+      fontFamily: t.font.semibold,
       fontSize: 14,
       color: t.text,
     },
     cardLabel: {
-      fontFamily: font.medium,
+      fontFamily: t.font.medium,
       fontSize: 14,
       color: t.textSoft,
     },
     cardValue: {
-      fontFamily: font.semibold,
+      fontFamily: t.font.semibold,
       fontSize: 20,
       color: t.text,
       marginTop: 2,
@@ -268,7 +268,7 @@ const makeStyles = (t: Theme) =>
       justifyContent: 'space-between',
     },
     lengthsLabel: {
-      fontFamily: font.medium,
+      fontFamily: t.font.medium,
       fontSize: 18,
       color: t.textSoft,
     },
@@ -287,7 +287,7 @@ const makeStyles = (t: Theme) =>
       backgroundColor: t.card,
     },
     segmentText: {
-      fontFamily: font.semibold,
+      fontFamily: t.font.semibold,
       fontSize: 18,
       color: t.textSoft,
     },

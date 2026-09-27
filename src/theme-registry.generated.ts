@@ -34,6 +34,8 @@ export const THEME_DATA: ThemeData[] = [
       "cardEdge": "#EFE2D2",
       "track": "#F1E3D1"
     },
+    "fontName": null,
+    "fonts": null,
     "backgroundImage": null,
     "backgroundDim": 0,
     "particleStyle": "sunbeams",
@@ -77,6 +79,8 @@ export const THEME_DATA: ThemeData[] = [
       "cardEdge": "#C9E6EF",
       "track": "#D3EDF5"
     },
+    "fontName": null,
+    "fonts": null,
     "backgroundImage": null,
     "backgroundDim": 0,
     "particleStyle": "bubbles",
@@ -120,6 +124,8 @@ export const THEME_DATA: ThemeData[] = [
       "cardEdge": "#D9EBCB",
       "track": "#DDEFD0"
     },
+    "fontName": null,
+    "fonts": null,
     "backgroundImage": null,
     "backgroundDim": 0,
     "particleStyle": "leaves",
@@ -163,6 +169,8 @@ export const THEME_DATA: ThemeData[] = [
       "cardEdge": "#F6D5E4",
       "track": "#FBDDEA"
     },
+    "fontName": null,
+    "fonts": null,
     "backgroundImage": null,
     "backgroundDim": 0,
     "particleStyle": "confetti",
@@ -208,6 +216,8 @@ export const THEME_DATA: ThemeData[] = [
       "cardEdge": "#141033",
       "track": "#2E2966"
     },
+    "fontName": null,
+    "fonts": null,
     "backgroundImage": null,
     "backgroundDim": 0,
     "particleStyle": "stars",
@@ -251,6 +261,8 @@ export const THEME_DATA: ThemeData[] = [
       "cardEdge": "#07121A",
       "track": "#1C4258"
     },
+    "fontName": null,
+    "fonts": null,
     "backgroundImage": null,
     "backgroundDim": 0,
     "particleStyle": "aurora",
@@ -294,6 +306,8 @@ export const THEME_DATA: ThemeData[] = [
       "cardEdge": "#0A0806",
       "track": "#2E271C"
     },
+    "fontName": null,
+    "fonts": null,
     "backgroundImage": null,
     "backgroundDim": 0,
     "particleStyle": "sparkles",
@@ -337,6 +351,8 @@ export const THEME_DATA: ThemeData[] = [
       "cardEdge": "#F2DAD5",
       "track": "#F7E1DC"
     },
+    "fontName": null,
+    "fonts": null,
     "backgroundImage": null,
     "backgroundDim": 0,
     "particleStyle": "petals",

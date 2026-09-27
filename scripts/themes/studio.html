@@ -82,7 +82,7 @@
   .tabs { display: flex; gap: 4px; background: #ddd7cf; padding: 3px; border-radius: 10px; }
   .tabs button { border: none; background: transparent; }
   .tabs button.on { background: #fff; }
-  .phone { width: 320px; height: 640px; border-radius: 40px; border: 10px solid #1d1b20; position: relative; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,.18); font-family: Fredoka, system-ui; flex: none; }
+  .phone { width: 320px; height: 640px; border-radius: 40px; border: 10px solid #1d1b20; position: relative; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,.18); font-family: var(--pf, Fredoka), system-ui; flex: none; }
   .layer { position: absolute; inset: 0; }
   .bgimg { background-size: cover; background-position: center; }
   .particle { position: absolute; will-change: transform, top, opacity; }
@@ -101,9 +101,9 @@
   .p-ans { min-width: 96px; height: 70px; padding: 0 18px; border-radius: 20px; border-bottom: 5px solid; display: flex; align-items: center; justify-content: center; font-size: 42px; font-weight: 700; transition: background .1s; }
   .p-toast { height: 26px; font-size: 18px; font-weight: 700; }
   .p-pad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; }
-  .p-key { height: 48px; border-radius: 14px; border: none; border-bottom: 5px solid; font: 600 24px Fredoka, system-ui; display: flex; align-items: center; justify-content: center; user-select: none; cursor: pointer; transition: transform .05s, border-bottom-width .05s; padding: 0; }
+  .p-key { height: 48px; border-radius: 14px; border: none; border-bottom: 5px solid; font: 600 24px var(--pf, Fredoka), system-ui; display: flex; align-items: center; justify-content: center; user-select: none; cursor: pointer; transition: transform .05s, border-bottom-width .05s; padding: 0; }
   .p-key:active { transform: translateY(4px); border-bottom-width: 1px; margin-bottom: 4px; }
-  .p-btn { height: 58px; border-radius: 18px; border: none; border-bottom: 6px solid; font: 600 26px Fredoka, system-ui; width: 100%; }
+  .p-btn { height: 58px; border-radius: 18px; border: none; border-bottom: 6px solid; font: 600 26px var(--pf, Fredoka), system-ui; width: 100%; }
   .p-card { border-radius: 16px; border-bottom: 4px solid; padding: 10px 12px; }
   .shake { animation: shake .35s; }
   @keyframes shake { 20% { transform: translateX(-10px); } 40% { transform: translateX(9px); } 60% { transform: translateX(-6px); } 80% { transform: translateX(3px); } }
@@ -113,6 +113,10 @@
   .empty { color: var(--soft); padding: 40px; text-align: center; }
   dialog { border: none; border-radius: 14px; padding: 20px; box-shadow: 0 20px 60px rgba(0,0,0,.25); width: 360px; }
   dialog::backdrop { background: rgba(0,0,0,.3); }
+  .font-sample { font-size: 30px; padding: 10px 14px; border-radius: 12px; background: var(--bg); margin: 6px 0 12px; }
+  .font-sample small { display: block; font-size: 16px; }
+  .weights { display: grid; grid-template-columns: 90px 1fr; gap: 6px 10px; align-items: center; }
+  .weights .drop { padding: 6px; font-size: 12px; }
   kbd { background: var(--bg); border: 1px solid var(--line); border-radius: 4px; padding: 0 4px; font-size: 12px; }
 </style>
 </head>
@@ -346,7 +350,7 @@ function renderEditor() {
   const j = current.json;
   ed.replaceChildren(
     h('div', { class: 'messages', id: 'messages' }),
-    basicsCard(j), colorsCard(j), backgroundCard(j), particlesCard(j), soundsCard(j),
+    basicsCard(j), fontCard(j), colorsCard(j), backgroundCard(j), particlesCard(j), soundsCard(j),
   );
   renderChecks();
 }
@@ -373,6 +377,72 @@ function basicsCard(j) {
     field('Shop order', h('input', { type: 'number', value: j.order, step: 10, style: { width: '90px' }, oninput: (e) => { j.order = Number(e.target.value) || 0; changed(); } }), 'Lower comes first.'),
     field('Dark theme', h('input', { type: 'checkbox', checked: j.dark, onchange: (e) => { j.dark = e.target.checked; changed(); } }), 'Makes the phone status bar light.'),
   );
+}
+
+// ---------------------------------------------------------------- fonts
+// Loads a theme's font files into the page and returns the CSS family name.
+const loadedFonts = new Map();
+function previewFont(j) {
+  if (!j.font) return 'Fredoka';
+  const key = current.id + JSON.stringify(j.font.files);
+  if (!loadedFonts.has(key)) {
+    const family = `studio-${loadedFonts.size}`;
+    for (const [w, file] of Object.entries(j.font.files)) {
+      const face = new FontFace(family, `url(${fileUrl(current.id, file)})`, { weight: String(meta.fontWeights[w]) });
+      document.fonts.add(face);
+      face.load().then(() => renderPreview(), () => setStatus(`Could not load font file ${file}`));
+    }
+    loadedFonts.set(key, family);
+  }
+  return loadedFonts.get(key);
+}
+
+function fontCard(j) {
+  const body = h('div');
+  const render = () => {
+    const fam = previewFont(j);
+    const choice = h('select', {}, h('option', { value: '' }, 'Choose a font…'), meta.curatedFonts.map((n) => h('option', { value: n }, n)));
+    const other = h('input', { type: 'text', placeholder: 'or any Google Fonts name', style: { width: '200px' } });
+    const fetchBtn = h('button', { onclick: async () => {
+      const family = other.value.trim() || choice.value;
+      if (!family) return;
+      fetchBtn.disabled = true;
+      setStatus(`Downloading ${family} from Google Fonts…`);
+      try {
+        j.font = await api(`/api/themes/${current.id}/google-font`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ family }) });
+        setStatus(`${family}: got ${Object.keys(j.font.files).join(', ')}`);
+        render(); changed();
+      } catch (e) { showMessages([e.message], []); setStatus(''); }
+      fetchBtn.disabled = false;
+    } }, 'Use this font');
+    const weights = Object.keys(meta.fontWeights).map((w) => {
+      const file = j.font?.files?.[w];
+      return [h('span', { class: 'hint', style: { fontFamily: fam, fontWeight: meta.fontWeights[w], fontSize: '15px', color: 'var(--ink)' } }, w),
+        file
+          ? h('span', { class: 'file-pill' }, file, h('button', { class: 'icon small', title: 'Remove', onclick: () => {
+              delete j.font.files[w];
+              if (Object.keys(j.font.files).length === 0) j.font = null;
+              render(); changed();
+            } }, '✕'))
+          : dropZone(`Drop a .ttf or .otf for ${w}${j.font ? ' (uses the nearest weight until then)' : ''}`, '.ttf,.otf', false, async ([file]) => {
+              const name = await upload('font', file);
+              j.font ??= { name: file.name.replace(/[-_ ]?(regular|medium|semibold|bold)?\.(ttf|otf)$/i, '') || 'Custom', files: {} };
+              j.font.files[w] = name;
+              render(); changed();
+            })];
+    });
+    body.replaceChildren(
+      h('div', { class: 'font-sample', style: { fontFamily: fam, color: j.colors.text } },
+        h('span', { style: { fontWeight: 600 } }, '6 × 7 = 42'), ' ', h('span', { style: { fontWeight: 700, color: j.colors.primary } }, 'PLAY'),
+        h('small', { style: { fontWeight: 500 } }, `${j.font ? j.font.name : 'Fredoka (default)'} · Tables of 3 and 4 · 1234567890`)),
+      h('div', { class: 'row' }, choice, other, fetchBtn,
+        j.font ? h('button', { onclick: () => { j.font = null; render(); changed(); } }, 'Back to default') : null),
+      h('p', { class: 'hint' }, 'Fonts from Google Fonts are free to use in apps (Open Font License). Pick one with clear, simple digits: children read 6/9 and 1/7 easily confused in fancy fonts. Or upload your own files per weight below; one file is enough, the others fall back to it.'),
+      h('div', { class: 'weights' }, weights.flat()),
+    );
+  };
+  render();
+  return h('section', { class: 'card' }, h('h2', {}, 'Font'), body);
 }
 
 function colorInput(j, key, label) {
@@ -716,6 +786,7 @@ function renderPreview(anim) {
   const phone = $('#phone');
   if (!current) { phone.replaceChildren(); return; }
   const j = current.json, c = j.colors;
+  phone.style.setProperty('--pf', `"${previewFont(j)}"`);
   const layers = [h('div', { class: 'layer', style: { background: c.background } })];
   if (j.background.image) {
     layers.push(h('div', { class: 'layer bgimg', style: { backgroundImage: `url(${fileUrl(current.id, j.background.image)})` } }));

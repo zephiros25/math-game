@@ -22,7 +22,7 @@ import { judge, type Verdict } from '@/game/engine';
 import { generateQuestion, levelInfo, type Question } from '@/game/levels';
 import { coinsFor, isStreakGem, runBonusGems } from '@/game/rewards';
 import { getProgress, updateProgress } from '@/progress';
-import { font, useTheme, type Theme } from '@/theme';
+import { useTheme, type Theme } from '@/theme';
 
 const CORRECT_PAUSE_MS = 480;
 const WRONG_PAUSE_MS = 1500;
@@ -269,7 +269,7 @@ const makeStyles = (t: Theme) =>
     close: {
       fontSize: 22,
       color: t.textSoft,
-      fontFamily: font.semibold,
+      fontFamily: t.font.semibold,
       paddingHorizontal: 4,
     },
     track: {
@@ -291,7 +291,7 @@ const makeStyles = (t: Theme) =>
       minWidth: 56,
     },
     coinValue: {
-      fontFamily: font.semibold,
+      fontFamily: t.font.semibold,
       fontSize: 20,
       color: t.text,
     },
@@ -315,7 +315,7 @@ const makeStyles = (t: Theme) =>
       borderColor: t.cardEdge,
     },
     levelNumber: {
-      fontFamily: font.bold,
+      fontFamily: t.font.bold,
       fontSize: 14,
       color: t.onPrimary,
       backgroundColor: t.primary,
@@ -325,7 +325,7 @@ const makeStyles = (t: Theme) =>
       overflow: 'hidden',
     },
     levelName: {
-      fontFamily: font.medium,
+      fontFamily: t.font.medium,
       fontSize: 15,
       color: t.text,
     },
@@ -336,7 +336,7 @@ const makeStyles = (t: Theme) =>
       paddingVertical: 5,
     },
     streakText: {
-      fontFamily: font.bold,
+      fontFamily: t.font.bold,
       fontSize: 16,
       color: t.streak,
     },
@@ -350,7 +350,7 @@ const makeStyles = (t: Theme) =>
       justifyContent: 'center',
     },
     toast: {
-      fontFamily: font.bold,
+      fontFamily: t.font.bold,
       fontSize: 24,
       color: t.correct,
     },
@@ -360,7 +360,7 @@ const makeStyles = (t: Theme) =>
       width: '100%',
     },
     question: {
-      fontFamily: font.semibold,
+      fontFamily: t.font.semibold,
       fontSize: 64,
       color: t.text,
     },
@@ -377,23 +377,23 @@ const makeStyles = (t: Theme) =>
       justifyContent: 'center',
     },
     answer: {
-      fontFamily: font.bold,
+      fontFamily: t.font.bold,
       fontSize: 60,
     },
     answerPlaceholder: {
       color: t.keyEdge,
     },
     reveal: {
-      fontFamily: font.medium,
+      fontFamily: t.font.medium,
       fontSize: 24,
       color: t.textSoft,
     },
     revealAnswer: {
-      fontFamily: font.bold,
+      fontFamily: t.font.bold,
       color: t.correct,
     },
     counter: {
-      fontFamily: font.medium,
+      fontFamily: t.font.medium,
       fontSize: 15,
       color: t.textSoft,
       textAlign: 'center',

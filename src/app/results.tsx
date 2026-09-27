@@ -8,7 +8,7 @@ import { Coin } from '@/components/coin';
 import { Screen } from '@/components/screen';
 import { feedback } from '@/feedback';
 import { levelInfo } from '@/game/levels';
-import { font, useTheme, type Theme } from '@/theme';
+import { useTheme, type Theme } from '@/theme';
 
 function starsFor(correct: number, total: number) {
   const pct = correct / total;
@@ -166,7 +166,7 @@ const makeStyles = (t: Theme) =>
       gap: 22,
     },
     headline: {
-      fontFamily: font.bold,
+      fontFamily: t.font.bold,
       fontSize: 48,
       color: t.text,
     },
@@ -201,7 +201,7 @@ const makeStyles = (t: Theme) =>
       paddingVertical: 10,
     },
     statLabel: {
-      fontFamily: font.medium,
+      fontFamily: t.font.medium,
       fontSize: 17,
       color: t.textSoft,
     },
@@ -212,7 +212,7 @@ const makeStyles = (t: Theme) =>
       flexShrink: 1,
     },
     statHighlight: {
-      fontFamily: font.bold,
+      fontFamily: t.font.bold,
       fontSize: 13,
       color: t.onPrimary,
       backgroundColor: t.primary,
@@ -222,7 +222,7 @@ const makeStyles = (t: Theme) =>
       overflow: 'hidden',
     },
     statValue: {
-      fontFamily: font.semibold,
+      fontFamily: t.font.semibold,
       fontSize: 17,
       color: t.text,
       flexShrink: 1,
@@ -241,7 +241,7 @@ const makeStyles = (t: Theme) =>
       fontSize: 40,
     },
     rewardValue: {
-      fontFamily: font.bold,
+      fontFamily: t.font.bold,
       fontSize: 40,
       color: t.text,
     },

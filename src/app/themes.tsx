@@ -8,7 +8,7 @@ import { Coin } from '@/components/coin';
 import { Screen } from '@/components/screen';
 import { applyThemeSounds, feedback } from '@/feedback';
 import { getProgress, updateProgress, useProgress } from '@/progress';
-import { font, ThemeOverride, THEMES, themeById, useTheme, type Theme } from '@/theme';
+import { ThemeOverride, THEMES, themeById, useTheme, type Theme } from '@/theme';
 
 // The shop renders entirely in the theme being browsed, so tapping a tile
 // previews the whole look (background, colors, buttons) before unlocking it.
@@ -216,7 +216,7 @@ function Tile({ theme, selected, owned, equipped, onPress }: TileProps) {
         {!owned && !theme.premium && <Text style={styles.lock}>🔒</Text>}
         {selected && <Animated.View entering={ZoomIn.springify()} style={[styles.selectedRing, { borderColor: t.primary }]} />}
       </View>
-      <Text style={styles.tileName} numberOfLines={1}>
+      <Text style={[styles.tileName, { fontFamily: theme.font.semibold }]} numberOfLines={1}>
         {theme.name}
       </Text>
       {status}
@@ -241,14 +241,14 @@ const makeStyles = (t: Theme) =>
       paddingTop: 4,
     },
     back: {
-      fontFamily: font.semibold,
+      fontFamily: t.font.semibold,
       fontSize: 40,
       lineHeight: 44,
       color: t.textSoft,
       paddingHorizontal: 6,
     },
     title: {
-      fontFamily: font.bold,
+      fontFamily: t.font.bold,
       fontSize: 26,
       color: t.text,
     },
@@ -264,7 +264,7 @@ const makeStyles = (t: Theme) =>
       borderColor: t.cardEdge,
     },
     walletText: {
-      fontFamily: font.semibold,
+      fontFamily: t.font.semibold,
       fontSize: 17,
       color: t.text,
     },
@@ -278,13 +278,13 @@ const makeStyles = (t: Theme) =>
       gap: 4,
     },
     name: {
-      fontFamily: font.bold,
+      fontFamily: t.font.bold,
       fontSize: 30,
       color: t.text,
       marginTop: 12,
     },
     tagline: {
-      fontFamily: font.medium,
+      fontFamily: t.font.medium,
       fontSize: 16,
       color: t.textSoft,
     },
@@ -324,12 +324,12 @@ const makeStyles = (t: Theme) =>
       paddingVertical: 2,
     },
     mockStreakText: {
-      fontFamily: font.bold,
+      fontFamily: t.font.bold,
       fontSize: 12,
       color: t.streak,
     },
     mockQuestion: {
-      fontFamily: font.semibold,
+      fontFamily: t.font.semibold,
       fontSize: 34,
       color: t.text,
     },
@@ -342,7 +342,7 @@ const makeStyles = (t: Theme) =>
       borderColor: t.correctEdge,
     },
     mockAnswerText: {
-      fontFamily: font.bold,
+      fontFamily: t.font.bold,
       fontSize: 32,
       color: t.onFeedback,
     },
@@ -363,7 +363,7 @@ const makeStyles = (t: Theme) =>
       justifyContent: 'center',
     },
     mockKeyText: {
-      fontFamily: font.semibold,
+      fontFamily: t.font.semibold,
       fontSize: 18,
       color: t.keyText,
     },
@@ -416,12 +416,12 @@ const makeStyles = (t: Theme) =>
       opacity: 0.5,
     },
     tileName: {
-      fontFamily: font.semibold,
+      fontFamily: t.font.semibold,
       fontSize: 14,
       color: t.text,
     },
     tileStatus: {
-      fontFamily: font.medium,
+      fontFamily: t.font.medium,
       fontSize: 12,
       color: t.textSoft,
     },
@@ -439,7 +439,7 @@ const makeStyles = (t: Theme) =>
       gap: 8,
     },
     devLink: {
-      fontFamily: font.medium,
+      fontFamily: t.font.medium,
       fontSize: 13,
       color: t.textSoft,
       textAlign: 'center',
@@ -452,7 +452,7 @@ const makeStyles = (t: Theme) =>
       backgroundColor: 'rgba(0, 0, 0, 0.14)',
     },
     priceText: {
-      fontFamily: font.semibold,
+      fontFamily: t.font.semibold,
       fontSize: 22,
       color: t.onPrimary,
     },
@@ -467,12 +467,12 @@ const makeStyles = (t: Theme) =>
       borderColor: t.cardEdge,
     },
     premiumTitle: {
-      fontFamily: font.bold,
+      fontFamily: t.font.bold,
       fontSize: 18,
       color: t.text,
     },
     premiumBody: {
-      fontFamily: font.medium,
+      fontFamily: t.font.medium,
       fontSize: 14,
       color: t.textSoft,
       textAlign: 'center',

@@ -4,7 +4,7 @@
 import { Platform, Pressable, StyleSheet, Text, View, type StyleProp, type ViewStyle } from 'react-native';
 import Animated, { useAnimatedStyle, useSharedValue, withSpring, withTiming } from 'react-native-reanimated';
 
-import { font, useTheme } from '@/theme';
+import { useTheme } from '@/theme';
 
 type Props = {
   label?: string;
@@ -64,7 +64,7 @@ export function ChunkyButton({
     >
       <View style={[styles.edge, { top: edge, height, backgroundColor: edgeColor }]} />
       <Animated.View style={[styles.face, { height, backgroundColor: color }, faceStyle]}>
-        {children ?? <Text style={[styles.label, { color: textColor, fontSize }]}>{label}</Text>}
+        {children ?? <Text style={{ color: textColor, fontSize, fontFamily: t.font.semibold }}>{label}</Text>}
       </Animated.View>
     </Pressable>
   );
@@ -81,8 +81,5 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  label: {
-    fontFamily: font.semibold,
   },
 });

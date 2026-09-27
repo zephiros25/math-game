@@ -9,7 +9,7 @@ import { existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { join } from 'node:path';
 
-import { THEMES_DIR, validateTheme } from './schema.mjs';
+import { FONT_WEIGHTS, THEMES_DIR, validateTheme } from './schema.mjs';
 
 const themesDir = fileURLToPath(THEMES_DIR);
 const outFile = fileURLToPath(new URL('../../src/theme-registry.generated.ts', import.meta.url));
@@ -44,10 +44,24 @@ export function loadThemes() {
 // require() calls are written as placeholders, then unquoted after JSON.stringify.
 const req = (id, file) => `@@require('../themes/${id}/${file}')@@`;
 
+// Every weight gets a file: missing weights use the closest one provided.
+function fontFiles(t) {
+  if (!t.font) return null;
+  const available = Object.keys(t.font.files);
+  return Object.fromEntries(
+    Object.entries(FONT_WEIGHTS).map(([weight, value]) => {
+      const nearest = available.reduce((best, w) => (Math.abs(FONT_WEIGHTS[w] - value) < Math.abs(FONT_WEIGHTS[best] - value) ? w : best));
+      return [weight, req(t.id, t.font.files[nearest])];
+    }),
+  );
+}
+
 function toData(t) {
-  const { background, particles, sounds, ...meta } = t;
+  const { background, particles, sounds, font, ...meta } = t;
   return {
     ...meta,
+    fontName: font?.name ?? null,
+    fonts: fontFiles(t),
     backgroundImage: background.image ? req(t.id, background.image) : null,
     backgroundDim: background.dim,
     particleStyle: particles.style,

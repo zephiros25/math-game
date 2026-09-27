@@ -34,6 +34,19 @@ export const SOUND_SLOTS = {
   gem: 'Gem earned',
 };
 
+// A theme's font comes in up to four weights. Missing weights fall back to the
+// nearest one provided, so a single file is enough.
+export const FONT_WEIGHTS = { regular: 400, medium: 500, semibold: 600, bold: 700 };
+export const FONT_EXTENSIONS = ['.ttf', '.otf'];
+
+// Friendly, highly legible Google Fonts offered in the Studio (all under the
+// SIL Open Font License, so they can be bundled in the app). Any other Google
+// Fonts family can be typed in by name.
+export const CURATED_FONTS = [
+  'Fredoka', 'Baloo 2', 'Nunito', 'Quicksand', 'Comfortaa', 'Varela Round', 'Poppins',
+  'Lexend', 'Andika', 'Chewy', 'Lilita One', 'Bubblegum Sans', 'Luckiest Guy', 'Sniglet',
+];
+
 export const IMAGE_EXTENSIONS = ['.png', '.jpg', '.jpeg', '.webp'];
 // Formats both iOS and Android play natively (no .ogg: iOS can't).
 export const SOUND_EXTENSIONS = ['.wav', '.mp3', '.m4a', '.aac'];
@@ -56,6 +69,7 @@ export function defaultTheme(name = 'New theme') {
       streak: '#FF8A3D', streakBg: '#FFE3CC',
       card: '#FFFFFF', cardEdge: '#EFE2D2', track: '#F1E3D1',
     },
+    font: null,
     background: { image: null, dim: 0 },
     particles: { style: 'sunbeams', colors: ['#FFD9A8', '#FFC9B5'], images: [], amount: 1, opacity: 1 },
     sounds: {},
@@ -128,6 +142,17 @@ export function validateTheme(id, theme, dir) {
     if (!existsSync(path)) return err(`${what} "${file}" is missing from the theme folder`);
     return statSync(path).size;
   };
+
+  if (theme.font !== null && theme.font !== undefined) {
+    const f = theme.font;
+    if (typeof f.name !== 'string' || !f.name.trim()) err('font.name is required');
+    const files = f.files ?? {};
+    for (const key of Object.keys(files)) {
+      if (!(key in FONT_WEIGHTS)) err(`font.files.${key} is not a weight (use ${Object.keys(FONT_WEIGHTS).join(', ')})`);
+      else fileCheck(files[key], FONT_EXTENSIONS, `font.files.${key}`);
+    }
+    if (Object.keys(files).length === 0) err('font needs at least one font file');
+  }
 
   const bg = theme.background ?? {};
   if (bg.image !== null && bg.image !== undefined) {
