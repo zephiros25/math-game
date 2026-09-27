@@ -1,0 +1,46 @@
+{
+  "name": "Meadow",
+  "tagline": "Sunflowers and soft grass",
+  "order": 30,
+  "price": 500,
+  "premium": false,
+  "dark": false,
+  "colors": {
+    "background": "#F2F9EA",
+    "backgroundDeep": "#E2F1D4",
+    "text": "#2E4A2A",
+    "textSoft": "#75926E",
+    "key": "#FFFFFF",
+    "keyEdge": "#D2E6C4",
+    "keyText": "#2E4A2A",
+    "primary": "#F2A93B",
+    "primaryEdge": "#C9832A",
+    "onPrimary": "#4A2C00",
+    "correct": "#5CBF5A",
+    "correctEdge": "#3F9A3E",
+    "wrong": "#EE7B6B",
+    "wrongEdge": "#C95A4B",
+    "onFeedback": "#FFFFFF",
+    "streak": "#E9892B",
+    "streakBg": "#FCEBCF",
+    "card": "#FFFFFF",
+    "cardEdge": "#D9EBCB",
+    "track": "#DDEFD0"
+  },
+  "background": {
+    "image": null,
+    "dim": 0
+  },
+  "particles": {
+    "style": "leaves",
+    "colors": [
+      "#B7DE9C",
+      "#CFE8B5",
+      "#F7D98A"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

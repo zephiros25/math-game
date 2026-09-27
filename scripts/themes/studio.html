@@ -1,0 +1,797 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Theme Studio · Math Run</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f6f4f1; --panel: #ffffff; --line: #e6e1da; --ink: #27212e; --soft: #7a7282;
+    --accent: #ff7a59; --accent-ink: #fff; --ok: #2a9a5e; --warn: #b7791f; --err: #c53030;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 14px/1.45 system-ui, -apple-system, Segoe UI, sans-serif; color: var(--ink); background: var(--bg); }
+  button, input, select { font: inherit; color: inherit; }
+  button { cursor: pointer; border: 1px solid var(--line); background: var(--panel); border-radius: 8px; padding: 6px 12px; }
+  button:hover { border-color: #cfc7bd; }
+  button.primary { background: var(--accent); color: var(--accent-ink); border-color: transparent; font-weight: 600; }
+  button.primary:disabled { opacity: .45; cursor: default; }
+  button.small { padding: 2px 8px; font-size: 12px; }
+  button.icon { padding: 2px 7px; }
+  input[type=text], input[type=number], select { border: 1px solid var(--line); border-radius: 8px; padding: 6px 8px; background: #fff; }
+  input[type=range] { width: 160px; accent-color: var(--accent); }
+  h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--soft); margin: 0 0 10px; }
+  .app { display: grid; grid-template-columns: 230px minmax(420px, 1fr) 380px; height: 100vh; }
+  header.top { grid-column: 1 / -1; display: flex; align-items: center; gap: 12px; padding: 10px 16px; background: var(--panel); border-bottom: 1px solid var(--line); }
+  header.top h1 { font: 600 18px Fredoka, system-ui; margin: 0; }
+  header.top .spacer { flex: 1; }
+  .status { font-size: 13px; color: var(--soft); }
+  .status.dirty { color: var(--warn); font-weight: 600; }
+  .app { grid-template-rows: auto 1fr; }
+  aside, main, .preview-col { overflow: auto; }
+  aside { border-right: 1px solid var(--line); background: var(--panel); padding: 12px; display: flex; flex-direction: column; gap: 8px; }
+  .theme-item { display: flex; align-items: center; gap: 10px; padding: 8px; border-radius: 10px; cursor: pointer; border: 2px solid transparent; }
+  .theme-item:hover { background: var(--bg); }
+  .theme-item.active { border-color: var(--accent); background: #fff7f3; }
+  .swatch { width: 34px; height: 34px; border-radius: 10px; position: relative; flex: none; border: 1px solid rgba(0,0,0,.08); background-size: cover; background-position: center; }
+  .swatch i { position: absolute; left: 9px; top: 9px; width: 16px; height: 16px; border-radius: 50%; }
+  .theme-item .name { font-weight: 600; }
+  .theme-item .sub { font-size: 12px; color: var(--soft); }
+  .badge-err { color: var(--err); font-weight: 700; }
+  .aside-actions { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
+  main { padding: 16px 20px 80px; display: flex; flex-direction: column; gap: 16px; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 16px; }
+  .row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
+  .row label.lbl { width: 120px; color: var(--soft); }
+  .hint { color: var(--soft); font-size: 12px; }
+  .messages { display: flex; flex-direction: column; gap: 4px; }
+  .msg { padding: 6px 10px; border-radius: 8px; font-size: 13px; }
+  .msg.err { background: #fdecec; color: var(--err); }
+  .msg.warn { background: #fdf5e6; color: var(--warn); }
+  .msg.ok { background: #e8f6ee; color: var(--ok); }
+  .color-group { margin-bottom: 14px; }
+  .color-group h3 { font-size: 13px; margin: 0 0 6px; }
+  .colors { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 6px 14px; }
+  .color { display: flex; align-items: center; gap: 6px; }
+  .color input[type=color] { width: 34px; height: 30px; padding: 0; border: 1px solid var(--line); border-radius: 8px; background: none; cursor: pointer; }
+  .color input[type=text] { width: 84px; font-family: ui-monospace, Consolas, monospace; font-size: 12px; padding: 4px 6px; }
+  .color .cname { font-size: 12px; flex: 1; min-width: 0; }
+  .contrast { font-size: 11px; padding: 1px 6px; border-radius: 6px; margin-left: 4px; }
+  .contrast.good { background: #e8f6ee; color: var(--ok); }
+  .contrast.bad { background: #fdecec; color: var(--err); }
+  .drop { border: 2px dashed var(--line); border-radius: 12px; padding: 12px; text-align: center; color: var(--soft); cursor: pointer; transition: .15s; }
+  .drop.over { border-color: var(--accent); background: #fff7f3; color: var(--ink); }
+  .thumbs { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+  .thumb { position: relative; width: 64px; height: 64px; border-radius: 10px; border: 1px solid var(--line); background: #eee center/contain no-repeat; }
+  .thumb.bg { width: 90px; height: 150px; background-size: cover; }
+  .thumb button { position: absolute; top: -8px; right: -8px; border-radius: 50%; width: 22px; height: 22px; padding: 0; font-size: 12px; }
+  .chips { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+  .chip { display: flex; align-items: center; gap: 4px; border: 1px solid var(--line); border-radius: 999px; padding: 2px 4px 2px 2px; }
+  .chip input[type=color] { width: 24px; height: 24px; border: none; border-radius: 50%; padding: 0; background: none; cursor: pointer; }
+  .sound { display: grid; grid-template-columns: 150px 1fr auto; gap: 10px; align-items: start; padding: 10px 0; border-top: 1px solid var(--line); }
+  .sound:first-of-type { border-top: none; }
+  .sound .slot { font-weight: 600; }
+  .sound .files { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+  .file-pill { display: flex; align-items: center; gap: 4px; background: var(--bg); border-radius: 999px; padding: 2px 4px 2px 10px; font-size: 12px; }
+  .sound .controls { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; }
+  .palette { display: flex; gap: 4px; margin-top: 8px; }
+  .palette span { width: 26px; height: 26px; border-radius: 6px; cursor: pointer; border: 1px solid rgba(0,0,0,.1); }
+  .preview-col { border-left: 1px solid var(--line); background: #ece8e2; padding: 16px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  .tabs { display: flex; gap: 4px; background: #ddd7cf; padding: 3px; border-radius: 10px; }
+  .tabs button { border: none; background: transparent; }
+  .tabs button.on { background: #fff; }
+  .phone { width: 320px; height: 640px; border-radius: 40px; border: 10px solid #1d1b20; position: relative; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,.18); font-family: Fredoka, system-ui; flex: none; }
+  .layer { position: absolute; inset: 0; }
+  .bgimg { background-size: cover; background-position: center; }
+  .particle { position: absolute; will-change: transform, top, opacity; }
+  @keyframes rise { from { top: 105%; } to { top: -12%; } }
+  @keyframes fall { from { top: -12%; transform: rotate(var(--r0)); } to { top: 105%; transform: rotate(var(--r1)); } }
+  @keyframes twinkle { from { opacity: .15; transform: rotate(var(--r0)) scale(.6); } to { opacity: var(--o); transform: rotate(var(--r0)) scale(1); } }
+  @keyframes drift { from { transform: translate(-25px, -15px) rotate(var(--r0)); } to { transform: translate(25px, 15px) rotate(var(--r0)) scale(1.08); } }
+  .ui { position: absolute; inset: 0; display: flex; flex-direction: column; padding: 34px 14px 16px; }
+  .p-top { display: flex; align-items: center; gap: 10px; }
+  .p-track { flex: 1; height: 10px; border-radius: 5px; overflow: hidden; }
+  .p-coin { width: 16px; height: 16px; border-radius: 50%; background: #FFBE2E; border: 2px solid #E59A12; display: inline-block; vertical-align: -3px; }
+  .p-chip { display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; padding: 3px 10px 3px 4px; font-size: 13px; font-weight: 500; }
+  .p-lv { border-radius: 999px; padding: 1px 8px; font-weight: 700; font-size: 11px; }
+  .p-stage { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
+  .p-q { font-size: 44px; font-weight: 600; }
+  .p-ans { min-width: 96px; height: 70px; padding: 0 18px; border-radius: 20px; border-bottom: 5px solid; display: flex; align-items: center; justify-content: center; font-size: 42px; font-weight: 700; transition: background .1s; }
+  .p-toast { height: 26px; font-size: 18px; font-weight: 700; }
+  .p-pad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; }
+  .p-key { height: 48px; border-radius: 14px; border: none; border-bottom: 5px solid; font: 600 24px Fredoka, system-ui; display: flex; align-items: center; justify-content: center; user-select: none; cursor: pointer; transition: transform .05s, border-bottom-width .05s; padding: 0; }
+  .p-key:active { transform: translateY(4px); border-bottom-width: 1px; margin-bottom: 4px; }
+  .p-btn { height: 58px; border-radius: 18px; border: none; border-bottom: 6px solid; font: 600 26px Fredoka, system-ui; width: 100%; }
+  .p-card { border-radius: 16px; border-bottom: 4px solid; padding: 10px 12px; }
+  .shake { animation: shake .35s; }
+  @keyframes shake { 20% { transform: translateX(-10px); } 40% { transform: translateX(9px); } 60% { transform: translateX(-6px); } 80% { transform: translateX(3px); } }
+  .pop { animation: pop .3s; }
+  @keyframes pop { 40% { transform: scale(1.15); } }
+  .sound-tests { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; max-width: 330px; }
+  .empty { color: var(--soft); padding: 40px; text-align: center; }
+  dialog { border: none; border-radius: 14px; padding: 20px; box-shadow: 0 20px 60px rgba(0,0,0,.25); width: 360px; }
+  dialog::backdrop { background: rgba(0,0,0,.3); }
+  kbd { background: var(--bg); border: 1px solid var(--line); border-radius: 4px; padding: 0 4px; font-size: 12px; }
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="top">
+    <h1>🎨 Theme Studio</h1>
+    <span class="status" id="status"></span>
+    <span class="spacer"></span>
+    <span class="hint">Save with <kbd>Ctrl</kbd>+<kbd>S</kbd>. With <kbd>npx expo start</kbd> running, saves show up on your phone.</span>
+    <button class="primary" id="save" disabled>Save</button>
+  </header>
+  <aside>
+    <h2>Themes</h2>
+    <div id="themeList"></div>
+    <div class="aside-actions">
+      <button id="newTheme">+ New</button>
+      <button id="dupTheme">Duplicate</button>
+      <button id="delTheme">Delete</button>
+    </div>
+    <p class="hint">Order in the list = order in the app's shop.</p>
+  </aside>
+  <main id="editor"><div class="empty">Loading…</div></main>
+  <div class="preview-col">
+    <div class="tabs" id="tabs">
+      <button data-screen="play" class="on">Play</button>
+      <button data-screen="home">Home</button>
+    </div>
+    <div class="phone" id="phone"></div>
+    <div class="sound-tests">
+      <button class="small" data-test="levelUp">▶ Level up</button>
+      <button class="small" data-test="fanfare">▶ Fanfare</button>
+      <button class="small" data-test="coin">▶ Coins</button>
+      <button class="small" data-test="gem">▶ Gem</button>
+      <button class="small" data-test="button">▶ Button</button>
+    </div>
+    <p class="hint" style="text-align:center;max-width:320px">Type answers on the keypad to hear taps, the streak chimes and the wrong sound. The particle motion here is an approximation; check the real thing on your phone.</p>
+  </div>
+</div>
+
+<dialog id="newDialog">
+  <form method="dialog">
+    <h2 id="newTitle">New theme</h2>
+    <p class="hint">The folder name is permanent: lowercase letters, digits and dashes, e.g. <code>space-cats</code>.</p>
+    <div class="row"><input type="text" id="newId" placeholder="space-cats" style="flex:1" autocomplete="off"></div>
+    <div class="msg err" id="newErr" hidden></div>
+    <div class="row" style="justify-content:flex-end;margin:12px 0 0">
+      <button value="cancel">Cancel</button>
+      <button class="primary" id="newOk" value="ok">Create</button>
+    </div>
+  </form>
+</dialog>
+
+<script>
+// ---------------------------------------------------------------- state
+let meta = null;         // formats and defaults from the server
+let themes = [];         // [{ id, json, files, errors, warnings }]
+let current = null;      // the theme being edited (working copy in current.json)
+let savedJson = '';      // JSON string of the last saved version, to detect changes
+let screen = 'play';
+
+const COLOR_GROUPS = [
+  ['Screen', 'The page itself.', [['background', 'Background'], ['backgroundDeep', 'Background, deeper'], ['text', 'Text'], ['textSoft', 'Soft text']]],
+  ['Number keys', 'The keypad.', [['key', 'Key'], ['keyEdge', 'Key edge'], ['keyText', 'Key number']]],
+  ['Main button', 'PLAY, unlock and level badge.', [['primary', 'Button'], ['primaryEdge', 'Button edge'], ['onPrimary', 'Button text']]],
+  ['Answer feedback', 'The answer box after answering.', [['correct', 'Correct'], ['correctEdge', 'Correct edge'], ['wrong', 'Wrong'], ['wrongEdge', 'Wrong edge'], ['onFeedback', 'Answer text']]],
+  ['Streak', 'The 🔥 counter.', [['streak', 'Streak text'], ['streakBg', 'Streak bubble']]],
+  ['Cards', 'Info cards, chips and the progress bar.', [['card', 'Card'], ['cardEdge', 'Card edge'], ['track', 'Progress track']]],
+];
+const EDGE_PAIRS = [['key', 'keyEdge', 10], ['primary', 'primaryEdge', 14], ['correct', 'correctEdge', 13], ['wrong', 'wrongEdge', 13], ['card', 'cardEdge', 8]];
+
+// Particle recipes, mirroring src/components/theme-background.tsx (approximate).
+const RECIPES = {
+  sunbeams: { count: 5, make: (r) => ({ size: 140 + r() * 160, shape: 'circle', motion: 'drift', dur: 9 + r() * 5, rot: 0, spin: 0, op: 0.45 }) },
+  bubbles: { count: 14, make: (r) => ({ size: 10 + r() * 30, shape: r() < 0.7 ? 'ring' : 'circle', motion: 'rise', dur: 14 + r() * 12, rot: 0, spin: 0, op: 0.7 }) },
+  leaves: { count: 11, make: (r) => ({ size: 16 + r() * 18, shape: 'oval', motion: 'fall', dur: 18 + r() * 12, rot: r() * 180, spin: 0.5 + r(), op: 0.75 }) },
+  confetti: { count: 18, make: (r) => ({ size: 10 + r() * 8, shape: r() < 0.6 ? 'rect' : 'circle', motion: 'fall', dur: 15 + r() * 10, rot: r() * 180, spin: 1 + r() * 2, op: 0.8 }) },
+  stars: { count: 34, make: (r) => ({ size: 2 + r() * 3.5, shape: 'circle', motion: 'twinkle', dur: 1.4 + r() * 2.6, rot: 0, spin: 0, op: 1 }) },
+  aurora: { count: 3, make: (r) => ({ size: 380 + r() * 160, shape: 'blob', motion: 'drift', dur: 11 + r() * 6, rot: -20 + r() * 40, spin: 0, op: 0.22 }) },
+  sparkles: { count: 20, make: (r) => ({ size: 5 + r() * 7, shape: 'diamond', motion: 'twinkle', dur: 1.8 + r() * 2.4, rot: 45, spin: 0, op: 0.9 }) },
+  petals: { count: 13, make: (r) => ({ size: 12 + r() * 10, shape: 'oval', motion: 'fall', dur: 16 + r() * 10, rot: r() * 180, spin: 0.6 + r(), op: 0.85 }) },
+};
+
+// Default sounds per slot, mirroring src/feedback.ts.
+const DEFAULT_SOUNDS = {
+  tap: [['key1', 'key2', 'key3'], 0.9], backspace: [['back'], 0.8], button: [['pop'], 1], wrong: [['wrong'], 1],
+  levelUp: [['levelup'], 0.7], fanfare: [['fanfare'], 1], coin: [['coin'], 0.6], gem: [['gem'], 1],
+};
+const STREAK_SEMITONES = [0, 2, 4, 7, 9, 12];
+
+// ---------------------------------------------------------------- helpers
+const $ = (sel, root = document) => root.querySelector(sel);
+const h = (tag, attrs = {}, ...children) => {
+  const el = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs)) {
+    if (k === 'style' && typeof v === 'object') Object.assign(el.style, v);
+    else if (k.startsWith('on')) el.addEventListener(k.slice(2), v);
+    else if (v === true) el.setAttribute(k, '');
+    else if (v !== false && v != null) el.setAttribute(k, v);
+  }
+  for (const c of children.flat()) if (c != null && c !== false) el.append(c.nodeType ? c : document.createTextNode(c));
+  return el;
+};
+const clone = (x) => JSON.parse(JSON.stringify(x));
+const fileUrl = (id, f) => `/files/${id}/${encodeURIComponent(f)}`;
+
+async function api(path, opts = {}) {
+  const res = await fetch(path, opts);
+  const body = await res.json();
+  if (!res.ok) throw new Error(body.error || res.statusText);
+  return body;
+}
+
+function seeded(text) {
+  let s = 0;
+  for (const ch of text) s = (Math.imul(s, 31) + ch.charCodeAt(0)) >>> 0;
+  return () => {
+    s = (s + 0x6d2b79f5) >>> 0;
+    let t = s;
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+function hexToHsl(hex) {
+  let r = parseInt(hex.slice(1, 3), 16) / 255, g = parseInt(hex.slice(3, 5), 16) / 255, b = parseInt(hex.slice(5, 7), 16) / 255;
+  const max = Math.max(r, g, b), min = Math.min(r, g, b);
+  let hh = 0, s = 0; const l = (max + min) / 2;
+  if (max !== min) {
+    const d = max - min;
+    s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+    hh = max === r ? (g - b) / d + (g < b ? 6 : 0) : max === g ? (b - r) / d + 2 : (r - g) / d + 4;
+    hh /= 6;
+  }
+  return [hh * 360, s * 100, l * 100];
+}
+function hslToHex(hh, s, l) {
+  s /= 100; l /= 100;
+  const k = (n) => (n + hh / 30) % 12, a = s * Math.min(l, 1 - l);
+  const f = (n) => Math.round(255 * (l - a * Math.max(-1, Math.min(k(n) - 3, Math.min(9 - k(n), 1))))).toString(16).padStart(2, '0');
+  return `#${f(0)}${f(8)}${f(4)}`.toUpperCase();
+}
+const darken = (hex, amount) => { const [hh, s, l] = hexToHsl(hex); return hslToHex(hh, Math.min(100, s + 4), Math.max(0, l - amount)); };
+
+function contrast(a, b) {
+  const lum = (hex) => [1, 3, 5].map((i) => { const c = parseInt(hex.slice(i, i + 2), 16) / 255; return c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4; })
+    .reduce((acc, c, i) => acc + c * [0.2126, 0.7152, 0.0722][i], 0);
+  const [hi, lo] = [lum(a), lum(b)].sort((x, y) => y - x);
+  return (hi + 0.05) / (lo + 0.05);
+}
+const isHex = (v) => /^#[0-9a-fA-F]{6}$/.test(v);
+
+// ---------------------------------------------------------------- audio
+let audio = null;
+const buffers = new Map();
+async function getBuffer(url) {
+  if (!buffers.has(url)) buffers.set(url, fetch(url).then((r) => r.arrayBuffer()).then((b) => audio.decodeAudioData(b)));
+  return buffers.get(url);
+}
+async function playUrl(url, volume = 1, rate = 1) {
+  audio ??= new AudioContext();
+  try {
+    const buf = await getBuffer(url);
+    const src = audio.createBufferSource();
+    const gain = audio.createGain();
+    src.buffer = buf; src.playbackRate.value = rate; gain.gain.value = volume;
+    src.connect(gain).connect(audio.destination); src.start();
+  } catch (e) { setStatus(`Could not play ${url.split('/').pop()}: ${e.message}`); }
+}
+let variant = 0;
+function playSlot(slot, opts = {}) {
+  const custom = current?.json.sounds?.[slot];
+  if (slot === 'correct') {
+    const streak = opts.streak ?? 1;
+    if (custom?.files?.length) {
+      const semis = STREAK_SEMITONES[Math.min(streak - 1, STREAK_SEMITONES.length - 1)];
+      return playUrl(fileUrl(current.id, custom.files[0]), custom.volume, 2 ** (semis / 12));
+    }
+    return playUrl(`/default-sounds/chime${Math.min(streak - 1, 9)}.wav`, 1);
+  }
+  variant += 1 + Math.floor(Math.random() * 2);
+  if (custom?.files?.length && !opts.useDefault) {
+    const files = slot === 'tap' ? custom.files.slice(0, 3) : custom.files.slice(0, 1);
+    return playUrl(fileUrl(current.id, files[variant % files.length]), custom.volume);
+  }
+  const [names, vol] = DEFAULT_SOUNDS[slot];
+  return playUrl(`/default-sounds/${names[variant % names.length]}.wav`, vol);
+}
+
+// ---------------------------------------------------------------- list + selection
+function renderList() {
+  const list = $('#themeList');
+  list.replaceChildren(...themes.map((t) => {
+    const j = t.json;
+    const sub = !j ? 'broken JSON' : j.premium ? '★ Premium' : j.price === 0 ? 'Free' : `${j.price} coins`;
+    const sw = h('div', { class: 'swatch', style: { background: j?.colors?.background ?? '#ccc', backgroundImage: j?.background?.image ? `url(${fileUrl(t.id, j.background.image)})` : '' } },
+      h('i', { style: { background: j?.colors?.primary ?? '#999' } }));
+    return h('div', { class: `theme-item${current?.id === t.id ? ' active' : ''}`, onclick: () => select(t.id) },
+      sw,
+      h('div', {}, h('div', { class: 'name' }, j?.name ?? t.id, t.errors.length ? h('span', { class: 'badge-err', title: t.errors.join('\n') }, '  ⚠') : ''),
+        h('div', { class: 'sub' }, `${t.id} · ${sub}`)));
+  }));
+}
+
+function isDirty() { return current && JSON.stringify(current.json) !== savedJson; }
+function confirmLeave() { return !isDirty() || confirm('You have unsaved changes to this theme. Discard them?'); }
+
+async function select(id) {
+  if (current?.id === id || !confirmLeave()) return;
+  const t = await api(`/api/themes/${id}`);
+  current = { ...t, json: t.json ?? clone(meta.defaultTheme) };
+  savedJson = JSON.stringify(t.json);
+  renderList(); renderEditor(); renderPreview(); updateStatus(t);
+}
+
+function setStatus(text) { $('#status').textContent = text; }
+function updateStatus(result) {
+  const dirty = isDirty();
+  $('#save').disabled = !dirty;
+  const st = $('#status');
+  st.className = `status${dirty ? ' dirty' : ''}`;
+  st.textContent = dirty ? '● Unsaved changes' : result?.errors?.length ? '' : 'All changes saved';
+}
+function changed() { renderPreview(); renderChecks(); updateStatus(); }
+
+// ---------------------------------------------------------------- editor
+function renderEditor() {
+  const ed = $('#editor');
+  if (!current) { ed.replaceChildren(h('div', { class: 'empty' }, 'Pick a theme on the left, or create a new one.')); return; }
+  const j = current.json;
+  ed.replaceChildren(
+    h('div', { class: 'messages', id: 'messages' }),
+    basicsCard(j), colorsCard(j), backgroundCard(j), particlesCard(j), soundsCard(j),
+  );
+  renderChecks();
+}
+
+function field(label, input, hint) {
+  return h('div', { class: 'row' }, h('label', { class: 'lbl' }, label), input, hint ? h('span', { class: 'hint' }, hint) : null);
+}
+
+function basicsCard(j) {
+  const unlock = j.premium ? 'premium' : j.price === 0 ? 'free' : 'coins';
+  const price = h('input', { type: 'number', min: 0, step: 50, value: j.price || 500, style: { width: '90px' }, disabled: unlock !== 'coins',
+    oninput: (e) => { j.price = Math.max(0, Math.round(Number(e.target.value) || 0)); changed(); } });
+  const radio = (value, label) => h('label', {}, h('input', { type: 'radio', name: 'unlock', value, checked: unlock === value, onchange: () => {
+    j.premium = value === 'premium';
+    j.price = value === 'coins' ? Math.max(50, Number(price.value) || 500) : 0;
+    price.disabled = value !== 'coins';
+    changed(); renderList();
+  } }), ' ', label);
+  return h('section', { class: 'card' },
+    h('h2', {}, 'Basics'),
+    field('Name', h('input', { type: 'text', value: j.name, oninput: (e) => { j.name = e.target.value; changed(); } })),
+    field('Tagline', h('input', { type: 'text', value: j.tagline, style: { width: '320px' }, oninput: (e) => { j.tagline = e.target.value; changed(); } }), 'Shown under the name in the shop.'),
+    field('Unlock', h('span', { class: 'chips' }, radio('free', 'Free'), radio('coins', 'Coins:'), price, radio('premium', '★ Premium (in-app purchase)'))),
+    field('Shop order', h('input', { type: 'number', value: j.order, step: 10, style: { width: '90px' }, oninput: (e) => { j.order = Number(e.target.value) || 0; changed(); } }), 'Lower comes first.'),
+    field('Dark theme', h('input', { type: 'checkbox', checked: j.dark, onchange: (e) => { j.dark = e.target.checked; changed(); } }), 'Makes the phone status bar light.'),
+  );
+}
+
+function colorInput(j, key, label) {
+  const picker = h('input', { type: 'color', value: j.colors[key] ?? '#000000' });
+  const text = h('input', { type: 'text', value: j.colors[key] ?? '', spellcheck: 'false' });
+  const set = (v, from) => {
+    if (!isHex(v)) { text.style.borderColor = 'var(--err)'; return; }
+    text.style.borderColor = '';
+    j.colors[key] = v.toUpperCase();
+    if (from !== picker) picker.value = v;
+    if (from !== text) text.value = v.toUpperCase();
+    changed();
+  };
+  picker.addEventListener('input', () => set(picker.value, picker));
+  text.addEventListener('input', () => set(text.value.trim(), text));
+  const drop = window.EyeDropper ? h('button', { class: 'icon', title: 'Pick a color from the screen', onclick: async () => {
+    try { const r = await new EyeDropper().open(); set(r.sRGBHex, null); } catch {}
+  } }, '💧') : null;
+  const wrap = h('div', { class: 'color', 'data-key': key }, picker, text, drop, h('span', { class: 'cname' }, label, h('span', { class: 'contrast', hidden: true })));
+  wrap.refresh = () => { picker.value = j.colors[key]; text.value = j.colors[key]; };
+  return wrap;
+}
+
+function colorsCard(j) {
+  const inputs = [];
+  const groups = COLOR_GROUPS.map(([title, hint, keys]) => h('div', { class: 'color-group' },
+    h('h3', {}, title, ' ', h('span', { class: 'hint' }, hint)),
+    h('div', { class: 'colors' }, keys.map(([k, l]) => { const c = colorInput(j, k, l); inputs.push(c); return c; }))));
+  const refreshAll = () => { inputs.forEach((c) => c.refresh()); changed(); };
+  return h('section', { class: 'card' },
+    h('h2', {}, 'Colors'),
+    h('div', { class: 'row' },
+      h('button', { onclick: () => { for (const [base, edge, amt] of EDGE_PAIRS) j.colors[edge] = darken(j.colors[base], amt); refreshAll(); } }, 'Auto edges'),
+      h('span', { class: 'hint' }, 'Derives each "edge" (the 3D bottom of buttons) from its color.'),
+    ),
+    h('div', { class: 'row' },
+      h('button', { onclick: () => { autoText(j); refreshAll(); } }, 'Auto text on buttons'),
+      h('span', { class: 'hint' }, 'Picks white or dark text for buttons and the answer box, whichever reads best.'),
+    ),
+    groups,
+  );
+}
+
+function autoText(j) {
+  const dark = contrast(j.colors.text, '#FFFFFF') > contrast(j.colors.background, '#FFFFFF') ? j.colors.text : j.colors.background;
+  const best = (bgs) => { const score = (c) => Math.min(...bgs.map((b) => contrast(c, j.colors[b]))); return score('#FFFFFF') >= score(dark) ? '#FFFFFF' : dark; };
+  j.colors.onPrimary = best(['primary']);
+  j.colors.onFeedback = best(['correct', 'wrong']);
+  j.colors.keyText = best(['key']);
+}
+
+function dropZone(text, accept, multiple, onFiles) {
+  const input = h('input', { type: 'file', accept, multiple, hidden: true, onchange: () => { onFiles([...input.files]); input.value = ''; } });
+  const zone = h('div', { class: 'drop', onclick: () => input.click() }, text, input);
+  zone.addEventListener('dragover', (e) => { e.preventDefault(); zone.classList.add('over'); });
+  zone.addEventListener('dragleave', () => zone.classList.remove('over'));
+  zone.addEventListener('drop', (e) => { e.preventDefault(); zone.classList.remove('over'); onFiles([...e.dataTransfer.files]); });
+  return zone;
+}
+
+async function upload(kind, file) {
+  setStatus(`Importing ${file.name}…`);
+  const res = await fetch(`/api/themes/${current.id}/upload?kind=${kind}&name=${encodeURIComponent(file.name)}`, { method: 'POST', body: file });
+  const body = await res.json();
+  if (!res.ok) { showMessages([body.error], []); throw new Error(body.error); }
+  return body.file;
+}
+
+function backgroundCard(j) {
+  const body = h('div');
+  const render = () => {
+    const bg = j.background;
+    body.replaceChildren(
+      bg.image
+        ? h('div', { class: 'thumbs' }, h('div', { class: 'thumb bg', style: { backgroundImage: `url(${fileUrl(current.id, bg.image)})` } },
+            h('button', { title: 'Remove', onclick: () => { bg.image = null; render(); changed(); renderList(); } }, '✕')))
+        : dropZone('Drop a background image here, or click to choose. Portrait works best; it is resized to phone size automatically.', 'image/*', false, async ([f]) => {
+            bg.image = await upload('background', f); render(); changed(); renderList();
+          }),
+      bg.image ? h('div', { class: 'palette', id: 'imgPalette' }) : null,
+      bg.image ? h('p', { class: 'hint' }, 'Colors found in the image: click one to copy it, then paste it into any color box.') : null,
+      field('Fade', h('input', { type: 'range', min: 0, max: 0.9, step: 0.05, value: bg.dim, oninput: (e) => { bg.dim = Number(e.target.value); changed(); } }),
+        'Fades the image toward the background color so numbers stay readable.'),
+    );
+    if (bg.image) extractPalette(fileUrl(current.id, bg.image));
+  };
+  render();
+  return h('section', { class: 'card' }, h('h2', {}, 'Background image (optional)'), body);
+}
+
+// Rough palette: sample the image, bucket similar colors, show the most common.
+function extractPalette(url) {
+  const img = new Image();
+  img.onload = () => {
+    const c = document.createElement('canvas'); c.width = 48; c.height = 96;
+    const ctx = c.getContext('2d'); ctx.drawImage(img, 0, 0, 48, 96);
+    const data = ctx.getImageData(0, 0, 48, 96).data;
+    const buckets = new Map();
+    for (let i = 0; i < data.length; i += 4) {
+      const key = [0, 1, 2].map((o) => Math.round(data[i + o] / 32) * 32).join(',');
+      const b = buckets.get(key) ?? { n: 0, r: 0, g: 0, bl: 0 };
+      b.n++; b.r += data[i]; b.g += data[i + 1]; b.bl += data[i + 2]; buckets.set(key, b);
+    }
+    const top = [...buckets.values()].sort((a, b) => b.n - a.n).slice(0, 8)
+      .map((b) => '#' + [b.r, b.g, b.bl].map((v) => Math.round(v / b.n).toString(16).padStart(2, '0')).join('').toUpperCase());
+    const el = $('#imgPalette');
+    if (el) el.replaceChildren(...top.map((hex) => h('span', { title: `${hex} (click to copy)`, style: { background: hex },
+      onclick: () => { navigator.clipboard.writeText(hex); setStatus(`Copied ${hex}`); } })));
+  };
+  img.src = url;
+}
+
+function particlesCard(j) {
+  const p = j.particles;
+  const colors = h('div', { class: 'chips' });
+  const images = h('div');
+  const renderColors = () => colors.replaceChildren(
+    ...p.colors.map((c, i) => h('span', { class: 'chip' },
+      h('input', { type: 'color', value: c, oninput: (e) => { p.colors[i] = e.target.value.toUpperCase(); changed(); } }),
+      h('button', { class: 'icon small', title: 'Remove', onclick: () => { p.colors.splice(i, 1); renderColors(); changed(); } }, '✕'))),
+    h('button', { class: 'small', onclick: () => { p.colors.push(j.colors.primary); renderColors(); changed(); } }, '+ color'),
+  );
+  const renderImages = () => images.replaceChildren(
+    dropZone('Drop particle images here (PNG with a transparent background: petals, stars, fish…). They move like the style above and replace the colored shapes.', 'image/*', true, async (files) => {
+      for (const f of files) p.images.push(await upload('particle', f));
+      renderImages(); changed();
+    }),
+    h('div', { class: 'thumbs' }, p.images.map((f, i) => h('div', { class: 'thumb', style: { backgroundImage: `url(${fileUrl(current.id, f)})` } },
+      h('button', { title: 'Remove', onclick: () => { p.images.splice(i, 1); renderImages(); changed(); } }, '✕')))),
+  );
+  renderColors(); renderImages();
+  return h('section', { class: 'card' },
+    h('h2', {}, 'Moving background'),
+    field('Style', h('select', { onchange: (e) => { p.style = e.target.value; changed(); } },
+      meta.particleStyles.map((s) => h('option', { value: s, selected: s === p.style }, s)))),
+    field('Colors', colors),
+    field('Amount', h('input', { type: 'range', min: 0, max: 3, step: 0.1, value: p.amount, oninput: (e) => { p.amount = Number(e.target.value); changed(); } })),
+    field('Opacity', h('input', { type: 'range', min: 0, max: 1, step: 0.05, value: p.opacity, oninput: (e) => { p.opacity = Number(e.target.value); changed(); } })),
+    images,
+  );
+}
+
+function soundsCard(j) {
+  j.sounds ??= {};
+  const rows = Object.entries(meta.soundSlots).map(([slot, desc]) => {
+    const row = h('div', { class: 'sound' });
+    const render = () => {
+      const s = j.sounds[slot];
+      const max = slot === 'tap' ? 3 : 1;
+      const files = s?.files ?? [];
+      row.replaceChildren(
+        h('div', {}, h('div', { class: 'slot' }, slot), h('div', { class: 'hint' }, desc)),
+        h('div', {},
+          h('div', { class: 'files' },
+            files.length === 0 ? h('span', { class: 'hint' }, 'Using the default sound') : null,
+            files.map((f, i) => h('span', { class: 'file-pill' }, f,
+              h('button', { class: 'icon small', title: 'Play', onclick: () => playUrl(fileUrl(current.id, f), s.volume) }, '▶'),
+              h('button', { class: 'icon small', title: 'Remove', onclick: () => {
+                s.files.splice(i, 1);
+                if (s.files.length === 0) delete j.sounds[slot];
+                render(); changed();
+              } }, '✕'))),
+          ),
+          files.length < max ? dropZone(`Drop a sound (.wav, .mp3, .m4a)${max > 1 ? `, up to ${max} variations` : ''}`, 'audio/*,.wav,.mp3,.m4a,.aac', max > 1, async (fl) => {
+            for (const f of fl.slice(0, max - files.length)) {
+              const name = await upload('sound', f);
+              j.sounds[slot] ??= { files: [], volume: 1 };
+              j.sounds[slot].files.push(name);
+            }
+            render(); changed();
+          }) : null,
+        ),
+        h('div', { class: 'controls' },
+          s ? h('label', { class: 'hint' }, 'Volume ', h('input', { type: 'range', min: 0, max: 1, step: 0.05, value: s.volume, oninput: (e) => { s.volume = Number(e.target.value); changed(); } })) : null,
+          h('div', {},
+            h('button', { class: 'small', onclick: () => slot === 'correct' ? playLadder() : playSlot(slot) }, slot === 'correct' ? '▶ Streak' : '▶ Theme'),
+            ' ',
+            h('button', { class: 'small', onclick: () => slot === 'correct' ? playUrl('/default-sounds/chime0.wav') : playSlot(slot, { useDefault: true }) }, '▶ Default'),
+          ),
+        ),
+      );
+    };
+    render();
+    return row;
+  });
+  return h('section', { class: 'card' },
+    h('h2', {}, 'Sounds (optional)'),
+    h('p', { class: 'hint' }, 'Anything you leave empty uses the default sound. Keep effects short (under 1 second) and trim silence at the start so they feel instant. For "correct", record one note: the app raises its pitch for each answer in a streak.'),
+    rows,
+  );
+}
+
+function playLadder() {
+  STREAK_SEMITONES.forEach((_, i) => setTimeout(() => playSlot('correct', { streak: i + 1 }), i * 280));
+}
+
+// ---------------------------------------------------------------- checks
+function renderChecks() {
+  if (!current) return;
+  const c = current.json.colors;
+  document.querySelectorAll('.color').forEach((el) => {
+    const badge = el.querySelector('.contrast');
+    const pair = meta.contrastPairs.find(([fg]) => fg === el.dataset.key);
+    if (!pair || !isHex(c[pair[0]]) || !isHex(c[pair[1]])) { badge.hidden = true; return; }
+    const worst = meta.contrastPairs.filter(([fg]) => fg === el.dataset.key).map(([fg, bg, min]) => ({ bg, min, r: contrast(c[fg], c[bg]) }))
+      .sort((a, b) => a.r / a.min - b.r / b.min)[0];
+    badge.hidden = false;
+    badge.className = `contrast ${worst.r >= worst.min ? 'good' : 'bad'}`;
+    badge.textContent = `${worst.r.toFixed(1)}:1`;
+    badge.title = `Contrast against ${worst.bg} (aim for ${worst.min}:1 or more)`;
+  });
+}
+
+function showMessages(errors, warnings, ok) {
+  const box = $('#messages');
+  if (!box) return;
+  box.replaceChildren(
+    ...errors.map((e) => h('div', { class: 'msg err' }, '✖ ', e.replace(/^[\w-]+: /, ''))),
+    ...warnings.map((w) => h('div', { class: 'msg warn' }, '⚠ ', w.replace(/^[\w-]+: /, ''))),
+    ok ? h('div', { class: 'msg ok' }, ok) : null,
+  );
+}
+
+// ---------------------------------------------------------------- saving
+async function save() {
+  if (!current || !isDirty()) return;
+  $('#save').disabled = true;
+  try {
+    const result = await api(`/api/themes/${current.id}`, { method: 'PUT', headers: { 'content-type': 'application/json' }, body: JSON.stringify(current.json) });
+    savedJson = JSON.stringify(current.json);
+    current.files = result.files;
+    const idx = themes.findIndex((t) => t.id === current.id);
+    themes[idx] = { ...result, json: clone(current.json) };
+    themes.sort((a, b) => (a.json?.order ?? 999) - (b.json?.order ?? 999));
+    renderList();
+    showMessages(result.errors, result.warnings, result.errors.length
+      ? 'Saved, but this theme is left out of the app until the errors above are fixed.'
+      : 'Saved. The app has been updated; with Expo running it reloads on your phone.');
+    updateStatus(result);
+  } catch (e) {
+    showMessages([e.message], []);
+    updateStatus();
+  }
+}
+
+// ---------------------------------------------------------------- create / duplicate / delete
+function askId(title) {
+  return new Promise((resolve) => {
+    const dlg = $('#newDialog');
+    $('#newTitle').textContent = title;
+    $('#newId').value = ''; $('#newErr').hidden = true;
+    dlg.onclose = () => resolve(dlg.returnValue === 'ok' ? $('#newId').value.trim() : null);
+    dlg.showModal();
+  });
+}
+async function create(from) {
+  if (!confirmLeave()) return;
+  const id = await askId(from ? `Duplicate "${current.json.name}"` : 'New theme');
+  if (!id) return;
+  try {
+    const t = await api('/api/themes', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ id, from }) });
+    themes.push(t); themes.sort((a, b) => (a.json?.order ?? 999) - (b.json?.order ?? 999));
+    current = null; savedJson = '';
+    await select(id);
+  } catch (e) { alert(e.message); }
+}
+$('#newTheme').onclick = () => create(null);
+$('#dupTheme').onclick = () => current && create(current.id);
+$('#delTheme').onclick = async () => {
+  if (!current) return;
+  if (!confirm(`Delete "${current.json.name}"? It is moved to themes/.deleted so you can restore it by hand.`)) return;
+  await api(`/api/themes/${current.id}`, { method: 'DELETE' });
+  themes = themes.filter((t) => t.id !== current.id);
+  current = null; savedJson = '';
+  renderList(); renderEditor(); renderPreview();
+};
+$('#save').onclick = save;
+document.addEventListener('keydown', (e) => { if ((e.ctrlKey || e.metaKey) && e.key === 's') { e.preventDefault(); save(); } });
+window.addEventListener('beforeunload', (e) => { if (isDirty()) { e.preventDefault(); e.returnValue = ''; } });
+
+// ---------------------------------------------------------------- preview
+const game = { question: '6 × 7', answer: 42, input: '', streak: 0, coins: 0, level: 7, verdict: null };
+function newQuestion() {
+  const a = 2 + Math.floor(Math.random() * 8), b = 2 + Math.floor(Math.random() * 8);
+  Object.assign(game, Math.random() < 0.5 ? { question: `${a} + ${b}`, answer: a + b } : { question: `${a} × ${b}`, answer: a * b });
+  game.input = ''; game.verdict = null;
+}
+function typeDigit(d) {
+  if (game.verdict) return;
+  playSlot('tap');
+  game.input += d;
+  if (game.input.length >= String(game.answer).length) {
+    const ok = Number(game.input) === game.answer;
+    game.verdict = ok ? 'correct' : 'wrong';
+    if (ok) { game.streak++; game.coins += 3; playSlot('correct', { streak: game.streak }); }
+    else { game.streak = 0; playSlot('wrong'); }
+    renderPreview(ok ? 'pop' : 'shake');
+    setTimeout(() => { newQuestion(); renderPreview(); }, ok ? 500 : 1300);
+    return;
+  }
+  renderPreview();
+}
+
+function particlesLayer(j) {
+  const p = j.particles;
+  const layer = h('div', { class: 'layer' });
+  if (p.style === 'none' || !RECIPES[p.style]) return layer;
+  const r = seeded(current.id);
+  const rec = RECIPES[p.style];
+  const colors = p.colors.length ? p.colors : ['#FFFFFF'];
+  const W = 300, H = 620;
+  for (let i = 0; i < Math.round(rec.count * p.amount); i++) {
+    const b = rec.make(r);
+    const img = p.images.length ? p.images[i % p.images.length] : null;
+    const size = img && b.shape !== 'blob' ? Math.max(b.size * 1.8, 22) : b.size;
+    const x = r(), y = r(), phase = r();
+    const color = colors[i % colors.length];
+    const st = { left: `${x * W - (b.motion === 'drift' ? size / 2 : 0)}px`, width: `${size}px`, height: `${size}px`, opacity: b.op * p.opacity,
+      '--r0': `${b.rot}deg`, '--r1': `${b.rot + 360 * b.spin}deg`, '--o': b.op * p.opacity };
+    if (img) Object.assign(st, { background: `url(${fileUrl(current.id, img)}) center/contain no-repeat` });
+    else if (b.shape === 'ring') Object.assign(st, { border: `${Math.max(1.5, size / 12)}px solid ${color}`, borderRadius: '50%' });
+    else if (b.shape === 'rect') Object.assign(st, { width: `${size * 0.55}px`, background: color, borderRadius: '2px' });
+    else if (b.shape === 'oval') Object.assign(st, { height: `${size * 0.6}px`, background: color, borderRadius: `${size}px 0 ${size}px 0` });
+    else if (b.shape === 'blob') Object.assign(st, { height: `${size * 0.45}px`, background: color, borderRadius: `${size}px` });
+    else if (b.shape === 'diamond') Object.assign(st, { background: color, borderRadius: '1px' });
+    else Object.assign(st, { background: color, borderRadius: '50%' });
+    if (b.motion === 'rise' || b.motion === 'fall') {
+      st.animation = `${b.motion} ${b.dur}s linear ${-phase * b.dur}s infinite`;
+    } else {
+      st.top = `${y * H - (b.motion === 'drift' ? size / 2 : 0)}px`;
+      st.animation = `${b.motion} ${b.dur}s ease-in-out ${-phase * b.dur}s infinite alternate`;
+    }
+    const el = h('div', { class: 'particle' });
+    for (const [k, v] of Object.entries(st)) k.startsWith('--') ? el.style.setProperty(k, v) : (el.style[k] = v);
+    layer.append(el);
+  }
+  return layer;
+}
+
+function renderPreview(anim) {
+  const phone = $('#phone');
+  if (!current) { phone.replaceChildren(); return; }
+  const j = current.json, c = j.colors;
+  const layers = [h('div', { class: 'layer', style: { background: c.background } })];
+  if (j.background.image) {
+    layers.push(h('div', { class: 'layer bgimg', style: { backgroundImage: `url(${fileUrl(current.id, j.background.image)})` } }));
+    layers.push(h('div', { class: 'layer', style: { background: c.background, opacity: j.background.dim } }));
+  }
+  // Particles are rebuilt only when their settings change, so animations don't restart while typing.
+  const pKey = JSON.stringify([current.id, j.particles, c.background]);
+  if (phone._pKey !== pKey) { phone._particles = particlesLayer(j); phone._pKey = pKey; }
+  layers.push(phone._particles);
+  layers.push(screen === 'play' ? playScreen(c, anim) : homeScreen(c));
+  phone.replaceChildren(...layers);
+}
+
+function playScreen(c, anim) {
+  const v = game.verdict;
+  const boxBg = v === 'correct' ? c.correct : v === 'wrong' ? c.wrong : c.card;
+  const boxEdge = v === 'correct' ? c.correctEdge : v === 'wrong' ? c.wrongEdge : c.cardEdge;
+  const boxText = v ? c.onFeedback : game.input ? c.text : c.keyEdge;
+  const key = (d, bg = c.key, fg = c.keyText) => h('button', { class: 'p-key', style: { background: bg, color: fg, borderBottomColor: c.keyEdge },
+    onmousedown: () => d === '⌫' ? (game.input && !game.verdict && (game.input = game.input.slice(0, -1), playSlot('backspace'), renderPreview())) : d && typeDigit(d) }, d);
+  return h('div', { class: 'ui' },
+    h('div', { class: 'p-top' },
+      h('span', { style: { color: c.textSoft, fontSize: '18px' } }, '✕'),
+      h('div', { class: 'p-track', style: { background: c.track } }, h('div', { style: { width: '45%', height: '100%', background: c.correct } })),
+      h('span', { style: { color: c.text, fontWeight: 600 } }, h('span', { class: 'p-coin' }), ' ', game.coins)),
+    h('div', { style: { display: 'flex', justifyContent: 'space-between', marginTop: '12px', minHeight: '28px' } },
+      h('span', { class: 'p-chip', style: { background: c.card, color: c.text, borderBottom: `3px solid ${c.cardEdge}` } },
+        h('span', { class: 'p-lv', style: { background: c.primary, color: c.onPrimary } }, `Lv ${game.level}`), 'Over the ten'),
+      game.streak >= 3 ? h('span', { class: 'p-chip', style: { background: c.streakBg, color: c.streak, fontWeight: 700, padding: '3px 10px' } }, `🔥 ${game.streak}`) : null),
+    h('div', { class: 'p-stage' },
+      h('div', { class: 'p-toast', style: { color: c.correct } }, v === 'correct' ? 'Fast!' : ''),
+      h('div', { class: 'p-q', style: { color: c.text } }, `${game.question} =`),
+      h('div', { class: `p-ans ${anim ?? ''}`, style: { background: boxBg, borderBottomColor: boxEdge, color: boxText } }, game.input || '?'),
+      h('div', { class: 'p-toast', style: { color: c.textSoft, fontWeight: 500 } }, v === 'wrong' ? `${game.question} = ${game.answer}` : '')),
+    h('div', { class: 'p-pad' }, '123456789'.split('').map((d) => key(d)), h('span'), key('0'), key('⌫', c.backgroundDeep, c.textSoft)),
+  );
+}
+
+function homeScreen(c) {
+  return h('div', { class: 'ui', style: { gap: '14px' } },
+    h('div', { style: { display: 'flex', gap: '6px' } },
+      h('span', { class: 'p-chip', style: { background: c.card, color: c.text, borderBottom: `3px solid ${c.cardEdge}`, padding: '3px 10px' } }, h('span', { class: 'p-coin' }), ' 480'),
+      h('span', { class: 'p-chip', style: { background: c.card, color: c.text, borderBottom: `3px solid ${c.cardEdge}`, padding: '3px 10px' } }, '💎 3')),
+    h('div', { style: { flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' } },
+      h('div', { style: { color: c.primary, fontWeight: 700, fontSize: '28px', letterSpacing: '6px' } }, 'MATH'),
+      h('div', { style: { color: c.text, fontWeight: 700, fontSize: '76px', lineHeight: 1 } }, 'RUN'),
+      h('div', { style: { display: 'flex', gap: '6px', marginTop: '16px' } }, ['7 + 5', '6 × 8', '81 ÷ 9'].map((t) =>
+        h('span', { style: { background: c.card, color: c.textSoft, borderRadius: '10px', padding: '3px 8px', fontSize: '14px', fontWeight: 600 } }, t)))),
+    h('div', { style: { display: 'flex', gap: '8px' } },
+      h('div', { class: 'p-card', style: { flex: 1, background: c.card, borderBottomColor: c.cardEdge } },
+        h('div', { style: { color: c.textSoft, fontSize: '12px' } }, 'Best level'),
+        h('div', { style: { color: c.text, fontWeight: 600 } }, '14 · Tables of 3 and 4')),
+      h('div', { class: 'p-card', style: { width: '74px', textAlign: 'center', background: c.card, borderBottomColor: c.cardEdge, color: c.text, fontSize: '12px', fontWeight: 600 } }, '🎨', h('br'), 'Themes')),
+    h('button', { class: 'p-btn', style: { background: c.primary, color: c.onPrimary, borderBottomColor: c.primaryEdge }, onmousedown: () => playSlot('button') }, 'PLAY'),
+  );
+}
+
+$('#tabs').addEventListener('click', (e) => {
+  const b = e.target.closest('button'); if (!b) return;
+  screen = b.dataset.screen;
+  document.querySelectorAll('#tabs button').forEach((x) => x.classList.toggle('on', x === b));
+  renderPreview();
+});
+document.querySelectorAll('[data-test]').forEach((b) => b.addEventListener('click', () => {
+  const s = b.dataset.test;
+  if (s === 'coin') for (let i = 0; i < 6; i++) setTimeout(() => playSlot('coin'), i * 60);
+  else playSlot(s);
+}));
+
+// ---------------------------------------------------------------- start
+(async () => {
+  meta = await api('/api/meta');
+  themes = await api('/api/themes');
+  renderList();
+  if (themes.length) await select(themes[0].id); else renderEditor();
+})();
+</script>
+</body>
+</html>

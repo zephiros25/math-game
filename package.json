@@ -35,6 +35,7 @@
     "@types/react": "~19.2.2",
     "eslint": "^9.0.0",
     "eslint-config-expo": "~57.0.2",
+    "sharp": "^0.35.4",
     "tsx": "^4.23.15",
     "typescript": "~6.0.3"
   },
@@ -46,7 +47,10 @@
     "generate-sounds": "node scripts/generate-sounds.mjs",
     "simulate": "tsx scripts/simulate.ts",
     "typecheck": "tsc --noEmit",
-    "lint": "expo lint"
+    "lint": "expo lint",
+    "prestart": "node scripts/themes/build.mjs",
+    "themes": "node scripts/themes/build.mjs",
+    "studio": "node scripts/themes/studio.mjs"
   },
   "private": true
 }

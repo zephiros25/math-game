@@ -1,0 +1,46 @@
+{
+  "name": "Ocean",
+  "tagline": "Bubbles from the deep",
+  "order": 20,
+  "price": 300,
+  "premium": false,
+  "dark": false,
+  "colors": {
+    "background": "#E8F7FC",
+    "backgroundDeep": "#D2EEF7",
+    "text": "#123B4F",
+    "textSoft": "#5E8A9C",
+    "key": "#FFFFFF",
+    "keyEdge": "#BFE0EC",
+    "keyText": "#123B4F",
+    "primary": "#1FA3C9",
+    "primaryEdge": "#147C9C",
+    "onPrimary": "#FFFFFF",
+    "correct": "#2EC4A0",
+    "correctEdge": "#1F9A7C",
+    "wrong": "#FF7A7A",
+    "wrongEdge": "#D95656",
+    "onFeedback": "#FFFFFF",
+    "streak": "#FF8A5C",
+    "streakBg": "#FFE6DA",
+    "card": "#FFFFFF",
+    "cardEdge": "#C9E6EF",
+    "track": "#D3EDF5"
+  },
+  "background": {
+    "image": null,
+    "dim": 0
+  },
+  "particles": {
+    "style": "bubbles",
+    "colors": [
+      "#9FDDF0",
+      "#B8E8F5",
+      "#8FD3EA"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

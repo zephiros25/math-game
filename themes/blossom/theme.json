@@ -1,0 +1,46 @@
+{
+  "name": "Blossom",
+  "tagline": "Cherry petals on the breeze",
+  "order": 80,
+  "price": 0,
+  "premium": true,
+  "dark": false,
+  "colors": {
+    "background": "#FFF6F3",
+    "backgroundDeep": "#FCE7E2",
+    "text": "#4A2E3A",
+    "textSoft": "#A48390",
+    "key": "#FFFFFF",
+    "keyEdge": "#F2D6D1",
+    "keyText": "#4A2E3A",
+    "primary": "#E86A8E",
+    "primaryEdge": "#BF4C6F",
+    "onPrimary": "#FFFFFF",
+    "correct": "#6BBF8A",
+    "correctEdge": "#4C9A6A",
+    "wrong": "#E8845A",
+    "wrongEdge": "#C0643E",
+    "onFeedback": "#FFFFFF",
+    "streak": "#E86A8E",
+    "streakBg": "#FBDDE5",
+    "card": "#FFFFFF",
+    "cardEdge": "#F2DAD5",
+    "track": "#F7E1DC"
+  },
+  "background": {
+    "image": null,
+    "dim": 0
+  },
+  "particles": {
+    "style": "petals",
+    "colors": [
+      "#F7B6C8",
+      "#FAD0DC",
+      "#F29DB5"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

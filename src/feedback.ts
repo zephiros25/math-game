@@ -1,11 +1,16 @@
 // Sound + haptics for every interaction. Each sound has a small pool of
 // players so rapid taps can overlap instead of cutting each other off.
+//
+// Themes can replace any sound slot with their own recordings
+// (`applyThemeSounds`); slots a theme leaves out use the defaults below.
 
 import { createAudioPlayer, setAudioModeAsync, type AudioPlayer } from 'expo-audio';
 import * as Haptics from 'expo-haptics';
 import { Platform } from 'react-native';
 
-const SOURCES = {
+import type { SoundSlot, Theme } from '@/theme';
+
+const DEFAULTS = {
   key1: require('@/assets/sounds/key1.wav'),
   key2: require('@/assets/sounds/key2.wav'),
   key3: require('@/assets/sounds/key3.wav'),
@@ -28,18 +33,58 @@ const SOURCES = {
   gem: require('@/assets/sounds/gem.wav'),
 } as const;
 
-type Sound = keyof typeof SOURCES;
+type DefaultSound = keyof typeof DEFAULTS;
 
-const POOL_SIZE: Partial<Record<Sound, number>> = { key1: 2, key2: 2, key3: 2, back: 2, coin: 4, pop: 2 };
+// Default sound(s) for each slot, with their base volume.
+const DEFAULT_SLOTS: Record<Exclude<SoundSlot, 'correct'>, { sounds: DefaultSound[]; volume: number }> = {
+  tap: { sounds: ['key1', 'key2', 'key3'], volume: 0.9 },
+  backspace: { sounds: ['back'], volume: 0.8 },
+  button: { sounds: ['pop'], volume: 1 },
+  wrong: { sounds: ['wrong'], volume: 1 },
+  levelUp: { sounds: ['levelup'], volume: 0.7 },
+  fanfare: { sounds: ['fanfare'], volume: 1 },
+  coin: { sounds: ['coin'], volume: 0.6 },
+  gem: { sounds: ['gem'], volume: 1 },
+};
 
-const pools = new Map<Sound, { players: AudioPlayer[]; next: number }>();
+// A theme's single "correct" recording is pitched up the pentatonic scale for
+// each answer in a streak (in semitones; capped at an octave, the highest
+// playback rate every platform supports).
+const STREAK_SEMITONES = [0, 2, 4, 7, 9, 12];
+
+type Pool = { players: AudioPlayer[]; next: number };
+
+const POOL_SIZE: Partial<Record<DefaultSound, number>> = { key1: 2, key2: 2, key3: 2, back: 2, coin: 4, pop: 2 };
+
+const defaultPools = new Map<DefaultSound, Pool>();
+// The active theme's overrides: one pool per recording (tap can have several).
+let themePools = new Map<SoundSlot, { pools: Pool[]; volume: number }>();
+let themeSoundsId: string | null = null;
 let muted = false;
 
 export function initFeedback() {
   setAudioModeAsync({ interruptionMode: 'mixWithOthers' }).catch(() => {});
-  for (const name of Object.keys(SOURCES) as Sound[]) {
-    const players = Array.from({ length: POOL_SIZE[name] ?? 1 }, () => createAudioPlayer(SOURCES[name]));
-    pools.set(name, { players, next: 0 });
+  for (const name of Object.keys(DEFAULTS) as DefaultSound[]) {
+    const players = Array.from({ length: POOL_SIZE[name] ?? 1 }, () => createAudioPlayer(DEFAULTS[name]));
+    defaultPools.set(name, { players, next: 0 });
+  }
+}
+
+// Loads the theme's own sounds (if any) and releases the previous theme's.
+export function applyThemeSounds(theme: Theme) {
+  if (theme.id === themeSoundsId) return;
+  themeSoundsId = theme.id;
+  for (const { pools } of themePools.values()) {
+    for (const pool of pools) pool.players.forEach((p) => p.remove());
+  }
+  themePools = new Map();
+  for (const [slot, sound] of Object.entries(theme.sounds) as [SoundSlot, { sources: number[]; volume: number }][]) {
+    const size = slot === 'coin' ? 4 : 2;
+    const pools = sound.sources.map((source) => ({
+      players: Array.from({ length: size }, () => createAudioPlayer(source)),
+      next: 0,
+    }));
+    themePools.set(slot, { pools, volume: sound.volume });
   }
 }
 
@@ -47,14 +92,14 @@ export function setMuted(value: boolean) {
   muted = value;
 }
 
-function play(name: Sound, volume = 1) {
-  if (muted) return;
-  const pool = pools.get(name);
-  if (!pool) return;
+function playFrom(pool: Pool | undefined, volume: number, rate?: number) {
+  if (muted || !pool) return;
   const player = pool.players[pool.next];
   pool.next = (pool.next + 1) % pool.players.length;
   try {
     player.volume = volume;
+    // No pitch correction argument: changing the rate changes the pitch.
+    if (rate !== undefined) player.setPlaybackRate(rate);
     player.seekTo(0);
     player.play();
   } catch {
@@ -62,51 +107,66 @@ function play(name: Sound, volume = 1) {
   }
 }
 
+let variant = 0;
+
+function playSlot(slot: Exclude<SoundSlot, 'correct'>) {
+  // Rotate through variations (tap has three) so repeats don't sound robotic.
+  variant += 1 + Math.floor(Math.random() * 2);
+  const custom = themePools.get(slot);
+  if (custom) {
+    playFrom(custom.pools[variant % custom.pools.length], custom.volume);
+    return;
+  }
+  const { sounds, volume } = DEFAULT_SLOTS[slot];
+  playFrom(defaultPools.get(sounds[variant % sounds.length]), volume);
+}
+
 const canBuzz = Platform.OS === 'ios' || Platform.OS === 'android';
 const buzz = (fn: () => Promise<void>) => {
   if (canBuzz) fn().catch(() => {});
 };
 
-let keyVariant = 0;
-
 export const feedback = {
   key() {
-    // Rotate through three slightly different knocks so fast typing doesn't
-    // sound like a machine gun.
-    keyVariant = (keyVariant + 1 + Math.floor(Math.random() * 2)) % 3;
-    play((['key1', 'key2', 'key3'] as const)[keyVariant], 0.9);
+    playSlot('tap');
     buzz(() => Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light));
   },
   backspace() {
-    play('back', 0.8);
+    playSlot('backspace');
     buzz(() => Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Soft));
   },
   button() {
-    play('pop');
+    playSlot('button');
     buzz(() => Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium));
   },
   // Each answer in a streak rings one pentatonic step higher.
   correct(streak: number) {
-    play(`chime${Math.min(streak - 1, 9)}` as Sound);
+    const custom = themePools.get('correct');
+    if (custom) {
+      const semitones = STREAK_SEMITONES[Math.min(streak - 1, STREAK_SEMITONES.length - 1)];
+      playFrom(custom.pools[0], custom.volume, 2 ** (semitones / 12));
+    } else {
+      playFrom(defaultPools.get(`chime${Math.min(streak - 1, 9)}` as DefaultSound), 1);
+    }
     buzz(() => Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success));
   },
   wrong() {
-    play('wrong');
+    playSlot('wrong');
     buzz(() => Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy));
   },
   levelUp() {
-    play('levelup', 0.7);
+    playSlot('levelUp');
   },
   coin() {
-    play('coin', 0.6);
+    playSlot('coin');
     buzz(() => Haptics.selectionAsync());
   },
   gem() {
-    play('gem');
+    playSlot('gem');
     buzz(() => Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Rigid));
   },
   fanfare() {
-    play('fanfare');
+    playSlot('fanfare');
     buzz(() => Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success));
   },
 };

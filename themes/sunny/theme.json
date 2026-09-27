@@ -1,0 +1,46 @@
+{
+  "name": "Sunny",
+  "tagline": "Warm and cosy",
+  "order": 10,
+  "price": 0,
+  "premium": false,
+  "dark": false,
+  "colors": {
+    "background": "#FFF4E6",
+    "backgroundDeep": "#FFE9D1",
+    "text": "#3B2A4A",
+    "textSoft": "#8A7898",
+    "key": "#FFFFFF",
+    "keyEdge": "#E8D9C6",
+    "keyText": "#3B2A4A",
+    "primary": "#FF7A59",
+    "primaryEdge": "#D9573A",
+    "onPrimary": "#FFFFFF",
+    "correct": "#3CC47C",
+    "correctEdge": "#2A9A5E",
+    "wrong": "#FF6B6B",
+    "wrongEdge": "#D94B4B",
+    "onFeedback": "#FFFFFF",
+    "streak": "#FF8A3D",
+    "streakBg": "#FFE3CC",
+    "card": "#FFFFFF",
+    "cardEdge": "#EFE2D2",
+    "track": "#F1E3D1"
+  },
+  "background": {
+    "image": null,
+    "dim": 0
+  },
+  "particles": {
+    "style": "sunbeams",
+    "colors": [
+      "#FFD9A8",
+      "#FFC9B5",
+      "#FFE7B8"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

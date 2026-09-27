@@ -1,0 +1,46 @@
+{
+  "name": "Golden",
+  "tagline": "Black velvet and gold leaf",
+  "order": 70,
+  "price": 0,
+  "premium": true,
+  "dark": true,
+  "colors": {
+    "background": "#16130F",
+    "backgroundDeep": "#0E0C09",
+    "text": "#FFF4DC",
+    "textSoft": "#B8A57E",
+    "key": "#26201A",
+    "keyEdge": "#0A0806",
+    "keyText": "#F5D67B",
+    "primary": "#E8B83E",
+    "primaryEdge": "#A87E1C",
+    "onPrimary": "#241A00",
+    "correct": "#9BD66B",
+    "correctEdge": "#6FA844",
+    "wrong": "#E8735A",
+    "wrongEdge": "#B2503A",
+    "onFeedback": "#16130F",
+    "streak": "#F5D67B",
+    "streakBg": "#2E271C",
+    "card": "#221C15",
+    "cardEdge": "#0A0806",
+    "track": "#2E271C"
+  },
+  "background": {
+    "image": null,
+    "dim": 0
+  },
+  "particles": {
+    "style": "sparkles",
+    "colors": [
+      "#F5D67B",
+      "#E8B83E",
+      "#FFF1C2"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

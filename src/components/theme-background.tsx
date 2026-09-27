@@ -2,7 +2,10 @@
 // twinkling in Night Sky, petals drifting in Blossom... Everything animates on
 // the UI thread and is purely decorative (no touches, respects Reduce Motion).
 // Layouts come from a seeded PRNG, so a theme looks the same every time.
+// Themes can also provide a background image and their own particle sprites,
+// which then move the way the chosen particle style moves.
 
+import { Image } from 'expo-image';
 import { useEffect, useMemo } from 'react';
 import { StyleSheet, useWindowDimensions, View } from 'react-native';
 import Animated, {
@@ -17,9 +20,9 @@ import Animated, {
   type SharedValue,
 } from 'react-native-reanimated';
 
-import type { Decoration, Theme } from '@/theme';
+import type { ParticleStyle, Theme } from '@/theme';
 
-type Shape = 'circle' | 'ring' | 'rect' | 'oval' | 'diamond' | 'blob';
+type Shape = 'circle' | 'ring' | 'rect' | 'oval' | 'diamond' | 'blob' | 'image';
 type Motion = 'rise' | 'fall' | 'twinkle' | 'drift';
 
 type Particle = {
@@ -27,6 +30,7 @@ type Particle = {
   y: number; // 0..1 of screen height (ignored by rise/fall)
   size: number;
   color: string;
+  image: number | null;
   shape: Shape;
   motion: Motion;
   duration: number;
@@ -36,9 +40,9 @@ type Particle = {
   opacity: number;
 };
 
-type Recipe = { count: number; make: (r: () => number) => Omit<Particle, 'color' | 'phase' | 'x' | 'y'> };
+type Recipe = { count: number; make: (r: () => number) => Omit<Particle, 'color' | 'image' | 'phase' | 'x' | 'y'> };
 
-const RECIPES: Record<Decoration, Recipe> = {
+const RECIPES: Record<Exclude<ParticleStyle, 'none'>, Recipe> = {
   sunbeams: {
     count: 5,
     make: (r) => ({ size: 140 + r() * 160, shape: 'circle', motion: 'drift', duration: 9000 + r() * 5000, rotate: 0, spin: 0, opacity: 0.45 }),
@@ -86,15 +90,27 @@ function seeded(text: string) {
 }
 
 function buildParticles(theme: Theme): Particle[] {
+  if (theme.particleStyle === 'none') return [];
   const r = seeded(theme.id);
-  const recipe = RECIPES[theme.decoration];
-  return Array.from({ length: recipe.count }, (_, i) => ({
-    ...recipe.make(r),
-    color: theme.particles[i % theme.particles.length],
-    x: r(),
-    y: r(),
-    phase: r(),
-  }));
+  const recipe = RECIPES[theme.particleStyle];
+  const images = theme.particleImages;
+  const colors = theme.particleColors.length ? theme.particleColors : ['#FFFFFF'];
+  return Array.from({ length: Math.round(recipe.count * theme.particleAmount) }, (_, i) => {
+    const base = recipe.make(r);
+    const image = images.length ? images[i % images.length] : null;
+    return {
+      ...base,
+      // Sprites need a bit more room than the tiny built-in shapes.
+      size: image && base.shape !== 'blob' ? Math.max(base.size * 1.8, 22) : base.size,
+      shape: image ? 'image' : base.shape,
+      image,
+      opacity: base.opacity * theme.particleOpacity,
+      color: colors[i % colors.length],
+      x: r(),
+      y: r(),
+      phase: r(),
+    };
+  });
 }
 
 type Props = {
@@ -109,6 +125,12 @@ export function ThemeBackground({ theme, subtle = false }: Props) {
 
   return (
     <View pointerEvents="none" style={[StyleSheet.absoluteFill, styles.clip, { backgroundColor: theme.background }]}>
+      {theme.backgroundImage !== null && (
+        <>
+          <Image source={theme.backgroundImage} contentFit="cover" transition={200} style={StyleSheet.absoluteFill} />
+          <View style={[StyleSheet.absoluteFill, { backgroundColor: theme.background, opacity: theme.backgroundDim }]} />
+        </>
+      )}
       {particles.map((p, i) => (
         <ParticleView key={`${theme.id}-${i}`} p={p} still={reduceMotion} dim={subtle ? 0.55 : 1} />
       ))}
@@ -145,7 +167,11 @@ function ParticleView({ p, still, dim }: { p: Particle; still: boolean; dim: num
   const animated = useParticleStyle(p, progress, width, height, dim);
   const shape = shapeStyle(p);
 
-  return <Animated.View style={[styles.particle, shape, animated]} />;
+  return (
+    <Animated.View style={[styles.particle, shape, animated]}>
+      {p.image !== null && <Image source={p.image} contentFit="contain" style={StyleSheet.absoluteFill} />}
+    </Animated.View>
+  );
 }
 
 function useParticleStyle(p: Particle, progress: SharedValue<number>, width: number, height: number, dim: number) {
@@ -200,6 +226,8 @@ function shapeStyle(p: Particle) {
       return { width: s, height: s, borderRadius: 1, backgroundColor: p.color };
     case 'blob':
       return { width: s, height: s * 0.45, borderRadius: s, backgroundColor: p.color };
+    case 'image':
+      return { width: s, height: s };
   }
 }
 

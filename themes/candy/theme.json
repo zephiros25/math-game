@@ -1,0 +1,48 @@
+{
+  "name": "Candy",
+  "tagline": "Sprinkles on everything",
+  "order": 40,
+  "price": 800,
+  "premium": false,
+  "dark": false,
+  "colors": {
+    "background": "#FFF0F6",
+    "backgroundDeep": "#FFDDEB",
+    "text": "#5A2A4A",
+    "textSoft": "#A37A93",
+    "key": "#FFFFFF",
+    "keyEdge": "#F5CFE0",
+    "keyText": "#5A2A4A",
+    "primary": "#FF5FA2",
+    "primaryEdge": "#D63E80",
+    "onPrimary": "#FFFFFF",
+    "correct": "#3CC4A0",
+    "correctEdge": "#2A9A7E",
+    "wrong": "#FF8A5C",
+    "wrongEdge": "#D96A3E",
+    "onFeedback": "#FFFFFF",
+    "streak": "#FF5FA2",
+    "streakBg": "#FFD9EA",
+    "card": "#FFFFFF",
+    "cardEdge": "#F6D5E4",
+    "track": "#FBDDEA"
+  },
+  "background": {
+    "image": null,
+    "dim": 0
+  },
+  "particles": {
+    "style": "confetti",
+    "colors": [
+      "#FF9CC7",
+      "#9FD8FF",
+      "#FFE17A",
+      "#B9A7FF",
+      "#8FE3C4"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

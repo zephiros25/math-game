@@ -1,0 +1,46 @@
+{
+  "name": "Aurora",
+  "tagline": "Northern lights, drifting slowly",
+  "order": 60,
+  "price": 0,
+  "premium": true,
+  "dark": true,
+  "colors": {
+    "background": "#0D1F2D",
+    "backgroundDeep": "#08151F",
+    "text": "#E8FFF8",
+    "textSoft": "#86B5B0",
+    "key": "#17364A",
+    "keyEdge": "#07121A",
+    "keyText": "#E8FFF8",
+    "primary": "#5EF2C2",
+    "primaryEdge": "#2FB892",
+    "onPrimary": "#06302A",
+    "correct": "#7CF29A",
+    "correctEdge": "#44B865",
+    "wrong": "#FF7AA8",
+    "wrongEdge": "#C9507E",
+    "onFeedback": "#06201A",
+    "streak": "#5EF2C2",
+    "streakBg": "#17364A",
+    "card": "#14324A",
+    "cardEdge": "#07121A",
+    "track": "#1C4258"
+  },
+  "background": {
+    "image": null,
+    "dim": 0
+  },
+  "particles": {
+    "style": "aurora",
+    "colors": [
+      "#3EE8B5",
+      "#7B6CFF",
+      "#2FB7E8"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

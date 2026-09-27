@@ -10,7 +10,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect, useState } from 'react';
 
-import { initFeedback, setMuted } from '@/feedback';
+import { applyThemeSounds, initFeedback, setMuted } from '@/feedback';
 import { loadProgress } from '@/progress';
 import { useTheme } from '@/theme';
 
@@ -30,6 +30,10 @@ export default function RootLayout() {
       setProgressLoaded(true);
     });
   }, []);
+
+  useEffect(() => {
+    applyThemeSounds(t);
+  }, [t]);
 
   const ready = fontsLoaded && progressLoaded;
   useEffect(() => {

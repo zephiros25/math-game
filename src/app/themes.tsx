@@ -1,13 +1,13 @@
 import { router } from 'expo-router';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import Animated, { useAnimatedStyle, useSharedValue, withSequence, withSpring, ZoomIn } from 'react-native-reanimated';
 
 import { ChunkyButton } from '@/components/chunky-button';
 import { Coin } from '@/components/coin';
 import { Screen } from '@/components/screen';
-import { feedback } from '@/feedback';
-import { updateProgress, useProgress } from '@/progress';
+import { applyThemeSounds, feedback } from '@/feedback';
+import { getProgress, updateProgress, useProgress } from '@/progress';
 import { font, ThemeOverride, THEMES, themeById, useTheme, type Theme } from '@/theme';
 
 // The shop renders entirely in the theme being browsed, so tapping a tile
@@ -16,6 +16,12 @@ export default function Themes() {
   const progress = useProgress();
   const [selectedId, setSelectedId] = useState(progress.theme);
   const selected = themeById(selectedId);
+
+  // Browsing a theme also previews its sounds; leaving restores the equipped one's.
+  useEffect(() => {
+    applyThemeSounds(selected);
+  }, [selected]);
+  useEffect(() => () => applyThemeSounds(themeById(getProgress().theme)), []);
 
   return (
     <ThemeOverride.Provider value={selected}>
@@ -98,6 +104,14 @@ function Shop({ selected, onSelect }: { selected: Theme; onSelect: (id: string) 
     );
   }
 
+  // Development builds can equip any theme without coins or a purchase, to
+  // check themes made in the Theme Studio on a real phone.
+  const devEquip = __DEV__ && !owned && (
+    <Pressable onPress={() => updateProgress({ theme: selected.id, ownedThemes: [...progress.ownedThemes, selected.id] })}>
+      <Text style={styles.devLink}>Developer: unlock &amp; equip for free</Text>
+    </Pressable>
+  );
+
   return (
     <Screen>
       <View style={styles.column}>
@@ -139,6 +153,7 @@ function Shop({ selected, onSelect }: { selected: Theme; onSelect: (id: string) 
           </View>
         </ScrollView>
 
+        {devEquip}
         {action}
       </View>
     </Screen>
@@ -422,6 +437,14 @@ const makeStyles = (t: Theme) =>
       flexDirection: 'row',
       alignItems: 'center',
       gap: 8,
+    },
+    devLink: {
+      fontFamily: font.medium,
+      fontSize: 13,
+      color: t.textSoft,
+      textAlign: 'center',
+      textDecorationLine: 'underline',
+      paddingBottom: 10,
     },
     coinBacking: {
       padding: 3,

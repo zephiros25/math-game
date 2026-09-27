@@ -1,0 +1,46 @@
+{
+  "name": "Night Sky",
+  "tagline": "Count the stars",
+  "order": 50,
+  "price": 1200,
+  "premium": false,
+  "dark": true,
+  "colors": {
+    "background": "#1B1740",
+    "backgroundDeep": "#141033",
+    "text": "#F3F0FF",
+    "textSoft": "#A49FD1",
+    "key": "#2E2966",
+    "keyEdge": "#141033",
+    "keyText": "#F3F0FF",
+    "primary": "#FFC845",
+    "primaryEdge": "#C9951C",
+    "onPrimary": "#3A2A00",
+    "correct": "#36D399",
+    "correctEdge": "#1F9E6F",
+    "wrong": "#FF6B8A",
+    "wrongEdge": "#C94464",
+    "onFeedback": "#0F2A20",
+    "streak": "#FFC845",
+    "streakBg": "#3A3370",
+    "card": "#2A2560",
+    "cardEdge": "#141033",
+    "track": "#2E2966"
+  },
+  "background": {
+    "image": null,
+    "dim": 0
+  },
+  "particles": {
+    "style": "stars",
+    "colors": [
+      "#FFFFFF",
+      "#FFE8A3",
+      "#C9C2FF"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}
