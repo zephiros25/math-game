@@ -12,13 +12,14 @@ import { useEffect, useState } from 'react';
 
 import { initFeedback, setMuted } from '@/feedback';
 import { loadProgress } from '@/progress';
-import { theme } from '@/theme';
+import { useTheme } from '@/theme';
 
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const [fontsLoaded] = useFonts({ Fredoka_400Regular, Fredoka_500Medium, Fredoka_600SemiBold, Fredoka_700Bold });
   const [progressLoaded, setProgressLoaded] = useState(false);
+  const t = useTheme();
 
   useEffect(() => {
     // Inside an effect so audio players are only created on the device, not
@@ -39,12 +40,12 @@ export default function RootLayout() {
 
   return (
     <>
-      <StatusBar style="dark" />
+      <StatusBar style={t.dark ? 'light' : 'dark'} />
       <Stack
         screenOptions={{
           headerShown: false,
           animation: 'fade',
-          contentStyle: { backgroundColor: theme.background },
+          contentStyle: { backgroundColor: t.background },
         }}
       >
         <Stack.Screen name="play" options={{ gestureEnabled: false }} />

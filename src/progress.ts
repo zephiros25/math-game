@@ -11,10 +11,20 @@ export type Progress = {
   bestLevel: number;
   runLength: number;
   muted: boolean;
+  theme: string; // id of the equipped theme
+  ownedThemes: string[];
 };
 
 const KEY = 'progress.v1';
-const DEFAULTS: Progress = { coins: 0, gems: 0, bestLevel: 0, runLength: 20, muted: false };
+const DEFAULTS: Progress = {
+  coins: 0,
+  gems: 0,
+  bestLevel: 0,
+  runLength: 20,
+  muted: false,
+  theme: 'sunny',
+  ownedThemes: ['sunny'],
+};
 
 let current: Progress = DEFAULTS;
 const listeners = new Set<() => void>();

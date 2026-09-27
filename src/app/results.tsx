@@ -1,14 +1,14 @@
 import { router, useLocalSearchParams } from 'expo-router';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Animated, { FadeInDown, ZoomIn } from 'react-native-reanimated';
-import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { ChunkyButton } from '@/components/chunky-button';
 import { Coin } from '@/components/coin';
+import { Screen } from '@/components/screen';
 import { feedback } from '@/feedback';
 import { levelInfo } from '@/game/levels';
-import { font, theme } from '@/theme';
+import { font, useTheme, type Theme } from '@/theme';
 
 function starsFor(correct: number, total: number) {
   const pct = correct / total;
@@ -19,6 +19,8 @@ const STAR_DELAY = 500;
 const STAR_GAP = 350;
 
 export default function Results() {
+  const t = useTheme();
+  const styles = useMemo(() => makeStyles(t), [t]);
   const params = useLocalSearchParams<Record<string, string>>();
   const correct = Number(params.correct);
   const total = Number(params.total);
@@ -61,7 +63,7 @@ export default function Results() {
   const headline = stars === 3 ? 'Amazing!' : stars === 2 ? 'Great run!' : stars === 1 ? 'Nice work!' : 'Keep going!';
 
   return (
-    <SafeAreaView style={styles.screen}>
+    <Screen>
       <View style={styles.column}>
         <View style={styles.hero}>
           <Animated.Text entering={ZoomIn.springify().damping(10)} style={styles.headline}>
@@ -118,9 +120,9 @@ export default function Results() {
           />
           <ChunkyButton
             label="Home"
-            color={theme.card}
-            edgeColor={theme.cardEdge}
-            textColor={theme.text}
+            color={t.card}
+            edgeColor={t.cardEdge}
+            textColor={t.text}
             height={58}
             onPress={() => {
               feedback.button();
@@ -129,11 +131,13 @@ export default function Results() {
           />
         </View>
       </View>
-    </SafeAreaView>
+    </Screen>
   );
 }
 
 function Stat({ label, value, highlight }: { label: string; value: string; highlight?: string }) {
+  const t = useTheme();
+  const styles = useMemo(() => makeStyles(t), [t]);
   return (
     <View style={styles.stat}>
       <Text style={styles.statLabel}>{label}</Text>
@@ -145,106 +149,103 @@ function Stat({ label, value, highlight }: { label: string; value: string; highl
   );
 }
 
-const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-    backgroundColor: theme.background,
-  },
-  column: {
-    flex: 1,
-    width: '100%',
-    maxWidth: 480,
-    alignSelf: 'center',
-    paddingHorizontal: 20,
-    paddingBottom: 24,
-  },
-  hero: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 22,
-  },
-  headline: {
-    fontFamily: font.bold,
-    fontSize: 48,
-    color: theme.text,
-  },
-  stars: {
-    flexDirection: 'row',
-    alignItems: 'flex-end',
-    gap: 8,
-  },
-  star: {
-    fontSize: 56,
-  },
-  starMiddle: {
-    fontSize: 76,
-    marginBottom: 12,
-  },
-  starEmpty: {
-    opacity: 0.18,
-  },
-  card: {
-    alignSelf: 'stretch',
-    backgroundColor: theme.card,
-    borderRadius: 22,
-    paddingHorizontal: 18,
-    paddingVertical: 8,
-    borderBottomWidth: 4,
-    borderColor: theme.cardEdge,
-  },
-  stat: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingVertical: 10,
-  },
-  statLabel: {
-    fontFamily: font.medium,
-    fontSize: 17,
-    color: theme.textSoft,
-  },
-  statRight: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-    flexShrink: 1,
-  },
-  statHighlight: {
-    fontFamily: font.bold,
-    fontSize: 13,
-    color: theme.onPrimary,
-    backgroundColor: theme.primary,
-    borderRadius: 999,
-    paddingHorizontal: 8,
-    paddingVertical: 2,
-    overflow: 'hidden',
-  },
-  statValue: {
-    fontFamily: font.semibold,
-    fontSize: 17,
-    color: theme.text,
-    flexShrink: 1,
-  },
-  rewards: {
-    flexDirection: 'row',
-    gap: 28,
-    minHeight: 56,
-  },
-  reward: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  rewardIcon: {
-    fontSize: 40,
-  },
-  rewardValue: {
-    fontFamily: font.bold,
-    fontSize: 40,
-    color: theme.text,
-  },
-  buttons: {
-    gap: 12,
-  },
-});
+const makeStyles = (t: Theme) =>
+  StyleSheet.create({
+    column: {
+      flex: 1,
+      width: '100%',
+      maxWidth: 480,
+      alignSelf: 'center',
+      paddingHorizontal: 20,
+      paddingBottom: 24,
+    },
+    hero: {
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center',
+      gap: 22,
+    },
+    headline: {
+      fontFamily: font.bold,
+      fontSize: 48,
+      color: t.text,
+    },
+    stars: {
+      flexDirection: 'row',
+      alignItems: 'flex-end',
+      gap: 8,
+    },
+    star: {
+      fontSize: 56,
+    },
+    starMiddle: {
+      fontSize: 76,
+      marginBottom: 12,
+    },
+    starEmpty: {
+      opacity: 0.18,
+    },
+    card: {
+      alignSelf: 'stretch',
+      backgroundColor: t.card,
+      borderRadius: 22,
+      paddingHorizontal: 18,
+      paddingVertical: 8,
+      borderBottomWidth: 4,
+      borderColor: t.cardEdge,
+    },
+    stat: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      paddingVertical: 10,
+    },
+    statLabel: {
+      fontFamily: font.medium,
+      fontSize: 17,
+      color: t.textSoft,
+    },
+    statRight: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: 8,
+      flexShrink: 1,
+    },
+    statHighlight: {
+      fontFamily: font.bold,
+      fontSize: 13,
+      color: t.onPrimary,
+      backgroundColor: t.primary,
+      borderRadius: 999,
+      paddingHorizontal: 8,
+      paddingVertical: 2,
+      overflow: 'hidden',
+    },
+    statValue: {
+      fontFamily: font.semibold,
+      fontSize: 17,
+      color: t.text,
+      flexShrink: 1,
+    },
+    rewards: {
+      flexDirection: 'row',
+      gap: 28,
+      minHeight: 56,
+    },
+    reward: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: 8,
+    },
+    rewardIcon: {
+      fontSize: 40,
+    },
+    rewardValue: {
+      fontFamily: font.bold,
+      fontSize: 40,
+      color: t.text,
+    },
+    buttons: {
+      gap: 12,
+    },
+  });

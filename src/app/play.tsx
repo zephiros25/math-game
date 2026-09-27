@@ -1,5 +1,5 @@
 import { router } from 'expo-router';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import Animated, {
   FadeIn,
@@ -13,16 +13,16 @@ import Animated, {
   withTiming,
   ZoomIn,
 } from 'react-native-reanimated';
-import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { Keypad } from '@/components/keypad';
 import { Coin } from '@/components/coin';
+import { Keypad } from '@/components/keypad';
+import { Screen } from '@/components/screen';
 import { feedback } from '@/feedback';
 import { judge, type Verdict } from '@/game/engine';
 import { generateQuestion, levelInfo, type Question } from '@/game/levels';
 import { coinsFor, isStreakGem, runBonusGems } from '@/game/rewards';
 import { getProgress, updateProgress } from '@/progress';
-import { font, theme } from '@/theme';
+import { font, useTheme, type Theme } from '@/theme';
 
 const CORRECT_PAUSE_MS = 480;
 const WRONG_PAUSE_MS = 1500;
@@ -47,6 +47,8 @@ type RunStats = {
 };
 
 export default function Play() {
+  const t = useTheme();
+  const styles = useMemo(() => makeStyles(t), [t]);
   const [total] = useState(() => getProgress().runLength);
   const [bestBefore] = useState(() => getProgress().bestLevel);
 
@@ -167,13 +169,13 @@ export default function Play() {
     setInput(input.slice(0, -1));
   }
 
-  const boxColor = verdict === null ? theme.card : verdict.correct ? theme.correct : theme.wrong;
-  const boxEdge = verdict === null ? theme.cardEdge : verdict.correct ? theme.correctEdge : theme.wrongEdge;
-  const boxText = verdict === null ? theme.text : '#FFFFFF';
+  const boxColor = verdict === null ? t.card : verdict.correct ? t.correct : t.wrong;
+  const boxEdge = verdict === null ? t.cardEdge : verdict.correct ? t.correctEdge : t.wrongEdge;
+  const boxText = verdict === null ? t.text : t.onFeedback;
   const progressPct = ((index - (answering ? 1 : 0)) / total) * 100;
 
   return (
-    <SafeAreaView style={styles.screen}>
+    <Screen subtle>
       <View style={styles.column}>
         <View style={styles.topBar}>
           <Pressable
@@ -244,160 +246,157 @@ export default function Play() {
         </Text>
         <Keypad onDigit={onDigit} onBackspace={onBackspace} />
       </View>
-    </SafeAreaView>
+    </Screen>
   );
 }
 
-const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-    backgroundColor: theme.background,
-  },
-  column: {
-    flex: 1,
-    width: '100%',
-    maxWidth: 480,
-    alignSelf: 'center',
-    paddingHorizontal: 16,
-    paddingBottom: 16,
-  },
-  topBar: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 14,
-    paddingTop: 8,
-  },
-  close: {
-    fontSize: 22,
-    color: theme.textSoft,
-    fontFamily: font.semibold,
-    paddingHorizontal: 4,
-  },
-  track: {
-    flex: 1,
-    height: 14,
-    borderRadius: 7,
-    backgroundColor: theme.track,
-    overflow: 'hidden',
-  },
-  trackFill: {
-    height: '100%',
-    borderRadius: 7,
-    backgroundColor: theme.correct,
-  },
-  coinChip: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 4,
-    minWidth: 56,
-  },
-  coinValue: {
-    fontFamily: font.semibold,
-    fontSize: 20,
-    color: theme.text,
-  },
-  statusRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginTop: 14,
-    minHeight: 36,
-  },
-  levelChip: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-    backgroundColor: theme.card,
-    borderRadius: 999,
-    paddingLeft: 6,
-    paddingRight: 14,
-    paddingVertical: 5,
-    borderBottomWidth: 3,
-    borderColor: theme.cardEdge,
-  },
-  levelNumber: {
-    fontFamily: font.bold,
-    fontSize: 14,
-    color: theme.onPrimary,
-    backgroundColor: theme.primary,
-    borderRadius: 999,
-    paddingHorizontal: 10,
-    paddingVertical: 2,
-    overflow: 'hidden',
-  },
-  levelName: {
-    fontFamily: font.medium,
-    fontSize: 15,
-    color: theme.text,
-  },
-  streakChip: {
-    backgroundColor: '#FFE3CC',
-    borderRadius: 999,
-    paddingHorizontal: 12,
-    paddingVertical: 5,
-  },
-  streakText: {
-    fontFamily: font.bold,
-    fontSize: 16,
-    color: theme.streak,
-  },
-  stage: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  toastSlot: {
-    height: 44,
-    justifyContent: 'center',
-  },
-  toast: {
-    fontFamily: font.bold,
-    fontSize: 24,
-    color: theme.correct,
-  },
-  questionBlock: {
-    alignItems: 'center',
-    gap: 18,
-    width: '100%',
-  },
-  question: {
-    fontFamily: font.semibold,
-    fontSize: 64,
-    color: theme.text,
-  },
-  questionLong: {
-    fontSize: 48,
-  },
-  answerBox: {
-    minWidth: 130,
-    paddingHorizontal: 24,
-    height: 96,
-    borderRadius: 26,
-    borderBottomWidth: 6,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  answer: {
-    fontFamily: font.bold,
-    fontSize: 60,
-  },
-  answerPlaceholder: {
-    color: theme.keyEdge,
-  },
-  reveal: {
-    fontFamily: font.medium,
-    fontSize: 24,
-    color: theme.textSoft,
-  },
-  revealAnswer: {
-    fontFamily: font.bold,
-    color: theme.correct,
-  },
-  counter: {
-    fontFamily: font.medium,
-    fontSize: 15,
-    color: theme.textSoft,
-    textAlign: 'center',
-    marginBottom: 10,
-  },
-});
+const makeStyles = (t: Theme) =>
+  StyleSheet.create({
+    column: {
+      flex: 1,
+      width: '100%',
+      maxWidth: 480,
+      alignSelf: 'center',
+      paddingHorizontal: 16,
+      paddingBottom: 16,
+    },
+    topBar: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: 14,
+      paddingTop: 8,
+    },
+    close: {
+      fontSize: 22,
+      color: t.textSoft,
+      fontFamily: font.semibold,
+      paddingHorizontal: 4,
+    },
+    track: {
+      flex: 1,
+      height: 14,
+      borderRadius: 7,
+      backgroundColor: t.track,
+      overflow: 'hidden',
+    },
+    trackFill: {
+      height: '100%',
+      borderRadius: 7,
+      backgroundColor: t.correct,
+    },
+    coinChip: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: 4,
+      minWidth: 56,
+    },
+    coinValue: {
+      fontFamily: font.semibold,
+      fontSize: 20,
+      color: t.text,
+    },
+    statusRow: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      marginTop: 14,
+      minHeight: 36,
+    },
+    levelChip: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: 8,
+      backgroundColor: t.card,
+      borderRadius: 999,
+      paddingLeft: 6,
+      paddingRight: 14,
+      paddingVertical: 5,
+      borderBottomWidth: 3,
+      borderColor: t.cardEdge,
+    },
+    levelNumber: {
+      fontFamily: font.bold,
+      fontSize: 14,
+      color: t.onPrimary,
+      backgroundColor: t.primary,
+      borderRadius: 999,
+      paddingHorizontal: 10,
+      paddingVertical: 2,
+      overflow: 'hidden',
+    },
+    levelName: {
+      fontFamily: font.medium,
+      fontSize: 15,
+      color: t.text,
+    },
+    streakChip: {
+      backgroundColor: t.streakBg,
+      borderRadius: 999,
+      paddingHorizontal: 12,
+      paddingVertical: 5,
+    },
+    streakText: {
+      fontFamily: font.bold,
+      fontSize: 16,
+      color: t.streak,
+    },
+    stage: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    toastSlot: {
+      height: 44,
+      justifyContent: 'center',
+    },
+    toast: {
+      fontFamily: font.bold,
+      fontSize: 24,
+      color: t.correct,
+    },
+    questionBlock: {
+      alignItems: 'center',
+      gap: 18,
+      width: '100%',
+    },
+    question: {
+      fontFamily: font.semibold,
+      fontSize: 64,
+      color: t.text,
+    },
+    questionLong: {
+      fontSize: 48,
+    },
+    answerBox: {
+      minWidth: 130,
+      paddingHorizontal: 24,
+      height: 96,
+      borderRadius: 26,
+      borderBottomWidth: 6,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    answer: {
+      fontFamily: font.bold,
+      fontSize: 60,
+    },
+    answerPlaceholder: {
+      color: t.keyEdge,
+    },
+    reveal: {
+      fontFamily: font.medium,
+      fontSize: 24,
+      color: t.textSoft,
+    },
+    revealAnswer: {
+      fontFamily: font.bold,
+      color: t.correct,
+    },
+    counter: {
+      fontFamily: font.medium,
+      fontSize: 15,
+      color: t.textSoft,
+      textAlign: 'center',
+      marginBottom: 10,
+    },
+  });

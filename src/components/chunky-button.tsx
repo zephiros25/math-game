@@ -4,7 +4,7 @@
 import { Platform, Pressable, StyleSheet, Text, View, type StyleProp, type ViewStyle } from 'react-native';
 import Animated, { useAnimatedStyle, useSharedValue, withSpring, withTiming } from 'react-native-reanimated';
 
-import { font, theme } from '@/theme';
+import { font, useTheme } from '@/theme';
 
 type Props = {
   label?: string;
@@ -27,15 +27,19 @@ export function ChunkyButton({
   children,
   onPress,
   fireOnPressIn = false,
-  color = theme.primary,
-  edgeColor = theme.primaryEdge,
-  textColor = theme.onPrimary,
+  color,
+  edgeColor,
+  textColor,
   fontSize = 26,
   height = 64,
   edge = 6,
   disabled = false,
   style,
 }: Props) {
+  const t = useTheme();
+  color ??= t.primary;
+  edgeColor ??= t.primaryEdge;
+  textColor ??= t.onPrimary;
   const pressed = useSharedValue(0);
   // react-native-web doesn't reliably deliver press-in for mouse clicks, so
   // the web build falls back to firing on click.

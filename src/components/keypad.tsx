@@ -1,7 +1,8 @@
+import { useMemo } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 import { ChunkyButton } from '@/components/chunky-button';
-import { font, theme } from '@/theme';
+import { font, useTheme, type Theme } from '@/theme';
 
 type Props = {
   onDigit: (digit: string) => void;
@@ -16,6 +17,8 @@ const ROWS = [
 ];
 
 export function Keypad({ onDigit, onBackspace, disabled }: Props) {
+  const t = useTheme();
+  const styles = useMemo(() => makeStyles(t), [t]);
   const key = (d: string) => (
     <ChunkyButton
       key={d}
@@ -23,9 +26,9 @@ export function Keypad({ onDigit, onBackspace, disabled }: Props) {
       onPress={() => onDigit(d)}
       fireOnPressIn
       disabled={disabled}
-      color={theme.key}
-      edgeColor={theme.keyEdge}
-      textColor={theme.keyText}
+      color={t.key}
+      edgeColor={t.keyEdge}
+      textColor={t.keyText}
       fontSize={34}
       height={62}
       style={styles.key}
@@ -46,8 +49,8 @@ export function Keypad({ onDigit, onBackspace, disabled }: Props) {
           onPress={onBackspace}
           fireOnPressIn
           disabled={disabled}
-          color={theme.backgroundDeep}
-          edgeColor={theme.keyEdge}
+          color={t.backgroundDeep}
+          edgeColor={t.keyEdge}
           height={62}
           style={styles.key}
         >
@@ -58,20 +61,21 @@ export function Keypad({ onDigit, onBackspace, disabled }: Props) {
   );
 }
 
-const styles = StyleSheet.create({
-  pad: {
-    gap: 10,
-  },
-  row: {
-    flexDirection: 'row',
-    gap: 10,
-  },
-  key: {
-    flex: 1,
-  },
-  backspace: {
-    fontFamily: font.medium,
-    fontSize: 28,
-    color: theme.textSoft,
-  },
-});
+const makeStyles = (t: Theme) =>
+  StyleSheet.create({
+    pad: {
+      gap: 10,
+    },
+    row: {
+      flexDirection: 'row',
+      gap: 10,
+    },
+    key: {
+      flex: 1,
+    },
+    backspace: {
+      fontFamily: font.medium,
+      fontSize: 28,
+      color: t.textSoft,
+    },
+  });

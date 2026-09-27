@@ -1,5 +1,5 @@
 import { router } from 'expo-router';
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import Animated, {
   Easing,
@@ -9,18 +9,20 @@ import Animated, {
   withSequence,
   withTiming,
 } from 'react-native-reanimated';
-import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { ChunkyButton } from '@/components/chunky-button';
 import { Coin } from '@/components/coin';
+import { Screen } from '@/components/screen';
 import { feedback, setMuted } from '@/feedback';
 import { levelInfo } from '@/game/levels';
 import { updateProgress, useProgress } from '@/progress';
-import { font, theme } from '@/theme';
+import { font, useTheme, type Theme } from '@/theme';
 
 const RUN_LENGTHS = [10, 20, 40];
 
 export default function Home() {
+  const t = useTheme();
+  const styles = useMemo(() => makeStyles(t), [t]);
   const progress = useProgress();
 
   // Gentle idle bob on the title.
@@ -47,7 +49,7 @@ export default function Home() {
   };
 
   return (
-    <SafeAreaView style={styles.screen}>
+    <Screen>
       <View style={styles.column}>
         <View style={styles.topBar}>
           <View style={styles.wallet}>
@@ -73,11 +75,27 @@ export default function Home() {
           </View>
         </View>
 
-        <View style={styles.card}>
-          <Text style={styles.cardLabel}>Best level</Text>
-          <Text style={styles.cardValue}>
-            {progress.bestLevel > 0 ? `${progress.bestLevel} · ${levelInfo(progress.bestLevel).name}` : 'Not played yet'}
-          </Text>
+        <View style={styles.cardRow}>
+          <View style={[styles.card, styles.cardGrow]}>
+            <Text style={styles.cardLabel}>Best level</Text>
+            <Text style={styles.cardValue} numberOfLines={1}>
+              {progress.bestLevel > 0 ? `${progress.bestLevel} · ${levelInfo(progress.bestLevel).name}` : 'Not played yet'}
+            </Text>
+          </View>
+          <ChunkyButton
+            onPress={() => {
+              feedback.button();
+              router.push('/themes');
+            }}
+            color={t.card}
+            edgeColor={t.cardEdge}
+            height={70}
+            edge={4}
+            style={styles.themesButton}
+          >
+            <Text style={styles.themesIcon}>🎨</Text>
+            <Text style={styles.themesLabel}>Themes</Text>
+          </ChunkyButton>
         </View>
 
         <View style={styles.lengths}>
@@ -112,11 +130,13 @@ export default function Home() {
           }}
         />
       </View>
-    </SafeAreaView>
+    </Screen>
   );
 }
 
 function Chip({ icon, value }: { icon: React.ReactNode; value: number }) {
+  const t = useTheme();
+  const styles = useMemo(() => makeStyles(t), [t]);
   return (
     <View style={styles.chip}>
       {icon}
@@ -125,137 +145,153 @@ function Chip({ icon, value }: { icon: React.ReactNode; value: number }) {
   );
 }
 
-const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-    backgroundColor: theme.background,
-  },
-  column: {
-    flex: 1,
-    width: '100%',
-    maxWidth: 480,
-    alignSelf: 'center',
-    paddingHorizontal: 20,
-    paddingBottom: 24,
-    gap: 18,
-  },
-  topBar: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingTop: 8,
-  },
-  wallet: {
-    flexDirection: 'row',
-    gap: 8,
-  },
-  chip: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 6,
-    backgroundColor: theme.card,
-    borderRadius: 999,
-    paddingHorizontal: 14,
-    paddingVertical: 6,
-    borderBottomWidth: 3,
-    borderColor: theme.cardEdge,
-  },
-  chipIcon: {
-    fontSize: 18,
-  },
-  chipValue: {
-    fontFamily: font.semibold,
-    fontSize: 18,
-    color: theme.text,
-  },
-  muteButton: {
-    padding: 4,
-  },
-  muteIcon: {
-    fontSize: 24,
-  },
-  hero: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 24,
-  },
-  titleSmall: {
-    fontFamily: font.bold,
-    fontSize: 36,
-    letterSpacing: 8,
-    color: theme.primary,
-    textAlign: 'center',
-  },
-  title: {
-    fontFamily: font.bold,
-    fontSize: 96,
-    lineHeight: 100,
-    color: theme.text,
-    textAlign: 'center',
-  },
-  bubbles: {
-    flexDirection: 'row',
-    gap: 10,
-  },
-  bubble: {
-    fontFamily: font.semibold,
-    fontSize: 18,
-    color: theme.textSoft,
-    backgroundColor: theme.card,
-    borderRadius: 14,
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-    overflow: 'hidden',
-  },
-  card: {
-    backgroundColor: theme.card,
-    borderRadius: 20,
-    padding: 16,
-    borderBottomWidth: 4,
-    borderColor: theme.cardEdge,
-  },
-  cardLabel: {
-    fontFamily: font.medium,
-    fontSize: 14,
-    color: theme.textSoft,
-  },
-  cardValue: {
-    fontFamily: font.semibold,
-    fontSize: 20,
-    color: theme.text,
-    marginTop: 2,
-  },
-  lengths: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  lengthsLabel: {
-    fontFamily: font.medium,
-    fontSize: 18,
-    color: theme.textSoft,
-  },
-  segment: {
-    flexDirection: 'row',
-    backgroundColor: theme.track,
-    borderRadius: 16,
-    padding: 4,
-  },
-  segmentItem: {
-    paddingHorizontal: 18,
-    paddingVertical: 8,
-    borderRadius: 12,
-  },
-  segmentActive: {
-    backgroundColor: theme.card,
-  },
-  segmentText: {
-    fontFamily: font.semibold,
-    fontSize: 18,
-    color: theme.textSoft,
-  },
-  segmentTextActive: {
-    color: theme.text,
-  },
-});
+const makeStyles = (t: Theme) =>
+  StyleSheet.create({
+    column: {
+      flex: 1,
+      width: '100%',
+      maxWidth: 480,
+      alignSelf: 'center',
+      paddingHorizontal: 20,
+      paddingBottom: 24,
+      gap: 18,
+    },
+    topBar: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      paddingTop: 8,
+    },
+    wallet: {
+      flexDirection: 'row',
+      gap: 8,
+    },
+    chip: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: 6,
+      backgroundColor: t.card,
+      borderRadius: 999,
+      paddingHorizontal: 14,
+      paddingVertical: 6,
+      borderBottomWidth: 3,
+      borderColor: t.cardEdge,
+    },
+    chipIcon: {
+      fontSize: 18,
+    },
+    chipValue: {
+      fontFamily: font.semibold,
+      fontSize: 18,
+      color: t.text,
+    },
+    muteButton: {
+      padding: 4,
+    },
+    muteIcon: {
+      fontSize: 24,
+    },
+    hero: {
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center',
+      gap: 24,
+    },
+    titleSmall: {
+      fontFamily: font.bold,
+      fontSize: 36,
+      letterSpacing: 8,
+      color: t.primary,
+      textAlign: 'center',
+    },
+    title: {
+      fontFamily: font.bold,
+      fontSize: 96,
+      lineHeight: 100,
+      color: t.text,
+      textAlign: 'center',
+    },
+    bubbles: {
+      flexDirection: 'row',
+      gap: 10,
+    },
+    bubble: {
+      fontFamily: font.semibold,
+      fontSize: 18,
+      color: t.textSoft,
+      backgroundColor: t.card,
+      borderRadius: 14,
+      paddingHorizontal: 12,
+      paddingVertical: 6,
+      overflow: 'hidden',
+    },
+    card: {
+      backgroundColor: t.card,
+      borderRadius: 20,
+      padding: 16,
+      borderBottomWidth: 4,
+      borderColor: t.cardEdge,
+    },
+    cardRow: {
+      flexDirection: 'row',
+      gap: 12,
+    },
+    cardGrow: {
+      flex: 1,
+      justifyContent: 'center',
+    },
+    themesButton: {
+      width: 92,
+    },
+    themesIcon: {
+      fontSize: 24,
+    },
+    themesLabel: {
+      fontFamily: font.semibold,
+      fontSize: 14,
+      color: t.text,
+    },
+    cardLabel: {
+      fontFamily: font.medium,
+      fontSize: 14,
+      color: t.textSoft,
+    },
+    cardValue: {
+      fontFamily: font.semibold,
+      fontSize: 20,
+      color: t.text,
+      marginTop: 2,
+    },
+    lengths: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+    },
+    lengthsLabel: {
+      fontFamily: font.medium,
+      fontSize: 18,
+      color: t.textSoft,
+    },
+    segment: {
+      flexDirection: 'row',
+      backgroundColor: t.track,
+      borderRadius: 16,
+      padding: 4,
+    },
+    segmentItem: {
+      paddingHorizontal: 18,
+      paddingVertical: 8,
+      borderRadius: 12,
+    },
+    segmentActive: {
+      backgroundColor: t.card,
+    },
+    segmentText: {
+      fontFamily: font.semibold,
+      fontSize: 18,
+      color: t.textSoft,
+    },
+    segmentTextActive: {
+      color: t.text,
+    },
+  });
