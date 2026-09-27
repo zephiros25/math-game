@@ -16,6 +16,7 @@ import Animated, {
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Keypad } from '@/components/keypad';
+import { Coin } from '@/components/coin';
 import { feedback } from '@/feedback';
 import { judge, type Verdict } from '@/game/engine';
 import { generateQuestion, levelInfo, type Question } from '@/game/levels';
@@ -188,7 +189,7 @@ export default function Play() {
             <View style={[styles.trackFill, { width: `${progressPct}%` }]} />
           </View>
           <Animated.View style={[styles.coinChip, coinStyle]}>
-            <Text style={styles.coinIcon}>🪙</Text>
+            <Coin size={20} />
             <Text style={styles.coinValue}>{stats.coins}</Text>
           </Animated.View>
         </View>
@@ -289,9 +290,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 4,
     minWidth: 56,
-  },
-  coinIcon: {
-    fontSize: 20,
   },
   coinValue: {
     fontFamily: font.semibold,

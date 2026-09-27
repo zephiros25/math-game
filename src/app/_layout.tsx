@@ -15,13 +15,15 @@ import { loadProgress } from '@/progress';
 import { theme } from '@/theme';
 
 SplashScreen.preventAutoHideAsync();
-initFeedback();
 
 export default function RootLayout() {
   const [fontsLoaded] = useFonts({ Fredoka_400Regular, Fredoka_500Medium, Fredoka_600SemiBold, Fredoka_700Bold });
   const [progressLoaded, setProgressLoaded] = useState(false);
 
   useEffect(() => {
+    // Inside an effect so audio players are only created on the device, not
+    // during static web rendering.
+    initFeedback();
     loadProgress().then((p) => {
       setMuted(p.muted);
       setProgressLoaded(true);

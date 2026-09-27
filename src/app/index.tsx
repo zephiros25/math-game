@@ -12,6 +12,7 @@ import Animated, {
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { ChunkyButton } from '@/components/chunky-button';
+import { Coin } from '@/components/coin';
 import { feedback, setMuted } from '@/feedback';
 import { levelInfo } from '@/game/levels';
 import { updateProgress, useProgress } from '@/progress';
@@ -50,8 +51,8 @@ export default function Home() {
       <View style={styles.column}>
         <View style={styles.topBar}>
           <View style={styles.wallet}>
-            <Chip icon="🪙" value={progress.coins} />
-            <Chip icon="💎" value={progress.gems} />
+            <Chip icon={<Coin size={18} />} value={progress.coins} />
+            <Chip icon={<Text style={styles.chipIcon}>💎</Text>} value={progress.gems} />
           </View>
           <Pressable onPress={toggleMute} hitSlop={12} style={styles.muteButton}>
             <Text style={styles.muteIcon}>{progress.muted ? '🔇' : '🔊'}</Text>
@@ -115,10 +116,10 @@ export default function Home() {
   );
 }
 
-function Chip({ icon, value }: { icon: string; value: number }) {
+function Chip({ icon, value }: { icon: React.ReactNode; value: number }) {
   return (
     <View style={styles.chip}>
-      <Text style={styles.chipIcon}>{icon}</Text>
+      {icon}
       <Text style={styles.chipValue}>{value}</Text>
     </View>
   );

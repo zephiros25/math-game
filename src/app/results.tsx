@@ -5,6 +5,7 @@ import Animated, { FadeInDown, ZoomIn } from 'react-native-reanimated';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { ChunkyButton } from '@/components/chunky-button';
+import { Coin } from '@/components/coin';
 import { feedback } from '@/feedback';
 import { levelInfo } from '@/game/levels';
 import { font, theme } from '@/theme';
@@ -93,7 +94,7 @@ export default function Results() {
 
           <View style={styles.rewards}>
             <View style={styles.reward}>
-              <Text style={styles.rewardIcon}>🪙</Text>
+              <Coin size={36} />
               <Text style={styles.rewardValue}>+{shownCoins}</Text>
             </View>
             {showGems && (

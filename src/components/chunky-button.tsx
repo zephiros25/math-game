@@ -1,7 +1,7 @@
 // A tactile "3D" button: a colored face sitting on a darker edge. Pressing
 // pushes the face down onto the edge, like a real key.
 
-import { Pressable, StyleSheet, Text, View, type StyleProp, type ViewStyle } from 'react-native';
+import { Platform, Pressable, StyleSheet, Text, View, type StyleProp, type ViewStyle } from 'react-native';
 import Animated, { useAnimatedStyle, useSharedValue, withSpring, withTiming } from 'react-native-reanimated';
 
 import { font, theme } from '@/theme';
@@ -37,6 +37,9 @@ export function ChunkyButton({
   style,
 }: Props) {
   const pressed = useSharedValue(0);
+  // react-native-web doesn't reliably deliver press-in for mouse clicks, so
+  // the web build falls back to firing on click.
+  const onTouchDown = fireOnPressIn && Platform.OS !== 'web';
 
   const faceStyle = useAnimatedStyle(() => ({
     transform: [{ translateY: pressed.value * (edge - 1) }],
@@ -47,12 +50,12 @@ export function ChunkyButton({
       disabled={disabled}
       onPressIn={() => {
         pressed.set(withTiming(1, { duration: 50 }));
-        if (fireOnPressIn) onPress();
+        if (onTouchDown) onPress();
       }}
       onPressOut={() => {
         pressed.set(withSpring(0, { damping: 12, stiffness: 400 }));
       }}
-      onPress={fireOnPressIn ? undefined : onPress}
+      onPress={onTouchDown ? undefined : onPress}
       style={[{ height: height + edge, opacity: disabled ? 0.5 : 1 }, style]}
     >
       <View style={[styles.edge, { top: edge, height, backgroundColor: edgeColor }]} />
