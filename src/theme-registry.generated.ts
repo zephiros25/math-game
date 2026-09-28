@@ -34,6 +34,7 @@ export const THEME_DATA: ThemeData[] = [
       "cardEdge": "#EFE2D2",
       "track": "#F1E3D1"
     },
+    "icon": null,
     "keyImage": null,
     "keyImageFit": "cover",
     "keyImageOnBackspace": false,
@@ -82,6 +83,7 @@ export const THEME_DATA: ThemeData[] = [
       "cardEdge": "#C9E6EF",
       "track": "#D3EDF5"
     },
+    "icon": null,
     "keyImage": null,
     "keyImageFit": "cover",
     "keyImageOnBackspace": false,
@@ -130,6 +132,7 @@ export const THEME_DATA: ThemeData[] = [
       "cardEdge": "#D9EBCB",
       "track": "#DDEFD0"
     },
+    "icon": null,
     "keyImage": null,
     "keyImageFit": "cover",
     "keyImageOnBackspace": false,
@@ -178,6 +181,7 @@ export const THEME_DATA: ThemeData[] = [
       "cardEdge": "#F6D5E4",
       "track": "#FBDDEA"
     },
+    "icon": null,
     "keyImage": null,
     "keyImageFit": "cover",
     "keyImageOnBackspace": false,
@@ -228,6 +232,7 @@ export const THEME_DATA: ThemeData[] = [
       "cardEdge": "#141033",
       "track": "#2E2966"
     },
+    "icon": null,
     "keyImage": null,
     "keyImageFit": "cover",
     "keyImageOnBackspace": false,
@@ -276,6 +281,7 @@ export const THEME_DATA: ThemeData[] = [
       "cardEdge": "#07121A",
       "track": "#1C4258"
     },
+    "icon": null,
     "keyImage": null,
     "keyImageFit": "cover",
     "keyImageOnBackspace": false,
@@ -324,6 +330,7 @@ export const THEME_DATA: ThemeData[] = [
       "cardEdge": "#0A0806",
       "track": "#2E271C"
     },
+    "icon": null,
     "keyImage": null,
     "keyImageFit": "cover",
     "keyImageOnBackspace": false,
@@ -372,6 +379,7 @@ export const THEME_DATA: ThemeData[] = [
       "cardEdge": "#F2DAD5",
       "track": "#F7E1DC"
     },
+    "icon": null,
     "keyImage": null,
     "keyImageFit": "cover",
     "keyImageOnBackspace": false,
@@ -420,6 +428,7 @@ export const THEME_DATA: ThemeData[] = [
       "cardEdge": "#D2DFEE",
       "track": "#DAE5F1"
     },
+    "icon": null,
     "keyImage": require('../themes/diamond/key-chatgpt-image-27-sep-2026-21-0.jpg'),
     "keyImageFit": "cover",
     "keyImageOnBackspace": false,

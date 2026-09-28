@@ -56,6 +56,7 @@ export type ThemeData = {
   fontName: string | null; // null = the default font (Fredoka)
   fonts: Record<FontWeight, Asset> | null;
   colors: Colors;
+  icon: Asset | null; // the theme's tile in the shop; null = drawn from its colors
   keyImage: Asset | null; // drawn on the number keys
   keyImageFit: 'cover' | 'stretch';
   keyImageOnBackspace: boolean;

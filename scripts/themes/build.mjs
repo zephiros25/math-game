@@ -57,9 +57,10 @@ function fontFiles(t) {
 }
 
 function toData(t) {
-  const { background, particles, sounds, font, keys, ...meta } = t;
+  const { background, particles, sounds, font, keys, icon, ...meta } = t;
   return {
     ...meta,
+    icon: icon ? req(t.id, icon) : null,
     keyImage: keys?.image ? req(t.id, keys.image) : null,
     keyImageFit: keys?.fit ?? 'cover',
     keyImageOnBackspace: keys?.backspace ?? false,

@@ -214,9 +214,15 @@ function Tile({ theme, selected, owned, equipped, onPress }: TileProps) {
   return (
     <Pressable onPress={onPress} style={styles.tile}>
       <View style={[styles.swatch, { backgroundColor: theme.background, borderColor: selected ? t.primary : t.cardEdge }]}>
-        {/* Two dots hint at the theme's accent and feedback colors. */}
-        <View style={[styles.swatchDot, { backgroundColor: theme.primary }]} />
-        <View style={[styles.swatchDotSmall, { backgroundColor: theme.correct }]} />
+        {theme.icon !== null ? (
+          <Image source={theme.icon} contentFit="cover" style={styles.swatchImage} />
+        ) : (
+          <>
+            {/* Two dots hint at the theme's accent and feedback colors. */}
+            <View style={[styles.swatchDot, { backgroundColor: theme.primary }]} />
+            <View style={[styles.swatchDotSmall, { backgroundColor: theme.correct }]} />
+          </>
+        )}
         {!owned && !theme.premium && <Text style={styles.lock}>🔒</Text>}
         {selected && <Animated.View entering={ZoomIn.springify()} style={[styles.selectedRing, { borderColor: t.primary }]} />}
       </View>
@@ -390,6 +396,14 @@ const makeStyles = (t: Theme) =>
       alignItems: 'center',
       justifyContent: 'center',
       marginBottom: 4,
+    },
+    swatchImage: {
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      borderRadius: 17,
     },
     swatchDot: {
       width: 26,

@@ -117,6 +117,11 @@
   .font-sample small { display: block; font-size: 16px; }
   .weights { display: grid; grid-template-columns: 90px 1fr; gap: 6px 10px; align-items: center; }
   .weights .drop { padding: 6px; font-size: 12px; }
+  .icon-row { display: flex; gap: 12px; align-items: center; flex: 1; }
+  .icon-row .drop { flex: 1; }
+  .icon-tile { width: 64px; height: 64px; flex: none; border-radius: 20px; border: 3px solid var(--line); background-size: cover; background-position: center; position: relative; }
+  .icon-tile i { position: absolute; left: 16px; top: 16px; width: 26px; height: 26px; border-radius: 50%; }
+  .icon-tile b { position: absolute; right: 10px; bottom: 10px; width: 12px; height: 12px; border-radius: 50%; }
   kbd { background: var(--bg); border: 1px solid var(--line); border-radius: 4px; padding: 0 4px; font-size: 12px; }
 </style>
 </head>
@@ -229,6 +234,7 @@ const fill = (el, ...kids) => el.replaceChildren(...kids.flat().filter((k) => k 
 function withDefaults(json) {
   const j = clone(json);
   j.font ??= null;
+  j.icon ??= null;
   j.keys ??= { image: null, fit: 'cover', backspace: false };
   j.sounds ??= {};
   return j;
@@ -325,8 +331,10 @@ function renderList() {
   fill(list, ...themes.map((t) => {
     const j = t.json;
     const sub = !j ? 'broken JSON' : j.premium ? '★ Premium' : j.price === 0 ? 'Free' : `${j.price} coins`;
-    const sw = h('div', { class: 'swatch', style: { background: j?.colors?.background ?? '#ccc', backgroundImage: j?.background?.image ? `url(${fileUrl(t.id, j.background.image)})` : '' } },
-      h('i', { style: { background: j?.colors?.primary ?? '#999' } }));
+    const sw = j?.icon
+      ? h('div', { class: 'swatch', style: { backgroundImage: `url(${fileUrl(t.id, j.icon)})` } })
+      : h('div', { class: 'swatch', style: { background: j?.colors?.background ?? '#ccc', backgroundImage: j?.background?.image ? `url(${fileUrl(t.id, j.background.image)})` : '' } },
+          h('i', { style: { background: j?.colors?.primary ?? '#999' } }));
     return h('div', { class: `theme-item${current?.id === t.id ? ' active' : ''}`, onclick: () => select(t.id) },
       sw,
       h('div', {}, h('div', { class: 'name' }, j?.name ?? t.id, t.errors.length ? h('span', { class: 'badge-err', title: t.errors.join('\n') }, '  ⚠') : ''),
@@ -391,6 +399,7 @@ function basicsCard(j) {
     field('Name', h('input', { type: 'text', value: j.name, oninput: (e) => { j.name = e.target.value; changed(); } })),
     field('Tagline', h('input', { type: 'text', value: j.tagline, style: { width: '320px' }, oninput: (e) => { j.tagline = e.target.value; changed(); } }), 'Shown under the name in the shop.'),
     field('Unlock', h('span', { class: 'chips' }, radio('free', 'Free'), radio('coins', 'Coins:'), price, radio('premium', '★ Premium (in-app purchase)'))),
+    iconField(j),
     field('Shop order', h('input', { type: 'number', value: j.order, step: 10, style: { width: '90px' }, oninput: (e) => { j.order = Number(e.target.value) || 0; changed(); } }), 'Lower comes first.'),
     field('Dark theme', h('input', { type: 'checkbox', checked: j.dark, onchange: (e) => { j.dark = e.target.checked; changed(); } }), 'Makes the phone status bar light.'),
   );
@@ -460,6 +469,28 @@ function fontCard(j) {
   };
   render();
   return h('section', { class: 'card' }, h('h2', {}, 'Font'), body);
+}
+
+// The theme's tile in the shop: a picture, or (without one) its colors.
+function iconField(j) {
+  const wrap = h('div');
+  const render = () => {
+    const tile = j.icon
+      ? h('div', { class: 'icon-tile', style: { backgroundImage: `url(${fileUrl(current.id, j.icon)})` } })
+      : h('div', { class: 'icon-tile', style: { background: j.colors.background } },
+          h('i', { style: { background: j.colors.primary } }),
+          h('b', { style: { background: j.colors.correct } }));
+    fill(wrap, field('Shop icon', h('div', { class: 'icon-row' },
+      tile,
+      j.icon
+        ? h('button', { onclick: () => { j.icon = null; render(); changed(); renderList(); } }, 'Use the colors instead')
+        : dropZone('Drop a picture for the tile of this theme in the shop. It is cropped to a square, so keep the subject in the middle.', 'image/*', false, async ([f]) => {
+            j.icon = await upload('icon', f); render(); changed(); renderList();
+          }),
+    )));
+  };
+  render();
+  return wrap;
 }
 
 function colorInput(j, key, label) {

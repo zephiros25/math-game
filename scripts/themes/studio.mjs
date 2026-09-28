@@ -37,7 +37,7 @@ const studioHtml = fileURLToPath(new URL('./studio.html', import.meta.url));
 
 // Files the Studio creates get these prefixes; only those are cleaned up
 // automatically when a theme stops referencing them.
-const MANAGED_PREFIXES = ['bg-', 'particle-', 'sound-', 'font-', 'key-'];
+const MANAGED_PREFIXES = ['bg-', 'particle-', 'sound-', 'font-', 'key-', 'icon-'];
 const SAFE_FILE = /^[A-Za-z0-9._-]+$/;
 
 const TYPES = {
@@ -94,6 +94,7 @@ function referencedFiles(theme) {
   return new Set([
     theme.background?.image,
     theme.keys?.image,
+    theme.icon,
     ...(theme.particles?.images ?? []),
     ...Object.values(theme.sounds ?? {}).flatMap((s) => s.files ?? []),
     ...Object.values(theme.font?.files ?? {}),
@@ -137,6 +138,16 @@ const slug = (name) =>
 async function importFile(id, kind, originalName, data) {
   const dir = themeDir(id);
   const ext = extname(originalName).toLowerCase();
+  if (kind === 'icon') {
+    if (!IMAGE_EXTENSIONS.includes(ext)) throw new HttpError(400, `Images must be ${IMAGE_EXTENSIONS.join(', ')}`);
+    // Shop tiles are small squares: crop to the centre and keep 256 px.
+    const image = sharp(data).rotate().resize({ width: 256, height: 256, fit: 'cover', position: 'attention' });
+    const { hasAlpha } = await sharp(data).metadata();
+    const out = hasAlpha ? await image.png({ compressionLevel: 9 }).toBuffer() : await image.jpeg({ quality: 88, mozjpeg: true }).toBuffer();
+    const name = uniqueName(dir, `icon-${slug(originalName)}`, hasAlpha ? '.png' : '.jpg');
+    writeFileSync(join(dir, name), out);
+    return name;
+  }
   if (kind === 'key') {
     if (!IMAGE_EXTENSIONS.includes(ext)) throw new HttpError(400, `Images must be ${IMAGE_EXTENSIONS.join(', ')}`);
     // Keys are small: 512 px is plenty. Keep PNG only when the image has transparency.

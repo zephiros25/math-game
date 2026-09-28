@@ -70,6 +70,7 @@ export function defaultTheme(name = 'New theme') {
       card: '#FFFFFF', cardEdge: '#EFE2D2', track: '#F1E3D1',
     },
     font: null,
+    icon: null,
     keys: { image: null, fit: 'cover', backspace: false },
     background: { image: null, dim: 0 },
     particles: { style: 'sunbeams', colors: ['#FFD9A8', '#FFC9B5'], images: [], amount: 1, opacity: 1 },
@@ -154,6 +155,9 @@ export function validateTheme(id, theme, dir) {
     }
     if (Object.keys(files).length === 0) err('font needs at least one font file');
   }
+
+  // Optional square picture for the theme's tile in the shop.
+  if (theme.icon !== null && theme.icon !== undefined) fileCheck(theme.icon, IMAGE_EXTENSIONS, 'icon');
 
   // Optional image drawn on the number keys. Older theme.json files may not have "keys".
   const keys = theme.keys ?? { image: null, fit: 'cover', backspace: false };
