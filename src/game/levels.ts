@@ -90,7 +90,7 @@ export const LEVELS: readonly Level[] = [
   },
   {
     name: 'Doubles & halves',
-    expectedMs: 5500,
+    expectedMs: 5000,
     generate: () => {
       const n = int(2, 10);
       return plusMinus(n, n);
@@ -99,7 +99,7 @@ export const LEVELS: readonly Level[] = [
   {
     // 8 + 5 and 13 − 5: the ones cross the ten.
     name: 'Over & under the ten',
-    expectedMs: 6500,
+    expectedMs: 5000,
     generate: () => {
       const a = int(2, 9);
       return plusMinus(a, int(11 - a, 9), true);
@@ -108,7 +108,7 @@ export const LEVELS: readonly Level[] = [
   // ---- Adding and taking away to 100
   {
     name: 'Tens',
-    expectedMs: 6000,
+    expectedMs: 5000,
     generate: () => {
       const a = int(1, 8);
       return plusMinus(a * 10, int(1, 9 - a) * 10, true);
@@ -117,7 +117,7 @@ export const LEVELS: readonly Level[] = [
   {
     // 34 + 5 and 39 − 5, without crossing a ten.
     name: 'Two-digit ± one-digit',
-    expectedMs: 6500,
+    expectedMs: 5000,
     generate: () => {
       const ones = int(0, 8);
       return plusMinus(int(2, 8) * 10 + ones, int(1, 9 - ones));
@@ -126,7 +126,7 @@ export const LEVELS: readonly Level[] = [
   {
     // 47 + 8 and 55 − 8: crossing a ten.
     name: 'Crossing a ten',
-    expectedMs: 7500,
+    expectedMs: 5000,
     generate: () => {
       const ones = int(2, 9);
       return plusMinus(int(2, 8) * 10 + ones, int(10 - ones, 9));
@@ -134,7 +134,7 @@ export const LEVELS: readonly Level[] = [
   },
   {
     name: 'Adding & taking away tens',
-    expectedMs: 7500,
+    expectedMs: 5000,
     generate: () => {
       const a = int(11, 79);
       return plusMinus(a, int(1, Math.floor((99 - a) / 10)) * 10);
