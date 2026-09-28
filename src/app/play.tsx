@@ -80,7 +80,7 @@ export default function Play() {
 
   function submit(value: string) {
     const correct = Number(value) === question.answer;
-    const v = judge(level, correct, now() - shownAt.current, wrongBefore.current);
+    const v = judge(level, correct, now() - shownAt.current, wrongBefore.current, question.effort);
     wrongBefore.current = !correct;
     setVerdict(v);
 

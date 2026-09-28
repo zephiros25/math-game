@@ -11,7 +11,8 @@
 // three levels per question, reaching ×/÷ to 100 in under ten questions. A
 // beginner who counts things out only earns +1 or 0, so the climb stops where
 // they stop being fluent. A slow answer is never punished, it just doesn't
-// move the player up.
+// move the player up. Subtraction and division questions get a little more
+// time (the question's `effort`), so drawing them never slows the climb.
 
 import { levelInfo, MAX_LEVEL } from './levels';
 
@@ -36,13 +37,14 @@ export function judge(
   correct: boolean,
   elapsedMs: number,
   previousWasWrong: boolean,
+  effort = 1,
 ): Verdict {
   const clamp = (l: number) => Math.max(1, Math.min(MAX_LEVEL, l));
   if (!correct) {
     const delta = previousWasWrong ? -2 : -1;
     return { correct, speed: null, delta, nextLevel: clamp(level + delta) };
   }
-  const ratio = elapsedMs / levelInfo(level).expectedMs;
+  const ratio = elapsedMs / (levelInfo(level).expectedMs * effort);
   const step = STEPS.find((s) => ratio <= s.maxRatio)!;
   return { correct, speed: step.speed, delta: step.delta, nextLevel: clamp(level + step.delta) };
 }
