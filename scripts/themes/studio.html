@@ -221,6 +221,18 @@ const h = (tag, attrs = {}, ...children) => {
   return el;
 };
 const clone = (x) => JSON.parse(JSON.stringify(x));
+// Like replaceChildren, but skips null/false (which replaceChildren would print as text).
+const fill = (el, ...kids) => el.replaceChildren(...kids.flat().filter((k) => k != null && k !== false));
+
+// Fills in sections that older theme.json files don't have yet, so opening a
+// theme never counts as a change by itself.
+function withDefaults(json) {
+  const j = clone(json);
+  j.font ??= null;
+  j.keys ??= { image: null, fit: 'cover', backspace: false };
+  j.sounds ??= {};
+  return j;
+}
 const fileUrl = (id, f) => `/files/${id}/${encodeURIComponent(f)}`;
 
 async function api(path, opts = {}) {
@@ -310,7 +322,7 @@ function playSlot(slot, opts = {}) {
 // ---------------------------------------------------------------- list + selection
 function renderList() {
   const list = $('#themeList');
-  list.replaceChildren(...themes.map((t) => {
+  fill(list, ...themes.map((t) => {
     const j = t.json;
     const sub = !j ? 'broken JSON' : j.premium ? '★ Premium' : j.price === 0 ? 'Free' : `${j.price} coins`;
     const sw = h('div', { class: 'swatch', style: { background: j?.colors?.background ?? '#ccc', backgroundImage: j?.background?.image ? `url(${fileUrl(t.id, j.background.image)})` : '' } },
@@ -328,16 +340,21 @@ function confirmLeave() { return !isDirty() || confirm('You have unsaved changes
 async function select(id) {
   if (current?.id === id || !confirmLeave()) return;
   const t = await api(`/api/themes/${id}`);
-  current = { ...t, json: t.json ?? clone(meta.defaultTheme) };
-  savedJson = JSON.stringify(t.json);
+  current = { ...t, json: withDefaults(t.json ?? meta.defaultTheme) };
+  savedJson = t.json ? JSON.stringify(current.json) : '';
   renderList(); renderEditor(); renderPreview(); updateStatus(t);
 }
 
-function setStatus(text) { $('#status').textContent = text; }
+function setStatus(text, isError = false) {
+  const st = $('#status');
+  st.textContent = text;
+  st.style.color = isError ? 'var(--err)' : '';
+}
 function updateStatus(result) {
   const dirty = isDirty();
   $('#save').disabled = !dirty;
   const st = $('#status');
+  st.style.color = '';
   st.className = `status${dirty ? ' dirty' : ''}`;
   st.textContent = dirty ? '● Unsaved changes' : result?.errors?.length ? '' : 'All changes saved';
 }
@@ -346,11 +363,11 @@ function changed() { renderPreview(); renderChecks(); updateStatus(); }
 // ---------------------------------------------------------------- editor
 function renderEditor() {
   const ed = $('#editor');
-  if (!current) { ed.replaceChildren(h('div', { class: 'empty' }, 'Pick a theme on the left, or create a new one.')); return; }
+  if (!current) { fill(ed, h('div', { class: 'empty' }, 'Pick a theme on the left, or create a new one.')); return; }
   const j = current.json;
-  ed.replaceChildren(
+  fill(ed, 
     h('div', { class: 'messages', id: 'messages' }),
-    basicsCard(j), fontCard(j), colorsCard(j), backgroundCard(j), particlesCard(j), soundsCard(j),
+    basicsCard(j), fontCard(j), colorsCard(j), keysCard(j), backgroundCard(j), particlesCard(j), soundsCard(j),
   );
   renderChecks();
 }
@@ -431,7 +448,7 @@ function fontCard(j) {
               render(); changed();
             })];
     });
-    body.replaceChildren(
+    fill(body, 
       h('div', { class: 'font-sample', style: { fontFamily: fam, color: j.colors.text } },
         h('span', { style: { fontWeight: 600 } }, '6 × 7 = 42'), ' ', h('span', { style: { fontWeight: 700, color: j.colors.primary } }, 'PLAY'),
         h('small', { style: { fontWeight: 500 } }, `${j.font ? j.font.name : 'Fredoka (default)'} · Tables of 3 and 4 · 1234567890`)),
@@ -495,27 +512,74 @@ function autoText(j) {
 }
 
 function dropZone(text, accept, multiple, onFiles) {
-  const input = h('input', { type: 'file', accept, multiple, hidden: true, onchange: () => { onFiles([...input.files]); input.value = ''; } });
-  const zone = h('div', { class: 'drop', onclick: () => input.click() }, text, input);
+  const label = h('span', {}, text);
+  const error = h('div', { class: 'msg err', hidden: true, style: { marginTop: '8px' } });
+  const run = async (files) => {
+    if (!files.length) return;
+    error.hidden = true;
+    label.textContent = `Importing ${files.map((f) => f.name).join(', ')}…`;
+    try {
+      await onFiles(files);
+    } catch (e) {
+      error.textContent = `✖ ${e.message}`;
+      error.hidden = false;
+    } finally {
+      label.textContent = text;
+    }
+  };
+  const input = h('input', { type: 'file', accept, multiple, hidden: true, onchange: () => { run([...input.files]); input.value = ''; } });
+  const zone = h('div', { class: 'drop', onclick: (e) => { if (!error.contains(e.target)) input.click(); } }, label, input, error);
   zone.addEventListener('dragover', (e) => { e.preventDefault(); zone.classList.add('over'); });
   zone.addEventListener('dragleave', () => zone.classList.remove('over'));
-  zone.addEventListener('drop', (e) => { e.preventDefault(); zone.classList.remove('over'); onFiles([...e.dataTransfer.files]); });
+  zone.addEventListener('drop', (e) => { e.preventDefault(); zone.classList.remove('over'); run([...e.dataTransfer.files]); });
   return zone;
 }
 
 async function upload(kind, file) {
-  setStatus(`Importing ${file.name}…`);
-  const res = await fetch(`/api/themes/${current.id}/upload?kind=${kind}&name=${encodeURIComponent(file.name)}`, { method: 'POST', body: file });
-  const body = await res.json();
-  if (!res.ok) { showMessages([body.error], []); throw new Error(body.error); }
+  setStatus(`Importing ${file.name} (${(file.size / 1e6).toFixed(1)} MB)…`);
+  let res, body;
+  try {
+    res = await fetch(`/api/themes/${current.id}/upload?kind=${kind}&name=${encodeURIComponent(file.name)}`, { method: 'POST', body: file });
+    body = await res.json().catch(() => ({ error: `The Studio server answered with an error (${res.status})` }));
+  } catch {
+    body = { error: 'Could not reach the Studio server. Is `npm run studio` still running?' };
+  }
+  if (!res?.ok) {
+    setStatus(`✖ Import failed: ${body.error}`, true);
+    throw new Error(body.error);
+  }
+  setStatus(`Imported ${file.name}`);
   return body.file;
+}
+
+function keysCard(j) {
+  const k = j.keys;
+  const body = h('div');
+  const render = () => {
+    fill(body, 
+      k.image
+        ? h('div', { class: 'thumbs' }, h('div', { class: 'thumb', style: { width: '110px', height: '62px', backgroundImage: `url(${fileUrl(current.id, k.image)})`, backgroundSize: k.fit === 'stretch' ? '100% 100%' : 'cover' } },
+            h('button', { title: 'Remove', onclick: () => { k.image = null; render(); changed(); } }, '✕')))
+        : dropZone('Drop an image for the number keys: a texture (marble, wood, crystal facets, paper) or a whole button illustration. Wide images (about 16:9) fit keys best.', 'image/*', false, async ([f]) => {
+            k.image = await upload('key', f); render(); changed();
+          }),
+      field('Fit', h('select', { onchange: (e) => { k.fit = e.target.value; render(); changed(); } },
+        h('option', { value: 'cover', selected: k.fit === 'cover' }, 'Fill (crop to fit)'),
+        h('option', { value: 'stretch', selected: k.fit === 'stretch' }, 'Stretch to the key shape')),
+        'Fill suits textures; stretch suits button illustrations.'),
+      field('Backspace too', h('input', { type: 'checkbox', checked: k.backspace, onchange: (e) => { k.backspace = e.target.checked; changed(); } })),
+      k.image ? h('p', { class: 'hint' }, 'The key number is drawn in the "Key number" color on top of the image, and the readability check cannot see the image: make sure the digits stand out on the phone, or use a calmer image. The key edge color still forms the 3D bottom.') : null,
+    );
+  };
+  render();
+  return h('section', { class: 'card' }, h('h2', {}, 'Number keys (optional image)'), body);
 }
 
 function backgroundCard(j) {
   const body = h('div');
   const render = () => {
     const bg = j.background;
-    body.replaceChildren(
+    fill(body, 
       bg.image
         ? h('div', { class: 'thumbs' }, h('div', { class: 'thumb bg', style: { backgroundImage: `url(${fileUrl(current.id, bg.image)})` } },
             h('button', { title: 'Remove', onclick: () => { bg.image = null; render(); changed(); renderList(); } }, '✕')))
@@ -549,7 +613,7 @@ function extractPalette(url) {
     const top = [...buckets.values()].sort((a, b) => b.n - a.n).slice(0, 8)
       .map((b) => '#' + [b.r, b.g, b.bl].map((v) => Math.round(v / b.n).toString(16).padStart(2, '0')).join('').toUpperCase());
     const el = $('#imgPalette');
-    if (el) el.replaceChildren(...top.map((hex) => h('span', { title: `${hex} (click to copy)`, style: { background: hex },
+    if (el) fill(el, ...top.map((hex) => h('span', { title: `${hex} (click to copy)`, style: { background: hex },
       onclick: () => { navigator.clipboard.writeText(hex); setStatus(`Copied ${hex}`); } })));
   };
   img.src = url;
@@ -559,13 +623,13 @@ function particlesCard(j) {
   const p = j.particles;
   const colors = h('div', { class: 'chips' });
   const images = h('div');
-  const renderColors = () => colors.replaceChildren(
+  const renderColors = () => fill(colors, 
     ...p.colors.map((c, i) => h('span', { class: 'chip' },
       h('input', { type: 'color', value: c, oninput: (e) => { p.colors[i] = e.target.value.toUpperCase(); changed(); } }),
       h('button', { class: 'icon small', title: 'Remove', onclick: () => { p.colors.splice(i, 1); renderColors(); changed(); } }, '✕'))),
     h('button', { class: 'small', onclick: () => { p.colors.push(j.colors.primary); renderColors(); changed(); } }, '+ color'),
   );
-  const renderImages = () => images.replaceChildren(
+  const renderImages = () => fill(images, 
     dropZone('Drop particle images here (PNG with a transparent background: petals, stars, fish…). They move like the style above and replace the colored shapes.', 'image/*', true, async (files) => {
       for (const f of files) p.images.push(await upload('particle', f));
       renderImages(); changed();
@@ -586,14 +650,13 @@ function particlesCard(j) {
 }
 
 function soundsCard(j) {
-  j.sounds ??= {};
   const rows = Object.entries(meta.soundSlots).map(([slot, desc]) => {
     const row = h('div', { class: 'sound' });
     const render = () => {
       const s = j.sounds[slot];
       const max = slot === 'tap' ? 3 : 1;
       const files = s?.files ?? [];
-      row.replaceChildren(
+      fill(row, 
         h('div', {}, h('div', { class: 'slot' }, slot), h('div', { class: 'hint' }, desc)),
         h('div', {},
           h('div', { class: 'files' },
@@ -659,7 +722,7 @@ function renderChecks() {
 function showMessages(errors, warnings, ok) {
   const box = $('#messages');
   if (!box) return;
-  box.replaceChildren(
+  fill(box, 
     ...errors.map((e) => h('div', { class: 'msg err' }, '✖ ', e.replace(/^[\w-]+: /, ''))),
     ...warnings.map((w) => h('div', { class: 'msg warn' }, '⚠ ', w.replace(/^[\w-]+: /, ''))),
     ok ? h('div', { class: 'msg ok' }, ok) : null,
@@ -784,7 +847,7 @@ function particlesLayer(j) {
 
 function renderPreview(anim) {
   const phone = $('#phone');
-  if (!current) { phone.replaceChildren(); return; }
+  if (!current) { fill(phone); return; }
   const j = current.json, c = j.colors;
   phone.style.setProperty('--pf', `"${previewFont(j)}"`);
   const layers = [h('div', { class: 'layer', style: { background: c.background } })];
@@ -797,7 +860,7 @@ function renderPreview(anim) {
   if (phone._pKey !== pKey) { phone._particles = particlesLayer(j); phone._pKey = pKey; }
   layers.push(phone._particles);
   layers.push(screen === 'play' ? playScreen(c, anim) : homeScreen(c));
-  phone.replaceChildren(...layers);
+  fill(phone, ...layers);
 }
 
 function playScreen(c, anim) {
@@ -805,7 +868,11 @@ function playScreen(c, anim) {
   const boxBg = v === 'correct' ? c.correct : v === 'wrong' ? c.wrong : c.card;
   const boxEdge = v === 'correct' ? c.correctEdge : v === 'wrong' ? c.wrongEdge : c.cardEdge;
   const boxText = v ? c.onFeedback : game.input ? c.text : c.keyEdge;
-  const key = (d, bg = c.key, fg = c.keyText) => h('button', { class: 'p-key', style: { background: bg, color: fg, borderBottomColor: c.keyEdge },
+  const keys = current.json.keys ?? {};
+  const key = (d, bg = c.key, fg = c.keyText, withImage = true) => h('button', { class: 'p-key', style: {
+      background: bg, color: fg, borderBottomColor: c.keyEdge,
+      ...(keys.image && withImage ? { backgroundImage: `url(${fileUrl(current.id, keys.image)})`, backgroundSize: keys.fit === 'stretch' ? '100% 100%' : 'cover', backgroundPosition: 'center' } : {}),
+    },
     onmousedown: () => d === '⌫' ? (game.input && !game.verdict && (game.input = game.input.slice(0, -1), playSlot('backspace'), renderPreview())) : d && typeDigit(d) }, d);
   return h('div', { class: 'ui' },
     h('div', { class: 'p-top' },
@@ -821,7 +888,7 @@ function playScreen(c, anim) {
       h('div', { class: 'p-q', style: { color: c.text } }, `${game.question} =`),
       h('div', { class: `p-ans ${anim ?? ''}`, style: { background: boxBg, borderBottomColor: boxEdge, color: boxText } }, game.input || '?'),
       h('div', { class: 'p-toast', style: { color: c.textSoft, fontWeight: 500 } }, v === 'wrong' ? `${game.question} = ${game.answer}` : '')),
-    h('div', { class: 'p-pad' }, '123456789'.split('').map((d) => key(d)), h('span'), key('0'), key('⌫', c.backgroundDeep, c.textSoft)),
+    h('div', { class: 'p-pad' }, '123456789'.split('').map((d) => key(d)), h('span'), key('0'), key('⌫', c.backgroundDeep, c.textSoft, !!keys.backspace)),
   );
 }
 

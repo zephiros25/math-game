@@ -37,7 +37,7 @@ const studioHtml = fileURLToPath(new URL('./studio.html', import.meta.url));
 
 // Files the Studio creates get these prefixes; only those are cleaned up
 // automatically when a theme stops referencing them.
-const MANAGED_PREFIXES = ['bg-', 'particle-', 'sound-', 'font-'];
+const MANAGED_PREFIXES = ['bg-', 'particle-', 'sound-', 'font-', 'key-'];
 const SAFE_FILE = /^[A-Za-z0-9._-]+$/;
 
 const TYPES = {
@@ -93,6 +93,7 @@ function listThemes() {
 function referencedFiles(theme) {
   return new Set([
     theme.background?.image,
+    theme.keys?.image,
     ...(theme.particles?.images ?? []),
     ...Object.values(theme.sounds ?? {}).flatMap((s) => s.files ?? []),
     ...Object.values(theme.font?.files ?? {}),
@@ -136,6 +137,16 @@ const slug = (name) =>
 async function importFile(id, kind, originalName, data) {
   const dir = themeDir(id);
   const ext = extname(originalName).toLowerCase();
+  if (kind === 'key') {
+    if (!IMAGE_EXTENSIONS.includes(ext)) throw new HttpError(400, `Images must be ${IMAGE_EXTENSIONS.join(', ')}`);
+    // Keys are small: 512 px is plenty. Keep PNG only when the image has transparency.
+    const image = sharp(data).rotate().resize({ width: 512, height: 512, fit: 'inside', withoutEnlargement: true });
+    const { hasAlpha } = await sharp(data).metadata();
+    const out = hasAlpha ? await image.png({ compressionLevel: 9 }).toBuffer() : await image.jpeg({ quality: 86, mozjpeg: true }).toBuffer();
+    const name = uniqueName(dir, `key-${slug(originalName)}`, hasAlpha ? '.png' : '.jpg');
+    writeFileSync(join(dir, name), out);
+    return name;
+  }
   if (kind === 'background' || kind === 'particle') {
     if (!IMAGE_EXTENSIONS.includes(ext)) throw new HttpError(400, `Images must be ${IMAGE_EXTENSIONS.join(', ')}`);
     const image = sharp(data).rotate();

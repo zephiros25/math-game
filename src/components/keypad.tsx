@@ -29,6 +29,8 @@ export function Keypad({ onDigit, onBackspace, disabled }: Props) {
       color={t.key}
       edgeColor={t.keyEdge}
       textColor={t.keyText}
+      image={t.keyImage}
+      imageFit={t.keyImageFit}
       fontSize={34}
       height={62}
       style={styles.key}
@@ -51,6 +53,8 @@ export function Keypad({ onDigit, onBackspace, disabled }: Props) {
           disabled={disabled}
           color={t.backgroundDeep}
           edgeColor={t.keyEdge}
+          image={t.keyImageOnBackspace ? t.keyImage : null}
+          imageFit={t.keyImageFit}
           height={62}
           style={styles.key}
         >

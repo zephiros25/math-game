@@ -37,7 +37,7 @@
     }
   },
   "background": {
-    "image": null,
+    "image": "bg-chatgpt-image-27-sep-2026-20-5.jpg",
     "dim": 0
   },
   "particles": {
@@ -53,14 +53,6 @@
     "opacity": 0.9
   },
   "sounds": {
-    "tap": {
-      "files": [
-        "sound-glass-tap-1.wav",
-        "sound-glass-tap-2.wav",
-        "sound-glass-tap-3.wav"
-      ],
-      "volume": 0.85
-    },
     "backspace": {
       "files": [
         "sound-glass-back.wav"
@@ -108,6 +100,19 @@
         "sound-diamond-sparkle.wav"
       ],
       "volume": 0.9
+    },
+    "tap": {
+      "files": [
+        "sound-untitled.mp3",
+        "sound-untitled2.mp3",
+        "sound-untitled3.mp3"
+      ],
+      "volume": 1
     }
+  },
+  "keys": {
+    "image": "key-chatgpt-image-27-sep-2026-21-0.jpg",
+    "fit": "cover",
+    "backspace": false
   }
 }

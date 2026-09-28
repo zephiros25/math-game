@@ -17,6 +17,7 @@
       "name": "theme-studio",
       "runtimeExecutable": "node",
       "runtimeArgs": [
+        "--watch",
         "scripts/themes/studio.mjs"
       ],
       "port": 4455

@@ -50,7 +50,7 @@
     "lint": "expo lint",
     "prestart": "node scripts/themes/build.mjs",
     "themes": "node scripts/themes/build.mjs",
-    "studio": "node scripts/themes/studio.mjs"
+    "studio": "node --watch scripts/themes/studio.mjs"
   },
   "private": true
 }

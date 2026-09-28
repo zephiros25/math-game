@@ -70,6 +70,7 @@ export function defaultTheme(name = 'New theme') {
       card: '#FFFFFF', cardEdge: '#EFE2D2', track: '#F1E3D1',
     },
     font: null,
+    keys: { image: null, fit: 'cover', backspace: false },
     background: { image: null, dim: 0 },
     particles: { style: 'sunbeams', colors: ['#FFD9A8', '#FFC9B5'], images: [], amount: 1, opacity: 1 },
     sounds: {},
@@ -153,6 +154,15 @@ export function validateTheme(id, theme, dir) {
     }
     if (Object.keys(files).length === 0) err('font needs at least one font file');
   }
+
+  // Optional image drawn on the number keys. Older theme.json files may not have "keys".
+  const keys = theme.keys ?? { image: null, fit: 'cover', backspace: false };
+  if (keys.image !== null && keys.image !== undefined) {
+    const size = fileCheck(keys.image, IMAGE_EXTENSIONS, 'keys.image');
+    if (size > 400e3) warn(`key image is ${(size / 1e3).toFixed(0)} KB; the Studio shrinks images it imports`);
+  }
+  if (!['cover', 'stretch'].includes(keys.fit)) err('keys.fit must be "cover" or "stretch"');
+  if (typeof keys.backspace !== 'boolean') err('keys.backspace must be true or false');
 
   const bg = theme.background ?? {};
   if (bg.image !== null && bg.image !== undefined) {

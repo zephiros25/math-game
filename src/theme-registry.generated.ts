@@ -34,6 +34,9 @@ export const THEME_DATA: ThemeData[] = [
       "cardEdge": "#EFE2D2",
       "track": "#F1E3D1"
     },
+    "keyImage": null,
+    "keyImageFit": "cover",
+    "keyImageOnBackspace": false,
     "fontName": null,
     "fonts": null,
     "backgroundImage": null,
@@ -79,6 +82,9 @@ export const THEME_DATA: ThemeData[] = [
       "cardEdge": "#C9E6EF",
       "track": "#D3EDF5"
     },
+    "keyImage": null,
+    "keyImageFit": "cover",
+    "keyImageOnBackspace": false,
     "fontName": null,
     "fonts": null,
     "backgroundImage": null,
@@ -124,6 +130,9 @@ export const THEME_DATA: ThemeData[] = [
       "cardEdge": "#D9EBCB",
       "track": "#DDEFD0"
     },
+    "keyImage": null,
+    "keyImageFit": "cover",
+    "keyImageOnBackspace": false,
     "fontName": null,
     "fonts": null,
     "backgroundImage": null,
@@ -169,6 +178,9 @@ export const THEME_DATA: ThemeData[] = [
       "cardEdge": "#F6D5E4",
       "track": "#FBDDEA"
     },
+    "keyImage": null,
+    "keyImageFit": "cover",
+    "keyImageOnBackspace": false,
     "fontName": null,
     "fonts": null,
     "backgroundImage": null,
@@ -216,6 +228,9 @@ export const THEME_DATA: ThemeData[] = [
       "cardEdge": "#141033",
       "track": "#2E2966"
     },
+    "keyImage": null,
+    "keyImageFit": "cover",
+    "keyImageOnBackspace": false,
     "fontName": null,
     "fonts": null,
     "backgroundImage": null,
@@ -261,6 +276,9 @@ export const THEME_DATA: ThemeData[] = [
       "cardEdge": "#07121A",
       "track": "#1C4258"
     },
+    "keyImage": null,
+    "keyImageFit": "cover",
+    "keyImageOnBackspace": false,
     "fontName": null,
     "fonts": null,
     "backgroundImage": null,
@@ -306,6 +324,9 @@ export const THEME_DATA: ThemeData[] = [
       "cardEdge": "#0A0806",
       "track": "#2E271C"
     },
+    "keyImage": null,
+    "keyImageFit": "cover",
+    "keyImageOnBackspace": false,
     "fontName": null,
     "fonts": null,
     "backgroundImage": null,
@@ -351,6 +372,9 @@ export const THEME_DATA: ThemeData[] = [
       "cardEdge": "#F2DAD5",
       "track": "#F7E1DC"
     },
+    "keyImage": null,
+    "keyImageFit": "cover",
+    "keyImageOnBackspace": false,
     "fontName": null,
     "fonts": null,
     "backgroundImage": null,
@@ -396,6 +420,9 @@ export const THEME_DATA: ThemeData[] = [
       "cardEdge": "#D2DFEE",
       "track": "#DAE5F1"
     },
+    "keyImage": require('../themes/diamond/key-chatgpt-image-27-sep-2026-21-0.jpg'),
+    "keyImageFit": "cover",
+    "keyImageOnBackspace": false,
     "fontName": "Quicksand",
     "fonts": {
       "regular": require('../themes/diamond/font-quicksand-regular.ttf'),
@@ -403,7 +430,7 @@ export const THEME_DATA: ThemeData[] = [
       "semibold": require('../themes/diamond/font-quicksand-semibold.ttf'),
       "bold": require('../themes/diamond/font-quicksand-bold.ttf')
     },
-    "backgroundImage": null,
+    "backgroundImage": require('../themes/diamond/bg-chatgpt-image-27-sep-2026-20-5.jpg'),
     "backgroundDim": 0,
     "particleStyle": "sparkles",
     "particleColors": [
@@ -416,14 +443,6 @@ export const THEME_DATA: ThemeData[] = [
     "particleAmount": 1.4,
     "particleOpacity": 0.9,
     "sounds": {
-      "tap": {
-        "sources": [
-          require('../themes/diamond/sound-glass-tap-1.wav'),
-          require('../themes/diamond/sound-glass-tap-2.wav'),
-          require('../themes/diamond/sound-glass-tap-3.wav')
-        ],
-        "volume": 0.85
-      },
       "backspace": {
         "sources": [
           require('../themes/diamond/sound-glass-back.wav')
@@ -471,6 +490,14 @@ export const THEME_DATA: ThemeData[] = [
           require('../themes/diamond/sound-diamond-sparkle.wav')
         ],
         "volume": 0.9
+      },
+      "tap": {
+        "sources": [
+          require('../themes/diamond/sound-untitled.mp3'),
+          require('../themes/diamond/sound-untitled2.mp3'),
+          require('../themes/diamond/sound-untitled3.mp3')
+        ],
+        "volume": 1
       }
     }
   }

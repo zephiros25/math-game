@@ -1,3 +1,4 @@
+import { Image } from 'expo-image';
 import { router } from 'expo-router';
 import { useEffect, useMemo, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
@@ -181,6 +182,9 @@ function Preview() {
       <View style={styles.mockKeys}>
         {['1', '2', '3'].map((k) => (
           <View key={k} style={styles.mockKey}>
+            {t.keyImage !== null && (
+              <Image source={t.keyImage} contentFit={t.keyImageFit === 'stretch' ? 'fill' : 'cover'} style={StyleSheet.absoluteFill} />
+            )}
             <Text style={styles.mockKeyText}>{k}</Text>
           </View>
         ))}
@@ -361,6 +365,7 @@ const makeStyles = (t: Theme) =>
       borderColor: t.keyEdge,
       alignItems: 'center',
       justifyContent: 'center',
+      overflow: 'hidden',
     },
     mockKeyText: {
       fontFamily: t.font.semibold,

@@ -1,6 +1,8 @@
 // A tactile "3D" button: a colored face sitting on a darker edge. Pressing
-// pushes the face down onto the edge, like a real key.
+// pushes the face down onto the edge, like a real key. An optional image
+// (a theme's key texture) is drawn on the face, under the label.
 
+import { Image } from 'expo-image';
 import { Platform, Pressable, StyleSheet, Text, View, type StyleProp, type ViewStyle } from 'react-native';
 import Animated, { useAnimatedStyle, useSharedValue, withSpring, withTiming } from 'react-native-reanimated';
 
@@ -19,6 +21,8 @@ type Props = {
   height?: number;
   edge?: number;
   disabled?: boolean;
+  image?: number | null;
+  imageFit?: 'cover' | 'stretch';
   style?: StyleProp<ViewStyle>;
 };
 
@@ -34,6 +38,8 @@ export function ChunkyButton({
   height = 64,
   edge = 6,
   disabled = false,
+  image = null,
+  imageFit = 'cover',
   style,
 }: Props) {
   const t = useTheme();
@@ -63,7 +69,10 @@ export function ChunkyButton({
       style={[{ height: height + edge, opacity: disabled ? 0.5 : 1 }, style]}
     >
       <View style={[styles.edge, { top: edge, height, backgroundColor: edgeColor }]} />
-      <Animated.View style={[styles.face, { height, backgroundColor: color }, faceStyle]}>
+      <Animated.View style={[styles.face, { height, backgroundColor: color }, image !== null && styles.clip, faceStyle]}>
+        {image !== null && (
+          <Image source={image} contentFit={imageFit === 'stretch' ? 'fill' : 'cover'} style={StyleSheet.absoluteFill} />
+        )}
         {children ?? <Text style={{ color: textColor, fontSize, fontFamily: t.font.semibold }}>{label}</Text>}
       </Animated.View>
     </Pressable>
@@ -76,6 +85,9 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     borderRadius: 20,
+  },
+  clip: {
+    overflow: 'hidden',
   },
   face: {
     borderRadius: 20,

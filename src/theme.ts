@@ -56,6 +56,9 @@ export type ThemeData = {
   fontName: string | null; // null = the default font (Fredoka)
   fonts: Record<FontWeight, Asset> | null;
   colors: Colors;
+  keyImage: Asset | null; // drawn on the number keys
+  keyImageFit: 'cover' | 'stretch';
+  keyImageOnBackspace: boolean;
   backgroundImage: Asset | null;
   backgroundDim: number; // 0..0.9, fades the image towards the background color
   particleStyle: string;
