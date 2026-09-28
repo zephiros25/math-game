@@ -38,8 +38,10 @@ export function judge(
   elapsedMs: number,
   previousWasWrong: boolean,
   effort = 1,
+  // A parent-set ceiling: the player never moves above it.
+  maxLevel = MAX_LEVEL,
 ): Verdict {
-  const clamp = (l: number) => Math.max(1, Math.min(MAX_LEVEL, l));
+  const clamp = (l: number) => Math.max(1, Math.min(maxLevel, MAX_LEVEL, l));
   if (!correct) {
     const delta = previousWasWrong ? -2 : -1;
     return { correct, speed: null, delta, nextLevel: clamp(level + delta) };

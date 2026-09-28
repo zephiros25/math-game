@@ -1,8 +1,10 @@
 import { router } from 'expo-router';
-import { useEffect, useMemo } from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 import Animated, {
   Easing,
+  FadeIn,
+  FadeOut,
   useAnimatedStyle,
   useSharedValue,
   withRepeat,
@@ -19,6 +21,12 @@ import { updateProgress, useProgress } from '@/progress';
 import { useTheme, type Theme } from '@/theme';
 
 const RUN_LENGTHS = [10, 20, 40];
+
+// Settings are for grown-ups: the gear must be held this long to open them.
+// The web build (only used for testing) opens them with a plain click, since
+// press-and-hold isn't reliable with a mouse there.
+const SETTINGS_HOLD_MS = 1500;
+const HOLD_TO_OPEN = Platform.OS !== 'web';
 
 export default function Home() {
   const t = useTheme();
@@ -42,6 +50,19 @@ export default function Home() {
     transform: [{ translateY: -6 * bob.value }, { rotate: `${-2 + 4 * bob.value}deg` }],
   }));
 
+  // Holding the gear spins it; a quick tap shows how to open settings.
+  const [hint, setHint] = useState(false);
+  const hintTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
+  useEffect(() => () => clearTimeout(hintTimer.current), []);
+  const spin = useSharedValue(0);
+  const gearStyle = useAnimatedStyle(() => ({ transform: [{ rotate: `${spin.value * 360}deg` }] }));
+
+  const openSettings = () => {
+    feedback.button();
+    setHint(false);
+    router.push('/settings');
+  };
+
   const toggleMute = () => {
     setMuted(!progress.muted);
     updateProgress({ muted: !progress.muted });
@@ -56,9 +77,32 @@ export default function Home() {
             <Chip icon={<Coin size={18} />} value={progress.coins} />
             <Chip icon={<Text style={styles.chipIcon}>💎</Text>} value={progress.gems} />
           </View>
-          <Pressable onPress={toggleMute} hitSlop={12} style={styles.muteButton}>
-            <Text style={styles.muteIcon}>{progress.muted ? '🔇' : '🔊'}</Text>
-          </Pressable>
+          <View style={styles.topActions}>
+            <Pressable onPress={toggleMute} hitSlop={12} style={styles.iconButton}>
+              <Text style={styles.icon}>{progress.muted ? '🔇' : '🔊'}</Text>
+            </Pressable>
+            <Pressable
+              hitSlop={12}
+              style={styles.iconButton}
+              delayLongPress={SETTINGS_HOLD_MS}
+              onPressIn={() => spin.set(withTiming(1, { duration: SETTINGS_HOLD_MS, easing: Easing.inOut(Easing.quad) }))}
+              onPressOut={() => spin.set(withTiming(0, { duration: 250 }))}
+              onLongPress={HOLD_TO_OPEN ? openSettings : undefined}
+              onPress={() => {
+                if (!HOLD_TO_OPEN) return openSettings();
+                setHint(true);
+                clearTimeout(hintTimer.current);
+                hintTimer.current = setTimeout(() => setHint(false), 2500);
+              }}
+            >
+              <Animated.Text style={[styles.icon, gearStyle]}>⚙️</Animated.Text>
+            </Pressable>
+          </View>
+          {hint && (
+            <Animated.Text entering={FadeIn} exiting={FadeOut} style={styles.hint}>
+              Grown-ups: hold ⚙️ to open settings
+            </Animated.Text>
+          )}
         </View>
 
         <View style={styles.hero}>
@@ -81,6 +125,11 @@ export default function Home() {
             <Text style={styles.cardValue} numberOfLines={1}>
               {progress.bestLevel > 0 ? `${progress.bestLevel} · ${levelInfo(progress.bestLevel).name}` : 'Not played yet'}
             </Text>
+            {progress.maxLevel !== null && (
+              <Text style={styles.capText} numberOfLines={1}>
+                Up to: {levelInfo(progress.maxLevel).name}
+              </Text>
+            )}
           </View>
           <ChunkyButton
             onPress={() => {
@@ -185,11 +234,35 @@ const makeStyles = (t: Theme) =>
       fontSize: 18,
       color: t.text,
     },
-    muteButton: {
+    topActions: {
+      flexDirection: 'row',
+      gap: 14,
+    },
+    iconButton: {
       padding: 4,
     },
-    muteIcon: {
+    icon: {
       fontSize: 24,
+    },
+    hint: {
+      position: 'absolute',
+      right: 0,
+      top: 48,
+      zIndex: 1,
+      fontFamily: t.font.medium,
+      fontSize: 13,
+      color: t.text,
+      backgroundColor: t.card,
+      borderRadius: 10,
+      paddingHorizontal: 10,
+      paddingVertical: 5,
+      overflow: 'hidden',
+    },
+    capText: {
+      fontFamily: t.font.medium,
+      fontSize: 13,
+      color: t.primary,
+      marginTop: 2,
     },
     hero: {
       flex: 1,

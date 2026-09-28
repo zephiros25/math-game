@@ -11,6 +11,7 @@ export type Progress = {
   bestLevel: number;
   runLength: number;
   muted: boolean;
+  maxLevel: number | null; // highest level the game may use; null = no limit
   theme: string; // id of the equipped theme
   ownedThemes: string[];
 };
@@ -22,6 +23,7 @@ const DEFAULTS: Progress = {
   bestLevel: 0,
   runLength: 20,
   muted: false,
+  maxLevel: null,
   theme: 'sunny',
   ownedThemes: ['sunny'],
 };

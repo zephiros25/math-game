@@ -120,4 +120,14 @@ for (let level = 1; level <= MAX_LEVEL; level++) {
   const share = Math.round((100 * inverse) / 5000);
   console.log(`  ${String(level).padStart(2)} ${levelInfo(level).name.padEnd(26)} ${String(share).padStart(3)}%   ${[...samples].join('   ')}`);
 }
+// A parent's level cap must hold even for the fastest player.
+for (const cap of [3, 7, 13]) {
+  let level = 1;
+  for (let q = 0; q < 200; q++) {
+    level = judge(level, true, 100, false, 1, cap).nextLevel;
+    if (level > cap) throw new Error(`Level cap ${cap} exceeded: reached ${level}`);
+  }
+  if (level !== cap) throw new Error(`A fast player should reach the cap ${cap}, got ${level}`);
+}
+console.log('Level caps respected.');
 console.log('\nAll generators OK.');

@@ -51,6 +51,7 @@ export default function Play() {
   const styles = useMemo(() => makeStyles(t), [t]);
   const [total] = useState(() => getProgress().runLength);
   const [bestBefore] = useState(() => getProgress().bestLevel);
+  const [maxLevel] = useState(() => getProgress().maxLevel ?? undefined);
 
   const [index, setIndex] = useState(1);
   const [level, setLevel] = useState(1);
@@ -80,7 +81,7 @@ export default function Play() {
 
   function submit(value: string) {
     const correct = Number(value) === question.answer;
-    const v = judge(level, correct, now() - shownAt.current, wrongBefore.current, question.effort);
+    const v = judge(level, correct, now() - shownAt.current, wrongBefore.current, question.effort, maxLevel);
     wrongBefore.current = !correct;
     setVerdict(v);
 
