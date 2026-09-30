@@ -28,13 +28,13 @@ export const SLOTS = {
   voice: { label: 'Pet voice', when: 'a pet talking; the Studio cuts the clip into separate syllables', length: 'generate at 2–3 s' },
 };
 
-const CLEAN = 'Isolated sound, clean close recording, nothing else playing, no background noise, no echo, soft and pleasant, never harsh or shrill.';
+const CLEAN = 'Isolated sound that starts from silence, clean close recording, nothing else playing, no background noise, no clicks, no crackle, no static, no echo, soft and pleasant, never harsh or shrill.';
 
 const TEMPLATES = {
   tap: ({ touch }) => `One soft, short, muted tap on ${touch}, like pressing a well-made button. Gentle and satisfying, very short. Only one tap, then silence. ${CLEAN}`,
   backspace: ({ touch }) => `One soft, slightly lower and duller tap on ${touch}, a gentle "tuk" for undoing something. Very short. Only one tap, then silence. ${CLEAN}`,
   button: ({ touch }) => `One soft, round, friendly pop on ${touch}, like a light bubble or cork. Short. Only one pop, then silence. ${CLEAN}`,
-  correct: ({ tone }) => `One single clear, warm note on ${tone}, gentle attack and a short natural fade. Only one note, no melody, no chord. ${CLEAN}`,
+  correct: ({ tone }) => `One single warm, round note on ${tone}, played softly (with a soft felt mallet if it is struck), a rounded attack and a short natural fade. Only one note, no melody, no chord. ${CLEAN}`,
   wrong: ({ tone }) => `A soft, kind "oops": two gentle low notes stepping down on ${tone}, muted and short. Not a buzzer, not sad, not harsh. ${CLEAN}`,
   levelUp: ({ tone }) => `A short, cheerful rising run of four quick notes on ${tone}, ending on a bright note. About 1 second. ${CLEAN}`,
   fanfare: ({ tone }) => `A short, happy celebration jingle on ${tone} with a light sparkle at the end, about 2 seconds, ending cleanly. Cute, for a children's game, not loud. ${CLEAN}`,
