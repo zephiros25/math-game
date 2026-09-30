@@ -13,6 +13,16 @@ import { fileURLToPath } from 'node:url';
 
 import sharp from 'sharp';
 
+import { buildPets } from '../pets/build.mjs';
+import {
+  defaultPet,
+  ID_PATTERN as PET_ID_PATTERN,
+  IMAGE_SLOTS as PET_IMAGE_SLOTS,
+  LINE_SLOTS as PET_LINE_SLOTS,
+  PETS_DIR,
+  SOUND_EXTENSIONS as PET_SOUND_EXTENSIONS,
+  validatePet,
+} from '../pets/schema.mjs';
 import { buildThemes } from './build.mjs';
 import {
   COLOR_KEYS,
@@ -34,6 +44,10 @@ const PORT = Number(process.env.PORT) || 4455;
 const themesDir = fileURLToPath(THEMES_DIR);
 const soundsDir = fileURLToPath(new URL('../../assets/sounds/', import.meta.url));
 const studioHtml = fileURLToPath(new URL('./studio.html', import.meta.url));
+const petsHtml = fileURLToPath(new URL('./pets.html', import.meta.url));
+const studioCss = fileURLToPath(new URL('./studio.css', import.meta.url));
+const petsDir = fileURLToPath(PETS_DIR);
+const defaultLinesFile = fileURLToPath(new URL('../../src/pet-lines.json', import.meta.url));
 
 // Files the Studio creates get these prefixes; only those are cleaned up
 // automatically when a theme stops referencing them.
@@ -42,6 +56,7 @@ const SAFE_FILE = /^[A-Za-z0-9._-]+$/;
 
 const TYPES = {
   '.html': 'text/html; charset=utf-8',
+  '.css': 'text/css; charset=utf-8',
   '.json': 'application/json',
   '.png': 'image/png',
   '.jpg': 'image/jpeg',
@@ -280,12 +295,158 @@ function sendFile(res, path) {
   send(res, 200, readFileSync(path), TYPES[extname(path).toLowerCase()] ?? 'application/octet-stream');
 }
 
+// ---------------------------------------------------------------- pets
+// Pets work like themes: a folder per pet with pet.json and its files.
+
+const PET_MANAGED_PREFIXES = ['img-', 'voice-'];
+
+const petDir = (id) => {
+  if (!PET_ID_PATTERN.test(id)) throw new HttpError(400, `Invalid pet id "${id}"`);
+  return join(petsDir, id);
+};
+
+function readPet(id) {
+  const dir = petDir(id);
+  const file = join(dir, 'pet.json');
+  if (!existsSync(file)) throw new HttpError(404, `No pet "${id}"`);
+  let json = null;
+  let parseError = null;
+  try {
+    json = JSON.parse(readFileSync(file, 'utf8'));
+  } catch (e) {
+    parseError = e.message;
+  }
+  const files = readdirSync(dir).filter((f) => f !== 'pet.json');
+  const check = json ? validatePet(id, json, dir) : { errors: [`pet.json is not valid JSON: ${parseError}`], warnings: [] };
+  return { id, json, files, ...check };
+}
+
+function listPets() {
+  if (!existsSync(petsDir)) return [];
+  return readdirSync(petsDir, { withFileTypes: true })
+    .filter((d) => d.isDirectory() && !d.name.startsWith('.') && existsSync(join(petsDir, d.name, 'pet.json')))
+    .map((d) => readPet(d.name))
+    .sort((a, b) => (a.json?.order ?? 999) - (b.json?.order ?? 999));
+}
+
+function rebuildPet(id) {
+  const build = buildPets({ quiet: true });
+  return { ...readPet(id), otherErrors: build.errors.filter((e) => !e.startsWith(`${id}:`)) };
+}
+
+function savePet(id, json) {
+  const dir = petDir(id);
+  if (!existsSync(dir)) throw new HttpError(404, `No pet "${id}"`);
+  writeFileSync(join(dir, 'pet.json'), JSON.stringify(json, null, 2) + '\n');
+  // Remove Studio-imported files the pet no longer uses.
+  const used = new Set([...Object.values(json.images ?? {}), ...(json.voice?.files ?? [])]);
+  for (const f of readdirSync(dir)) {
+    if (PET_MANAGED_PREFIXES.some((p) => f.startsWith(p)) && !used.has(f)) rmSync(join(dir, f));
+  }
+  return rebuildPet(id);
+}
+
+function createPet(id, from) {
+  const dir = petDir(id);
+  if (existsSync(dir)) throw new HttpError(409, `A pet called "${id}" already exists`);
+  mkdirSync(petsDir, { recursive: true });
+  if (from) {
+    cpSync(petDir(from), dir, { recursive: true });
+    const json = JSON.parse(readFileSync(join(dir, 'pet.json'), 'utf8'));
+    json.name = `${json.name} copy`;
+    json.order += 1;
+    writeFileSync(join(dir, 'pet.json'), JSON.stringify(json, null, 2) + '\n');
+  } else {
+    mkdirSync(dir);
+    writeFileSync(join(dir, 'pet.json'), JSON.stringify(defaultPet(), null, 2) + '\n');
+  }
+  return rebuildPet(id);
+}
+
+function deletePet(id) {
+  const dir = petDir(id);
+  const trash = join(petsDir, '.deleted');
+  mkdirSync(trash, { recursive: true });
+  renameSync(dir, join(trash, `${id}-${Date.now()}`));
+  buildPets({ quiet: true });
+}
+
+// Pet pictures are fitted (not cropped) into the same 512 px transparent
+// square, so the normal, blink and talk pictures stay lined up.
+async function importPetFile(id, kind, slot, originalName, data) {
+  const dir = petDir(id);
+  const ext = extname(originalName).toLowerCase();
+  if (kind === 'image') {
+    if (!(slot in PET_IMAGE_SLOTS)) throw new HttpError(400, `Unknown picture "${slot}"`);
+    if (!['.png', '.webp', '.jpg', '.jpeg'].includes(ext)) {
+      throw new HttpError(400, 'Pictures must be PNG (best, with a transparent background), WebP or JPG');
+    }
+    const meta = await sharp(data).metadata();
+    const out = await sharp(data)
+      .rotate()
+      .resize({ width: 512, height: 512, fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
+      .png({ compressionLevel: 9 })
+      .toBuffer();
+    const name = uniqueName(dir, `img-${slot}`, '.png');
+    writeFileSync(join(dir, name), out);
+    return { file: name, width: meta.width, height: meta.height, transparent: Boolean(meta.hasAlpha) };
+  }
+  if (kind === 'voice') {
+    if (!PET_SOUND_EXTENSIONS.includes(ext)) throw new HttpError(400, `Sounds must be ${PET_SOUND_EXTENSIONS.join(', ')}`);
+    const name = uniqueName(dir, `voice-${slug(originalName)}`, ext);
+    writeFileSync(join(dir, name), data);
+    return { file: name };
+  }
+  throw new HttpError(400, `Unknown upload kind "${kind}"`);
+}
+
+async function handlePets(req, res, parts, url) {
+  const method = req.method;
+  if (method === 'GET' && parts.length === 2) return send(res, 200, listPets());
+  if (method === 'POST' && parts.length === 2) {
+    const { id, from } = JSON.parse((await readBody(req)).toString());
+    return send(res, 200, createPet(id, from));
+  }
+  const id = parts[2];
+  if (method === 'GET' && parts.length === 3) return send(res, 200, readPet(id));
+  if (method === 'PUT' && parts.length === 3) return send(res, 200, savePet(id, JSON.parse((await readBody(req)).toString())));
+  if (method === 'DELETE' && parts.length === 3) {
+    deletePet(id);
+    return send(res, 200, { ok: true });
+  }
+  if (method === 'POST' && parts[3] === 'upload') {
+    const result = await importPetFile(
+      id,
+      url.searchParams.get('kind'),
+      url.searchParams.get('slot'),
+      url.searchParams.get('name') ?? 'file',
+      await readBody(req),
+    );
+    return send(res, 200, result);
+  }
+  throw new HttpError(404, 'Not found');
+}
+
 async function handle(req, res) {
   const url = new URL(req.url, 'http://localhost');
   const parts = url.pathname.split('/').filter(Boolean).map(decodeURIComponent);
   const method = req.method;
 
   if (method === 'GET' && parts.length === 0) return sendFile(res, studioHtml);
+  if (method === 'GET' && parts.length === 1 && parts[0] === 'pets') return sendFile(res, petsHtml);
+  if (method === 'GET' && parts.length === 1 && parts[0] === 'studio.css') return sendFile(res, studioCss);
+  if (method === 'GET' && parts[0] === 'pet-files' && parts.length === 3 && SAFE_FILE.test(parts[2])) {
+    return sendFile(res, join(petDir(parts[1]), parts[2]));
+  }
+  if (parts[0] === 'api' && parts[1] === 'pet-meta' && method === 'GET') {
+    return send(res, 200, {
+      imageSlots: PET_IMAGE_SLOTS,
+      lineSlots: PET_LINE_SLOTS,
+      defaultLines: JSON.parse(readFileSync(defaultLinesFile, 'utf8')),
+      defaultPet: defaultPet(),
+    });
+  }
+  if (parts[0] === 'api' && parts[1] === 'pets') return handlePets(req, res, parts, url);
 
   // Theme assets and default sounds, for the preview.
   if (method === 'GET' && parts[0] === 'files' && parts.length === 3 && SAFE_FILE.test(parts[2])) {
@@ -338,6 +499,7 @@ createServer((req, res) => {
     send(res, status, { error: e.message });
   });
 }).listen(PORT, '127.0.0.1', () => {
+  buildPets({ quiet: true });
   const { themes, errors } = buildThemes({ quiet: true });
   console.log(`Theme Studio: http://localhost:${PORT}  (${themes.length} themes${errors.length ? `, ${errors.length} error(s)` : ''})`);
   console.log('Keep `npx expo start` running next to it: saved themes appear on your phone right away.');

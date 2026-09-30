@@ -1,0 +1,19 @@
+{
+  "name": "Mochi",
+  "tagline": "Soft, bouncy and always cheering",
+  "order": 20,
+  "price": 5,
+  "premium": false,
+  "images": {
+    "idle": "img-idle.png",
+    "blink": "img-blink.png",
+    "talk": "img-talk.png"
+  },
+  "size": 1,
+  "voice": {
+    "pitch": 1.25,
+    "files": [],
+    "volume": 0.8
+  },
+  "lines": {}
+}

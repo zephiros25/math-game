@@ -1,0 +1,52 @@
+{
+  "hello": [
+    "Hi! Ready for some sums?",
+    "Let's play together!",
+    "I missed you!",
+    "Tap PLAY, I'm ready!",
+    "Hello, math star!"
+  ],
+  "start": [
+    "Let's go!",
+    "You can do this!",
+    "Here we go!",
+    "I'm cheering for you!"
+  ],
+  "correct": [
+    "Yes!",
+    "Nice!",
+    "Good one!",
+    "Woohoo!",
+    "Great!"
+  ],
+  "streak": [
+    "{streak} in a row!",
+    "You're on fire!",
+    "Unstoppable!",
+    "Keep it going!"
+  ],
+  "lightning": [
+    "So fast!",
+    "Lightning quick!",
+    "Whoa, speedy!",
+    "Zoom!"
+  ],
+  "newBest": [
+    "New record!",
+    "Higher than ever!",
+    "A new best!"
+  ],
+  "wrong": [
+    "Almost!",
+    "That's okay, next one!",
+    "Oops! You've got this.",
+    "Mistakes help us learn!",
+    "Nearly there!"
+  ],
+  "finish": [
+    "You did great!",
+    "What a run!",
+    "I'm so proud of you!",
+    "Amazing work!"
+  ]
+}

@@ -16,11 +16,13 @@ import Animated, {
 
 import { Coin } from '@/components/coin';
 import { Keypad } from '@/components/keypad';
+import { PetView, type PetHandle } from '@/components/pet-view';
 import { Screen } from '@/components/screen';
 import { feedback } from '@/feedback';
 import { judge, type Verdict } from '@/game/engine';
 import { generateQuestion, levelInfo, type Question } from '@/game/levels';
 import { coinsFor, isStreakGem, runBonusGems } from '@/game/rewards';
+import { petLine, usePet } from '@/pets';
 import { getProgress, updateProgress } from '@/progress';
 import { useTheme, type Theme } from '@/theme';
 
@@ -36,6 +38,7 @@ const SPEED_LABEL = {
 
 // Only called from event handlers and effects, never during render.
 const now = () => Date.now();
+const chance = (p: number) => Math.random() < p;
 
 type RunStats = {
   correct: number;
@@ -68,6 +71,25 @@ export default function Play() {
   const wrongBefore = useRef(false);
   const timer = useRef<ReturnType<typeof setTimeout>>(undefined);
   useEffect(() => () => clearTimeout(timer.current), []);
+
+  // The pet cheers at the start, on streaks, fast answers and new records,
+  // and sometimes comforts after a mistake. Otherwise it just hops, so it
+  // never chatters on every question.
+  const pet = usePet();
+  const petRef = useRef<PetHandle>(null);
+  const lastTalk = useRef(0);
+  const petSay = (text: string, important = false) => {
+    if (!important && now() - lastTalk.current < 3000) return petRef.current?.hop();
+    lastTalk.current = now();
+    // Let the answer sound ring first.
+    setTimeout(() => petRef.current?.say(text), 220);
+  };
+  useEffect(() => {
+    if (!pet) return;
+    const id = setTimeout(() => petSay(petLine(pet, 'start'), true), 700);
+    return () => clearTimeout(id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const shake = useSharedValue(0);
   const pop = useSharedValue(1);
@@ -105,7 +127,16 @@ export default function Play() {
       // Crossing your all-time best level is worth a little fanfare.
       if (v.nextLevel > Math.max(bestBefore, stats.peakLevel) && bestBefore > 0) feedback.levelUp();
       if (streakGem) setTimeout(feedback.gem, 250);
+      if (pet) {
+        const newBest = v.nextLevel > Math.max(bestBefore, stats.peakLevel) && bestBefore > 0;
+        if (newBest) petSay(petLine(pet, 'newBest'), true);
+        else if (streak === 3 || (streak >= 5 && streak % 5 === 0)) petSay(petLine(pet, 'streak', { streak }), true);
+        else if (v.speed === 'lightning' && chance(0.5)) petSay(petLine(pet, 'lightning'));
+        else if (chance(0.2)) petSay(petLine(pet, 'correct'));
+        else petRef.current?.hop();
+      }
     } else {
+      if (pet && chance(0.7)) petSay(petLine(pet, 'wrong'));
       feedback.wrong();
       shake.set(
         withSequence(
@@ -242,9 +273,12 @@ export default function Play() {
           </View>
         </View>
 
-        <Text style={styles.counter}>
-          {Math.min(index, total)} / {total}
-        </Text>
+        <View style={[styles.petRow, !pet && styles.petRowEmpty]}>
+          {pet && <PetView ref={petRef} pet={pet} size={72} bubble="right" />}
+          <Text style={styles.counter}>
+            {Math.min(index, total)} / {total}
+          </Text>
+        </View>
         <Keypad onDigit={onDigit} onBackspace={onBackspace} />
       </View>
     </Screen>
@@ -393,11 +427,21 @@ const makeStyles = (t: Theme) =>
       fontFamily: t.font.bold,
       color: t.correct,
     },
+    // Pet on the left (its speech bubble opens to the right), counter on the right.
+    petRow: {
+      flexDirection: 'row',
+      alignItems: 'flex-end',
+      justifyContent: 'space-between',
+      marginBottom: 8,
+      zIndex: 5,
+    },
+    petRowEmpty: {
+      justifyContent: 'center',
+    },
     counter: {
       fontFamily: t.font.medium,
       fontSize: 15,
       color: t.textSoft,
-      textAlign: 'center',
-      marginBottom: 10,
+      marginBottom: 4,
     },
   });

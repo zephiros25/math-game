@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Pets · Studio · Math Run</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/studio.css">
+<style>
+  .stage { width: 320px; height: 400px; border-radius: 28px; background: #FFF4E6; position: relative; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,.12); font-family: Fredoka, system-ui; flex: none; }
+  .stage .petbox { position: absolute; left: 50%; bottom: 40px; transform: translateX(-50%); }
+  .pet-body { position: absolute; inset: 0; transform-origin: 50% 100%; animation: breathe 3.4s ease-in-out infinite; }
+  .pet-body img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; opacity: 0; }
+  .pet-body img.on { opacity: 1; }
+  .pet-jump { position: absolute; inset: 0; transform-origin: 50% 100%; }
+  @keyframes breathe { 0%, 100% { transform: scale(1, 1); } 50% { transform: scale(0.99, 1.03); } }
+  .hop { animation: hop .55s ease-out; }
+  @keyframes hop { 0% { transform: scale(1.08, .88); } 25% { transform: translateY(-40px) scale(.94, 1.08); } 55% { transform: translateY(0) scale(1.06, .92); } 100% { transform: none; } }
+  .tilt { animation: tilt .9s ease-in-out; }
+  @keyframes tilt { 30%, 70% { transform: rotate(9deg); } }
+  .wiggle { animation: wiggle .45s ease-in-out; }
+  @keyframes wiggle { 20% { transform: rotate(-7deg); } 45% { transform: rotate(7deg); } 70% { transform: rotate(-5deg); } }
+  .squish { animation: squish .6s ease-in-out; }
+  @keyframes squish { 35% { transform: scale(1.08, .9); } }
+  .bounce { animation: bounce .12s ease-out; }
+  @keyframes bounce { 50% { transform: translateY(-4px); } }
+  .speech { position: absolute; left: 50%; transform: translateX(-50%); top: 22px; max-width: 250px; background: #fff; border: 2px solid #EFE2D2; border-radius: 16px; padding: 7px 12px; font-weight: 600; font-size: 16px; color: #3B2A4A; text-align: center; transition: opacity .2s; }
+  .speech::after { content: ''; position: absolute; left: 50%; bottom: -7px; width: 12px; height: 12px; background: #fff; border-right: 2px solid #EFE2D2; border-bottom: 2px solid #EFE2D2; transform: translateX(-50%) rotate(45deg); }
+  .speech.hidden { opacity: 0; }
+  .shadow-line { position: absolute; left: 0; right: 0; bottom: 38px; height: 1px; background: rgba(0,0,0,.06); }
+  .pic-row { display: grid; grid-template-columns: 150px 90px 1fr; gap: 12px; align-items: center; padding: 8px 0; border-top: 1px solid var(--line); }
+  .pic-row:first-of-type { border-top: none; }
+  .pic { width: 84px; height: 84px; border-radius: 14px; border: 1px solid var(--line); background: repeating-conic-gradient(#f3f0ec 0% 25%, #fff 0% 50%) 50% / 16px 16px; position: relative; }
+  .pic img { width: 100%; height: 100%; object-fit: contain; }
+  .pic button { position: absolute; top: -8px; right: -8px; border-radius: 50%; width: 22px; height: 22px; padding: 0; font-size: 12px; }
+  .recipe { background: var(--bg); border-radius: 12px; padding: 10px 14px; margin-top: 10px; }
+  .recipe summary { cursor: pointer; font-weight: 600; }
+  .recipe ol { padding-left: 20px; }
+  .recipe li { margin: 8px 0; }
+  .prompt { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; font-size: 13px; margin-top: 4px; white-space: pre-wrap; }
+  textarea { width: 100%; font: inherit; border: 1px solid var(--line); border-radius: 8px; padding: 6px 8px; resize: vertical; min-height: 64px; }
+  .line-row { display: grid; grid-template-columns: 170px 1fr; gap: 12px; padding: 8px 0; border-top: 1px solid var(--line); }
+  .line-row:first-of-type { border-top: none; }
+  .thumb-list img { width: 34px; height: 34px; object-fit: contain; }
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="top">
+    <h1>🐾 Studio</h1>
+    <nav class="nav"><a href="/">Themes</a><a href="/pets" class="on">Pets</a></nav>
+    <span class="status" id="status"></span>
+    <span class="spacer"></span>
+    <span class="hint">Save with <kbd>Ctrl</kbd>+<kbd>S</kbd>. With <kbd>npx expo start</kbd> running, saves show up on your phone.</span>
+    <button class="primary" id="save" disabled>Save</button>
+  </header>
+  <aside>
+    <h2>Pets</h2>
+    <div id="petList"></div>
+    <div class="aside-actions">
+      <button id="newPet">+ New</button>
+      <button id="dupPet">Duplicate</button>
+      <button id="delPet">Delete</button>
+    </div>
+    <p class="hint">Order in the list = order in the app's pet shop.</p>
+  </aside>
+  <main id="editor"><div class="empty">Loading…</div></main>
+  <div class="preview-col">
+    <div class="stage" id="stage">
+      <div class="shadow-line"></div>
+      <div class="speech hidden" id="speech"></div>
+      <div class="petbox" id="petbox"><div class="pet-jump" id="petjump"><div class="pet-body" id="petbody"></div></div></div>
+    </div>
+    <div class="sound-tests">
+      <button class="small" data-say="hello">▶ Hello</button>
+      <button class="small" data-say="streak">▶ Streak</button>
+      <button class="small" data-say="lightning">▶ Fast</button>
+      <button class="small" data-say="wrong">▶ Oops</button>
+      <button class="small" data-say="finish">▶ Finish</button>
+      <button class="small" id="hopBtn">Hop</button>
+    </div>
+    <p class="hint" style="text-align:center;max-width:320px">The pet breathes, blinks and fidgets on its own. Use the buttons to hear it talk. Motion here is close to, but not exactly, the app's.</p>
+  </div>
+</div>
+
+<dialog id="newDialog">
+  <form method="dialog">
+    <h2 id="newTitle">New pet</h2>
+    <p class="hint">The folder name is permanent: lowercase letters, digits and dashes, e.g. <code>baby-dragon</code>.</p>
+    <div class="row"><input type="text" id="newId" placeholder="baby-dragon" style="flex:1" autocomplete="off"></div>
+    <div class="row" style="justify-content:flex-end;margin:12px 0 0">
+      <button value="cancel">Cancel</button>
+      <button class="primary" value="ok">Create</button>
+    </div>
+  </form>
+</dialog>
+
+<script>
+// ---------------------------------------------------------------- state
+let meta = null; // formats, default lines and a blank pet from the server
+let pets = []; // [{ id, json, files, errors, warnings }]
+let current = null; // the pet being edited (working copy in current.json)
+let savedJson = '';
+
+const PROMPTS = {
+  idle: 'Create a cute cartoon pet character for a children’s math app: [describe your pet, e.g. a round baby dragon with tiny wings]. Full body, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.',
+  blink: 'Make exactly the same image, identical in every detail, pose, size and position, but with the eyes closed in a happy blink.',
+  talk: 'Make exactly the same image, identical in every detail, pose, size and position, but with the mouth open as if happily talking.',
+};
+
+// ---------------------------------------------------------------- helpers
+const $ = (sel) => document.querySelector(sel);
+const h = (tag, attrs = {}, ...children) => {
+  const el = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs)) {
+    if (k === 'style' && typeof v === 'object') Object.assign(el.style, v);
+    else if (k.startsWith('on')) el.addEventListener(k.slice(2), v);
+    else if (v === true) el.setAttribute(k, '');
+    else if (v !== false && v != null) el.setAttribute(k, v);
+  }
+  for (const c of children.flat()) if (c != null && c !== false) el.append(c.nodeType ? c : document.createTextNode(c));
+  return el;
+};
+const fill = (el, ...kids) => el.replaceChildren(...kids.flat().filter((k) => k != null && k !== false));
+const clone = (x) => JSON.parse(JSON.stringify(x));
+const fileUrl = (id, f) => `/pet-files/${id}/${encodeURIComponent(f)}`;
+const field = (label, input, hint) => h('div', { class: 'row' }, h('label', { class: 'lbl' }, label), input, hint ? h('span', { class: 'hint' }, hint) : null);
+
+async function api(path, opts = {}) {
+  const res = await fetch(path, opts);
+  const body = await res.json();
+  if (!res.ok) throw new Error(body.error || res.statusText);
+  return body;
+}
+
+function withDefaults(json) {
+  const p = clone(json);
+  p.images = { idle: null, blink: null, talk: null, ...(p.images ?? {}) };
+  p.voice = { pitch: 1, files: [], volume: 0.8, ...(p.voice ?? {}) };
+  p.lines ??= {};
+  p.size ??= 1;
+  return p;
+}
+
+function setStatus(text, isError = false) {
+  const st = $('#status');
+  st.textContent = text;
+  st.style.color = isError ? 'var(--err)' : '';
+}
+function isDirty() { return current && JSON.stringify(current.json) !== savedJson; }
+function confirmLeave() { return !isDirty() || confirm('You have unsaved changes to this pet. Discard them?'); }
+function updateStatus() {
+  const dirty = isDirty();
+  $('#save').disabled = !dirty;
+  const st = $('#status');
+  st.style.color = '';
+  st.className = `status${dirty ? ' dirty' : ''}`;
+  st.textContent = dirty ? '● Unsaved changes' : 'All changes saved';
+}
+function changed() { renderPet(); updateStatus(); }
+
+function dropZone(text, accept, multiple, onFiles) {
+  const label = h('span', {}, text);
+  const error = h('div', { class: 'msg err', hidden: true, style: { marginTop: '8px' } });
+  const run = async (files) => {
+    if (!files.length) return;
+    error.hidden = true;
+    label.textContent = `Importing ${files.map((f) => f.name).join(', ')}…`;
+    try { await onFiles(files); } catch (e) { error.textContent = `✖ ${e.message}`; error.hidden = false; } finally { label.textContent = text; }
+  };
+  const input = h('input', { type: 'file', accept, multiple, hidden: true, onchange: () => { run([...input.files]); input.value = ''; } });
+  const zone = h('div', { class: 'drop', onclick: (e) => { if (!error.contains(e.target)) input.click(); } }, label, input, error);
+  zone.addEventListener('dragover', (e) => { e.preventDefault(); zone.classList.add('over'); });
+  zone.addEventListener('dragleave', () => zone.classList.remove('over'));
+  zone.addEventListener('drop', (e) => { e.preventDefault(); zone.classList.remove('over'); run([...e.dataTransfer.files]); });
+  return zone;
+}
+
+async function upload(kind, file, slot = '') {
+  setStatus(`Importing ${file.name}…`);
+  let res, body;
+  try {
+    res = await fetch(`/api/pets/${current.id}/upload?kind=${kind}&slot=${slot}&name=${encodeURIComponent(file.name)}`, { method: 'POST', body: file });
+    body = await res.json().catch(() => ({ error: `The Studio server answered with an error (${res.status})` }));
+  } catch {
+    body = { error: 'Could not reach the Studio server. Is `npm run studio` still running?' };
+  }
+  if (!res?.ok) { setStatus(`✖ Import failed: ${body.error}`, true); throw new Error(body.error); }
+  setStatus(`Imported ${file.name}`);
+  return body;
+}
+
+// ---------------------------------------------------------------- audio
+let audio = null;
+const buffers = new Map();
+async function playUrl(url, volume = 1, rate = 1) {
+  audio ??= new AudioContext();
+  try {
+    if (!buffers.has(url)) buffers.set(url, fetch(url).then((r) => r.arrayBuffer()).then((b) => audio.decodeAudioData(b)));
+    const buf = await buffers.get(url);
+    const src = audio.createBufferSource();
+    const gain = audio.createGain();
+    src.buffer = buf; src.playbackRate.value = rate; gain.gain.value = volume;
+    src.connect(gain).connect(audio.destination); src.start();
+  } catch (e) { setStatus(`Could not play a sound: ${e.message}`, true); }
+}
+function syllable() {
+  const v = current.json.voice;
+  const rate = Math.min(2, Math.max(0.5, v.pitch * (0.88 + Math.random() * 0.3)));
+  const url = v.files.length
+    ? fileUrl(current.id, v.files[Math.floor(Math.random() * v.files.length)])
+    : `/default-sounds/voice-${'aeiou'[Math.floor(Math.random() * 5)]}.wav`;
+  playUrl(url, v.volume, rate);
+}
+
+// ---------------------------------------------------------------- live pet
+const petState = { blinkTimer: null, idleTimer: null, talkTimers: [], talking: false };
+
+function frame(which) {
+  const imgs = current?.json.images ?? {};
+  const shown = which !== 'idle' && !imgs[which] ? 'idle' : which;
+  document.querySelectorAll('#petbody img').forEach((img) => img.classList.toggle('on', img.dataset.slot === shown));
+}
+
+function animate(el, cls) {
+  el.classList.remove(cls);
+  void el.offsetWidth; // restart the CSS animation
+  el.classList.add(cls);
+}
+
+function renderPet() {
+  const box = $('#petbox');
+  if (!current) { fill($('#petbody')); return; }
+  const p = current.json;
+  const size = Math.round(220 * p.size);
+  box.style.width = box.style.height = `${size}px`;
+  const key = JSON.stringify(p.images);
+  const body = $('#petbody');
+  if (body.dataset.key !== key) {
+    body.dataset.key = key;
+    fill(body, ...['idle', 'blink', 'talk'].filter((s) => p.images[s]).map((s) => h('img', { src: fileUrl(current.id, p.images[s]), 'data-slot': s })));
+    frame('idle');
+  }
+}
+
+function startLife() {
+  clearTimeout(petState.blinkTimer);
+  clearTimeout(petState.idleTimer);
+  const blinkLoop = () => {
+    petState.blinkTimer = setTimeout(() => {
+      if (!petState.talking) {
+        frame('blink');
+        setTimeout(() => !petState.talking && frame('idle'), 120);
+      }
+      blinkLoop();
+    }, 2200 + Math.random() * 3500);
+  };
+  const idleLoop = () => {
+    petState.idleTimer = setTimeout(() => {
+      if (!petState.talking) animate($('#petjump'), ['hop', 'tilt', 'wiggle', 'squish'][Math.floor(Math.random() * 4)]);
+      idleLoop();
+    }, 5000 + Math.random() * 5000);
+  };
+  blinkLoop();
+  idleLoop();
+}
+
+function say(text) {
+  if (!current) return;
+  petState.talkTimers.forEach(clearTimeout);
+  petState.talkTimers = [];
+  const at = (ms, fn) => petState.talkTimers.push(setTimeout(fn, ms));
+  const speech = $('#speech');
+  speech.textContent = text;
+  speech.classList.remove('hidden');
+  petState.talking = true;
+  const syllables = Math.min(14, Math.max(3, Math.round(text.length / 3.2)));
+  for (let i = 0; i < syllables; i++) {
+    at(i * 135, () => { frame('talk'); syllable(); animate($('#petjump'), 'bounce'); at(74, () => frame('idle')); });
+  }
+  at(syllables * 135, () => { petState.talking = false; frame('idle'); });
+  at(syllables * 135 + 1500, () => speech.classList.add('hidden'));
+}
+
+function lineFor(moment) {
+  const own = current.json.lines[moment];
+  const lines = own && own.length ? own : meta.defaultLines[moment];
+  return lines[Math.floor(Math.random() * lines.length)].replace('{streak}', '5');
+}
+
+// ---------------------------------------------------------------- list + selection
+function renderList() {
+  fill($('#petList'), pets.map((p) => {
+    const j = p.json;
+    const sub = !j ? 'broken JSON' : j.premium ? '★ Premium' : j.price === 0 ? 'Free' : `💎 ${j.price}`;
+    return h('div', { class: `theme-item${current?.id === p.id ? ' active' : ''}`, onclick: () => select(p.id) },
+      h('div', { class: 'swatch thumb-list', style: { background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center' } },
+        j?.images?.idle ? h('img', { src: fileUrl(p.id, j.images.idle) }) : '?'),
+      h('div', {}, h('div', { class: 'name' }, j?.name ?? p.id, p.errors.length ? h('span', { class: 'badge-err', title: p.errors.join('\n') }, '  ⚠') : ''),
+        h('div', { class: 'sub' }, `${p.id} · ${sub}`)));
+  }));
+}
+
+async function select(id) {
+  if (current?.id === id || !confirmLeave()) return;
+  const p = await api(`/api/pets/${id}`);
+  current = { ...p, json: withDefaults(p.json ?? meta.defaultPet) };
+  savedJson = p.json ? JSON.stringify(current.json) : '';
+  renderList(); renderEditor(); renderPet(); updateStatus(); startLife();
+  showMessages(p.errors, p.warnings);
+  setTimeout(() => say(`Hi, I'm ${current.json.name}!`), 400);
+}
+
+// ---------------------------------------------------------------- editor
+function renderEditor() {
+  if (!current) { fill($('#editor'), h('div', { class: 'empty' }, 'Pick a pet on the left, or create a new one.')); return; }
+  const p = current.json;
+  fill($('#editor'), h('div', { class: 'messages', id: 'messages' }), basicsCard(p), picturesCard(p), voiceCard(p), linesCard(p));
+}
+
+function basicsCard(p) {
+  const unlock = p.premium ? 'premium' : p.price === 0 ? 'free' : 'gems';
+  const price = h('input', { type: 'number', min: 1, step: 1, value: p.price || 5, style: { width: '80px' }, disabled: unlock !== 'gems',
+    oninput: (e) => { p.price = Math.max(1, Math.round(Number(e.target.value) || 1)); changed(); renderList(); } });
+  const radio = (value, label) => h('label', {}, h('input', { type: 'radio', name: 'unlock', value, checked: unlock === value, onchange: () => {
+    p.premium = value === 'premium';
+    p.price = value === 'gems' ? Math.max(1, Number(price.value) || 5) : 0;
+    price.disabled = value !== 'gems';
+    changed(); renderList();
+  } }), ' ', label);
+  return h('section', { class: 'card' },
+    h('h2', {}, 'Basics'),
+    field('Name', h('input', { type: 'text', value: p.name, oninput: (e) => { p.name = e.target.value; changed(); renderList(); } })),
+    field('Tagline', h('input', { type: 'text', value: p.tagline, style: { width: '320px' }, oninput: (e) => { p.tagline = e.target.value; changed(); } }), 'Shown under the name in the pet shop.'),
+    field('Unlock', h('span', { class: 'chips' }, radio('free', 'Free'), radio('gems', 'Gems:'), price, radio('premium', '★ Premium (in-app purchase)'))),
+    field('Shop order', h('input', { type: 'number', value: p.order, step: 10, style: { width: '90px' }, oninput: (e) => { p.order = Number(e.target.value) || 0; changed(); } }), 'Lower comes first.'),
+    field('Size', h('input', { type: 'range', min: 0.6, max: 1.5, step: 0.05, value: p.size, oninput: (e) => { p.size = Number(e.target.value); changed(); } }), 'How big the pet is drawn in the app.'),
+  );
+}
+
+function picturesCard(p) {
+  const body = h('div');
+  const render = () => fill(body,
+    ...Object.entries(meta.imageSlots).map(([slot, label]) => h('div', { class: 'pic-row' },
+      h('div', {}, h('div', { class: 'slot', style: { fontWeight: 600 } }, slot), h('div', { class: 'hint' }, label)),
+      h('div', { class: 'pic' }, p.images[slot] ? [h('img', { src: fileUrl(current.id, p.images[slot]) }),
+        h('button', { title: 'Remove', onclick: () => { p.images[slot] = null; render(); changed(); renderList(); } }, '✕')] : null),
+      dropZone(`Drop the "${slot}" picture (PNG with a transparent background)`, 'image/*', false, async ([f]) => {
+        const r = await upload('image', f, slot);
+        if (!r.transparent) setStatus(`⚠ ${f.name} has no transparent background; the pet will sit on a box`, true);
+        p.images[slot] = r.file;
+        render(); changed(); renderList();
+      }),
+    )),
+    h('details', { class: 'recipe' },
+      h('summary', {}, '🪄 How to make matching pictures with ChatGPT'),
+      h('ol', {},
+        h('li', {}, 'Ask for the pet (replace the part in brackets):', promptBox(PROMPTS.idle)),
+        h('li', {}, 'In the same chat, ask for the blink version:', promptBox(PROMPTS.blink)),
+        h('li', {}, 'Then the talking version:', promptBox(PROMPTS.talk)),
+      ),
+      h('p', { class: 'hint' }, 'All three must line up. If the pet moves or changes size between pictures, ask again with "keep the exact same pose, size and position". The preview on the right shows immediately whether blinking and talking look right.'),
+    ),
+  );
+  render();
+  return h('section', { class: 'card' }, h('h2', {}, 'Pictures'), body);
+}
+
+function promptBox(text) {
+  return h('div', { class: 'prompt' }, text, ' ', h('button', { class: 'small', onclick: () => { navigator.clipboard.writeText(text); setStatus('Prompt copied'); } }, 'Copy'));
+}
+
+function voiceCard(p) {
+  const v = p.voice;
+  const files = h('div');
+  const renderFiles = () => fill(files,
+    h('div', { class: 'files', style: { display: 'flex', gap: '6px', flexWrap: 'wrap', marginBottom: '8px' } },
+      v.files.length === 0 ? h('span', { class: 'hint' }, 'Using the built-in babble voice') : null,
+      v.files.map((f, i) => h('span', { class: 'file-pill' }, f,
+        h('button', { class: 'icon small', title: 'Play', onclick: () => playUrl(fileUrl(current.id, f), v.volume, v.pitch) }, '▶'),
+        h('button', { class: 'icon small', title: 'Remove', onclick: () => { v.files.splice(i, 1); renderFiles(); changed(); } }, '✕')))),
+    v.files.length < 5 ? dropZone('Optional: drop 1 to 5 short syllables recorded for this pet ("ba", "mi", "pu"…). The app strings them together at varying pitch.', 'audio/*,.wav,.mp3,.m4a,.aac', true, async (fl) => {
+      for (const f of fl.slice(0, 5 - v.files.length)) v.files.push((await upload('voice', f)).file);
+      renderFiles(); changed();
+    }) : null,
+  );
+  renderFiles();
+  return h('section', { class: 'card' },
+    h('h2', {}, 'Voice'),
+    field('Pitch', h('input', { type: 'range', min: 0.6, max: 1.8, step: 0.05, value: v.pitch, oninput: (e) => { v.pitch = Number(e.target.value); changed(); } }), 'Higher sounds smaller and squeakier.'),
+    field('Volume', h('input', { type: 'range', min: 0, max: 1, step: 0.05, value: v.volume, oninput: (e) => { v.volume = Number(e.target.value); changed(); } })),
+    h('div', { class: 'row' }, h('button', { onclick: () => say(lineFor('hello')) }, '▶ Hear it talk')),
+    files,
+  );
+}
+
+function linesCard(p) {
+  return h('section', { class: 'card' },
+    h('h2', {}, 'What it says (optional)'),
+    h('p', { class: 'hint' }, 'One sentence per line; the pet picks one at random. Leave a box empty to use the default sentences shown in grey. Keep them short, kind and never teasing.'),
+    ...Object.entries(meta.lineSlots).map(([moment, desc]) => h('div', { class: 'line-row' },
+      h('div', {}, h('div', { style: { fontWeight: 600 } }, moment), h('div', { class: 'hint' }, desc),
+        h('button', { class: 'small', style: { marginTop: '6px' }, onclick: () => say(lineFor(moment)) }, '▶ Try')),
+      h('textarea', {
+        placeholder: meta.defaultLines[moment].join('\n'),
+        oninput: (e) => {
+          const lines = e.target.value.split('\n').map((l) => l.trim()).filter(Boolean);
+          if (lines.length) p.lines[moment] = lines; else delete p.lines[moment];
+          changed();
+        },
+      }, (p.lines[moment] ?? []).join('\n')),
+    )),
+  );
+}
+
+function showMessages(errors, warnings, ok) {
+  const box = $('#messages');
+  if (!box) return;
+  fill(box,
+    ...errors.map((e) => h('div', { class: 'msg err' }, '✖ ', e.replace(/^[\w-]+: /, ''))),
+    ...warnings.map((w) => h('div', { class: 'msg warn' }, '⚠ ', w.replace(/^[\w-]+: /, ''))),
+    ok ? h('div', { class: 'msg ok' }, ok) : null,
+  );
+}
+
+// ---------------------------------------------------------------- saving
+async function save() {
+  if (!current || !isDirty()) return;
+  $('#save').disabled = true;
+  try {
+    const result = await api(`/api/pets/${current.id}`, { method: 'PUT', headers: { 'content-type': 'application/json' }, body: JSON.stringify(current.json) });
+    savedJson = JSON.stringify(current.json);
+    const idx = pets.findIndex((p) => p.id === current.id);
+    pets[idx] = { ...result, json: clone(current.json) };
+    pets.sort((a, b) => (a.json?.order ?? 999) - (b.json?.order ?? 999));
+    renderList();
+    showMessages(result.errors, result.warnings, result.errors.length
+      ? 'Saved, but this pet is left out of the app until the errors above are fixed.'
+      : 'Saved. The app has been updated; with Expo running it reloads on your phone.');
+  } catch (e) { showMessages([e.message], []); }
+  updateStatus();
+}
+
+function askId(title) {
+  return new Promise((resolve) => {
+    const dlg = $('#newDialog');
+    $('#newTitle').textContent = title;
+    $('#newId').value = '';
+    dlg.onclose = () => resolve(dlg.returnValue === 'ok' ? $('#newId').value.trim() : null);
+    dlg.showModal();
+  });
+}
+async function create(from) {
+  if (!confirmLeave()) return;
+  const id = await askId(from ? `Duplicate "${current.json.name}"` : 'New pet');
+  if (!id) return;
+  try {
+    const p = await api('/api/pets', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ id, from }) });
+    pets.push(p);
+    pets.sort((a, b) => (a.json?.order ?? 999) - (b.json?.order ?? 999));
+    current = null; savedJson = '';
+    await select(id);
+  } catch (e) { alert(e.message); }
+}
+
+$('#newPet').onclick = () => create(null);
+$('#dupPet').onclick = () => current && create(current.id);
+$('#delPet').onclick = async () => {
+  if (!current) return;
+  if (!confirm(`Delete "${current.json.name}"? It is moved to pets/.deleted so you can restore it by hand.`)) return;
+  await api(`/api/pets/${current.id}`, { method: 'DELETE' });
+  pets = pets.filter((p) => p.id !== current.id);
+  current = null; savedJson = '';
+  renderList(); renderEditor(); renderPet(); updateStatus();
+};
+$('#save').onclick = save;
+$('#hopBtn').onclick = () => animate($('#petjump'), 'hop');
+document.querySelectorAll('[data-say]').forEach((b) => b.addEventListener('click', () => say(lineFor(b.dataset.say))));
+document.addEventListener('keydown', (e) => { if ((e.ctrlKey || e.metaKey) && e.key === 's') { e.preventDefault(); save(); } });
+window.addEventListener('beforeunload', (e) => { if (isDirty()) { e.preventDefault(); e.returnValue = ''; } });
+
+(async () => {
+  meta = await api('/api/pet-meta');
+  pets = await api('/api/pets');
+  renderList();
+  if (pets.length) await select(pets[0].id); else renderEditor();
+})();
+</script>
+</body>
+</html>

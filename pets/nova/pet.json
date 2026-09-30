@@ -1,0 +1,19 @@
+{
+  "name": "Nova",
+  "tagline": "A little star from far away",
+  "order": 30,
+  "price": 0,
+  "premium": true,
+  "images": {
+    "idle": "img-idle.png",
+    "blink": "img-blink.png",
+    "talk": "img-talk.png"
+  },
+  "size": 1,
+  "voice": {
+    "pitch": 1.1,
+    "files": [],
+    "volume": 0.8
+  },
+  "lines": {}
+}

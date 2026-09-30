@@ -1,13 +1,15 @@
 import { router, useLocalSearchParams } from 'expo-router';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Animated, { FadeInDown, ZoomIn } from 'react-native-reanimated';
 
 import { ChunkyButton } from '@/components/chunky-button';
 import { Coin } from '@/components/coin';
+import { PetView, type PetHandle } from '@/components/pet-view';
 import { Screen } from '@/components/screen';
 import { feedback } from '@/feedback';
 import { levelInfo } from '@/game/levels';
+import { petLine, usePet } from '@/pets';
 import { useTheme, type Theme } from '@/theme';
 
 function starsFor(correct: number, total: number) {
@@ -34,14 +36,22 @@ export default function Results() {
   const [shownCoins, setShownCoins] = useState(0);
   const [showGems, setShowGems] = useState(false);
 
-  // Choreography: fanfare, stars one by one, coins counting up with ticks,
-  // then gems.
+  const pet = usePet();
+  const petRef = useRef<PetHandle>(null);
+
+  // Choreography: fanfare, stars one by one (the pet hops for each), coins
+  // counting up with ticks, then gems, then the pet says something kind.
   useEffect(() => {
     const timers: ReturnType<typeof setTimeout>[] = [];
     const at = (ms: number, fn: () => void) => timers.push(setTimeout(fn, ms));
 
     at(0, feedback.fanfare);
-    for (let i = 0; i < stars; i++) at(STAR_DELAY + i * STAR_GAP, () => feedback.correct(3 + i * 2));
+    for (let i = 0; i < stars; i++) {
+      at(STAR_DELAY + i * STAR_GAP, () => {
+        feedback.correct(3 + i * 2);
+        petRef.current?.hop();
+      });
+    }
 
     const coinsStart = STAR_DELAY + stars * STAR_GAP + 200;
     const ticks = Math.min(coins, 24);
@@ -57,7 +67,9 @@ export default function Results() {
         feedback.gem();
       });
     }
+    if (pet) at(coinsStart + ticks * 55 + (gems > 0 ? 1100 : 500), () => petRef.current?.say(petLine(pet, 'finish')));
     return () => timers.forEach(clearTimeout);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [coins, gems, stars]);
 
   const headline = stars === 3 ? 'Amazing!' : stars === 2 ? 'Great run!' : stars === 1 ? 'Nice work!' : 'Keep going!';
@@ -107,6 +119,12 @@ export default function Results() {
             )}
           </View>
         </View>
+
+        {pet && (
+          <View style={styles.petRow}>
+            <PetView ref={petRef} pet={pet} size={88} bubble="right" onPress={() => petRef.current?.say(petLine(pet, 'finish'))} />
+          </View>
+        )}
 
         <View style={styles.buttons}>
           <ChunkyButton
@@ -244,6 +262,11 @@ const makeStyles = (t: Theme) =>
       fontFamily: t.font.bold,
       fontSize: 40,
       color: t.text,
+    },
+    petRow: {
+      paddingLeft: 8,
+      marginBottom: 10,
+      zIndex: 5,
     },
     buttons: {
       gap: 12,

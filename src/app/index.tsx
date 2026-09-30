@@ -14,9 +14,11 @@ import Animated, {
 
 import { ChunkyButton } from '@/components/chunky-button';
 import { Coin } from '@/components/coin';
+import { PetView, type PetHandle } from '@/components/pet-view';
 import { Screen } from '@/components/screen';
 import { feedback, setMuted } from '@/feedback';
 import { levelInfo } from '@/game/levels';
+import { petLine, usePet } from '@/pets';
 import { updateProgress, useProgress } from '@/progress';
 import { useTheme, type Theme } from '@/theme';
 
@@ -32,6 +34,15 @@ export default function Home() {
   const t = useTheme();
   const styles = useMemo(() => makeStyles(t), [t]);
   const progress = useProgress();
+
+  // The pet greets the child, and says something new every time it's tapped.
+  const pet = usePet();
+  const petRef = useRef<PetHandle>(null);
+  useEffect(() => {
+    if (!pet) return;
+    const id = setTimeout(() => petRef.current?.say(petLine(pet, 'hello')), 900);
+    return () => clearTimeout(id);
+  }, [pet]);
 
   // Gentle idle bob on the title.
   const bob = useSharedValue(0);
@@ -110,17 +121,24 @@ export default function Home() {
             <Text style={styles.titleSmall}>MATH</Text>
             <Text style={styles.title}>RUN</Text>
           </Animated.View>
-          <View style={styles.bubbles}>
-            {['7 + 5', '6 × 8', '81 ÷ 9'].map((t, i) => (
-              <Text key={t} style={[styles.bubble, { transform: [{ rotate: `${(i - 1) * 6}deg` }] }]}>
-                {t}
-              </Text>
-            ))}
-          </View>
+          {pet ? (
+            // Pet on the left, so its speech bubble has room on the right.
+            <View style={styles.petRow}>
+              <PetView ref={petRef} pet={pet} size={112} bubble="right" onPress={() => petRef.current?.say(petLine(pet, 'hello'))} />
+            </View>
+          ) : (
+            <View style={styles.bubbles}>
+              {['7 + 5', '6 × 8', '81 ÷ 9'].map((t, i) => (
+                <Text key={t} style={[styles.bubble, { transform: [{ rotate: `${(i - 1) * 6}deg` }] }]}>
+                  {t}
+                </Text>
+              ))}
+            </View>
+          )}
         </View>
 
-        <View style={styles.cardRow}>
-          <View style={[styles.card, styles.cardGrow]}>
+        <View>
+          <View style={styles.card}>
             <Text style={styles.cardLabel}>Best level</Text>
             <Text style={styles.cardValue} numberOfLines={1}>
               {progress.bestLevel > 0 ? `${progress.bestLevel} · ${levelInfo(progress.bestLevel).name}` : 'Not played yet'}
@@ -131,20 +149,31 @@ export default function Home() {
               </Text>
             )}
           </View>
-          <ChunkyButton
-            onPress={() => {
-              feedback.button();
-              router.push('/themes');
-            }}
-            color={t.card}
-            edgeColor={t.cardEdge}
-            height={70}
-            edge={4}
-            style={styles.themesButton}
-          >
-            <Text style={styles.themesIcon}>🎨</Text>
-            <Text style={styles.themesLabel}>Themes</Text>
-          </ChunkyButton>
+        </View>
+
+        <View style={styles.shopRow}>
+          {[
+            { icon: '🎨', label: 'Themes', route: '/themes' as const },
+            { icon: '🐾', label: 'Pets', route: '/pets' as const },
+          ].map((b) => (
+            <ChunkyButton
+              key={b.route}
+              onPress={() => {
+                feedback.button();
+                router.push(b.route);
+              }}
+              color={t.card}
+              edgeColor={t.cardEdge}
+              height={54}
+              edge={4}
+              style={styles.shopButton}
+            >
+              <View style={styles.shopButtonInner}>
+                <Text style={styles.shopIcon}>{b.icon}</Text>
+                <Text style={styles.shopLabel}>{b.label}</Text>
+              </View>
+            </ChunkyButton>
+          ))}
         </View>
 
         <View style={styles.lengths}>
@@ -305,23 +334,28 @@ const makeStyles = (t: Theme) =>
       borderBottomWidth: 4,
       borderColor: t.cardEdge,
     },
-    cardRow: {
+    petRow: {
+      alignSelf: 'stretch',
+      paddingLeft: 24,
+    },
+    shopRow: {
       flexDirection: 'row',
       gap: 12,
     },
-    cardGrow: {
+    shopButton: {
       flex: 1,
-      justifyContent: 'center',
     },
-    themesButton: {
-      width: 92,
+    shopButtonInner: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: 8,
     },
-    themesIcon: {
-      fontSize: 24,
+    shopIcon: {
+      fontSize: 22,
     },
-    themesLabel: {
+    shopLabel: {
       fontFamily: t.font.semibold,
-      fontSize: 14,
+      fontSize: 17,
       color: t.text,
     },
     cardLabel: {

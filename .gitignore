@@ -44,3 +44,6 @@ example
 
 # Themes deleted in the Theme Studio
 themes/.deleted/
+
+# Pets deleted in the Studio
+pets/.deleted/

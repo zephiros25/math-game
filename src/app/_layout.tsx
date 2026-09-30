@@ -10,8 +10,9 @@ import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect, useState } from 'react';
 
-import { applyThemeSounds, initFeedback, setMuted } from '@/feedback';
-import { loadProgress } from '@/progress';
+import { applyPetVoice, applyThemeSounds, initFeedback, setMuted } from '@/feedback';
+import { petById } from '@/pets';
+import { loadProgress, useProgress } from '@/progress';
 import { THEME_FONT_FILES, useTheme } from '@/theme';
 
 SplashScreen.preventAutoHideAsync();
@@ -26,6 +27,7 @@ export default function RootLayout() {
   });
   const [progressLoaded, setProgressLoaded] = useState(false);
   const t = useTheme();
+  const { pet, showPet } = useProgress();
 
   useEffect(() => {
     // Inside an effect so audio players are only created on the device, not
@@ -40,6 +42,10 @@ export default function RootLayout() {
   useEffect(() => {
     applyThemeSounds(t);
   }, [t]);
+
+  useEffect(() => {
+    applyPetVoice(showPet ? petById(pet) : null);
+  }, [pet, showPet]);
 
   const ready = fontsLoaded && progressLoaded;
   useEffect(() => {

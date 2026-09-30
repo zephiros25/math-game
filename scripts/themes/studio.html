@@ -6,129 +6,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg: #f6f4f1; --panel: #ffffff; --line: #e6e1da; --ink: #27212e; --soft: #7a7282;
-    --accent: #ff7a59; --accent-ink: #fff; --ok: #2a9a5e; --warn: #b7791f; --err: #c53030;
-  }
-  * { box-sizing: border-box; }
-  body { margin: 0; font: 14px/1.45 system-ui, -apple-system, Segoe UI, sans-serif; color: var(--ink); background: var(--bg); }
-  button, input, select { font: inherit; color: inherit; }
-  button { cursor: pointer; border: 1px solid var(--line); background: var(--panel); border-radius: 8px; padding: 6px 12px; }
-  button:hover { border-color: #cfc7bd; }
-  button.primary { background: var(--accent); color: var(--accent-ink); border-color: transparent; font-weight: 600; }
-  button.primary:disabled { opacity: .45; cursor: default; }
-  button.small { padding: 2px 8px; font-size: 12px; }
-  button.icon { padding: 2px 7px; }
-  input[type=text], input[type=number], select { border: 1px solid var(--line); border-radius: 8px; padding: 6px 8px; background: #fff; }
-  input[type=range] { width: 160px; accent-color: var(--accent); }
-  h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--soft); margin: 0 0 10px; }
-  .app { display: grid; grid-template-columns: 230px minmax(420px, 1fr) 380px; height: 100vh; }
-  header.top { grid-column: 1 / -1; display: flex; align-items: center; gap: 12px; padding: 10px 16px; background: var(--panel); border-bottom: 1px solid var(--line); }
-  header.top h1 { font: 600 18px Fredoka, system-ui; margin: 0; }
-  header.top .spacer { flex: 1; }
-  .status { font-size: 13px; color: var(--soft); }
-  .status.dirty { color: var(--warn); font-weight: 600; }
-  .app { grid-template-rows: auto 1fr; }
-  aside, main, .preview-col { overflow: auto; }
-  aside { border-right: 1px solid var(--line); background: var(--panel); padding: 12px; display: flex; flex-direction: column; gap: 8px; }
-  .theme-item { display: flex; align-items: center; gap: 10px; padding: 8px; border-radius: 10px; cursor: pointer; border: 2px solid transparent; }
-  .theme-item:hover { background: var(--bg); }
-  .theme-item.active { border-color: var(--accent); background: #fff7f3; }
-  .swatch { width: 34px; height: 34px; border-radius: 10px; position: relative; flex: none; border: 1px solid rgba(0,0,0,.08); background-size: cover; background-position: center; }
-  .swatch i { position: absolute; left: 9px; top: 9px; width: 16px; height: 16px; border-radius: 50%; }
-  .theme-item .name { font-weight: 600; }
-  .theme-item .sub { font-size: 12px; color: var(--soft); }
-  .badge-err { color: var(--err); font-weight: 700; }
-  .aside-actions { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
-  main { padding: 16px 20px 80px; display: flex; flex-direction: column; gap: 16px; }
-  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 16px; }
-  .row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
-  .row label.lbl { width: 120px; color: var(--soft); }
-  .hint { color: var(--soft); font-size: 12px; }
-  .messages { display: flex; flex-direction: column; gap: 4px; }
-  .msg { padding: 6px 10px; border-radius: 8px; font-size: 13px; }
-  .msg.err { background: #fdecec; color: var(--err); }
-  .msg.warn { background: #fdf5e6; color: var(--warn); }
-  .msg.ok { background: #e8f6ee; color: var(--ok); }
-  .color-group { margin-bottom: 14px; }
-  .color-group h3 { font-size: 13px; margin: 0 0 6px; }
-  .colors { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 6px 14px; }
-  .color { display: flex; align-items: center; gap: 6px; }
-  .color input[type=color] { width: 34px; height: 30px; padding: 0; border: 1px solid var(--line); border-radius: 8px; background: none; cursor: pointer; }
-  .color input[type=text] { width: 84px; font-family: ui-monospace, Consolas, monospace; font-size: 12px; padding: 4px 6px; }
-  .color .cname { font-size: 12px; flex: 1; min-width: 0; }
-  .contrast { font-size: 11px; padding: 1px 6px; border-radius: 6px; margin-left: 4px; }
-  .contrast.good { background: #e8f6ee; color: var(--ok); }
-  .contrast.bad { background: #fdecec; color: var(--err); }
-  .drop { border: 2px dashed var(--line); border-radius: 12px; padding: 12px; text-align: center; color: var(--soft); cursor: pointer; transition: .15s; }
-  .drop.over { border-color: var(--accent); background: #fff7f3; color: var(--ink); }
-  .thumbs { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
-  .thumb { position: relative; width: 64px; height: 64px; border-radius: 10px; border: 1px solid var(--line); background: #eee center/contain no-repeat; }
-  .thumb.bg { width: 90px; height: 150px; background-size: cover; }
-  .thumb button { position: absolute; top: -8px; right: -8px; border-radius: 50%; width: 22px; height: 22px; padding: 0; font-size: 12px; }
-  .chips { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
-  .chip { display: flex; align-items: center; gap: 4px; border: 1px solid var(--line); border-radius: 999px; padding: 2px 4px 2px 2px; }
-  .chip input[type=color] { width: 24px; height: 24px; border: none; border-radius: 50%; padding: 0; background: none; cursor: pointer; }
-  .sound { display: grid; grid-template-columns: 150px 1fr auto; gap: 10px; align-items: start; padding: 10px 0; border-top: 1px solid var(--line); }
-  .sound:first-of-type { border-top: none; }
-  .sound .slot { font-weight: 600; }
-  .sound .files { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
-  .file-pill { display: flex; align-items: center; gap: 4px; background: var(--bg); border-radius: 999px; padding: 2px 4px 2px 10px; font-size: 12px; }
-  .sound .controls { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; }
-  .palette { display: flex; gap: 4px; margin-top: 8px; }
-  .palette span { width: 26px; height: 26px; border-radius: 6px; cursor: pointer; border: 1px solid rgba(0,0,0,.1); }
-  .preview-col { border-left: 1px solid var(--line); background: #ece8e2; padding: 16px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
-  .tabs { display: flex; gap: 4px; background: #ddd7cf; padding: 3px; border-radius: 10px; }
-  .tabs button { border: none; background: transparent; }
-  .tabs button.on { background: #fff; }
-  .phone { width: 320px; height: 640px; border-radius: 40px; border: 10px solid #1d1b20; position: relative; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,.18); font-family: var(--pf, Fredoka), system-ui; flex: none; }
-  .layer { position: absolute; inset: 0; }
-  .bgimg { background-size: cover; background-position: center; }
-  .particle { position: absolute; will-change: transform, top, opacity; }
-  @keyframes rise { from { top: 105%; } to { top: -12%; } }
-  @keyframes fall { from { top: -12%; transform: rotate(var(--r0)); } to { top: 105%; transform: rotate(var(--r1)); } }
-  @keyframes twinkle { from { opacity: .15; transform: rotate(var(--r0)) scale(.6); } to { opacity: var(--o); transform: rotate(var(--r0)) scale(1); } }
-  @keyframes drift { from { transform: translate(-25px, -15px) rotate(var(--r0)); } to { transform: translate(25px, 15px) rotate(var(--r0)) scale(1.08); } }
-  .ui { position: absolute; inset: 0; display: flex; flex-direction: column; padding: 34px 14px 16px; }
-  .p-top { display: flex; align-items: center; gap: 10px; }
-  .p-track { flex: 1; height: 10px; border-radius: 5px; overflow: hidden; }
-  .p-coin { width: 16px; height: 16px; border-radius: 50%; background: #FFBE2E; border: 2px solid #E59A12; display: inline-block; vertical-align: -3px; }
-  .p-chip { display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; padding: 3px 10px 3px 4px; font-size: 13px; font-weight: 500; }
-  .p-lv { border-radius: 999px; padding: 1px 8px; font-weight: 700; font-size: 11px; }
-  .p-stage { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
-  .p-q { font-size: 44px; font-weight: 600; }
-  .p-ans { min-width: 96px; height: 70px; padding: 0 18px; border-radius: 20px; border-bottom: 5px solid; display: flex; align-items: center; justify-content: center; font-size: 42px; font-weight: 700; transition: background .1s; }
-  .p-toast { height: 26px; font-size: 18px; font-weight: 700; }
-  .p-pad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; }
-  .p-key { height: 48px; border-radius: 14px; border: none; border-bottom: 5px solid; font: 600 24px var(--pf, Fredoka), system-ui; display: flex; align-items: center; justify-content: center; user-select: none; cursor: pointer; transition: transform .05s, border-bottom-width .05s; padding: 0; }
-  .p-key:active { transform: translateY(4px); border-bottom-width: 1px; margin-bottom: 4px; }
-  .p-btn { height: 58px; border-radius: 18px; border: none; border-bottom: 6px solid; font: 600 26px var(--pf, Fredoka), system-ui; width: 100%; }
-  .p-card { border-radius: 16px; border-bottom: 4px solid; padding: 10px 12px; }
-  .shake { animation: shake .35s; }
-  @keyframes shake { 20% { transform: translateX(-10px); } 40% { transform: translateX(9px); } 60% { transform: translateX(-6px); } 80% { transform: translateX(3px); } }
-  .pop { animation: pop .3s; }
-  @keyframes pop { 40% { transform: scale(1.15); } }
-  .sound-tests { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; max-width: 330px; }
-  .empty { color: var(--soft); padding: 40px; text-align: center; }
-  dialog { border: none; border-radius: 14px; padding: 20px; box-shadow: 0 20px 60px rgba(0,0,0,.25); width: 360px; }
-  dialog::backdrop { background: rgba(0,0,0,.3); }
-  .font-sample { font-size: 30px; padding: 10px 14px; border-radius: 12px; background: var(--bg); margin: 6px 0 12px; }
-  .font-sample small { display: block; font-size: 16px; }
-  .weights { display: grid; grid-template-columns: 90px 1fr; gap: 6px 10px; align-items: center; }
-  .weights .drop { padding: 6px; font-size: 12px; }
-  .icon-row { display: flex; gap: 12px; align-items: center; flex: 1; }
-  .icon-row .drop { flex: 1; }
-  .icon-tile { width: 64px; height: 64px; flex: none; border-radius: 20px; border: 3px solid var(--line); background-size: cover; background-position: center; position: relative; }
-  .icon-tile i { position: absolute; left: 16px; top: 16px; width: 26px; height: 26px; border-radius: 50%; }
-  .icon-tile b { position: absolute; right: 10px; bottom: 10px; width: 12px; height: 12px; border-radius: 50%; }
-  kbd { background: var(--bg); border: 1px solid var(--line); border-radius: 4px; padding: 0 4px; font-size: 12px; }
-</style>
+<link rel="stylesheet" href="/studio.css">
 </head>
 <body>
 <div class="app">
   <header class="top">
-    <h1>🎨 Theme Studio</h1>
+    <h1>🎨 Studio</h1>
+    <nav class="nav"><a href="/" class="on">Themes</a><a href="/pets">Pets</a></nav>
     <span class="status" id="status"></span>
     <span class="spacer"></span>
     <span class="hint">Save with <kbd>Ctrl</kbd>+<kbd>S</kbd>. With <kbd>npx expo start</kbd> running, saves show up on your phone.</span>

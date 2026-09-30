@@ -1,6 +1,6 @@
 import { router } from 'expo-router';
 import { Fragment, useMemo, useRef } from 'react';
-import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Pressable, ScrollView, StyleSheet, Switch, Text, View } from 'react-native';
 
 import { Screen } from '@/components/screen';
 import { feedback } from '@/feedback';
@@ -12,7 +12,7 @@ import { useTheme, type Theme } from '@/theme';
 export default function Settings() {
   const t = useTheme();
   const styles = useMemo(() => makeStyles(t), [t]);
-  const { maxLevel } = useProgress();
+  const { maxLevel, showPet } = useProgress();
   const scroll = useRef<ScrollView>(null);
   const scrolled = useRef(false);
 
@@ -65,7 +65,24 @@ export default function Settings() {
         </View>
 
         <ScrollView ref={scroll} contentContainerStyle={styles.scroll} showsVerticalScrollIndicator={false}>
-          <Text style={styles.heading}>Highest level</Text>
+          <Text style={styles.heading}>Pet companion</Text>
+          <View style={[styles.row, styles.switchRow]}>
+            <View style={styles.rowText}>
+              <Text style={styles.rowTitle}>Show a pet</Text>
+              <Text style={styles.rowExample}>A little friend who cheers during play. Turn off if it distracts.</Text>
+            </View>
+            <Switch
+              value={showPet}
+              onValueChange={(on) => {
+                feedback.key();
+                updateProgress({ showPet: on });
+              }}
+              trackColor={{ true: t.primary, false: t.track }}
+              thumbColor={t.card}
+            />
+          </View>
+
+          <Text style={[styles.heading, styles.headingSpaced]}>Highest level</Text>
           <Text style={styles.intro}>
             The game adapts to your child, but never goes above the level you pick here. Choose the last skill they have learned
             at school; answering fast at that level keeps them there.
@@ -129,6 +146,12 @@ const makeStyles = (t: Theme) =>
       fontFamily: t.font.bold,
       fontSize: 20,
       color: t.text,
+    },
+    headingSpaced: {
+      marginTop: 18,
+    },
+    switchRow: {
+      marginBottom: 4,
     },
     intro: {
       fontFamily: t.font.regular,

@@ -8,6 +8,7 @@ import { createAudioPlayer, setAudioModeAsync, type AudioPlayer } from 'expo-aud
 import * as Haptics from 'expo-haptics';
 import { Platform } from 'react-native';
 
+import type { Pet } from '@/pets';
 import type { SoundSlot, Theme } from '@/theme';
 
 const DEFAULTS = {
@@ -31,6 +32,11 @@ const DEFAULTS = {
   fanfare: require('@/assets/sounds/fanfare.wav'),
   coin: require('@/assets/sounds/coin.wav'),
   gem: require('@/assets/sounds/gem.wav'),
+  'voice-a': require('@/assets/sounds/voice-a.wav'),
+  'voice-e': require('@/assets/sounds/voice-e.wav'),
+  'voice-i': require('@/assets/sounds/voice-i.wav'),
+  'voice-o': require('@/assets/sounds/voice-o.wav'),
+  'voice-u': require('@/assets/sounds/voice-u.wav'),
 } as const;
 
 type DefaultSound = keyof typeof DEFAULTS;
@@ -53,6 +59,8 @@ const DEFAULT_SLOTS: Record<Exclude<SoundSlot, 'correct'>, { sounds: DefaultSoun
 const STREAK_SEMITONES = [0, 2, 4, 7, 9, 12];
 
 type Pool = { players: AudioPlayer[]; next: number };
+
+const VOICE_SYLLABLES: DefaultSound[] = ['voice-a', 'voice-e', 'voice-i', 'voice-o', 'voice-u'];
 
 const POOL_SIZE: Partial<Record<DefaultSound, number>> = { key1: 2, key2: 2, key3: 2, back: 2, coin: 4, pop: 2 };
 
@@ -86,6 +94,22 @@ export function applyThemeSounds(theme: Theme) {
     }));
     themePools.set(slot, { pools, volume: sound.volume });
   }
+}
+
+// The chosen pet's own babble syllables (if it has any).
+let petVoice: { id: string; pools: Pool[]; volume: number; pitch: number } | null = null;
+
+export function applyPetVoice(pet: Pet | null) {
+  if ((pet?.id ?? null) === (petVoice?.id ?? null)) return;
+  petVoice?.pools.forEach((pool) => pool.players.forEach((p) => p.remove()));
+  petVoice = pet
+    ? {
+        id: pet.id,
+        pools: pet.voiceFiles.map((source) => ({ players: [createAudioPlayer(source), createAudioPlayer(source)], next: 0 })),
+        volume: pet.voiceVolume,
+        pitch: pet.voicePitch,
+      }
+    : null;
 }
 
 export function setMuted(value: boolean) {
@@ -164,6 +188,17 @@ export const feedback = {
   gem() {
     playSlot('gem');
     buzz(() => Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Rigid));
+  },
+  // One babble syllable while a pet talks, at a slightly random pitch so a
+  // sentence sounds like cute chatter. `pet` sets the voice's pitch.
+  petSyllable(pet: Pet) {
+    const rate = Math.min(2, Math.max(0.5, pet.voicePitch * (0.88 + Math.random() * 0.3)));
+    if (petVoice?.id === pet.id && petVoice.pools.length) {
+      playFrom(petVoice.pools[Math.floor(Math.random() * petVoice.pools.length)], petVoice.volume, rate);
+    } else {
+      const syllable = VOICE_SYLLABLES[Math.floor(Math.random() * VOICE_SYLLABLES.length)];
+      playFrom(defaultPools.get(syllable), pet.voiceVolume, rate);
+    }
   },
   fanfare() {
     playSlot('fanfare');

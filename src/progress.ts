@@ -14,6 +14,9 @@ export type Progress = {
   maxLevel: number | null; // highest level the game may use; null = no limit
   theme: string; // id of the equipped theme
   ownedThemes: string[];
+  pet: string | null; // id of the chosen pet
+  ownedPets: string[];
+  showPet: boolean; // parents can hide the pet without losing the child's choice
 };
 
 const KEY = 'progress.v1';
@@ -26,6 +29,9 @@ const DEFAULTS: Progress = {
   maxLevel: null,
   theme: 'sunny',
   ownedThemes: ['sunny'],
+  pet: 'sprout',
+  ownedPets: ['sprout'],
+  showPet: true,
 };
 
 let current: Progress = DEFAULTS;

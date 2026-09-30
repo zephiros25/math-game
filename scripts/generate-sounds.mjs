@@ -101,6 +101,32 @@ function gem() {
   return normalize(x, 0.4);
 }
 
+// One babble syllable for the pets' default voice: a short sung vowel. A
+// glottal-like source (harmonics of a gliding pitch) is shaped by the vowel's
+// two formants, so "a", "e", "i", "o", "u" sound distinct. The app strings
+// syllables together at varied pitches while a pet talks.
+const VOWELS = { a: [800, 1200], e: [480, 1900], i: [320, 2300], o: [520, 900], u: [360, 800] };
+
+function syllable([f1, f2], seed) {
+  const x = buffer(0.11);
+  const r = rng(seed);
+  const formant = (f, center, width) => Math.exp(-(((f - center) / width) ** 2));
+  let phase = 0;
+  for (let i = 0; i < x.length; i++) {
+    const t = i / SR;
+    const f0 = 330 * (1 + 0.08 * Math.sin(t * 30) - 0.12 * t * 5);
+    phase += (2 * Math.PI * f0) / SR;
+    let v = 0;
+    for (let k = 1; k <= 14; k++) {
+      const gain = formant(k * f0, f1, 180) + 0.7 * formant(k * f0, f2, 260) + 0.05;
+      v += (gain / k) * Math.sin(k * phase);
+    }
+    const env = (1 - Math.exp(-t / 0.006)) * Math.exp(-t / 0.045);
+    x[i] = v * env + 0.01 * (r() * 2 - 1) * env;
+  }
+  return normalize(lowpass(x, 4500), 0.45);
+}
+
 const writeWav = (name, samples) => writeFile(join(outDir, `${name}.wav`), samples);
 
 mkdirSync(outDir, { recursive: true });
@@ -117,3 +143,4 @@ writeWav('levelup', arpeggio(['G5', 'C6', 'E6', 'G6'], 0.06, 1.4, 0.5));
 writeWav('fanfare', arpeggio(['C5', 'E5', 'G5', 'C6', 'E6', 'G6'], 0.09, 2.4, 0.55));
 writeWav('coin', coin());
 writeWav('gem', gem());
+Object.entries(VOWELS).forEach(([vowel, formants], i) => writeWav(`voice-${vowel}`, syllable(formants, 50 + i)));
