@@ -76,8 +76,10 @@ const makePool = (source: number, size: number): Pool => ({
 
 const releasePool = (pool: Pool) => pool.voices.forEach((v) => v.player.remove());
 
-// Players per recording: more for sounds that repeat quickly.
-const poolSize = (slot: DefaultSetSlot) => (slot === 'coin' ? 4 : 2);
+// Players per recording: more for sounds that repeat quickly. A fast player
+// hears a correct sound every half second, so three players let each one
+// ring out fully (about 1.5 s) before it is reused.
+const poolSize = (slot: DefaultSetSlot) => (slot === 'coin' ? 4 : slot === 'correct' ? 3 : 2);
 
 const VOICE_SYLLABLES: DefaultSound[] = ['voice-a', 'voice-e', 'voice-i', 'voice-o', 'voice-u'];
 
