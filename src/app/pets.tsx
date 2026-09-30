@@ -9,7 +9,8 @@ import { PetView, type PetHandle } from '@/components/pet-view';
 import { Screen } from '@/components/screen';
 import { applyPetVoice, feedback } from '@/feedback';
 import { petById, PETS, type Pet } from '@/pets';
-import { getProgress, updateProgress, useProgress } from '@/progress';
+import { useParentGate } from '@/components/parent-gate';
+import { getProgress, updateProgress, useDevice, useProgress } from '@/progress';
 import { useTheme, type Theme } from '@/theme';
 
 // The pet shop: tap a pet to meet it (it introduces itself in its own
@@ -21,6 +22,10 @@ export default function Pets() {
   const [selectedId, setSelectedId] = useState(progress.pet ?? PETS[0]?.id ?? null);
   const selected = petById(selectedId);
   const petRef = useRef<PetHandle>(null);
+  const { plus } = useDevice();
+  const { gate, ask } = useParentGate();
+  // Plus includes every premium pet.
+  const owns = (pet: Pet) => progress.ownedPets.includes(pet.id) || (pet.premium && plus);
 
   // Browsing a pet also loads its voice; leaving restores the chosen pet's.
   useEffect(() => {
@@ -37,7 +42,7 @@ export default function Pets() {
 
   if (!selected) return null;
 
-  const owned = progress.ownedPets.includes(selected.id);
+  const owned = owns(selected);
   const chosen = progress.pet === selected.id;
   const shortBy = selected.price - progress.gems;
 
@@ -75,8 +80,9 @@ export default function Pets() {
   } else if (selected.premium) {
     action = (
       <View style={styles.premiumNote}>
-        <Text style={styles.premiumTitle}>Premium pet · coming soon</Text>
-        <Text style={styles.premiumBody}>Part of every premium pet will go to Alzheimer&apos;s research.</Text>
+        <Text style={styles.premiumTitle}>★ Comes with Math Run Plus</Text>
+        <Text style={styles.premiumBody}>Part of every purchase goes to Alzheimer&apos;s research.</Text>
+        <ChunkyButton label="Ask a grown-up" fontSize={20} height={52} onPress={() => ask(() => router.push('/plus'))} style={styles.askButton} />
       </View>
     );
   } else if (shortBy > 0) {
@@ -122,7 +128,7 @@ export default function Pets() {
           <View style={styles.grid}>
             {PETS.map((pet) => {
               const isSelected = pet.id === selected.id;
-              const isOwned = progress.ownedPets.includes(pet.id);
+              const isOwned = owns(pet);
               const status = progress.pet === pet.id ? '✓ With you' : isOwned ? 'Owned' : pet.premium ? '★ Premium' : `💎 ${pet.price}`;
               return (
                 <Pressable key={pet.id} onPress={() => select(pet)} style={styles.tile}>
@@ -145,6 +151,7 @@ export default function Pets() {
         {devUnlock}
         {action}
       </View>
+      {gate}
     </Screen>
   );
 }
@@ -296,6 +303,10 @@ const makeStyles = (t: Theme) =>
       fontSize: 14,
       color: t.textSoft,
       textAlign: 'center',
+    },
+    askButton: {
+      alignSelf: 'stretch',
+      marginTop: 8,
     },
     devLink: {
       fontFamily: t.font.medium,

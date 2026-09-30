@@ -1,10 +1,8 @@
 import { router } from 'expo-router';
-import { useEffect, useMemo, useRef, useState } from 'react';
-import { Platform, Pressable, StyleSheet, Text, View } from 'react-native';
+import { useEffect, useMemo, useRef } from 'react';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 import Animated, {
   Easing,
-  FadeIn,
-  FadeOut,
   useAnimatedStyle,
   useSharedValue,
   withRepeat,
@@ -17,23 +15,26 @@ import { Coin } from '@/components/coin';
 import { PetView, type PetHandle } from '@/components/pet-view';
 import { Screen } from '@/components/screen';
 import { feedback, setMuted } from '@/feedback';
+import { useParentGate } from '@/components/parent-gate';
+import { focusPlan } from '@/game/focus';
 import { levelInfo } from '@/game/levels';
 import { petLine, usePet } from '@/pets';
-import { updateProgress, useProgress } from '@/progress';
+import { switchPlayer, updateProgress, useDevice, useProgress } from '@/progress';
+import { useStats } from '@/stats';
 import { useTheme, type Theme } from '@/theme';
 
 const RUN_LENGTHS = [10, 20, 40];
 
-// Settings are for grown-ups: the gear must be held this long to open them.
-// The web build (only used for testing) opens them with a plain click, since
-// press-and-hold isn't reliable with a mouse there.
-const SETTINGS_HOLD_MS = 1500;
-const HOLD_TO_OPEN = Platform.OS !== 'web';
 
 export default function Home() {
   const t = useTheme();
   const styles = useMemo(() => makeStyles(t), [t]);
   const progress = useProgress();
+  const device = useDevice();
+  const stats = useStats();
+  const focus = device.plus ? focusPlan(progress.focus, stats) : null;
+  // Settings, the report and Plus are for grown-ups, behind the parental gate.
+  const { gate, ask } = useParentGate();
 
   // The pet greets the child, and says something new every time it's tapped.
   const pet = usePet();
@@ -61,18 +62,6 @@ export default function Home() {
     transform: [{ translateY: -6 * bob.value }, { rotate: `${-2 + 4 * bob.value}deg` }],
   }));
 
-  // Holding the gear spins it; a quick tap shows how to open settings.
-  const [hint, setHint] = useState(false);
-  const hintTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
-  useEffect(() => () => clearTimeout(hintTimer.current), []);
-  const spin = useSharedValue(0);
-  const gearStyle = useAnimatedStyle(() => ({ transform: [{ rotate: `${spin.value * 360}deg` }] }));
-
-  const openSettings = () => {
-    feedback.button();
-    setHint(false);
-    router.push('/settings');
-  };
 
   const toggleMute = () => {
     setMuted(!progress.muted);
@@ -95,26 +84,36 @@ export default function Home() {
             <Pressable
               hitSlop={12}
               style={styles.iconButton}
-              delayLongPress={SETTINGS_HOLD_MS}
-              onPressIn={() => spin.set(withTiming(1, { duration: SETTINGS_HOLD_MS, easing: Easing.inOut(Easing.quad) }))}
-              onPressOut={() => spin.set(withTiming(0, { duration: 250 }))}
-              onLongPress={HOLD_TO_OPEN ? openSettings : undefined}
               onPress={() => {
-                if (!HOLD_TO_OPEN) return openSettings();
-                setHint(true);
-                clearTimeout(hintTimer.current);
-                hintTimer.current = setTimeout(() => setHint(false), 2500);
+                feedback.button();
+                ask(() => router.push('/settings'));
               }}
             >
-              <Animated.Text style={[styles.icon, gearStyle]}>⚙️</Animated.Text>
+              <Text style={styles.icon}>⚙️</Text>
             </Pressable>
           </View>
-          {hint && (
-            <Animated.Text entering={FadeIn} exiting={FadeOut} style={styles.hint}>
-              Grown-ups: hold ⚙️ to open settings
-            </Animated.Text>
-          )}
         </View>
+
+        {device.players.length > 1 && (
+          <View style={styles.players}>
+            {device.players.map((p) => {
+              const active = p.id === device.active;
+              return (
+                <Pressable
+                  key={p.id}
+                  onPress={() => {
+                    if (active) return;
+                    feedback.key();
+                    switchPlayer(p.id);
+                  }}
+                  style={[styles.player, active && styles.playerActive]}
+                >
+                  <Text style={[styles.playerText, active && styles.playerTextActive]}>{p.name}</Text>
+                </Pressable>
+              );
+            })}
+          </View>
+        )}
 
         <View style={styles.hero}>
           <Animated.View style={titleStyle}>
@@ -143,10 +142,16 @@ export default function Home() {
             <Text style={styles.cardValue} numberOfLines={1}>
               {progress.bestLevel > 0 ? `${progress.bestLevel} · ${levelInfo(progress.bestLevel).name}` : 'Not played yet'}
             </Text>
-            {progress.maxLevel !== null && (
+            {focus ? (
               <Text style={styles.capText} numberOfLines={1}>
-                Up to: {levelInfo(progress.maxLevel).name}
+                🎯 Practising {focus.label}
               </Text>
+            ) : (
+              progress.maxLevel !== null && (
+                <Text style={styles.capText} numberOfLines={1}>
+                  Up to: {levelInfo(progress.maxLevel).name}
+                </Text>
+              )
             )}
           </View>
         </View>
@@ -208,6 +213,7 @@ export default function Home() {
           }}
         />
       </View>
+      {gate}
     </Screen>
   );
 }
@@ -273,19 +279,32 @@ const makeStyles = (t: Theme) =>
     icon: {
       fontSize: 24,
     },
-    hint: {
-      position: 'absolute',
-      right: 0,
-      top: 48,
-      zIndex: 1,
-      fontFamily: t.font.medium,
-      fontSize: 13,
-      color: t.text,
+    players: {
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+      justifyContent: 'center',
+      gap: 8,
+      marginTop: -6,
+    },
+    player: {
       backgroundColor: t.card,
-      borderRadius: 10,
-      paddingHorizontal: 10,
-      paddingVertical: 5,
-      overflow: 'hidden',
+      borderRadius: 999,
+      paddingHorizontal: 14,
+      paddingVertical: 6,
+      borderBottomWidth: 3,
+      borderColor: t.cardEdge,
+    },
+    playerActive: {
+      backgroundColor: t.primary,
+      borderColor: t.primaryEdge,
+    },
+    playerText: {
+      fontFamily: t.font.semibold,
+      fontSize: 15,
+      color: t.textSoft,
+    },
+    playerTextActive: {
+      color: t.onPrimary,
     },
     capText: {
       fontFamily: t.font.medium,

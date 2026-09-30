@@ -16,6 +16,11 @@ export type Question = {
   // little longer than adding and multiplying the same numbers, so they get
   // more time; otherwise drawing them would slow a player's climb.
   effort: number;
+  // The basic number fact behind the question, for the progress report:
+  // "3+8" (a number bond, both parts up to 10) or "7×8" (a times-table fact,
+  // both factors up to 12), whichever way round it is asked. Bigger sums
+  // have none.
+  fact?: string;
 };
 
 type Fact = Omit<Question, 'level'>;
@@ -33,14 +38,21 @@ const int = (min: number, max: number) => min + Math.floor(Math.random() * (max 
 const pick = <T,>(items: readonly T[]): T => items[Math.floor(Math.random() * items.length)];
 const coin = () => Math.random() < 0.5;
 
-const add = (a: number, b: number): Fact => ({ text: `${a} + ${b}`, answer: a + b, effort: 1 });
-const sub = (a: number, b: number): Fact => ({ text: `${a} − ${b}`, answer: a - b, effort: INVERSE_EFFORT });
-const mul = (a: number, b: number): Fact => ({ text: `${a} × ${b}`, answer: a * b, effort: 1 });
-const div = (a: number, b: number): Fact => ({ text: `${a} ÷ ${b}`, answer: a / b, effort: INVERSE_EFFORT });
+export function bondKey(a: number, b: number) {
+  return a >= 1 && b >= 1 && a <= 10 && b <= 10 ? `${Math.min(a, b)}+${Math.max(a, b)}` : undefined;
+}
+export function tableKey(a: number, b: number) {
+  return a >= 1 && b >= 1 && a <= 12 && b <= 12 ? `${Math.min(a, b)}×${Math.max(a, b)}` : undefined;
+}
+
+const add = (a: number, b: number): Fact => ({ text: `${a} + ${b}`, answer: a + b, effort: 1, fact: bondKey(a, b) });
+const sub = (a: number, b: number): Fact => ({ text: `${a} − ${b}`, answer: a - b, effort: INVERSE_EFFORT, fact: bondKey(b, a - b) });
+const mul = (a: number, b: number): Fact => ({ text: `${a} × ${b}`, answer: a * b, effort: 1, fact: tableKey(a, b) });
+const div = (a: number, b: number): Fact => ({ text: `${a} ÷ ${b}`, answer: a / b, effort: INVERSE_EFFORT, fact: tableKey(b, a / b) });
 
 // The addition fact a + b, shown as a sum (in either order) or as a
 // subtraction. `b` is the number that gets taken away, unless `either`.
-function plusMinus(a: number, b: number, either = false, addChance = 0.5): Fact {
+export function plusMinus(a: number, b: number, either = false, addChance = 0.5): Fact {
   if (Math.random() < addChance) return coin() ? add(a, b) : add(b, a);
   const taken = either && coin() ? a : b;
   return sub(a + b, taken);
@@ -49,7 +61,7 @@ function plusMinus(a: number, b: number, either = false, addChance = 0.5): Fact 
 // The multiplication fact a × b, shown as a product (in either order) or as a
 // division. The divisor is `b` (usually the table being practised), unless
 // `either`.
-function timesDivide(a: number, b: number, either = false): Fact {
+export function timesDivide(a: number, b: number, either = false): Fact {
   if (coin()) return coin() ? mul(a, b) : mul(b, a);
   const divisor = either && coin() ? a : b;
   return div(a * b, divisor);

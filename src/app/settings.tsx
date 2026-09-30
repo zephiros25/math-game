@@ -1,27 +1,77 @@
 import { router } from 'expo-router';
-import { Fragment, useMemo, useRef } from 'react';
-import { Pressable, ScrollView, StyleSheet, Switch, Text, View } from 'react-native';
+import { Fragment, useMemo, useRef, useState } from 'react';
+import { Pressable, ScrollView, StyleSheet, Switch, Text, TextInput, View } from 'react-native';
 
 import { Screen } from '@/components/screen';
 import { feedback } from '@/feedback';
+import { FOCUS_TABLES, MIN_TRICKY, tablesLabel } from '@/game/focus';
 import { LEVEL_GROUPS, levelInfo } from '@/game/levels';
-import { updateProgress, useProgress } from '@/progress';
+import {
+  activePlayer,
+  addPlayer,
+  maxPlayers,
+  removePlayer,
+  renamePlayer,
+  switchPlayer,
+  updateProgress,
+  useDevice,
+  useProgress,
+  type Focus,
+} from '@/progress';
+import { trickyFacts, useStats } from '@/stats';
 import { useTheme, type Theme } from '@/theme';
 
-// Grown-up settings (opened from the home screen by holding the gear).
+// The grown-ups' area, behind the parental gate on the home screen: Math Run
+// Plus, the progress report, players, and each player's settings.
 export default function Settings() {
   const t = useTheme();
   const styles = useMemo(() => makeStyles(t), [t]);
-  const { maxLevel, showPet } = useProgress();
+  const device = useDevice();
+  const { maxLevel, showPet, focus } = useProgress();
+  const stats = useStats();
   const scroll = useRef<ScrollView>(null);
   const scrolled = useRef(false);
+  const [editing, setEditing] = useState<string | null>(null);
+  const [draft, setDraft] = useState('');
+  const [confirmRemove, setConfirmRemove] = useState<string | null>(null);
+  const player = activePlayer(device);
+  const several = device.players.length > 1;
 
   const choose = (level: number | null) => {
     feedback.key();
     updateProgress({ maxLevel: level });
   };
 
-  const row = (level: number | null, title: string, example: string) => {
+  const setFocus = (next: Focus) => {
+    feedback.key();
+    if (!device.plus) return router.push('/plus');
+    updateProgress({ focus: next });
+  };
+
+  const toggleTable = (table: number) => {
+    const tables = focus?.kind === 'tables' ? focus.tables : [];
+    const next = tables.includes(table) ? tables.filter((x) => x !== table) : [...tables, table];
+    setFocus({ kind: 'tables', tables: next });
+  };
+
+  const newPlayer = async () => {
+    feedback.button();
+    if (device.players.length >= maxPlayers(device)) return router.push('/plus');
+    const name = `Player ${device.players.length + 1}`;
+    const id = await addPlayer(name);
+    startRename(id, name);
+  };
+
+  const startRename = (id: string | null, name: string) => {
+    setDraft(name);
+    setEditing(id);
+  };
+  const commitRename = () => {
+    if (editing) renamePlayer(editing, draft);
+    setEditing(null);
+  };
+
+  const levelRow = (level: number | null, title: string, example: string) => {
     const selected = maxLevel === level;
     return (
       <Pressable
@@ -47,6 +97,38 @@ export default function Settings() {
     );
   };
 
+  const link = (icon: string, title: string, body: string, onPress: () => void) => (
+    <Pressable
+      onPress={() => {
+        feedback.button();
+        onPress();
+      }}
+      style={styles.row}
+    >
+      <Text style={styles.linkIcon}>{icon}</Text>
+      <View style={styles.rowText}>
+        <Text style={styles.rowTitle}>{title}</Text>
+        <Text style={styles.rowExample}>{body}</Text>
+      </View>
+      <Text style={styles.chevron}>›</Text>
+    </Pressable>
+  );
+
+  const trickyCount = trickyFacts(stats).length;
+  const focusRow = (selected: boolean, title: string, body: string, next: Focus) => (
+    <Pressable onPress={() => setFocus(next)} style={[styles.row, selected && styles.rowSelected]}>
+      <View style={styles.rowText}>
+        <Text style={styles.rowTitle}>
+          {!device.plus && next !== null ? '🔒 ' : ''}
+          {title}
+        </Text>
+        <Text style={styles.rowExample}>{body}</Text>
+      </View>
+      {selected && <Text style={styles.check}>✓</Text>}
+    </Pressable>
+  );
+  const plusFocus = device.plus ? focus : null;
+
   return (
     <Screen>
       <View style={styles.column}>
@@ -60,12 +142,107 @@ export default function Settings() {
           >
             <Text style={styles.back}>‹</Text>
           </Pressable>
-          <Text style={styles.title}>Settings</Text>
+          <Text style={styles.title}>Grown-ups</Text>
           <View style={styles.backSpacer} />
         </View>
 
-        <ScrollView ref={scroll} contentContainerStyle={styles.scroll} showsVerticalScrollIndicator={false}>
-          <Text style={styles.heading}>Pet companion</Text>
+        <ScrollView ref={scroll} contentContainerStyle={styles.scroll} showsVerticalScrollIndicator={false} keyboardShouldPersistTaps="handled">
+          {link(
+            '✨',
+            device.plus ? 'Math Run Plus ✓' : 'Math Run Plus',
+            device.plus ? 'Unlocked. Thank you!' : 'Full report, focus practice, more players, every premium theme & pet',
+            () => router.push('/plus'),
+          )}
+          {link('📊', several ? `${player.name}'s progress` : 'Progress report', 'Practice this week, tricky facts and skills', () => router.push('/report'))}
+
+          <Text style={[styles.heading, styles.headingSpaced]}>Players</Text>
+          {device.players.map((p) => {
+            const active = p.id === device.active;
+            return (
+              <Pressable
+                key={p.id}
+                onPress={() => {
+                  feedback.key();
+                  switchPlayer(p.id);
+                }}
+                style={[styles.row, active && several && styles.rowSelected]}
+              >
+                <View style={styles.rowText}>
+                  {editing === p.id ? (
+                    <TextInput
+                      autoFocus
+                      value={draft}
+                      onChangeText={setDraft}
+                      maxLength={16}
+                      selectTextOnFocus
+                      returnKeyType="done"
+                      onSubmitEditing={commitRename}
+                      onBlur={commitRename}
+                      style={[styles.rowTitle, styles.nameInput]}
+                    />
+                  ) : (
+                    <Text style={styles.rowTitle}>{p.name}</Text>
+                  )}
+                  {active && several && <Text style={styles.rowExample}>Playing now · the settings below are for {p.name}</Text>}
+                </View>
+                <Pressable hitSlop={8} onPress={() => startRename(p.id, p.name)}>
+                  <Text style={styles.smallAction}>Rename</Text>
+                </Pressable>
+                {several && (
+                  <Pressable
+                    hitSlop={8}
+                    onPress={() => {
+                      if (confirmRemove !== p.id) return setConfirmRemove(p.id);
+                      setConfirmRemove(null);
+                      removePlayer(p.id);
+                    }}
+                  >
+                    <Text style={[styles.smallAction, confirmRemove === p.id && { color: t.wrong }]}>
+                      {confirmRemove === p.id ? 'Tap to remove' : 'Remove'}
+                    </Text>
+                  </Pressable>
+                )}
+              </Pressable>
+            );
+          })}
+          <Pressable onPress={newPlayer} style={[styles.row, styles.addRow]}>
+            <Text style={styles.rowTitle}>
+              {device.players.length >= maxPlayers(device) && !device.plus ? '🔒 ' : '+ '}Add a player
+            </Text>
+            {!device.plus && <Text style={styles.rowExample}>With Plus: each child gets their own progress</Text>}
+          </Pressable>
+
+          <Text style={[styles.heading, styles.headingSpaced]}>Practice</Text>
+          <Text style={styles.intro}>What runs practise{several ? ` for ${player.name}` : ''}.</Text>
+          {focusRow(plusFocus === null, 'Adapt automatically', 'The game finds the right level (recommended)', null)}
+          {focusRow(
+            plusFocus?.kind === 'tricky',
+            'Tricky facts',
+            trickyCount >= MIN_TRICKY
+              ? `${trickyCount} facts from the progress report`
+              : 'Needs a few runs first: plays normally until some facts turn out tricky',
+            { kind: 'tricky' },
+          )}
+          {focusRow(
+            plusFocus?.kind === 'tables',
+            'Times tables',
+            plusFocus?.kind === 'tables' && plusFocus.tables.length ? tablesLabel(plusFocus.tables) : 'Pick the tables to practise',
+            { kind: 'tables', tables: plusFocus?.kind === 'tables' ? plusFocus.tables : [] },
+          )}
+          {plusFocus?.kind === 'tables' && (
+            <View style={styles.tableChips}>
+              {FOCUS_TABLES.map((table) => {
+                const on = plusFocus.tables.includes(table);
+                return (
+                  <Pressable key={table} onPress={() => toggleTable(table)} style={[styles.tableChip, on && styles.tableChipOn]}>
+                    <Text style={[styles.tableChipText, on && styles.tableChipTextOn]}>{table}×</Text>
+                  </Pressable>
+                );
+              })}
+            </View>
+          )}
+
+          <Text style={[styles.heading, styles.headingSpaced]}>Pet companion</Text>
           <View style={[styles.row, styles.switchRow]}>
             <View style={styles.rowText}>
               <Text style={styles.rowTitle}>Show a pet</Text>
@@ -88,7 +265,7 @@ export default function Settings() {
             at school; answering fast at that level keeps them there.
           </Text>
 
-          {row(null, 'No limit', 'Adapts all the way up to level 30')}
+          {levelRow(null, 'No limit', 'Adapts all the way up to level 30')}
 
           {/* Rows sit directly in the scroll content so their layout y is scrollable. */}
           {LEVEL_GROUPS.map((group) => (
@@ -97,7 +274,7 @@ export default function Settings() {
               {Array.from({ length: group.to - group.from + 1 }, (_, i) => {
                 const level = group.from + i;
                 const info = levelInfo(level);
-                return row(level, info.name, info.example);
+                return levelRow(level, info.name, info.example);
               })}
             </Fragment>
           ))}
@@ -184,6 +361,29 @@ const makeStyles = (t: Theme) =>
       borderBottomWidth: 4,
       borderColor: t.primary,
     },
+    addRow: {
+      flexDirection: 'column',
+      alignItems: 'flex-start',
+      gap: 0,
+    },
+    linkIcon: {
+      fontSize: 26,
+    },
+    chevron: {
+      fontFamily: t.font.semibold,
+      fontSize: 28,
+      color: t.textSoft,
+    },
+    smallAction: {
+      fontFamily: t.font.semibold,
+      fontSize: 14,
+      color: t.textSoft,
+    },
+    nameInput: {
+      padding: 0,
+      borderBottomWidth: 2,
+      borderColor: t.primary,
+    },
     badge: {
       width: 34,
       height: 34,
@@ -220,5 +420,31 @@ const makeStyles = (t: Theme) =>
       fontFamily: t.font.bold,
       fontSize: 22,
       color: t.primary,
+    },
+    tableChips: {
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+      gap: 8,
+    },
+    tableChip: {
+      minWidth: 52,
+      alignItems: 'center',
+      backgroundColor: t.card,
+      borderRadius: 12,
+      borderWidth: 2,
+      borderColor: t.cardEdge,
+      paddingVertical: 8,
+    },
+    tableChipOn: {
+      backgroundColor: t.primary,
+      borderColor: t.primaryEdge,
+    },
+    tableChipText: {
+      fontFamily: t.font.bold,
+      fontSize: 16,
+      color: t.text,
+    },
+    tableChipTextOn: {
+      color: t.onPrimary,
     },
   });

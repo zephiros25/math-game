@@ -32,6 +32,7 @@ export default function Results() {
   const bestStreak = Number(params.bestStreak);
   const newBest = params.newBest === '1';
   const dailyBonus = params.daily === '1';
+  const focus = params.focus; // what a focus run practised, if it was one
   const stars = starsFor(correct, total);
 
   const [shownCoins, setShownCoins] = useState(0);
@@ -103,7 +104,11 @@ export default function Results() {
 
           <Animated.View entering={FadeInDown.delay(300)} style={styles.card}>
             <Stat label="Correct" value={`${correct} / ${total}`} />
-            <Stat label="Top level" value={`${peak} · ${levelInfo(peak).name}`} highlight={newBest ? 'New best!' : undefined} />
+            {focus ? (
+              <Stat label="Practised" value={focus} />
+            ) : (
+              <Stat label="Top level" value={`${peak} · ${levelInfo(peak).name}`} highlight={newBest ? 'New best!' : undefined} />
+            )}
             <Stat label="Best streak" value={`🔥 ${bestStreak}`} />
           </Animated.View>
 

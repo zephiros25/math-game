@@ -8,7 +8,8 @@ import { ChunkyButton } from '@/components/chunky-button';
 import { Coin } from '@/components/coin';
 import { Screen } from '@/components/screen';
 import { applyThemeSounds, feedback } from '@/feedback';
-import { getProgress, updateProgress, useProgress } from '@/progress';
+import { useParentGate } from '@/components/parent-gate';
+import { getProgress, updateProgress, useDevice, useProgress } from '@/progress';
 import { ThemeOverride, THEMES, themeById, useTheme, type Theme } from '@/theme';
 
 // The shop renders entirely in the theme being browsed, so tapping a tile
@@ -35,8 +36,12 @@ function Shop({ selected, onSelect }: { selected: Theme; onSelect: (id: string) 
   const t = useTheme();
   const styles = useMemo(() => makeStyles(t), [t]);
   const progress = useProgress();
+  const { plus } = useDevice();
+  const { gate, ask } = useParentGate();
+  // Plus includes every premium theme.
+  const owns = (theme: Theme) => progress.ownedThemes.includes(theme.id) || (theme.premium && plus);
 
-  const owned = progress.ownedThemes.includes(selected.id);
+  const owned = owns(selected);
   const equipped = progress.theme === selected.id;
   const shortBy = selected.price - progress.coins;
 
@@ -78,8 +83,9 @@ function Shop({ selected, onSelect }: { selected: Theme; onSelect: (id: string) 
   } else if (selected.premium) {
     action = (
       <View style={styles.premiumNote}>
-        <Text style={styles.premiumTitle}>Premium theme · coming soon</Text>
-        <Text style={styles.premiumBody}>Part of every premium theme will go to Alzheimer&apos;s research.</Text>
+        <Text style={styles.premiumTitle}>★ Comes with Math Run Plus</Text>
+        <Text style={styles.premiumBody}>Part of every purchase goes to Alzheimer&apos;s research.</Text>
+        <ChunkyButton label="Ask a grown-up" fontSize={20} height={52} onPress={() => ask(() => router.push('/plus'))} style={styles.askButton} />
       </View>
     );
   } else if (shortBy > 0) {
@@ -146,7 +152,7 @@ function Shop({ selected, onSelect }: { selected: Theme; onSelect: (id: string) 
                 key={theme.id}
                 theme={theme}
                 selected={theme.id === selected.id}
-                owned={progress.ownedThemes.includes(theme.id)}
+                owned={owns(theme)}
                 equipped={progress.theme === theme.id}
                 onPress={() => select(theme)}
               />
@@ -157,6 +163,7 @@ function Shop({ selected, onSelect }: { selected: Theme; onSelect: (id: string) 
         {devEquip}
         {action}
       </View>
+      {gate}
     </Screen>
   );
 }
@@ -495,5 +502,9 @@ const makeStyles = (t: Theme) =>
       fontSize: 14,
       color: t.textSoft,
       textAlign: 'center',
+    },
+    askButton: {
+      alignSelf: 'stretch',
+      marginTop: 8,
     },
   });

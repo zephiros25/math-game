@@ -20,10 +20,12 @@ import { PetView, type PetHandle } from '@/components/pet-view';
 import { Screen } from '@/components/screen';
 import { feedback } from '@/feedback';
 import { judge, type Verdict } from '@/game/engine';
+import { focusPlan } from '@/game/focus';
 import { generateQuestion, levelInfo, type Question } from '@/game/levels';
 import { COINS_PER_FINISHED_RUN, coinsFor, isStreakGem, runBonusGems, today } from '@/game/rewards';
 import { petLine, usePet } from '@/pets';
-import { getProgress, updateProgress } from '@/progress';
+import { getDevice, getProgress, updateProgress } from '@/progress';
+import { getStats, recordAnswer, recordRunEnd } from '@/stats';
 import { useTheme, type Theme } from '@/theme';
 
 const CORRECT_PAUSE_MS = 480;
@@ -55,10 +57,12 @@ export default function Play() {
   const [total] = useState(() => getProgress().runLength);
   const [bestBefore] = useState(() => getProgress().bestLevel);
   const [maxLevel] = useState(() => getProgress().maxLevel ?? undefined);
+  // A focus run (Plus) drills chosen facts instead of climbing the levels.
+  const [focus] = useState(() => (getDevice().plus ? focusPlan(getProgress().focus, getStats()) : null));
 
   const [index, setIndex] = useState(1);
   const [level, setLevel] = useState(1);
-  const [question, setQuestion] = useState<Question>(() => generateQuestion(1));
+  const [question, setQuestion] = useState<Question>(() => (focus ? focus.next() : generateQuestion(1)));
   const [input, setInput] = useState('');
   const [verdict, setVerdict] = useState<Verdict | null>(null);
   const [stats, setStats] = useState<RunStats>({ correct: 0, streak: 0, bestStreak: 0, coins: 0, gems: 0, peakLevel: 1 });
@@ -103,12 +107,14 @@ export default function Play() {
 
   function submit(value: string) {
     const correct = Number(value) === question.answer;
-    const v = judge(level, correct, now() - shownAt.current, wrongBefore.current, question.effort, maxLevel);
+    const elapsed = now() - shownAt.current;
+    const v = judge(question.level, correct, elapsed, wrongBefore.current, question.effort, maxLevel);
+    recordAnswer(question, correct, elapsed);
     wrongBefore.current = !correct;
     setVerdict(v);
 
     const streak = correct ? stats.streak + 1 : 0;
-    const earnedCoins = correct ? coinsFor(level, v.speed!) : 0;
+    const earnedCoins = correct ? coinsFor(question.level, v.speed!) : 0;
     const streakGem = correct && isStreakGem(streak);
     const next: RunStats = {
       correct: stats.correct + (correct ? 1 : 0),
@@ -116,8 +122,10 @@ export default function Play() {
       bestStreak: Math.max(stats.bestStreak, streak),
       coins: stats.coins + earnedCoins,
       gems: stats.gems + (streakGem ? 1 : 0),
-      peakLevel: Math.max(stats.peakLevel, v.nextLevel),
+      // Focus runs don't climb, so they don't count towards the best level.
+      peakLevel: focus ? stats.peakLevel : Math.max(stats.peakLevel, v.nextLevel),
     };
+    const newBest = !focus && v.nextLevel > Math.max(bestBefore, stats.peakLevel) && bestBefore > 0;
     setStats(next);
 
     if (correct) {
@@ -125,10 +133,9 @@ export default function Play() {
       pop.set(withSequence(withSpring(1.18, { damping: 6, stiffness: 500 }), withSpring(1, { damping: 10 })));
       coinBump.set(withSequence(withTiming(1.35, { duration: 90 }), withSpring(1, { damping: 8 })));
       // Crossing your all-time best level is worth a little fanfare.
-      if (v.nextLevel > Math.max(bestBefore, stats.peakLevel) && bestBefore > 0) feedback.levelUp();
+      if (newBest) feedback.levelUp();
       if (streakGem) setTimeout(feedback.gem, 250);
       if (pet) {
-        const newBest = v.nextLevel > Math.max(bestBefore, stats.peakLevel) && bestBefore > 0;
         if (newBest) petSay(petLine(pet, 'newBest'), true);
         else if (streak === 3 || (streak >= 5 && streak % 5 === 0)) petSay(petLine(pet, 'streak', { streak }), true);
         else if (v.speed === 'lightning' && chance(0.5)) petSay(petLine(pet, 'lightning'));
@@ -159,12 +166,13 @@ export default function Play() {
     }
     setIndex(index + 1);
     setLevel(nextLevel);
-    setQuestion(generateQuestion(nextLevel, question));
+    setQuestion(focus ? focus.next(question) : generateQuestion(nextLevel, question));
     setInput('');
     setVerdict(null);
   }
 
   function finish(s: RunStats) {
+    recordRunEnd();
     const p = getProgress();
     const day = today();
     const bonus = runBonusGems({
@@ -192,6 +200,7 @@ export default function Play() {
         daily: bonus.daily > 0 ? 1 : 0,
         bestStreak: s.bestStreak,
         newBest: s.peakLevel > bestBefore ? 1 : 0,
+        ...(focus && { focus: focus.label }),
       },
     });
   }
@@ -239,10 +248,17 @@ export default function Play() {
         </View>
 
         <View style={styles.statusRow}>
-          <Animated.View key={level} entering={ZoomIn.springify().damping(12)} style={styles.levelChip}>
-            <Text style={styles.levelNumber}>Lv {level}</Text>
-            <Text style={styles.levelName}>{levelInfo(level).name}</Text>
-          </Animated.View>
+          {focus ? (
+            <View style={styles.levelChip}>
+              <Text style={styles.levelNumber}>🎯</Text>
+              <Text style={styles.levelName}>Practising {focus.label}</Text>
+            </View>
+          ) : (
+            <Animated.View key={level} entering={ZoomIn.springify().damping(12)} style={styles.levelChip}>
+              <Text style={styles.levelNumber}>Lv {level}</Text>
+              <Text style={styles.levelName}>{levelInfo(level).name}</Text>
+            </Animated.View>
+          )}
           {stats.streak >= 3 && (
             <Animated.View entering={ZoomIn} exiting={FadeOut} style={styles.streakChip}>
               <Text style={styles.streakText}>🔥 {stats.streak}</Text>
