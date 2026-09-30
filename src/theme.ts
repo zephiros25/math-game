@@ -4,8 +4,7 @@
 // `useTheme()`.
 //
 // Unlock rules: `price` in coins (earned by playing, never sold), or
-// `premium` for themes that will be sold as in-app purchases, with part of
-// the proceeds going to Alzheimer's research.
+// `premium` for themes that come with Math Run Plus (an in-app purchase).
 
 import { createContext, useContext } from 'react';
 

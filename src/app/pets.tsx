@@ -81,7 +81,7 @@ export default function Pets() {
     action = (
       <View style={styles.premiumNote}>
         <Text style={styles.premiumTitle}>★ Comes with Math Run Plus</Text>
-        <Text style={styles.premiumBody}>Part of every purchase goes to Alzheimer&apos;s research.</Text>
+        <Text style={styles.premiumBody}>One purchase unlocks every premium theme and pet, and more for grown-ups.</Text>
         <ChunkyButton label="Ask a grown-up" fontSize={20} height={52} onPress={() => ask(() => router.push('/plus'))} style={styles.askButton} />
       </View>
     );

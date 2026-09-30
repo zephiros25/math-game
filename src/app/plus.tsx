@@ -7,7 +7,7 @@ import { Screen } from '@/components/screen';
 import { feedback } from '@/feedback';
 import { PETS } from '@/pets';
 import { PLUS_PLAYERS, useDevice } from '@/progress';
-import { buyPlus, CHARITY_SHARE, devSetPlus, PLUS_PRICE_LABEL, restorePurchases } from '@/purchases';
+import { buyPlus, devSetPlus, PLUS_PRICE_LABEL, restorePurchases } from '@/purchases';
 import { THEMES, useTheme, type Theme } from '@/theme';
 
 // What Math Run Plus adds, for grown-ups. Only reachable through the parental
@@ -24,7 +24,6 @@ export default function Plus() {
     ['🎯', 'Focus practice', 'Runs that drill the tricky facts, or just the times tables you pick.'],
     ['👨‍👩‍👧', `Up to ${PLUS_PLAYERS} players`, 'Each child gets their own coins, pets, themes and report.'],
     ['✨', 'Every premium theme & pet', `${premiumThemes} premium themes and ${premiumPets} premium pet${premiumPets === 1 ? '' : 's'} today, plus every new one we add.`],
-    ['💜', "Alzheimer's research", `${CHARITY_SHARE ?? 'Part'} of every purchase goes to Alzheimer's research.`],
   ] as const;
 
   return (

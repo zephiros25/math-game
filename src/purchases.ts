@@ -13,9 +13,6 @@ import { setPlus } from '@/progress';
 export const PLUS_PRODUCT_ID = 'mathrun.plus';
 // Shown until the store provides the real, local price.
 export const PLUS_PRICE_LABEL = '€5.99';
-// How much of each purchase goes to Alzheimer's research, e.g. "30%".
-// null until decided: the Plus screen then says "part of".
-export const CHARITY_SHARE: string | null = null;
 
 function notice(title: string, message: string) {
   if (Platform.OS === 'web') window.alert(`${title}\n\n${message}`);
