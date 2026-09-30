@@ -3,7 +3,8 @@
 // A pet is a folder pets/<id>/ containing pet.json plus its pictures and
 // (optionally) voice recordings, referenced from pet.json by file name.
 // Three pictures animate a pet: "idle" (required), "blink" (eyes closed)
-// and "talk" (mouth open). They must share the same canvas so they line up.
+// and "talk" (mouth open). The Studio aligns them on import (align.mjs) so
+// they line up.
 
 import { existsSync, statSync } from 'node:fs';
 import { join } from 'node:path';

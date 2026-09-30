@@ -237,7 +237,8 @@ function renderPet() {
   const p = current.json;
   const size = Math.round(220 * p.size);
   box.style.width = box.style.height = `${size}px`;
-  const key = JSON.stringify(p.images);
+  // Every pet uses the same file names (img-idle.png...), so include the pet.
+  const key = current.id + JSON.stringify(p.images);
   const body = $('#petbody');
   if (body.dataset.key !== key) {
     body.dataset.key = key;
@@ -364,7 +365,7 @@ function picturesCard(p) {
         h('li', {}, 'In the same chat, ask for the blink version:', promptBox(PROMPTS.blink)),
         h('li', {}, 'Then the talking version:', promptBox(PROMPTS.talk)),
       ),
-      h('p', { class: 'hint' }, 'All three must line up. If the pet moves or changes size between pictures, ask again with "keep the exact same pose, size and position". The preview on the right shows immediately whether blinking and talking look right.'),
+      h('p', { class: 'hint' }, 'The Studio lines the three pictures up automatically (same size, centred, feet on the ground), so small shifts between them are fine. Only redo a picture if the pose itself changed; the preview on the right shows immediately whether blinking and talking look right.'),
     ),
   );
   render();

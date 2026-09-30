@@ -13,6 +13,7 @@ import { fileURLToPath } from 'node:url';
 
 import sharp from 'sharp';
 
+import { alignPetImage } from '../pets/align.mjs';
 import { buildPets } from '../pets/build.mjs';
 import {
   defaultPet,
@@ -371,8 +372,8 @@ function deletePet(id) {
   buildPets({ quiet: true });
 }
 
-// Pet pictures are fitted (not cropped) into the same 512 px transparent
-// square, so the normal, blink and talk pictures stay lined up.
+// Pet pictures are aligned onto the same 512 px transparent square (see
+// scripts/pets/align.mjs), so the normal, blink and talk pictures line up.
 async function importPetFile(id, kind, slot, originalName, data) {
   const dir = petDir(id);
   const ext = extname(originalName).toLowerCase();
@@ -382,14 +383,12 @@ async function importPetFile(id, kind, slot, originalName, data) {
       throw new HttpError(400, 'Pictures must be PNG (best, with a transparent background), WebP or JPG');
     }
     const meta = await sharp(data).metadata();
-    const out = await sharp(data)
-      .rotate()
-      .resize({ width: 512, height: 512, fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
-      .png({ compressionLevel: 9 })
-      .toBuffer();
+    // Centre and scale the pet the same way in every picture, so the normal,
+    // blink and talk pictures line up even when the AI shifted them.
+    const { png, transparent } = await alignPetImage(data);
     const name = uniqueName(dir, `img-${slot}`, '.png');
-    writeFileSync(join(dir, name), out);
-    return { file: name, width: meta.width, height: meta.height, transparent: Boolean(meta.hasAlpha) };
+    writeFileSync(join(dir, name), png);
+    return { file: name, width: meta.width, height: meta.height, transparent };
   }
   if (kind === 'voice') {
     if (!PET_SOUND_EXTENSIONS.includes(ext)) throw new HttpError(400, `Sounds must be ${PET_SOUND_EXTENSIONS.join(', ')}`);
