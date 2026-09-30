@@ -23,7 +23,7 @@
   @keyframes wiggle { 20% { transform: rotate(-7deg); } 45% { transform: rotate(7deg); } 70% { transform: rotate(-5deg); } }
   .squish { animation: squish .6s ease-in-out; }
   @keyframes squish { 35% { transform: scale(1.08, .9); } }
-  .bounce { animation: bounce .12s ease-out; }
+  .bounce { animation: bounce .26s ease-out; }
   @keyframes bounce { 50% { transform: translateY(-4px); } }
   .speech { position: absolute; left: 50%; transform: translateX(-50%); top: 22px; max-width: 250px; background: #fff; border: 2px solid #EFE2D2; border-radius: 16px; padding: 7px 12px; font-weight: 600; font-size: 16px; color: #3B2A4A; text-align: center; transition: opacity .2s; }
   .speech::after { content: ''; position: absolute; left: 50%; bottom: -7px; width: 12px; height: 12px; background: #fff; border-right: 2px solid #EFE2D2; border-bottom: 2px solid #EFE2D2; transform: translateX(-50%) rotate(45deg); }
@@ -275,12 +275,14 @@ function say(text) {
   speech.textContent = text;
   speech.classList.remove('hidden');
   petState.talking = true;
-  const syllables = Math.min(14, Math.max(3, Math.round(text.length / 3.2)));
+  // Same pace as the app (src/components/pet-view.tsx).
+  const SYLLABLE_MS = 280;
+  const syllables = Math.min(9, Math.max(2, Math.round(text.length / 4.5)));
   for (let i = 0; i < syllables; i++) {
-    at(i * 135, () => { frame('talk'); syllable(); animate($('#petjump'), 'bounce'); at(74, () => frame('idle')); });
+    at(i * SYLLABLE_MS, () => { frame('talk'); syllable(); animate($('#petjump'), 'bounce'); at(SYLLABLE_MS * 0.6, () => frame('idle')); });
   }
-  at(syllables * 135, () => { petState.talking = false; frame('idle'); });
-  at(syllables * 135 + 1500, () => speech.classList.add('hidden'));
+  at(syllables * SYLLABLE_MS, () => { petState.talking = false; frame('idle'); });
+  at(syllables * SYLLABLE_MS + 1500, () => speech.classList.add('hidden'));
 }
 
 function lineFor(moment) {

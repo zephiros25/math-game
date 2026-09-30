@@ -40,7 +40,12 @@ type Props = {
   ref?: Ref<PetHandle>;
 };
 
-const SYLLABLE_MS = 135;
+// Talking pace: one mouth flap (and babble syllable) per SYLLABLE_MS, with
+// the mouth open for MOUTH_OPEN of each flap. Keep in sync with the Studio
+// preview (scripts/themes/pets.html).
+const SYLLABLE_MS = 280;
+const MOUTH_OPEN = 0.6;
+const syllablesFor = (text: string) => Math.min(9, Math.max(2, Math.round(text.length / 4.5)));
 const BUBBLE_WIDTH = 200;
 const IDLE = 0;
 const BLINK = 1;
@@ -157,13 +162,13 @@ export function PetView({ pet, size: baseSize, bubble = 'right', onPress, ref }:
     talkTimers.current.clear();
     talking.current = true;
     setSpeech(text);
-    const syllables = Math.min(14, Math.max(3, Math.round(text.length / 3.2)));
+    const syllables = syllablesFor(text);
     for (let i = 0; i < syllables; i++) {
       whileTalking(i * SYLLABLE_MS, () => {
         if (hasTalk) frame.set(TALK);
         feedback.petSyllable(pet);
-        if (!still) jump.set(withSequence(withTiming(-3, { duration: 55 }), withTiming(0, { duration: 70 })));
-        whileTalking(SYLLABLE_MS * 0.55, () => frame.set(IDLE));
+        if (!still) jump.set(withSequence(withTiming(-3, { duration: 110 }), withTiming(0, { duration: 150 })));
+        whileTalking(SYLLABLE_MS * MOUTH_OPEN, () => frame.set(IDLE));
       });
     }
     const done = syllables * SYLLABLE_MS;

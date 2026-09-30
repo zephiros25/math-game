@@ -51,5 +51,21 @@ export const PET_DATA: PetData[] = [
     "voicePitch": 1.1,
     "voiceVolume": 0.8,
     "voiceFiles": []
+  },
+  {
+    "id": "sulfy",
+    "name": "Sulfy",
+    "tagline": "Fiery cuteness!",
+    "order": 100,
+    "price": 5,
+    "premium": false,
+    "size": 1,
+    "lines": {},
+    "idle": require('../pets/sulfy/img-idle-2.png'),
+    "blink": require('../pets/sulfy/img-blink.png'),
+    "talk": require('../pets/sulfy/img-talk-2.png'),
+    "voicePitch": 1,
+    "voiceVolume": 0.8,
+    "voiceFiles": []
   }
 ];

@@ -1,0 +1,19 @@
+{
+  "name": "Sulfy",
+  "tagline": "Fiery cuteness!",
+  "order": 100,
+  "price": 5,
+  "premium": false,
+  "images": {
+    "idle": "img-idle-2.png",
+    "blink": "img-blink.png",
+    "talk": "img-talk-2.png"
+  },
+  "size": 1,
+  "voice": {
+    "pitch": 1,
+    "files": [],
+    "volume": 0.8
+  },
+  "lines": {}
+}
