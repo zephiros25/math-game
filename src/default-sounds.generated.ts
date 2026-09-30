@@ -4,5 +4,14 @@
 import type { DefaultSetSlot } from './feedback';
 
 export const DEFAULT_SET: Partial<Record<DefaultSetSlot, { sources: number[]; volume: number }>> = {
-
+  tap: { sources: [require('../assets/sounds/default-set/tap.wav'), require('../assets/sounds/default-set/tap-3.wav'), require('../assets/sounds/default-set/tap-4.wav')], volume: 1 },
+  backspace: { sources: [require('../assets/sounds/default-set/backspace.wav')], volume: 1 },
+  button: { sources: [require('../assets/sounds/default-set/button.wav')], volume: 1 },
+  correct: { sources: [require('../assets/sounds/default-set/correct.wav')], volume: 1 },
+  wrong: { sources: [require('../assets/sounds/default-set/wrong.wav')], volume: 1 },
+  levelUp: { sources: [require('../assets/sounds/default-set/levelUp.m4a')], volume: 1 },
+  fanfare: { sources: [require('../assets/sounds/default-set/fanfare.m4a')], volume: 1 },
+  coin: { sources: [require('../assets/sounds/default-set/coin.wav')], volume: 1 },
+  gem: { sources: [require('../assets/sounds/default-set/gem.wav')], volume: 1 },
+  voice: { sources: [require('../assets/sounds/default-set/voice.wav'), require('../assets/sounds/default-set/voice-2.wav'), require('../assets/sounds/default-set/voice-3.wav'), require('../assets/sounds/default-set/voice-4.wav'), require('../assets/sounds/default-set/voice-5.wav'), require('../assets/sounds/default-set/voice-6.wav')], volume: 1 },
 };

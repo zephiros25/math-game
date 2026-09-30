@@ -1,0 +1,69 @@
+{
+  "tap": {
+    "files": [
+      "tap.wav",
+      "tap-3.wav",
+      "tap-4.wav"
+    ],
+    "volume": 1
+  },
+  "backspace": {
+    "files": [
+      "backspace.wav"
+    ],
+    "volume": 1
+  },
+  "button": {
+    "files": [
+      "button.wav"
+    ],
+    "volume": 1
+  },
+  "correct": {
+    "files": [
+      "correct.wav"
+    ],
+    "volume": 1
+  },
+  "wrong": {
+    "files": [
+      "wrong.wav"
+    ],
+    "volume": 1
+  },
+  "levelUp": {
+    "files": [
+      "levelUp.m4a"
+    ],
+    "volume": 1
+  },
+  "fanfare": {
+    "files": [
+      "fanfare.m4a"
+    ],
+    "volume": 1
+  },
+  "coin": {
+    "files": [
+      "coin.wav"
+    ],
+    "volume": 1
+  },
+  "gem": {
+    "files": [
+      "gem.wav"
+    ],
+    "volume": 1
+  },
+  "voice": {
+    "files": [
+      "voice.wav",
+      "voice-2.wav",
+      "voice-3.wav",
+      "voice-4.wav",
+      "voice-5.wav",
+      "voice-6.wav"
+    ],
+    "volume": 1
+  }
+}
