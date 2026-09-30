@@ -2,7 +2,7 @@
   "name": "Coral",
   "tagline": "Eight arms, eight times the fun",
   "order": 290,
-  "price": 5,
+  "price": 3,
   "premium": false,
   "images": {
     "idle": "img-talk.webp",

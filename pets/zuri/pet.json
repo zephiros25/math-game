@@ -2,7 +2,7 @@
   "name": "Zuri",
   "tagline": "Always reaches higher",
   "order": 460,
-  "price": 8,
+  "price": 5,
   "premium": false,
   "images": {
     "idle": "img-idle.webp",

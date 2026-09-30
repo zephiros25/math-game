@@ -2,7 +2,7 @@
   "name": "Chirpy",
   "tagline": "Sings when you score",
   "order": 650,
-  "price": 5,
+  "price": 3,
   "premium": false,
   "images": {
     "idle": "img-idle.webp",

@@ -2,7 +2,7 @@
   "name": "Trixie",
   "tagline": "Three horns, triple the fun",
   "order": 790,
-  "price": 12,
+  "price": 8,
   "premium": false,
   "images": {
     "idle": "img-idle.webp",

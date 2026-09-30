@@ -7,7 +7,7 @@
     "tagline": "Prickly outside, cuddly inside",
     "order": 40,
     "pitch": 1.2,
-    "price": 5
+    "price": 3
   },
   {
     "id": "pip",
@@ -17,7 +17,7 @@
     "tagline": "Small but super brave",
     "order": 50,
     "pitch": 1.2,
-    "price": 5
+    "price": 3
   },
   {
     "id": "maple",
@@ -27,7 +27,7 @@
     "tagline": "Quick as a fox, sharp as a tack",
     "order": 60,
     "pitch": 1.2,
-    "price": 5
+    "price": 3
   },
   {
     "id": "bramble",
@@ -37,7 +37,7 @@
     "tagline": "Digs deep for every answer",
     "order": 70,
     "pitch": 1.2,
-    "price": 5
+    "price": 3
   },
   {
     "id": "clover",
@@ -47,7 +47,7 @@
     "tagline": "Brings a little luck to every sum",
     "order": 80,
     "pitch": 1.2,
-    "price": 5
+    "price": 3
   },
   {
     "id": "hootie",
@@ -57,7 +57,7 @@
     "tagline": "Wise beyond its years",
     "order": 90,
     "pitch": 1.2,
-    "price": 5
+    "price": 3
   },
   {
     "id": "acorn",
@@ -67,7 +67,7 @@
     "tagline": "Saves up answers like nuts",
     "order": 100,
     "pitch": 1.2,
-    "price": 5
+    "price": 3
   },
   {
     "id": "truffle",
@@ -77,7 +77,7 @@
     "tagline": "Sniffs out the right answer",
     "order": 110,
     "pitch": 1.2,
-    "price": 5
+    "price": 3
   },
   {
     "id": "bumble",
@@ -87,7 +87,7 @@
     "tagline": "Big hugs for big wins",
     "order": 120,
     "pitch": 1.2,
-    "price": 5
+    "price": 3
   },
   {
     "id": "willow",
@@ -97,7 +97,7 @@
     "tagline": "Gentle, graceful and gutsy",
     "order": 130,
     "pitch": 1.2,
-    "price": 5
+    "price": 3
   },
   {
     "id": "nutmeg",
@@ -107,7 +107,7 @@
     "tagline": "Stuffs its cheeks with numbers",
     "order": 140,
     "pitch": 1.2,
-    "price": 5
+    "price": 3
   },
   {
     "id": "puddle",
@@ -117,7 +117,7 @@
     "tagline": "Hops from sum to sum",
     "order": 150,
     "pitch": 1.2,
-    "price": 5
+    "price": 3
   },
   {
     "id": "waddles",
@@ -127,7 +127,7 @@
     "tagline": "Always keeps its ducks in a row",
     "order": 160,
     "pitch": 1.2,
-    "price": 5
+    "price": 3
   },
   {
     "id": "moss",
@@ -137,7 +137,7 @@
     "tagline": "Slow and steady wins the race",
     "order": 170,
     "pitch": 1.2,
-    "price": 5
+    "price": 3
   },
   {
     "id": "barley",
@@ -147,7 +147,7 @@
     "tagline": "Counting sheep has never been this fun",
     "order": 180,
     "pitch": 1.2,
-    "price": 5
+    "price": 3
   },
   {
     "id": "biscuit",
@@ -157,7 +157,7 @@
     "tagline": "Wiggles its tail at every right answer",
     "order": 190,
     "pitch": 1.2,
-    "price": 5
+    "price": 3
   },
   {
     "id": "whiskers",
@@ -167,7 +167,7 @@
     "tagline": "Curious about every number",
     "order": 200,
     "pitch": 1.2,
-    "price": 5
+    "price": 3
   },
   {
     "id": "domino",
@@ -177,7 +177,7 @@
     "tagline": "Spot-on with every answer",
     "order": 210,
     "pitch": 1.2,
-    "price": 5
+    "price": 3
   },
   {
     "id": "pudding",
@@ -187,7 +187,7 @@
     "tagline": "Squeaks with joy",
     "order": 220,
     "pitch": 1.2,
-    "price": 5
+    "price": 3
   },
   {
     "id": "goldie",
@@ -197,7 +197,7 @@
     "tagline": "Blows bubbles of brilliance",
     "order": 230,
     "pitch": 1.2,
-    "price": 5
+    "price": 3
   },
   {
     "id": "button",
@@ -207,7 +207,7 @@
     "tagline": "Small nose, big heart",
     "order": 240,
     "pitch": 1.2,
-    "price": 5
+    "price": 3
   },
   {
     "id": "snowball",
@@ -217,7 +217,7 @@
     "tagline": "Soft as a cloud",
     "order": 250,
     "pitch": 1.2,
-    "price": 5
+    "price": 3
   },
   {
     "id": "pebbles",
@@ -227,7 +227,7 @@
     "tagline": "The fluffiest friend around",
     "order": 260,
     "pitch": 1.2,
-    "price": 5
+    "price": 3
   },
   {
     "id": "bubbles",
@@ -237,7 +237,7 @@
     "tagline": "Cracks every problem",
     "order": 270,
     "pitch": 1.1,
-    "price": 5
+    "price": 3
   },
   {
     "id": "finn",
@@ -247,7 +247,7 @@
     "tagline": "Leaps through the levels",
     "order": 280,
     "pitch": 1.1,
-    "price": 5
+    "price": 3
   },
   {
     "id": "coral",
@@ -257,7 +257,7 @@
     "tagline": "Eight arms, eight times the fun",
     "order": 290,
     "pitch": 1.1,
-    "price": 5
+    "price": 3
   },
   {
     "id": "shelly",
@@ -267,7 +267,7 @@
     "tagline": "Carries its home and its homework",
     "order": 300,
     "pitch": 1.1,
-    "price": 5
+    "price": 3
   },
   {
     "id": "splash",
@@ -277,7 +277,7 @@
     "tagline": "Makes a big splash",
     "order": 310,
     "pitch": 1.1,
-    "price": 5
+    "price": 3
   },
   {
     "id": "puff",
@@ -287,7 +287,7 @@
     "tagline": "Puffs up with pride",
     "order": 320,
     "pitch": 1.1,
-    "price": 5
+    "price": 3
   },
   {
     "id": "pearl",
@@ -297,7 +297,7 @@
     "tagline": "Flippers up for every answer",
     "order": 330,
     "pitch": 1.1,
-    "price": 5
+    "price": 3
   },
   {
     "id": "starla",
@@ -307,7 +307,7 @@
     "tagline": "A five-star friend",
     "order": 340,
     "pitch": 1.1,
-    "price": 5
+    "price": 3
   },
   {
     "id": "tidbit",
@@ -317,7 +317,7 @@
     "tagline": "Tiny, curly and clever",
     "order": 350,
     "pitch": 1.1,
-    "price": 5
+    "price": 3
   },
   {
     "id": "jelly",
@@ -327,7 +327,7 @@
     "tagline": "Glows when you get it right",
     "order": 360,
     "pitch": 1.1,
-    "price": 5
+    "price": 3
   },
   {
     "id": "stripes",
@@ -337,7 +337,7 @@
     "tagline": "Always ready to make you smile",
     "order": 370,
     "pitch": 1.1,
-    "price": 5
+    "price": 3
   },
   {
     "id": "scoot",
@@ -347,7 +347,7 @@
     "tagline": "Paddles through every problem",
     "order": 380,
     "pitch": 1.1,
-    "price": 5
+    "price": 3
   },
   {
     "id": "manny",
@@ -357,7 +357,7 @@
     "tagline": "The gentlest giant of the sea",
     "order": 390,
     "pitch": 1.1,
-    "price": 5
+    "price": 3
   },
   {
     "id": "axo",
@@ -367,7 +367,7 @@
     "tagline": "Always grows back stronger",
     "order": 400,
     "pitch": 1.1,
-    "price": 5
+    "price": 3
   },
   {
     "id": "kiko",
@@ -377,7 +377,7 @@
     "tagline": "Swings from number to number",
     "order": 410,
     "pitch": 1,
-    "price": 8
+    "price": 5
   },
   {
     "id": "mango",
@@ -387,7 +387,7 @@
     "tagline": "Brightest beak in the jungle",
     "order": 420,
     "pitch": 1,
-    "price": 8
+    "price": 5
   },
   {
     "id": "leo",
@@ -397,7 +397,7 @@
     "tagline": "Roars at every right answer",
     "order": 430,
     "pitch": 1,
-    "price": 8
+    "price": 5
   },
   {
     "id": "tango",
@@ -407,7 +407,7 @@
     "tagline": "Stripes and smarts",
     "order": 440,
     "pitch": 1,
-    "price": 8
+    "price": 5
   },
   {
     "id": "peanut",
@@ -417,7 +417,7 @@
     "tagline": "Never forgets a times table",
     "order": 450,
     "pitch": 1,
-    "price": 8
+    "price": 5
   },
   {
     "id": "zuri",
@@ -427,7 +427,7 @@
     "tagline": "Always reaches higher",
     "order": 460,
     "pitch": 1,
-    "price": 8
+    "price": 5
   },
   {
     "id": "ziggy",
@@ -437,7 +437,7 @@
     "tagline": "Black, white and bright",
     "order": 470,
     "pitch": 1,
-    "price": 8
+    "price": 5
   },
   {
     "id": "gumdrop",
@@ -447,7 +447,7 @@
     "tagline": "Small hippo, big smile",
     "order": 480,
     "pitch": 1,
-    "price": 8
+    "price": 5
   },
   {
     "id": "chomp",
@@ -457,7 +457,7 @@
     "tagline": "Snaps up every answer",
     "order": 490,
     "pitch": 1,
-    "price": 8
+    "price": 5
   },
   {
     "id": "sloane",
@@ -467,7 +467,7 @@
     "tagline": "Takes its time and gets it right",
     "order": 500,
     "pitch": 1,
-    "price": 8
+    "price": 5
   },
   {
     "id": "coco",
@@ -477,7 +477,7 @@
     "tagline": "Hugs every good answer",
     "order": 510,
     "pitch": 1,
-    "price": 8
+    "price": 5
   },
   {
     "id": "hopper",
@@ -487,7 +487,7 @@
     "tagline": "Jumps up the levels",
     "order": 520,
     "pitch": 1,
-    "price": 8
+    "price": 5
   },
   {
     "id": "pi",
@@ -497,7 +497,7 @@
     "tagline": "Loves 3.14 bites of bamboo",
     "order": 530,
     "pitch": 1,
-    "price": 8
+    "price": 5
   },
   {
     "id": "rascal",
@@ -507,7 +507,7 @@
     "tagline": "A little mischief, a lot of maths",
     "order": 540,
     "pitch": 1,
-    "price": 8
+    "price": 5
   },
   {
     "id": "lemony",
@@ -517,7 +517,7 @@
     "tagline": "Wide-eyed and wonder-full",
     "order": 550,
     "pitch": 1,
-    "price": 8
+    "price": 5
   },
   {
     "id": "frost",
@@ -527,7 +527,7 @@
     "tagline": "Cool under pressure",
     "order": 560,
     "pitch": 1.05,
-    "price": 8
+    "price": 5
   },
   {
     "id": "tux",
@@ -537,7 +537,7 @@
     "tagline": "Slides into every answer",
     "order": 570,
     "pitch": 1.05,
-    "price": 8
+    "price": 5
   },
   {
     "id": "snowdrop",
@@ -547,7 +547,7 @@
     "tagline": "Quiet as snow, sharp as ice",
     "order": 580,
     "pitch": 1.05,
-    "price": 8
+    "price": 5
   },
   {
     "id": "tusk",
@@ -557,7 +557,7 @@
     "tagline": "Big whiskers, bigger brain",
     "order": 590,
     "pitch": 1.05,
-    "price": 8
+    "price": 5
   },
   {
     "id": "flurry",
@@ -567,7 +567,7 @@
     "tagline": "Sees the answer through the snow",
     "order": 600,
     "pitch": 1.05,
-    "price": 8
+    "price": 5
   },
   {
     "id": "blizzard",
@@ -577,7 +577,7 @@
     "tagline": "Pulls you through any problem",
     "order": 610,
     "pitch": 1.05,
-    "price": 8
+    "price": 5
   },
   {
     "id": "mo",
@@ -587,7 +587,7 @@
     "tagline": "Dives deep for answers",
     "order": 620,
     "pitch": 1.05,
-    "price": 8
+    "price": 5
   },
   {
     "id": "jingle",
@@ -597,7 +597,7 @@
     "tagline": "Leads the way on snowy days",
     "order": 630,
     "pitch": 1.05,
-    "price": 8
+    "price": 5
   },
   {
     "id": "rio",
@@ -607,7 +607,7 @@
     "tagline": "Repeats every right answer",
     "order": 640,
     "pitch": 1.35,
-    "price": 5
+    "price": 3
   },
   {
     "id": "chirpy",
@@ -617,7 +617,7 @@
     "tagline": "Sings when you score",
     "order": 650,
     "pitch": 1.35,
-    "price": 5
+    "price": 3
   },
   {
     "id": "rosie",
@@ -627,7 +627,7 @@
     "tagline": "Balances every equation",
     "order": 660,
     "pitch": 1.35,
-    "price": 5
+    "price": 3
   },
   {
     "id": "plume",
@@ -637,7 +637,7 @@
     "tagline": "Shows off every win",
     "order": 670,
     "pitch": 1.35,
-    "price": 5
+    "price": 3
   },
   {
     "id": "zippy",
@@ -647,7 +647,7 @@
     "tagline": "Fastest wings, fastest answers",
     "order": 680,
     "pitch": 1.35,
-    "price": 5
+    "price": 3
   },
   {
     "id": "berry",
@@ -657,7 +657,7 @@
     "tagline": "The early bird gets the answer",
     "order": 690,
     "pitch": 1.35,
-    "price": 5
+    "price": 3
   },
   {
     "id": "lulu",
@@ -667,7 +667,7 @@
     "tagline": "Glides through every sum",
     "order": 700,
     "pitch": 1.35,
-    "price": 5
+    "price": 3
   },
   {
     "id": "dot",
@@ -677,7 +677,7 @@
     "tagline": "Counts all seven spots",
     "order": 710,
     "pitch": 1.45,
-    "price": 5
+    "price": 3
   },
   {
     "id": "buzz",
@@ -687,7 +687,7 @@
     "tagline": "Busy bee, busy brain",
     "order": 720,
     "pitch": 1.45,
-    "price": 5
+    "price": 3
   },
   {
     "id": "flutter",
@@ -697,7 +697,7 @@
     "tagline": "Turns every mistake into something beautiful",
     "order": 730,
     "pitch": 1.45,
-    "price": 5
+    "price": 3
   },
   {
     "id": "sparky",
@@ -707,7 +707,7 @@
     "tagline": "Lights up when you are right",
     "order": 740,
     "pitch": 1.45,
-    "price": 5
+    "price": 3
   },
   {
     "id": "inchy",
@@ -717,7 +717,7 @@
     "tagline": "Measures up to every challenge",
     "order": 750,
     "pitch": 1.45,
-    "price": 5
+    "price": 3
   },
   {
     "id": "swirl",
@@ -727,7 +727,7 @@
     "tagline": "Spirals all the way to the top",
     "order": 760,
     "pitch": 1.45,
-    "price": 5
+    "price": 3
   },
   {
     "id": "lime",
@@ -737,7 +737,7 @@
     "tagline": "Sticks with it",
     "order": 770,
     "pitch": 1.45,
-    "price": 5
+    "price": 3
   },
   {
     "id": "rexy",
@@ -747,7 +747,7 @@
     "tagline": "Tiny arms, huge brain",
     "order": 780,
     "pitch": 0.85,
-    "price": 12
+    "price": 8
   },
   {
     "id": "trixie",
@@ -757,7 +757,7 @@
     "tagline": "Three horns, triple the fun",
     "order": 790,
     "pitch": 0.85,
-    "price": 12
+    "price": 8
   },
   {
     "id": "spike",
@@ -767,7 +767,7 @@
     "tagline": "Plates full of numbers",
     "order": 800,
     "pitch": 0.85,
-    "price": 12
+    "price": 8
   },
   {
     "id": "brontie",
@@ -777,7 +777,7 @@
     "tagline": "Stretches for every answer",
     "order": 810,
     "pitch": 0.85,
-    "price": 12
+    "price": 8
   },
   {
     "id": "pterry",
@@ -787,7 +787,7 @@
     "tagline": "Soars above the rest",
     "order": 820,
     "pitch": 0.85,
-    "price": 12
+    "price": 8
   },
   {
     "id": "anky",
@@ -797,7 +797,7 @@
     "tagline": "Tough as a shell",
     "order": 830,
     "pitch": 0.85,
-    "price": 12
+    "price": 8
   },
   {
     "id": "dash",
@@ -807,7 +807,7 @@
     "tagline": "Fast and fearless",
     "order": 840,
     "pitch": 0.85,
-    "price": 12
+    "price": 8
   },
   {
     "id": "nugget",
@@ -817,7 +817,7 @@
     "tagline": "Just hatched and ready to learn",
     "order": 850,
     "pitch": 0.85,
-    "price": 12
+    "price": 8
   },
   {
     "id": "sparkle",
@@ -827,7 +827,7 @@
     "tagline": "Magic in every answer",
     "order": 860,
     "pitch": 1,
-    "price": 15
+    "price": 12
   },
   {
     "id": "ember",
@@ -837,7 +837,7 @@
     "tagline": "Fiery fast at facts",
     "order": 870,
     "pitch": 1,
-    "price": 15
+    "price": 12
   },
   {
     "id": "glimmer",
@@ -847,7 +847,7 @@
     "tagline": "Takes your maths to new heights",
     "order": 880,
     "pitch": 1,
-    "price": 15
+    "price": 12
   },
   {
     "id": "blaze",
@@ -857,7 +857,7 @@
     "tagline": "Rises again after every mistake",
     "order": 890,
     "pitch": 1,
-    "price": 15
+    "price": 12
   },
   {
     "id": "gryff",
@@ -867,7 +867,7 @@
     "tagline": "Brave as a lion, sharp as an eagle",
     "order": 900,
     "pitch": 1,
-    "price": 15
+    "price": 12
   },
   {
     "id": "yuki",
@@ -877,7 +877,7 @@
     "tagline": "Big feet, bigger smile",
     "order": 910,
     "pitch": 1,
-    "price": 15
+    "price": 12
   },
   {
     "id": "loch",
@@ -887,7 +887,7 @@
     "tagline": "Pops up to say well done",
     "order": 920,
     "pitch": 1,
-    "price": 15
+    "price": 12
   },
   {
     "id": "kitsu",
@@ -897,7 +897,7 @@
     "tagline": "Three tails, three times as clever",
     "order": 930,
     "pitch": 1,
-    "price": 15
+    "price": 12
   },
   {
     "id": "jade",
@@ -907,7 +907,7 @@
     "tagline": "Brings good fortune",
     "order": 940,
     "pitch": 1,
-    "price": 15
+    "price": 12
   },
   {
     "id": "triplet",
@@ -917,7 +917,7 @@
     "tagline": "Three heads are better than one",
     "order": 950,
     "pitch": 1,
-    "price": 15
+    "price": 12
   },
   {
     "id": "wisp",
@@ -927,7 +927,7 @@
     "tagline": "A little light in the dark",
     "order": 960,
     "pitch": 1,
-    "price": 15
+    "price": 12
   },
   {
     "id": "inky",
@@ -937,7 +937,7 @@
     "tagline": "Grabs every answer",
     "order": 970,
     "pitch": 1,
-    "price": 15
+    "price": 12
   },
   {
     "id": "twinkle",
@@ -947,7 +947,7 @@
     "tagline": "Small wings, big magic",
     "order": 980,
     "pitch": 1,
-    "price": 15
+    "price": 12
   },
   {
     "id": "moonbeam",
@@ -957,7 +957,7 @@
     "tagline": "Hops down from the moon to help you",
     "order": 990,
     "pitch": 1,
-    "price": 15
+    "price": 12
   },
   {
     "id": "nimbus",
@@ -967,7 +967,7 @@
     "tagline": "Floats through every sum",
     "order": 1000,
     "pitch": 1,
-    "price": 15
+    "price": 12
   },
   {
     "id": "riddle",
@@ -977,7 +977,7 @@
     "tagline": "Loves a good riddle",
     "order": 1010,
     "pitch": 1,
-    "price": 15
+    "price": 12
   },
   {
     "id": "gem",
@@ -987,7 +987,7 @@
     "tagline": "Shines brighter with every answer",
     "order": 1020,
     "pitch": 1,
-    "price": 15
+    "price": 12
   },
   {
     "id": "cosmo",
@@ -997,6 +997,6 @@
     "tagline": "Swims through the stars",
     "order": 1030,
     "pitch": 1,
-    "price": 15
+    "price": 12
   }
 ]

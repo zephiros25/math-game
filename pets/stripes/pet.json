@@ -2,7 +2,7 @@
   "name": "Stripes",
   "tagline": "Always ready to make you smile",
   "order": 370,
-  "price": 5,
+  "price": 3,
   "premium": false,
   "images": {
     "idle": "img-idle.webp",

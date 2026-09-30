@@ -2,7 +2,7 @@
   "name": "Hazel",
   "tagline": "Prickly outside, cuddly inside",
   "order": 40,
-  "price": 5,
+  "price": 3,
   "premium": false,
   "images": {
     "idle": "img-idle.webp",

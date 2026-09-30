@@ -139,7 +139,7 @@ export default function Pets() {
               );
             })}
           </View>
-          <Text style={styles.hint}>Earn 💎 by getting 10 in a row, a perfect run, or a new best level.</Text>
+          <Text style={styles.hint}>Earn 💎 for every run you finish, +2 for your first run each day, and extra for 10 in a row, a perfect run or a new best level.</Text>
         </ScrollView>
 
         {devUnlock}

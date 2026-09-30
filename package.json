@@ -32,6 +32,7 @@
     "react-native-worklets": "0.10.1"
   },
   "devDependencies": {
+    "@types/node": "^26.6.3",
     "@types/react": "~19.2.2",
     "eslint": "^9.0.0",
     "eslint-config-expo": "~57.0.2",
@@ -51,7 +52,8 @@
     "prestart": "node scripts/themes/build.mjs && node scripts/pets/build.mjs",
     "themes": "node scripts/themes/build.mjs",
     "studio": "node --watch scripts/themes/studio.mjs",
-    "pets": "node scripts/pets/build.mjs"
+    "pets": "node scripts/pets/build.mjs",
+    "economy": "tsx scripts/economy.ts"
   },
   "private": true
 }

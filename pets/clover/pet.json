@@ -2,7 +2,7 @@
   "name": "Clover",
   "tagline": "Brings a little luck to every sum",
   "order": 80,
-  "price": 5,
+  "price": 3,
   "premium": false,
   "images": {
     "idle": "img-idle.webp",

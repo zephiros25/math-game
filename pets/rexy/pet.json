@@ -2,7 +2,7 @@
   "name": "Rexy",
   "tagline": "Tiny arms, huge brain",
   "order": 780,
-  "price": 12,
+  "price": 8,
   "premium": false,
   "images": {
     "idle": "img-idle.webp",

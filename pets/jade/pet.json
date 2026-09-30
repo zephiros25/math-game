@@ -2,7 +2,7 @@
   "name": "Jade",
   "tagline": "Brings good fortune",
   "order": 940,
-  "price": 15,
+  "price": 12,
   "premium": false,
   "images": {
     "idle": "img-idle.webp",

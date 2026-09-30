@@ -5,6 +5,8 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useSyncExternalStore } from 'react';
 
+import { GEMS } from '@/game/rewards';
+
 export type Progress = {
   coins: number;
   gems: number;
@@ -17,6 +19,8 @@ export type Progress = {
   pet: string | null; // id of the chosen pet
   ownedPets: string[];
   showPet: boolean; // parents can hide the pet without losing the child's choice
+  lastRunDay: string | null; // local date of the last finished run (daily gem bonus)
+  welcomeGiven: boolean; // the one-time welcome gems
 };
 
 const KEY = 'progress.v1';
@@ -32,6 +36,8 @@ const DEFAULTS: Progress = {
   pet: 'sprout',
   ownedPets: ['sprout'],
   showPet: true,
+  lastRunDay: null,
+  welcomeGiven: false,
 };
 
 let current: Progress = DEFAULTS;
@@ -44,6 +50,8 @@ export async function loadProgress() {
   } catch {
     // Corrupt or unavailable storage: start fresh.
   }
+  // Welcome gems, once (also for players from before the gift existed).
+  if (!current.welcomeGiven) updateProgress({ gems: current.gems + GEMS.welcome, welcomeGiven: true });
   return current;
 }
 

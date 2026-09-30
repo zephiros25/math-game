@@ -2,8 +2,8 @@
   "name": "Blossom",
   "tagline": "Cherry petals on the breeze",
   "order": 80,
-  "price": 0,
-  "premium": true,
+  "price": 2000,
+  "premium": false,
   "dark": false,
   "colors": {
     "background": "#FFF6F3",

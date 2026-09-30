@@ -2,7 +2,7 @@
   "name": "Triplet",
   "tagline": "Three heads are better than one",
   "order": 950,
-  "price": 15,
+  "price": 12,
   "premium": false,
   "images": {
     "idle": "img-idle.webp",

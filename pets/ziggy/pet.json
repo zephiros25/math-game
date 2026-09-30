@@ -2,7 +2,7 @@
   "name": "Ziggy",
   "tagline": "Black, white and bright",
   "order": 470,
-  "price": 8,
+  "price": 5,
   "premium": false,
   "images": {
     "idle": "img-talk.webp",

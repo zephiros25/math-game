@@ -2,7 +2,7 @@
   "name": "Blizzard",
   "tagline": "Pulls you through any problem",
   "order": 610,
-  "price": 8,
+  "price": 5,
   "premium": false,
   "images": {
     "idle": "img-idle.webp",

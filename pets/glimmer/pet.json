@@ -2,7 +2,7 @@
   "name": "Glimmer",
   "tagline": "Takes your maths to new heights",
   "order": 880,
-  "price": 15,
+  "price": 12,
   "premium": false,
   "images": {
     "idle": "img-idle.webp",

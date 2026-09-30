@@ -2,7 +2,7 @@
   "name": "Maple",
   "tagline": "Quick as a fox, sharp as a tack",
   "order": 60,
-  "price": 5,
+  "price": 3,
   "premium": false,
   "images": {
     "idle": "img-idle.webp",

@@ -2,7 +2,7 @@
   "name": "Inchy",
   "tagline": "Measures up to every challenge",
   "order": 750,
-  "price": 5,
+  "price": 3,
   "premium": false,
   "images": {
     "idle": "img-idle.webp",

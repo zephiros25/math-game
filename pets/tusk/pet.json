@@ -2,7 +2,7 @@
   "name": "Tusk",
   "tagline": "Big whiskers, bigger brain",
   "order": 590,
-  "price": 8,
+  "price": 5,
   "premium": false,
   "images": {
     "idle": "img-idle.webp",

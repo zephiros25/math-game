@@ -2,7 +2,7 @@
   "name": "Hootie",
   "tagline": "Wise beyond its years",
   "order": 90,
-  "price": 5,
+  "price": 3,
   "premium": false,
   "images": {
     "idle": "img-idle.webp",

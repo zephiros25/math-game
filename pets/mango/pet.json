@@ -2,7 +2,7 @@
   "name": "Mango",
   "tagline": "Brightest beak in the jungle",
   "order": 420,
-  "price": 8,
+  "price": 5,
   "premium": false,
   "images": {
     "idle": "img-idle.webp",

@@ -2,7 +2,7 @@
   "name": "Mo",
   "tagline": "Dives deep for answers",
   "order": 620,
-  "price": 8,
+  "price": 5,
   "premium": false,
   "images": {
     "idle": "img-idle.webp",

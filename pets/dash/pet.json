@@ -2,7 +2,7 @@
   "name": "Dash",
   "tagline": "Fast and fearless",
   "order": 840,
-  "price": 12,
+  "price": 8,
   "premium": false,
   "images": {
     "idle": "img-idle.webp",

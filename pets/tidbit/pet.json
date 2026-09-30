@@ -2,7 +2,7 @@
   "name": "Tidbit",
   "tagline": "Tiny, curly and clever",
   "order": 350,
-  "price": 5,
+  "price": 3,
   "premium": false,
   "images": {
     "idle": "img-idle.webp",

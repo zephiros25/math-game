@@ -21,7 +21,7 @@ import { Screen } from '@/components/screen';
 import { feedback } from '@/feedback';
 import { judge, type Verdict } from '@/game/engine';
 import { generateQuestion, levelInfo, type Question } from '@/game/levels';
-import { coinsFor, isStreakGem, runBonusGems } from '@/game/rewards';
+import { coinsFor, isStreakGem, runBonusGems, today } from '@/game/rewards';
 import { petLine, usePet } from '@/pets';
 import { getProgress, updateProgress } from '@/progress';
 import { useTheme, type Theme } from '@/theme';
@@ -165,12 +165,20 @@ export default function Play() {
   }
 
   function finish(s: RunStats) {
-    const bonus = runBonusGems(s.correct, total, s.peakLevel, bestBefore);
     const p = getProgress();
+    const day = today();
+    const bonus = runBonusGems({
+      correct: s.correct,
+      total,
+      peakLevel: s.peakLevel,
+      previousBest: bestBefore,
+      firstRunToday: p.lastRunDay !== day,
+    });
     updateProgress({
       coins: p.coins + s.coins,
-      gems: p.gems + s.gems + bonus,
+      gems: p.gems + s.gems + bonus.gems,
       bestLevel: Math.max(p.bestLevel, s.peakLevel),
+      lastRunDay: day,
     });
     router.replace({
       pathname: '/results',
@@ -179,7 +187,8 @@ export default function Play() {
         total,
         peak: s.peakLevel,
         coins: s.coins,
-        gems: s.gems + bonus,
+        gems: s.gems + bonus.gems,
+        daily: bonus.daily > 0 ? 1 : 0,
         bestStreak: s.bestStreak,
         newBest: s.peakLevel > bestBefore ? 1 : 0,
       },

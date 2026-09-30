@@ -31,6 +31,7 @@ export default function Results() {
   const gems = Number(params.gems);
   const bestStreak = Number(params.bestStreak);
   const newBest = params.newBest === '1';
+  const dailyBonus = params.daily === '1';
   const stars = starsFor(correct, total);
 
   const [shownCoins, setShownCoins] = useState(0);
@@ -118,6 +119,11 @@ export default function Results() {
               </Animated.View>
             )}
           </View>
+          {showGems && dailyBonus && (
+            <Animated.Text entering={FadeInDown.delay(250)} style={styles.dailyNote}>
+              Includes +2 💎 for your first run today!
+            </Animated.Text>
+          )}
         </View>
 
         {pet && (
@@ -262,6 +268,12 @@ const makeStyles = (t: Theme) =>
       fontFamily: t.font.bold,
       fontSize: 40,
       color: t.text,
+    },
+    dailyNote: {
+      fontFamily: t.font.medium,
+      fontSize: 15,
+      color: t.textSoft,
+      marginTop: -10,
     },
     petRow: {
       paddingLeft: 8,

@@ -2,7 +2,7 @@
   "name": "Nutmeg",
   "tagline": "Stuffs its cheeks with numbers",
   "order": 140,
-  "price": 5,
+  "price": 3,
   "premium": false,
   "images": {
     "idle": "img-idle.webp",

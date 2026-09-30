@@ -2,7 +2,7 @@
   "name": "Flutter",
   "tagline": "Turns every mistake into something beautiful",
   "order": 730,
-  "price": 5,
+  "price": 3,
   "premium": false,
   "images": {
     "idle": "img-idle.webp",

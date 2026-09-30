@@ -2,7 +2,7 @@
   "name": "Pi",
   "tagline": "Loves 3.14 bites of bamboo",
   "order": 530,
-  "price": 8,
+  "price": 5,
   "premium": false,
   "images": {
     "idle": "img-blink.webp",

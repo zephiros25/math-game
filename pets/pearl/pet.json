@@ -2,7 +2,7 @@
   "name": "Pearl",
   "tagline": "Flippers up for every answer",
   "order": 330,
-  "price": 5,
+  "price": 3,
   "premium": false,
   "images": {
     "idle": "img-idle.webp",

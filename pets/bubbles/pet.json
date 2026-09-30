@@ -2,7 +2,7 @@
   "name": "Bubbles",
   "tagline": "Cracks every problem",
   "order": 270,
-  "price": 5,
+  "price": 3,
   "premium": false,
   "images": {
     "idle": "img-idle.webp",

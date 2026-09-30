@@ -2,7 +2,7 @@
   "name": "Gem",
   "tagline": "Shines brighter with every answer",
   "order": 1020,
-  "price": 15,
+  "price": 12,
   "premium": false,
   "images": {
     "idle": "img-idle.webp",

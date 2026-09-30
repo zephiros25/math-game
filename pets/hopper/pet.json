@@ -2,7 +2,7 @@
   "name": "Hopper",
   "tagline": "Jumps up the levels",
   "order": 520,
-  "price": 8,
+  "price": 5,
   "premium": false,
   "images": {
     "idle": "img-idle.webp",

@@ -2,7 +2,7 @@
   "name": "Loch",
   "tagline": "Pops up to say well done",
   "order": 920,
-  "price": 15,
+  "price": 12,
   "premium": false,
   "images": {
     "idle": "img-idle.webp",
