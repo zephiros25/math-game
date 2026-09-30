@@ -7,7 +7,7 @@ import { ChunkyButton } from '@/components/chunky-button';
 import { Coin } from '@/components/coin';
 import { PetView, type PetHandle } from '@/components/pet-view';
 import { Screen } from '@/components/screen';
-import { feedback } from '@/feedback';
+import { feedback, quietIn } from '@/feedback';
 import { levelInfo } from '@/game/levels';
 import { petLine, usePet } from '@/pets';
 import { useTheme, type Theme } from '@/theme';
@@ -41,21 +41,18 @@ export default function Results() {
   const pet = usePet();
   const petRef = useRef<PetHandle>(null);
 
-  // Choreography: fanfare, stars one by one (the pet hops for each), coins
-  // counting up with ticks, then gems, then the pet says something kind.
+  // Choreography, one sound at a time: the fanfare while the stars pop in
+  // (the pet hops for each), then, once the fanfare is over, coins counting
+  // up with ticks, then the gem once the ticks have died away, then the pet
+  // says something kind (it waits for quiet by itself).
   useEffect(() => {
     const timers: ReturnType<typeof setTimeout>[] = [];
     const at = (ms: number, fn: () => void) => timers.push(setTimeout(fn, ms));
 
-    at(0, feedback.fanfare);
-    for (let i = 0; i < stars; i++) {
-      at(STAR_DELAY + i * STAR_GAP, () => {
-        feedback.correct(3 + i * 2);
-        petRef.current?.hop();
-      });
-    }
+    feedback.fanfare();
+    for (let i = 0; i < stars; i++) at(STAR_DELAY + i * STAR_GAP, () => petRef.current?.hop());
 
-    const coinsStart = STAR_DELAY + stars * STAR_GAP + 200;
+    const coinsStart = Math.max(STAR_DELAY + stars * STAR_GAP, quietIn()) + 150;
     const ticks = Math.min(coins, 24);
     for (let i = 1; i <= ticks; i++) {
       at(coinsStart + i * 55, () => {
@@ -63,13 +60,15 @@ export default function Results() {
         feedback.coin();
       });
     }
-    if (gems > 0) {
-      at(coinsStart + ticks * 55 + 300, () => {
+    at(coinsStart + ticks * 55 + 100, () => {
+      const finish = () => pet && petRef.current?.say(petLine(pet, 'finish'));
+      if (gems === 0) return finish();
+      at(quietIn() + 100, () => {
         setShowGems(true);
         feedback.gem();
+        finish();
       });
-    }
-    if (pet) at(coinsStart + ticks * 55 + (gems > 0 ? 1100 : 500), () => petRef.current?.say(petLine(pet, 'finish')));
+    });
     return () => timers.forEach(clearTimeout);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [coins, gems, stars]);

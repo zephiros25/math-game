@@ -129,7 +129,14 @@ export function setMuted(value: boolean) {
   muted = value;
 }
 
-function playFrom(pool: Pool | undefined, volume: number, rate?: number) {
+// When every sound effect playing now will have finished (pet babble not
+// included), so the pet can wait for quiet and screens can wait for the
+// fanfare to end instead of piling sounds on top of each other.
+let busyUntil = 0;
+// Used when a player hasn't loaded its file yet and doesn't know its length.
+const FALLBACK_SECONDS = 0.5;
+
+function playFrom(pool: Pool | undefined, volume: number, rate?: number, isPet = false) {
   if (muted || !pool) return;
   const player = pool.players[pool.next];
   pool.next = (pool.next + 1) % pool.players.length;
@@ -139,9 +146,18 @@ function playFrom(pool: Pool | undefined, volume: number, rate?: number) {
     if (rate !== undefined) player.setPlaybackRate(rate);
     player.seekTo(0);
     player.play();
+    if (!isPet) {
+      const seconds = (player.duration > 0 ? player.duration : FALLBACK_SECONDS) / (rate ?? 1);
+      busyUntil = Math.max(busyUntil, Date.now() + seconds * 1000);
+    }
   } catch {
     // A missed sound effect should never break the game.
   }
+}
+
+// Milliseconds until the sound effects playing now have finished (0 = quiet).
+export function quietIn() {
+  return muted ? 0 : Math.max(0, busyUntil - Date.now());
 }
 
 let variant = 0;
@@ -205,15 +221,17 @@ export const feedback = {
   // One babble syllable while a pet talks, at a slightly random pitch so a
   // sentence sounds like cute chatter. `pet` sets the voice's pitch.
   petSyllable(pet: Pet) {
+    // Another sound started while the pet was talking: let it finish silently.
+    if (quietIn() > 0) return;
     const rate = Math.min(2, Math.max(0.5, pet.voicePitch * (0.88 + Math.random() * 0.3)));
     const setVoice = defaultSetPools.get('voice');
     if (petVoice?.id === pet.id && petVoice.pools.length) {
-      playFrom(petVoice.pools[Math.floor(Math.random() * petVoice.pools.length)], petVoice.volume, rate);
+      playFrom(petVoice.pools[Math.floor(Math.random() * petVoice.pools.length)], petVoice.volume, rate, true);
     } else if (setVoice) {
-      playFrom(setVoice.pools[Math.floor(Math.random() * setVoice.pools.length)], pet.voiceVolume * setVoice.volume, rate);
+      playFrom(setVoice.pools[Math.floor(Math.random() * setVoice.pools.length)], pet.voiceVolume * setVoice.volume, rate, true);
     } else {
       const syllable = VOICE_SYLLABLES[Math.floor(Math.random() * VOICE_SYLLABLES.length)];
-      playFrom(defaultPools.get(syllable), pet.voiceVolume, rate);
+      playFrom(defaultPools.get(syllable), pet.voiceVolume, rate, true);
     }
   },
   fanfare() {

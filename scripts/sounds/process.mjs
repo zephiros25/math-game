@@ -30,9 +30,9 @@ export const RULES = {
   voice: { target: -20, maxMs: 450, fadeMs: 40 },
 };
 
-// Longer sounds are saved as AAC (.m4a) to keep the app small; short ones as
-// WAV, which starts playing instantly (AAC adds a few milliseconds of delay).
-const AAC_FROM_MS = 900;
+// Long sounds (the fanfare, the level-up run) are saved as AAC (.m4a) to keep
+// the app small; everything else as WAV, which starts playing instantly (AAC adds a few milliseconds of delay).
+const AAC_FROM_MS = 1500;
 
 export function decode(data) {
   const r = spawnSync(ffmpeg, ['-v', 'error', '-i', 'pipe:0', '-f', 'f32le', '-ac', '1', '-ar', String(RATE), 'pipe:1'], {

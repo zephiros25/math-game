@@ -22,7 +22,7 @@ import Animated, {
   ZoomIn,
 } from 'react-native-reanimated';
 
-import { feedback } from '@/feedback';
+import { feedback, quietIn } from '@/feedback';
 import type { Pet } from '@/pets';
 import { useTheme, type Theme } from '@/theme';
 
@@ -44,6 +44,7 @@ type Props = {
 // the mouth open for MOUTH_OPEN of each flap. Keep in sync with the Studio
 // preview (scripts/themes/pets.html).
 const SYLLABLE_MS = 280;
+const MAX_WAIT_MS = 4000;
 const MOUTH_OPEN = 0.6;
 const syllablesFor = (text: string) => Math.min(9, Math.max(2, Math.round(text.length / 4.5)));
 const BUBBLE_WIDTH = 200;
@@ -157,9 +158,15 @@ export function PetView({ pet, size: baseSize, bubble = 'right', onPress, ref }:
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pet.id, still, size]);
 
+  // The pet waits until other sounds have finished (up to MAX_WAIT_MS), so it
+  // never talks over the fanfare or an answer chime.
   const say = (text: string) => {
     talkTimers.current.forEach(clearTimeout);
     talkTimers.current.clear();
+    whileTalking(Math.min(quietIn(), MAX_WAIT_MS), () => talk(text));
+  };
+
+  const talk = (text: string) => {
     talking.current = true;
     setSpeech(text);
     const syllables = syllablesFor(text);
