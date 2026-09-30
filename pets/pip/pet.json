@@ -1,0 +1,19 @@
+{
+  "name": "Pip",
+  "tagline": "Small but super brave",
+  "order": 50,
+  "price": 5,
+  "premium": false,
+  "images": {
+    "idle": "img-idle.png",
+    "blink": "img-blink.png",
+    "talk": "img-talk.png"
+  },
+  "size": 1,
+  "voice": {
+    "pitch": 1.4,
+    "files": [],
+    "volume": 0.8
+  },
+  "lines": {}
+}
