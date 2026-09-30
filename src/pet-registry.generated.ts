@@ -85,6 +85,38 @@ export const PET_DATA: PetData[] = [
     "voiceFiles": []
   },
   {
+    "id": "maple",
+    "name": "Maple",
+    "tagline": "Quick as a fox, sharp as a tack",
+    "order": 60,
+    "price": 5,
+    "premium": false,
+    "size": 1,
+    "lines": {},
+    "idle": require('../pets/maple/img-idle.png'),
+    "blink": require('../pets/maple/img-blink.png'),
+    "talk": require('../pets/maple/img-talk.png'),
+    "voicePitch": 1.2,
+    "voiceVolume": 0.8,
+    "voiceFiles": []
+  },
+  {
+    "id": "bramble",
+    "name": "Bramble",
+    "tagline": "Digs deep for every answer",
+    "order": 70,
+    "price": 5,
+    "premium": false,
+    "size": 1,
+    "lines": {},
+    "idle": require('../pets/bramble/img-idle.png'),
+    "blink": require('../pets/bramble/img-blink.png'),
+    "talk": require('../pets/bramble/img-talk.png'),
+    "voicePitch": 1.2,
+    "voiceVolume": 0.8,
+    "voiceFiles": []
+  },
+  {
     "id": "sulfy",
     "name": "Sulfy",
     "tagline": "Fiery cuteness!",

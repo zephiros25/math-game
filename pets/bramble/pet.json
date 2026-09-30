@@ -1,0 +1,19 @@
+{
+  "name": "Bramble",
+  "tagline": "Digs deep for every answer",
+  "order": 70,
+  "price": 5,
+  "premium": false,
+  "images": {
+    "idle": "img-idle.png",
+    "blink": "img-blink.png",
+    "talk": "img-talk.png"
+  },
+  "size": 1,
+  "voice": {
+    "pitch": 1.2,
+    "files": [],
+    "volume": 0.8
+  },
+  "lines": {}
+}

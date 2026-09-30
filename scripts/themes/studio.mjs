@@ -14,6 +14,7 @@ import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
 
 import { alignPetImage } from '../pets/align.mjs';
+import { splitSheet } from '../pets/sheet.mjs';
 import { classifyPetPictures } from '../pets/sort.mjs';
 import { buildPets } from '../pets/build.mjs';
 import {
@@ -391,6 +392,28 @@ async function importPetFile(id, kind, slot, originalName, data) {
     const name = uniqueName(dir, `img-${slot}`, '.png');
     writeFileSync(join(dir, name), png);
     return { file: name, width: meta.width, height: meta.height, transparent, cutOff };
+  }
+  if (kind === 'sheet') {
+    // One picture with all three versions side by side: split, align and
+    // save them in sheet order (normal, blink, talk). The client then runs
+    // the automatic sorting, which double-checks the order.
+    let parts;
+    try {
+      parts = await splitSheet(data);
+    } catch (e) {
+      throw new HttpError(400, `Could not split this picture: ${e.message}`);
+    }
+    const files = [];
+    const cutOff = [];
+    for (const [i, part] of parts.entries()) {
+      const aligned = await alignPetImage(part);
+      const name = uniqueName(dir, `img-${['idle', 'blink', 'talk'][i]}`, '.png');
+      writeFileSync(join(dir, name), aligned.png);
+      files.push(name);
+      cutOff.push(...aligned.cutOff.filter((edge) => edge === 'top'));
+    }
+    const meta = await sharp(data).metadata();
+    return { files, width: meta.width, height: meta.height, transparent: Boolean(meta.hasAlpha), cutOff };
   }
   if (kind === 'voice') {
     if (!PET_SOUND_EXTENSIONS.includes(ext)) throw new HttpError(400, `Sounds must be ${PET_SOUND_EXTENSIONS.join(', ')}`);
