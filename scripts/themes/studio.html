@@ -7,6 +7,22 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/studio.css">
+<style>
+  .quick { border: 2px solid var(--accent); }
+  .quick ol { padding-left: 20px; margin: 8px 0; }
+  .quick li { margin: 10px 0; }
+  .prompt { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; font-size: 13px; margin-top: 4px; white-space: pre-wrap; }
+  .prompt b.subject { background: #fff1b8; border-radius: 4px; padding: 0 3px; }
+  .paste-zone { border: 2px dashed var(--accent); border-radius: 14px; padding: 16px; text-align: center; background: #fff7f3; }
+  .paste-zone.over { background: #ffe9df; }
+  .paste-thumbs { display: flex; gap: 14px; justify-content: center; align-items: flex-end; margin-top: 10px; }
+  .paste-thumbs figure { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 12px; color: var(--soft); }
+  .paste-thumbs img, .paste-thumbs .empty-slot { width: 70px; height: 70px; border-radius: 14px; object-fit: contain; background: #fff; }
+  .paste-thumbs img.bg { width: 50px; height: 90px; object-fit: cover; }
+  .paste-thumbs .empty-slot { border: 2px dashed var(--line); display: flex; align-items: center; justify-content: center; }
+  .paste-thumbs .empty-slot.bg { width: 50px; height: 90px; }
+  kbd.big { font-size: 15px; padding: 2px 8px; }
+</style>
 </head>
 <body>
 <div class="app">
@@ -16,6 +32,7 @@
     <span class="status" id="status"></span>
     <span class="spacer"></span>
     <span class="hint">Save with <kbd>Ctrl</kbd>+<kbd>S</kbd>. With <kbd>npx expo start</kbd> running, saves show up on your phone.</span>
+    <button id="nextTheme" title="Start the next theme from docs/theme-ideas.json">✨ Next theme</button>
     <button class="primary" id="save" disabled>Save</button>
   </header>
   <aside>
@@ -66,6 +83,7 @@ let themes = [];         // [{ id, json, files, errors, warnings }]
 let current = null;      // the theme being edited (working copy in current.json)
 let savedJson = '';      // JSON string of the last saved version, to detect changes
 let screen = 'play';
+let ideas = [];          // docs/theme-ideas.json, for "Next theme"
 
 const COLOR_GROUPS = [
   ['Screen', 'The page itself.', [['background', 'Background'], ['backgroundDeep', 'Background, deeper'], ['text', 'Text'], ['textSoft', 'Soft text']]],
@@ -259,6 +277,7 @@ function renderEditor() {
   const j = current.json;
   fill(ed, 
     h('div', { class: 'messages', id: 'messages' }),
+    needsPictures(j) ? quickCard(j) : null,
     basicsCard(j), fontCard(j), colorsCard(j), keysCard(j), backgroundCard(j), particlesCard(j), soundsCard(j),
   );
   renderChecks();
@@ -701,6 +720,145 @@ $('#save').onclick = save;
 document.addEventListener('keydown', (e) => { if ((e.ctrlKey || e.metaKey) && e.key === 's') { e.preventDefault(); save(); } });
 window.addEventListener('beforeunload', (e) => { if (isDirty()) { e.preventDefault(); e.returnValue = ''; } });
 
+// ---------------------------------------------------------------- quick add
+// The fast way to make a theme from the ideas list: two ChatGPT pictures per
+// theme. Prompt A makes the background, prompt B the icon and the number
+// button side by side. Paste them here (Ctrl+V) in any order: a tall picture
+// is the background, a wide one is cut into the icon and the button.
+
+const ideaFor = (id) => ideas.find((i) => i.id === id);
+const needsPictures = (j) => Boolean(ideaFor(current.id)) && (!j.background.image || !j.icon || !j.keys.image);
+
+function quickCard(j) {
+  const idea = ideaFor(current.id);
+  const thumb = (label, file, cls = '') => h('figure', {},
+    file ? h('img', { class: cls, src: fileUrl(current.id, file) }) : h('div', { class: `empty-slot ${cls}` }, '?'), label);
+  const zone = h('div', { class: 'paste-zone' },
+    h('div', { style: { fontWeight: 600, fontSize: '16px' } }, 'In ChatGPT: right-click the picture → Copy image. Then press ', h('kbd', { class: 'big' }, 'Ctrl'), ' + ', h('kbd', { class: 'big' }, 'V'), ' anywhere on this page.'),
+    h('div', { class: 'hint', style: { marginTop: '4px' } }, 'A tall picture becomes the background; a wide one is cut into the icon and the button. You can also drop the files here.'),
+    h('div', { class: 'paste-thumbs' }, thumb('Background', j.background.image, 'bg'), thumb('Icon', j.icon), thumb('Button', j.keys.image)),
+  );
+  zone.addEventListener('dragover', (e) => { e.preventDefault(); zone.classList.add('over'); });
+  zone.addEventListener('dragleave', () => zone.classList.remove('over'));
+  zone.addEventListener('drop', async (e) => {
+    e.preventDefault();
+    zone.classList.remove('over');
+    for (const file of [...e.dataTransfer.files].filter((file) => file.type.startsWith('image/'))) await addPicture(file);
+  });
+  return h('section', { class: 'card quick' },
+    h('h2', {}, `Make ${j.name} with ChatGPT`),
+    h('p', { class: 'hint' }, 'Colours, particles and the font are already filled in from the idea. Use a new temporary chat for each theme.'),
+    h('ol', {},
+      h('li', {}, h('b', {}, 'Prompt A'), ', the background:', promptBox(idea.prompts.background, idea.scene)),
+      h('li', {}, h('b', {}, 'Prompt B'), ', the icon and the button (the same chat is fine):', promptBox(idea.prompts.assets, idea.icon)),
+      h('li', {}, 'Copy both pictures into the Studio:', zone),
+    ),
+  );
+}
+
+// Shows a prompt with a Copy button; `highlight` (what the picture shows) is in bold.
+function promptBox(text, highlight) {
+  const at = highlight ? text.indexOf(highlight) : -1;
+  const shown = at < 0 ? [text] : [text.slice(0, at), h('b', { class: 'subject' }, highlight), text.slice(at + highlight.length)];
+  return h('div', { class: 'prompt' }, ...shown, ' ', h('button', { class: 'small', onclick: () => { navigator.clipboard.writeText(text); setStatus('Prompt copied'); } }, 'Copy'));
+}
+
+async function isTall(file) {
+  try {
+    const bitmap = await createImageBitmap(file);
+    return bitmap.height > bitmap.width;
+  } catch {
+    return false;
+  }
+}
+
+async function addPicture(file) {
+  if (!current) return;
+  const j = current.json;
+  if (await isTall(file)) {
+    try {
+      j.background.image = await upload('background', file);
+    } catch {
+      return;
+    }
+  } else {
+    setStatus(`Cutting ${file.name} into the icon and the button…`);
+    let r;
+    try {
+      const res = await fetch(`/api/themes/${current.id}/upload?kind=sheet&name=${encodeURIComponent(file.name)}`, { method: 'POST', body: file });
+      r = await res.json();
+      if (!res.ok) throw new Error(r.error);
+    } catch (e) {
+      showMessages([e.message], []);
+      setStatus('✖ Import failed', true);
+      return;
+    }
+    j.icon = r.icon;
+    j.keys.image = r.key;
+    if (!r.transparent) showMessages([], ['This picture has no transparent background, so the icon and the button sit on a box. Ask ChatGPT for a transparent PNG.']);
+  }
+  renderEditor(); changed(); renderList();
+  await save();
+  if (!needsPictures(j)) setStatus(`✓ ${j.name} is complete and in the app.`);
+}
+
+document.addEventListener('paste', async (e) => {
+  if (!current || !ideaFor(current.id)) return;
+  // Let normal text pasting into inputs work.
+  const files = [...(e.clipboardData?.items ?? [])].filter((item) => item.type.startsWith('image/')).map((item) => item.getAsFile()).filter(Boolean);
+  if (!files.length) return;
+  e.preventDefault();
+  // Pasting the background: copy prompt B right away, while the paste still
+  // counts as a user action (browsers block clipboard writes later on).
+  if (!current.json.icon) {
+    const promptB = ideaFor(current.id).prompts.assets;
+    const copied = navigator.clipboard.writeText(promptB).then(() => true, () => false);
+    isTall(files[0]).then(async (tall) => {
+      if (!tall) return;
+      if (await copied) setTimeout(() => setStatus('✓ Background in. Prompt B is copied: paste it into the same ChatGPT chat.'), 1500);
+    });
+  }
+  for (const [i, blob] of files.entries()) {
+    await addPicture(new File([blob], `pasted-${Date.now()}-${i}.png`, { type: blob.type || 'image/png' }));
+  }
+});
+
+// Creates the next theme from the ideas list and copies prompt A.
+async function nextTheme() {
+  if (!confirmLeave()) return;
+  const idea = ideas.find((i) => !themes.some((t) => t.id === i.id));
+  if (!idea) {
+    alert('Every theme from docs/theme-ideas.json has been made!');
+    return;
+  }
+  // Copy right away, while this still counts as part of the click.
+  const copied = navigator.clipboard.writeText(idea.prompts.background).then(() => true, () => false);
+  try {
+    setStatus(`Creating ${idea.name}…`);
+    const created = await api('/api/themes', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ id: idea.id, idea: true }) });
+    themes.push(created);
+    themes.sort((a, b) => (a.json?.order ?? 999) - (b.json?.order ?? 999));
+    current = null;
+    savedJson = '';
+    await select(idea.id);
+    updateNextButton();
+    if (created.fontError) showMessages([], [`Could not fetch the font "${idea.font}": ${created.fontError}. The default font is used.`]);
+    setStatus((await copied)
+      ? `✓ Prompt A for ${idea.name} is copied. Paste it into a new temporary ChatGPT chat.`
+      : `${idea.name} is ready. Copy prompt A below into a new temporary ChatGPT chat.`);
+  } catch (e) {
+    alert(e.message);
+  }
+}
+
+function updateNextButton() {
+  const made = ideas.filter((i) => themes.some((t) => t.id === i.id)).length;
+  const button = $('#nextTheme');
+  button.textContent = `✨ Next theme (${made}/${ideas.length})`;
+  button.disabled = !ideas.length || made === ideas.length;
+}
+$('#nextTheme').onclick = nextTheme;
+
 // ---------------------------------------------------------------- preview
 const game = { question: '6 × 7', answer: 42, input: '', streak: 0, coins: 0, level: 7, verdict: null };
 function newQuestion() {
@@ -842,6 +1000,8 @@ document.querySelectorAll('[data-test]').forEach((b) => b.addEventListener('clic
 (async () => {
   meta = await api('/api/meta');
   themes = await api('/api/themes');
+  ideas = await api('/api/theme-ideas');
+  updateNextButton();
   renderList();
   if (themes.length) await select(themes[0].id); else renderEditor();
 })();

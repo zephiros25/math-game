@@ -7,7 +7,9 @@ import sharp from 'sharp';
 
 const ALPHA_THRESHOLD = 20;
 
-export async function splitSheet(input) {
+// `count` is how many figures the sheet holds (3 for pets, 2 for a theme's
+// icon and button).
+export async function splitSheet(input, count = 3) {
   const { data, info } = await sharp(input).rotate().ensureAlpha().raw().toBuffer({ resolveWithObject: true });
   const { width, height } = info;
 
@@ -31,14 +33,14 @@ export async function splitSheet(input) {
     }
   }
 
-  // The three widest runs are the figures; keep them in left-to-right order.
+  // The widest runs are the figures; keep them in left-to-right order.
   const figures = runs
     .filter((r) => r.right - r.left + 1 >= width * 0.05)
     .sort((a, b) => b.right - b.left - (a.right - a.left))
-    .slice(0, 3)
+    .slice(0, count)
     .sort((a, b) => a.left - b.left);
-  if (figures.length < 3) {
-    throw new Error(`found ${figures.length} separate figure(s) instead of 3. Ask ChatGPT for clear empty space between the three.`);
+  if (figures.length < count) {
+    throw new Error(`found ${figures.length} separate figure(s) instead of ${count}. Ask ChatGPT for clear empty space between them.`);
   }
 
   // Cut each figure out with a little transparent margin; alignment later

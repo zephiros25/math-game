@@ -56,6 +56,8 @@ const studioCss = fileURLToPath(new URL('./studio.css', import.meta.url));
 const petsDir = fileURLToPath(PETS_DIR);
 const defaultLinesFile = fileURLToPath(new URL('../../src/pet-lines.json', import.meta.url));
 const petIdeasFile = fileURLToPath(new URL('../../docs/pet-ideas.json', import.meta.url));
+const themeIdeasFile = fileURLToPath(new URL('../../docs/theme-ideas.json', import.meta.url));
+const readIdeas = (file) => (existsSync(file) ? JSON.parse(readFileSync(file, 'utf8')) : []);
 
 // Files the Studio creates get these prefixes; only those are cleaned up
 // automatically when a theme stops referencing them.
@@ -210,6 +212,72 @@ async function importFile(id, kind, originalName, data) {
     return name;
   }
   throw new HttpError(400, `Unknown upload kind "${kind}"`);
+}
+
+// A ChatGPT sheet with a theme's icon and number-button picture side by side:
+// cut it in two, trim the empty space, and import both. The squarer figure is
+// the icon, the wider one the button.
+async function importThemeSheet(id, data) {
+  let parts;
+  try {
+    parts = await splitSheet(data, 2);
+  } catch (e) {
+    throw new HttpError(400, `Could not split this picture: ${e.message}`);
+  }
+  const trimmed = await Promise.all(
+    parts.map(async (part) => {
+      const { data: png, info } = await sharp(part).trim({ threshold: 10 }).png().toBuffer({ resolveWithObject: true });
+      return { png, ratio: info.width / info.height, width: info.width, height: info.height };
+    }),
+  );
+  const [icon, key] = [...trimmed].sort((a, b) => Math.abs(Math.log(a.ratio)) - Math.abs(Math.log(b.ratio)));
+  // Pad the icon to a square, so the square crop keeps all of it.
+  const side = Math.max(icon.width, icon.height);
+  const square = await sharp(icon.png)
+    .extend({
+      top: Math.floor((side - icon.height) / 2),
+      bottom: Math.ceil((side - icon.height) / 2),
+      left: Math.floor((side - icon.width) / 2),
+      right: Math.ceil((side - icon.width) / 2),
+      background: { r: 0, g: 0, b: 0, alpha: 0 },
+    })
+    .png()
+    .toBuffer();
+  const { hasAlpha } = await sharp(data).metadata();
+  return {
+    icon: await importFile(id, 'icon', 'icon.png', square),
+    key: await importFile(id, 'key', 'button.png', key.png),
+    transparent: Boolean(hasAlpha),
+  };
+}
+
+// Creates a theme from docs/theme-ideas.json: name, colours, particles and
+// price from the idea, and its Google font if it has one. The pictures are
+// added afterwards from ChatGPT.
+async function createThemeFromIdea(id) {
+  const idea = readIdeas(themeIdeasFile).find((i) => i.id === id);
+  if (!idea) throw new HttpError(404, `No theme idea "${id}"`);
+  createTheme(id);
+  const json = defaultTheme(idea.name);
+  Object.assign(json, {
+    tagline: idea.tagline,
+    order: idea.order,
+    price: idea.price === 'premium' ? 0 : idea.price,
+    premium: idea.price === 'premium',
+    dark: idea.mood === 'dark',
+    colors: idea.colors,
+    keys: { image: null, fit: 'stretch', backspace: false },
+    particles: { style: idea.particleStyle, colors: idea.particleColors, images: [], amount: 1, opacity: 1 },
+  });
+  let fontError = null;
+  if (idea.font) {
+    try {
+      json.font = await importGoogleFont(id, idea.font);
+    } catch (e) {
+      fontError = e.message;
+    }
+  }
+  return { ...saveTheme(id, json), fontError };
 }
 
 // Downloads a Google Fonts family (as TTF, which phones can use) into the
@@ -506,8 +574,9 @@ async function handle(req, res) {
     });
   }
   if (parts[0] === 'api' && parts[1] === 'pet-ideas' && method === 'GET') {
-    return send(res, 200, existsSync(petIdeasFile) ? JSON.parse(readFileSync(petIdeasFile, 'utf8')) : []);
+    return send(res, 200, readIdeas(petIdeasFile));
   }
+  if (parts[0] === 'api' && parts[1] === 'theme-ideas' && method === 'GET') return send(res, 200, readIdeas(themeIdeasFile));
   if (parts[0] === 'api' && parts[1] === 'pets') return handlePets(req, res, parts, url);
 
   // Theme assets and default sounds, for the preview.
@@ -527,8 +596,8 @@ async function handle(req, res) {
 
   if (method === 'GET' && parts.length === 2) return send(res, 200, listThemes());
   if (method === 'POST' && parts.length === 2) {
-    const { id, from } = JSON.parse((await readBody(req)).toString());
-    return send(res, 200, createTheme(id, from));
+    const { id, from, idea } = JSON.parse((await readBody(req)).toString());
+    return send(res, 200, idea ? await createThemeFromIdea(id) : createTheme(id, from));
   }
 
   const id = parts[2];
@@ -548,6 +617,7 @@ async function handle(req, res) {
   if (method === 'POST' && parts[3] === 'upload') {
     const kind = url.searchParams.get('kind');
     const name = url.searchParams.get('name') ?? 'file';
+    if (kind === 'sheet') return send(res, 200, await importThemeSheet(id, await readBody(req)));
     const file = await importFile(id, kind, name, await readBody(req));
     return send(res, 200, { file });
   }

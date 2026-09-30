@@ -1,0 +1,948 @@
+MATH RUN · 100 THEME IDEAS WITH CHATGPT PROMPTS
+===============================================
+
+Each theme needs two ChatGPT pictures (use a new temporary chat per theme):
+  Prompt A: the background (tall phone wallpaper)
+  Prompt B: the icon and the number-button texture side by side
+The easiest way: click "Next theme" in the Studio and paste both pictures there.
+
+
+############################################################
+# NATURE (15)
+############################################################
+
+001. Forest Glade  (light, 500 coins)
+     Tagline: Sunlight through the leaves
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: a sunny forest clearing with ferns, mushrooms and tall trees at the edges. Soft, dreamy, kawaii illustration style in pale green and green tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Forest Glade" theme of a children's math game. Left: a square app icon of a cute smiling acorn, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of smooth polished light wood, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+002. Mushroom Village  (light, 1000 coins)
+     Tagline: Tiny doors, big adventures
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: tiny red-capped mushroom houses with round windows along the bottom and sides. Soft, dreamy, kawaii illustration style in pale orange and red tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Mushroom Village" theme of a children's math game. Left: a square app icon of a red spotted mushroom house, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of soft cream stone, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+003. Sunflower Field  (light, 500 coins)
+     Tagline: Always facing the sun
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: rows of smiling sunflowers under a pale blue sky. Soft, dreamy, kawaii illustration style in pale yellow and orange tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Sunflower Field" theme of a children's math game. Left: a square app icon of a smiling sunflower, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of warm golden straw weave, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+004. Bamboo Grove  (light, 500 coins)
+     Tagline: Calm and steady
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: tall green bamboo stalks at the edges with soft morning mist. Soft, dreamy, kawaii illustration style in pale green and green tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Bamboo Grove" theme of a children's math game. Left: a square app icon of a fresh bamboo sprout, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of smooth pale bamboo, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+005. Rainforest  (light, 1000 coins)
+     Tagline: Where the wild sums grow
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: lush jungle leaves, vines and a small waterfall at the sides. Soft, dreamy, kawaii illustration style in pale green and green tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Rainforest" theme of a children's math game. Left: a square app icon of a tropical leaf with a dewdrop, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of glossy green leaf, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+006. Lavender Fields  (light, 500 coins)
+     Tagline: Soothing purple hills
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: rolling purple lavender rows under a soft sunset. Soft, dreamy, kawaii illustration style in pale purple and purple tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Lavender Fields" theme of a children's math game. Left: a square app icon of a sprig of lavender, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of soft lilac linen, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+007. Butterfly Garden  (light, 500 coins)
+     Tagline: Flutter by, math star!
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: a flower garden with colourful butterflies near the edges. Soft, dreamy, kawaii illustration style in pale pink and pink tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Butterfly Garden" theme of a children's math game. Left: a square app icon of a pastel butterfly, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of soft pastel flower petal, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+008. Cactus Desert  (light, 500 coins)
+     Tagline: Prickly but friendly
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: a gentle desert with cute cacti and pink rock hills at the edges. Soft, dreamy, kawaii illustration style in pale orange and orange tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Cactus Desert" theme of a children's math game. Left: a square app icon of a smiling cactus in a pot, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of warm terracotta clay, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+009. Lily Pond  (light, 500 coins)
+     Tagline: Ripples of calm
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: a calm pond with lily pads and pink water lilies at the edges. Soft, dreamy, kawaii illustration style in pale teal and teal tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Lily Pond" theme of a children's math game. Left: a square app icon of a pink water lily, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of smooth jade stone, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+010. Mountain Lake  (light, 1000 coins)
+     Tagline: Fresh air and clear thinking
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: snowy mountains reflected in a still blue lake along the bottom. Soft, dreamy, kawaii illustration style in pale blue and blue tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Mountain Lake" theme of a children's math game. Left: a square app icon of a snowy mountain peak, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of smooth grey river stone, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+011. Firefly Night  (dark, 1000 coins)
+     Tagline: Little lights in the dark
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: a dark blue meadow at night with glowing fireflies and tall grass at the edges. Soft, dreamy, kawaii illustration style in deep blue and yellow tones, a dark night-time scene. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Firefly Night" theme of a children's math game. Left: a square app icon of a jar of glowing fireflies, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of dark wood with a warm glow, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+012. Tulip Garden  (light, 500 coins)
+     Tagline: Spring in full bloom
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: rows of red, pink and yellow tulips with a windmill far away. Soft, dreamy, kawaii illustration style in pale red and red tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Tulip Garden" theme of a children's math game. Left: a square app icon of a red tulip, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of soft painted tile, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+013. Enchanted Moss  (light, 1000 coins)
+     Tagline: Soft steps, bright ideas
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: mossy stones and tiny glowing plants at the edges of a soft green forest. Soft, dreamy, kawaii illustration style in pale green and green tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Enchanted Moss" theme of a children's math game. Left: a square app icon of a glowing mossy stone, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of soft green moss, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+014. Savanna Sunset  (light, 1000 coins)
+     Tagline: Golden hour for numbers
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: an orange savanna sunset with acacia trees at the edges. Soft, dreamy, kawaii illustration style in pale orange and orange tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Savanna Sunset" theme of a children's math game. Left: a square app icon of a little acacia tree at sunset, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of warm sandstone, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+015. Rainbow Hills  (light, 500 coins)
+     Tagline: Every colour counts
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: soft green hills under a big pastel rainbow. Soft, dreamy, kawaii illustration style in pale blue and purple tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Rainbow Hills" theme of a children's math game. Left: a square app icon of a pastel rainbow with two clouds, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of smooth pastel rainbow gradient, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+############################################################
+# OCEAN & WATER (10)
+############################################################
+
+016. Coral Reef  (light, 1000 coins)
+     Tagline: A reef full of friends
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: colourful coral and seaweed along the bottom with soft blue water above. Soft, dreamy, kawaii illustration style in pale teal and red tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Coral Reef" theme of a children's math game. Left: a square app icon of a pink coral branch, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of smooth pink coral, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+017. Deep Sea  (dark, premium)
+     Tagline: Glow in the deep
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: the deep ocean with glowing jellyfish and glowing plants at the edges. Soft, dreamy, kawaii illustration style in deep blue and teal tones, a dark night-time scene. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Deep Sea" theme of a children's math game. Left: a square app icon of a glowing jellyfish, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of dark glassy sea blue, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+018. Tropical Beach  (light, 500 coins)
+     Tagline: Sun, sand and sums
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: a sandy beach with palm trees at the sides and a turquoise sea. Soft, dreamy, kawaii illustration style in pale orange and teal tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Tropical Beach" theme of a children's math game. Left: a square app icon of a palm tree on a tiny island, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of smooth warm sand, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+019. Tide Pools  (light, 500 coins)
+     Tagline: Treasures at low tide
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: rocky tide pools with starfish and shells along the bottom. Soft, dreamy, kawaii illustration style in pale teal and orange tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Tide Pools" theme of a children's math game. Left: a square app icon of a starfish and a shell, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of smooth frosted sea glass, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+020. Lighthouse Bay  (light, 1000 coins)
+     Tagline: Guiding you home
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: a red and white lighthouse on the rocks at the side of a calm bay. Soft, dreamy, kawaii illustration style in pale blue and red tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Lighthouse Bay" theme of a children's math game. Left: a square app icon of a little lighthouse, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of weathered white wood, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+021. Pirate Cove  (light, 1000 coins)
+     Tagline: X marks the answer
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: a friendly pirate cove with a treasure chest and a ship at the edges. Soft, dreamy, kawaii illustration style in pale orange and red tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Pirate Cove" theme of a children's math game. Left: a square app icon of a treasure chest full of gold coins, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of old treasure map parchment, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+022. Mermaid Lagoon  (light, premium)
+     Tagline: Pearls of wisdom
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: a shimmering lagoon with pearls, shells and seaweed at the edges. Soft, dreamy, kawaii illustration style in pale teal and purple tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Mermaid Lagoon" theme of a children's math game. Left: a square app icon of a pearl in an open shell, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of shimmering mother of pearl, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+023. Waterfall Oasis  (light, 1000 coins)
+     Tagline: Let the numbers flow
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: a waterfall into a green pool with tropical plants at the sides. Soft, dreamy, kawaii illustration style in pale teal and teal tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Waterfall Oasis" theme of a children's math game. Left: a square app icon of a small waterfall, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of wet smooth pebble, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+024. Submarine  (light, 1000 coins)
+     Tagline: Dive into maths
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: the view from a yellow submarine with fish and bubbles at the edges. Soft, dreamy, kawaii illustration style in pale blue and orange tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Submarine" theme of a children's math game. Left: a square app icon of a yellow submarine, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of riveted brass, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+025. Seashell Shore  (light, 500 coins)
+     Tagline: Listen to the sea
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: pastel seashells scattered on soft pink sand along the bottom. Soft, dreamy, kawaii illustration style in pale orange and red tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Seashell Shore" theme of a children's math game. Left: a square app icon of a spiral seashell, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of polished pink shell, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+############################################################
+# SKY & SPACE (12)
+############################################################
+
+026. Cotton Clouds  (light, 500 coins)
+     Tagline: Head in the clouds
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: fluffy white clouds in a soft blue sky. Soft, dreamy, kawaii illustration style in pale blue and blue tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Cotton Clouds" theme of a children's math game. Left: a square app icon of a smiling cloud, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of soft cloud white, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+027. Hot Air Balloons  (light, 1000 coins)
+     Tagline: Up, up and away
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: colourful hot air balloons floating near the edges of a sunrise sky. Soft, dreamy, kawaii illustration style in pale orange and red tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Hot Air Balloons" theme of a children's math game. Left: a square app icon of a striped hot air balloon, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of striped balloon fabric, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+028. Rocket Launch  (dark, 1000 coins)
+     Tagline: 3, 2, 1... blast off!
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: a cartoon rocket launch pad at the bottom with stars above. Soft, dreamy, kawaii illustration style in deep blue and orange tones, a dark night-time scene. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Rocket Launch" theme of a children's math game. Left: a square app icon of a little rocket, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of brushed silver metal, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+029. Planets  (dark, 1000 coins)
+     Tagline: Out of this world
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: colourful cartoon planets and rings around the edges of a starry sky. Soft, dreamy, kawaii illustration style in deep blue and orange tones, a dark night-time scene. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Planets" theme of a children's math game. Left: a square app icon of a ringed planet, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of smooth swirling planet rings, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+030. Nebula  (dark, premium)
+     Tagline: Made of stardust
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: a glowing pink and purple nebula with twinkling stars. Soft, dreamy, kawaii illustration style in deep purple and pink tones, a dark night-time scene. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Nebula" theme of a children's math game. Left: a square app icon of a glowing cluster of stars, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of swirling cosmic glass, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+031. Moonlit Night  (dark, 1000 coins)
+     Tagline: Dreamy and bright
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: a big friendly crescent moon over sleepy hills. Soft, dreamy, kawaii illustration style in deep blue and yellow tones, a dark night-time scene. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Moonlit Night" theme of a children's math game. Left: a square app icon of a sleepy crescent moon, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of soft midnight velvet, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+032. Sunrise  (light, 500 coins)
+     Tagline: A fresh start
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: a soft pastel sunrise over rolling hills. Soft, dreamy, kawaii illustration style in pale orange and orange tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Sunrise" theme of a children's math game. Left: a square app icon of a smiling rising sun, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of warm peach glass, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+033. Observatory  (dark, 1000 coins)
+     Tagline: Look to the stars
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: an observatory dome with a telescope at the side under a starry sky. Soft, dreamy, kawaii illustration style in deep blue and blue tones, a dark night-time scene. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Observatory" theme of a children's math game. Left: a square app icon of a telescope, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of polished navy and brass, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+034. Comet Trail  (dark, 1000 coins)
+     Tagline: Fast as a comet
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: a bright comet with a long sparkling tail across a dark blue sky. Soft, dreamy, kawaii illustration style in deep blue and teal tones, a dark night-time scene. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Comet Trail" theme of a children's math game. Left: a square app icon of a smiling comet, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of icy blue crystal, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+035. Space Station  (dark, premium)
+     Tagline: Mission: math!
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: a friendly space station with round windows and solar panels at the edges. Soft, dreamy, kawaii illustration style in deep blue and green tones, a dark night-time scene. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Space Station" theme of a children's math game. Left: a square app icon of an astronaut helmet, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of white spaceship panel, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+036. Kite Day  (light, 500 coins)
+     Tagline: Let your ideas fly
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: colourful kites flying in a breezy blue sky above a green field. Soft, dreamy, kawaii illustration style in pale blue and red tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Kite Day" theme of a children's math game. Left: a square app icon of a diamond kite with a bow tail, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of light kite cloth, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+037. Paper Planes  (light, 500 coins)
+     Tagline: Take off with every answer
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: white paper planes gliding through a pale sky with dotted flight paths. Soft, dreamy, kawaii illustration style in pale blue and blue tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Paper Planes" theme of a children's math game. Left: a square app icon of a paper plane, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of folded white paper, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+############################################################
+# SEASONS & WEATHER (10)
+############################################################
+
+038. Autumn Leaves  (light, 500 coins)
+     Tagline: Crunchy leaves, clever sums
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: autumn trees with orange and red leaves at the edges. Soft, dreamy, kawaii illustration style in pale orange and orange tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Autumn Leaves" theme of a children's math game. Left: a square app icon of an orange maple leaf, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of warm maple wood, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+039. Winter Wonderland  (light, 500 coins)
+     Tagline: Snow day, math day
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: snowy pine trees and soft snowy hills. Soft, dreamy, kawaii illustration style in pale blue and blue tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Winter Wonderland" theme of a children's math game. Left: a square app icon of a snowflake, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of frosted ice, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+040. Spring Showers  (light, 500 coins)
+     Tagline: Sunshine after the rain
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: soft spring rain with puddles, umbrellas and flowers at the edges. Soft, dreamy, kawaii illustration style in pale green and teal tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Spring Showers" theme of a children's math game. Left: a square app icon of a cute umbrella, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of glossy raindrop glass, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+041. Summer Picnic  (light, 500 coins)
+     Tagline: A treat for your brain
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: a picnic blanket, basket and fruit on green grass along the bottom. Soft, dreamy, kawaii illustration style in pale orange and red tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Summer Picnic" theme of a children's math game. Left: a square app icon of a picnic basket, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of red and white gingham, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+042. Thunderstorm  (dark, 1000 coins)
+     Tagline: Quick as lightning
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: dark stormy clouds with friendly lightning bolts at the edges. Soft, dreamy, kawaii illustration style in deep blue and yellow tones, a dark night-time scene. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Thunderstorm" theme of a children's math game. Left: a square app icon of a cute lightning bolt, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of slate grey storm cloud, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+043. Snowy Cabin  (light, 1000 coins)
+     Tagline: Warm inside, snowy outside
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: a cosy log cabin with warm lit windows in the snow. Soft, dreamy, kawaii illustration style in pale blue and red tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Snowy Cabin" theme of a children's math game. Left: a square app icon of a log cabin with a smoking chimney, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of warm log wood, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+044. Pumpkin Patch  (light, 500 coins)
+     Tagline: Picking the ripest answers
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: a pumpkin patch with hay bales along the bottom. Soft, dreamy, kawaii illustration style in pale orange and orange tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Pumpkin Patch" theme of a children's math game. Left: a square app icon of a smiling pumpkin, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of orange pumpkin skin, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+045. Foggy Morning  (light, 500 coins)
+     Tagline: Clear heads on misty days
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: a soft misty morning over a quiet lake with reeds. Soft, dreamy, kawaii illustration style in pale blue and blue tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Foggy Morning" theme of a children's math game. Left: a square app icon of a little sun behind a cloud, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of smooth grey pebble, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+046. Windy Day  (light, 500 coins)
+     Tagline: Blow a wish, solve a sum
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: a breezy day with leaves and dandelion seeds blowing across a field. Soft, dreamy, kawaii illustration style in pale green and green tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Windy Day" theme of a children's math game. Left: a square app icon of a dandelion puff, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of light fresh green, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+047. Frozen Lake  (light, 1000 coins)
+     Tagline: Glide through the numbers
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: a frozen lake with snowy pine trees at the edges. Soft, dreamy, kawaii illustration style in pale blue and blue tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Frozen Lake" theme of a children's math game. Left: a square app icon of an ice skate, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of clear blue ice, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+############################################################
+# SWEETS & TREATS (10)
+############################################################
+
+048. Ice Cream Parlour  (light, 500 coins)
+     Tagline: The coolest maths
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: ice cream cones, sprinkles and a striped awning at the top. Soft, dreamy, kawaii illustration style in pale red and pink tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Ice Cream Parlour" theme of a children's math game. Left: a square app icon of an ice cream cone, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of strawberry ice cream swirl, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+049. Bakery  (light, 500 coins)
+     Tagline: Freshly baked sums
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: a cosy bakery with cupcakes, croissants and bread on shelves at the edges. Soft, dreamy, kawaii illustration style in pale orange and orange tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Bakery" theme of a children's math game. Left: a square app icon of a cupcake with a cherry, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of golden pastry crust, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+050. Chocolate Factory  (dark, 1000 coins)
+     Tagline: Sweet as can be
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: rivers of chocolate and candy pipes at the edges. Soft, dreamy, kawaii illustration style in deep orange and red tones, a dark night-time scene. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Chocolate Factory" theme of a children's math game. Left: a square app icon of a chocolate bar, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of smooth milk chocolate, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+051. Donut Shop  (light, 500 coins)
+     Tagline: Hole-y delicious
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: pink frosted donuts with sprinkles around the edges. Soft, dreamy, kawaii illustration style in pale pink and pink tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Donut Shop" theme of a children's math game. Left: a square app icon of a pink sprinkled donut, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of pink frosting with sprinkles, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+052. Fruit Market  (light, 500 coins)
+     Tagline: A healthy mind
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: colourful fruit crates with apples, oranges and bananas along the bottom. Soft, dreamy, kawaii illustration style in pale green and orange tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Fruit Market" theme of a children's math game. Left: a square app icon of a smiling strawberry, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of juicy orange peel, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+053. Bubble Tea  (light, 500 coins)
+     Tagline: Sip, think, solve
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: cute bubble tea cups and tapioca pearls at the edges. Soft, dreamy, kawaii illustration style in pale orange and orange tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Bubble Tea" theme of a children's math game. Left: a square app icon of a bubble tea cup with a straw, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of milky caramel, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+054. Gingerbread House  (light, 1000 coins)
+     Tagline: Sweet and clever
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: a gingerbread house with icing and candy canes at the sides. Soft, dreamy, kawaii illustration style in pale orange and orange tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Gingerbread House" theme of a children's math game. Left: a square app icon of a gingerbread cookie, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of gingerbread with white icing, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+055. Pancake Breakfast  (light, 500 coins)
+     Tagline: Breakfast for the brain
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: stacks of pancakes with syrup, berries and butter along the bottom. Soft, dreamy, kawaii illustration style in pale yellow and orange tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Pancake Breakfast" theme of a children's math game. Left: a square app icon of a stack of pancakes with syrup, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of golden pancake, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+056. Lollipop Land  (light, 1000 coins)
+     Tagline: Swirls of fun
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: giant swirly lollipops and candy trees on pastel hills. Soft, dreamy, kawaii illustration style in pale pink and purple tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Lollipop Land" theme of a children's math game. Left: a square app icon of a swirl lollipop, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of swirly lollipop, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+057. Pizza Party  (light, 500 coins)
+     Tagline: A slice of maths
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: pizza slices and party streamers at the edges. Soft, dreamy, kawaii illustration style in pale orange and red tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Pizza Party" theme of a children's math game. Left: a square app icon of a pizza slice, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of cheesy pizza crust, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+############################################################
+# FANTASY & MAGIC (12)
+############################################################
+
+058. Dragon's Lair  (dark, premium)
+     Tagline: Guarded by a friendly dragon
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: a friendly dragon's cave with piles of gold and glowing crystals at the edges. Soft, dreamy, kawaii illustration style in deep pink and orange tones, a dark night-time scene. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Dragon's Lair" theme of a children's math game. Left: a square app icon of a baby dragon egg, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of warm dragon scales, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+059. Wizard Tower  (dark, premium)
+     Tagline: Maths is magic
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: a wizard's tower room with floating books, potions and candles at the edges. Soft, dreamy, kawaii illustration style in deep purple and purple tones, a dark night-time scene. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Wizard Tower" theme of a children's math game. Left: a square app icon of a wizard hat with stars, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of old spell book leather, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+060. Fairy Garden  (light, 1000 coins)
+     Tagline: A sprinkle of fairy dust
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: tiny fairy houses, glowing flowers and mushrooms. Soft, dreamy, kawaii illustration style in pale purple and pink tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Fairy Garden" theme of a children's math game. Left: a square app icon of a fairy wand, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of soft petal glass, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+061. Unicorn Clouds  (light, 1000 coins)
+     Tagline: Magic in every answer
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: pastel clouds, rainbows and stars in a dreamy sky. Soft, dreamy, kawaii illustration style in pale purple and pink tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Unicorn Clouds" theme of a children's math game. Left: a square app icon of a unicorn horn, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of pastel rainbow cloud, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+062. Castle Kingdom  (light, 1000 coins)
+     Tagline: Rule the kingdom of numbers
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: a fairytale castle with flags on a hill at the side. Soft, dreamy, kawaii illustration style in pale blue and blue tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Castle Kingdom" theme of a children's math game. Left: a square app icon of a little castle with flags, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of carved castle stone, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+063. Crystal Cave  (dark, premium)
+     Tagline: Shine bright
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: a glowing crystal cave with purple and blue crystals at the edges. Soft, dreamy, kawaii illustration style in deep blue and teal tones, a dark night-time scene. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Crystal Cave" theme of a children's math game. Left: a square app icon of a cluster of crystals, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of cut crystal facets, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+064. Enchanted Library  (dark, 1000 coins)
+     Tagline: Every page a puzzle
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: tall bookshelves with glowing floating books. Soft, dreamy, kawaii illustration style in deep orange and yellow tones, a dark night-time scene. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Enchanted Library" theme of a children's math game. Left: a square app icon of a magic book with a star, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of leather book cover, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+065. Potion Lab  (dark, 1000 coins)
+     Tagline: Mix, stir, solve!
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: bubbling colourful potion bottles on shelves at the edges. Soft, dreamy, kawaii illustration style in deep purple and green tones, a dark night-time scene. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Potion Lab" theme of a children's math game. Left: a square app icon of a bubbling potion, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of glass potion bottle, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+066. Floating Islands  (light, premium)
+     Tagline: Sky-high thinking
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: small floating grassy islands with waterfalls in the sky. Soft, dreamy, kawaii illustration style in pale blue and green tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Floating Islands" theme of a children's math game. Left: a square app icon of a floating island, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of mossy stone, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+067. Magic Lamp  (light, 1000 coins)
+     Tagline: Your wish: more sums!
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: a golden magic lamp, silk cushions and a starry arch. Soft, dreamy, kawaii illustration style in pale orange and yellow tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Magic Lamp" theme of a children's math game. Left: a square app icon of a golden magic lamp, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of golden lamp brass, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+068. Pumpkin Night  (dark, 1000 coins)
+     Tagline: Spooky-cute sums
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: a friendly, not scary night with glowing pumpkins and smiling ghosts at the edges. Soft, dreamy, kawaii illustration style in deep purple and orange tones, a dark night-time scene. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Pumpkin Night" theme of a children's math game. Left: a square app icon of a smiling jack-o-lantern, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of glowing pumpkin, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+069. Treasure Island  (light, 1000 coins)
+     Tagline: Hunt for the answers
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: a sandy island with a treasure chest, palm trees and a map. Soft, dreamy, kawaii illustration style in pale orange and orange tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Treasure Island" theme of a children's math game. Left: a square app icon of a gold coin with a star, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of treasure gold, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+############################################################
+# COSY & HOME (8)
+############################################################
+
+070. Cosy Bedroom  (light, 500 coins)
+     Tagline: Snug as a bug
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: a cosy bedroom with fairy lights, plushies and a moon window. Soft, dreamy, kawaii illustration style in pale orange and red tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Cosy Bedroom" theme of a children's math game. Left: a square app icon of a teddy bear, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of soft knitted blanket, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+071. Reading Nook  (light, 500 coins)
+     Tagline: Curl up and count
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: a window seat with cushions, plants and stacks of books. Soft, dreamy, kawaii illustration style in pale orange and green tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Reading Nook" theme of a children's math game. Left: a square app icon of a stack of books, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of soft cushion fabric, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+072. Toy Box  (light, 500 coins)
+     Tagline: Play and learn
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: building blocks, toy trains and teddies at the edges. Soft, dreamy, kawaii illustration style in pale blue and red tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Toy Box" theme of a children's math game. Left: a square app icon of a toy building block, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of smooth wooden toy block, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+073. Tea Party  (light, 500 coins)
+     Tagline: Tea and sums, please
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: a tea party table with teapots, cups and cakes. Soft, dreamy, kawaii illustration style in pale red and red tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Tea Party" theme of a children's math game. Left: a square app icon of a teapot, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of fine porcelain with little flowers, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+074. Rainy Window  (light, 500 coins)
+     Tagline: Cosy days inside
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: a cosy window with raindrops, a plant and a warm lamp. Soft, dreamy, kawaii illustration style in pale blue and blue tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Rainy Window" theme of a children's math game. Left: a square app icon of a raindrop, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of foggy window glass, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+075. Knitting Basket  (light, 500 coins)
+     Tagline: Knit together every number
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: balls of yarn and knitted blankets in warm colours. Soft, dreamy, kawaii illustration style in pale orange and red tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Knitting Basket" theme of a children's math game. Left: a square app icon of a ball of yarn with knitting needles, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of chunky knitted wool, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+076. Campfire  (dark, 1000 coins)
+     Tagline: Stories by the fire
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: a campfire, a tent and marshmallows under a starry sky. Soft, dreamy, kawaii illustration style in deep blue and orange tones, a dark night-time scene. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Campfire" theme of a children's math game. Left: a square app icon of a campfire with marshmallows, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of canvas tent, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+077. Treehouse  (light, 1000 coins)
+     Tagline: The best hideout
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: a wooden treehouse with a rope ladder among green leaves. Soft, dreamy, kawaii illustration style in pale green and orange tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Treehouse" theme of a children's math game. Left: a square app icon of a treehouse, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of treehouse planks, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+############################################################
+# PLACES & JOURNEYS (8)
+############################################################
+
+078. City Lights  (dark, 1000 coins)
+     Tagline: Big city, bright minds
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: a cute cartoon city skyline at night with lit windows. Soft, dreamy, kawaii illustration style in deep blue and yellow tones, a dark night-time scene. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "City Lights" theme of a children's math game. Left: a square app icon of a little city building with lit windows, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of shiny taxi yellow, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+079. Paris Café  (light, 1000 coins)
+     Tagline: Bonjour, math!
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: a Parisian café with striped awnings and the Eiffel Tower far away. Soft, dreamy, kawaii illustration style in pale orange and red tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Paris Café" theme of a children's math game. Left: a square app icon of a croissant, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of striped café awning, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+080. Japanese Garden  (light, 1000 coins)
+     Tagline: Peaceful and precise
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: a Japanese garden with a red bridge, a koi pond and lanterns. Soft, dreamy, kawaii illustration style in pale orange and red tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Japanese Garden" theme of a children's math game. Left: a square app icon of a paper lantern, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of smooth red lacquer, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+081. Pyramids  (light, 1000 coins)
+     Tagline: Ancient maths, new fun
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: pyramids and palm trees under a golden sky. Soft, dreamy, kawaii illustration style in pale yellow and yellow tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Pyramids" theme of a children's math game. Left: a square app icon of a little pyramid, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of sandstone with gold trim, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+082. Carnival  (light, 1000 coins)
+     Tagline: Roll up for maths!
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: a carnival with a ferris wheel, striped tents and balloons. Soft, dreamy, kawaii illustration style in pale orange and red tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Carnival" theme of a children's math game. Left: a square app icon of a ferris wheel, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of red and white circus stripes, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+083. Train Journey  (light, 500 coins)
+     Tagline: All aboard!
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: a little steam train crossing green hills. Soft, dreamy, kawaii illustration style in pale green and green tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Train Journey" theme of a children's math game. Left: a square app icon of a steam train, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of polished green train enamel, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+084. Farm Barn  (light, 500 coins)
+     Tagline: Down on the farm
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: a red barn, fences and hay bales in the countryside. Soft, dreamy, kawaii illustration style in pale orange and red tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Farm Barn" theme of a children's math game. Left: a square app icon of a red barn, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of red barn wood, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+085. Snowy Village  (light, 500 coins)
+     Tagline: Home sweet home
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: a snowy village with colourful wooden houses. Soft, dreamy, kawaii illustration style in pale blue and red tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Snowy Village" theme of a children's math game. Left: a square app icon of a little wooden house with snow on the roof, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of painted wooden sign, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+############################################################
+# GEMS & CRAFTS (7)
+############################################################
+
+086. Ruby Palace  (dark, premium)
+     Tagline: Precious and bright
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: a glittering palace hall with red rubies and gold. Soft, dreamy, kawaii illustration style in deep red and red tones, a dark night-time scene. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Ruby Palace" theme of a children's math game. Left: a square app icon of a ruby gem, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of cut ruby facets, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+087. Emerald City  (dark, premium)
+     Tagline: Green with genius
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: shining green towers and emerald gems. Soft, dreamy, kawaii illustration style in deep green and green tones, a dark night-time scene. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Emerald City" theme of a children's math game. Left: a square app icon of an emerald gem, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of cut emerald facets, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+088. Sapphire Velvet  (dark, premium)
+     Tagline: Deep blue brilliance
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: sparkling blue sapphires on deep blue velvet. Soft, dreamy, kawaii illustration style in deep blue and blue tones, a dark night-time scene. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Sapphire Velvet" theme of a children's math game. Left: a square app icon of a sapphire gem, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of cut sapphire facets, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+089. Stained Glass  (light, 1000 coins)
+     Tagline: Colours of learning
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: a colourful stained glass window with light shining through. Soft, dreamy, kawaii illustration style in pale yellow and blue tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Stained Glass" theme of a children's math game. Left: a square app icon of a stained glass star, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of coloured stained glass, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+090. Origami  (light, 500 coins)
+     Tagline: Fold, count, repeat
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: colourful origami cranes, boats and flowers. Soft, dreamy, kawaii illustration style in pale yellow and red tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Origami" theme of a children's math game. Left: a square app icon of an origami crane, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of folded coloured paper, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+091. Crayon Doodles  (light, 500 coins)
+     Tagline: Draw your own path
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: crayon doodles of stars, suns and hearts on white paper. Soft, dreamy, kawaii illustration style in pale yellow and red tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Crayon Doodles" theme of a children's math game. Left: a square app icon of a box of crayons, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of crayon scribble texture, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+092. Pottery Studio  (light, 500 coins)
+     Tagline: Shape your skills
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: clay pots, a pottery wheel and plants. Soft, dreamy, kawaii illustration style in pale orange and orange tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Pottery Studio" theme of a children's math game. Left: a square app icon of a clay pot with a flower, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of smooth terracotta glaze, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+############################################################
+# SPORTS & PLAY (8)
+############################################################
+
+093. Football Pitch  (light, 500 coins)
+     Tagline: Score every goal
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: a green football pitch with goals and cheering flags. Soft, dreamy, kawaii illustration style in pale green and green tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Football Pitch" theme of a children's math game. Left: a square app icon of a football, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of green pitch grass, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+094. Playground  (light, 500 coins)
+     Tagline: Let's play!
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: slides, swings and a sandbox under a sunny sky. Soft, dreamy, kawaii illustration style in pale blue and orange tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Playground" theme of a children's math game. Left: a square app icon of a playground slide, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of colourful plastic, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+095. Skate Park  (light, 1000 coins)
+     Tagline: Roll with it
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: colourful ramps and skateboards with friendly graffiti. Soft, dreamy, kawaii illustration style in pale blue and blue tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Skate Park" theme of a children's math game. Left: a square app icon of a skateboard, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of painted skateboard deck, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+096. Race Track  (light, 1000 coins)
+     Tagline: Speed through sums
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: a race track with checkered flags and cartoon race cars. Soft, dreamy, kawaii illustration style in soft white and red tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Race Track" theme of a children's math game. Left: a square app icon of a race car, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of checkered flag, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+097. Swimming Pool  (light, 500 coins)
+     Tagline: Make a splash
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: a sparkling pool with floats and a diving board. Soft, dreamy, kawaii illustration style in pale teal and blue tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Swimming Pool" theme of a children's math game. Left: a square app icon of a rubber duck float, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of pool tile mosaic, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+098. Circus Tent  (light, 1000 coins)
+     Tagline: The greatest show
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: a big top circus tent with stars and hoops. Soft, dreamy, kawaii illustration style in pale orange and red tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Circus Tent" theme of a children's math game. Left: a square app icon of a circus tent, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of red and gold circus stripe, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+099. Music Stage  (dark, 1000 coins)
+     Tagline: Maths makes music
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: a stage with spotlights, music notes and instruments. Soft, dreamy, kawaii illustration style in deep purple and pink tones, a dark night-time scene. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Music Stage" theme of a children's math game. Left: a square app icon of a music note, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of shiny black and white piano keys, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
+
+100. Dinosaur Valley  (light, 1000 coins)
+     Tagline: Roar-some maths
+
+     Prompt A (background): Create a portrait phone wallpaper (9:16) for a children's math game: a prehistoric valley with a volcano, ferns and friendly dinosaurs at the edges. Soft, dreamy, kawaii illustration style in pale green and green tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.
+
+     Prompt B (icon + buttons): Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "Dinosaur Valley" theme of a children's math game. Left: a square app icon of a dinosaur footprint, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of stone with fossil prints, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.
+
+------------------------------------------------------------
