@@ -69,8 +69,17 @@ const STREAK_SEMITONES = [0, 2, 4, 7, 9, 12];
 type Voice = { player: AudioPlayer };
 type Pool = { voices: Voice[]; next: number };
 
+// Playing faster must also sound higher (the streak climbs a scale, pets
+// talk at their own pitch), so pitch correction is off: by default a faster
+// rate keeps the pitch and just rushes the sound.
+function createPlayer(source: number) {
+  const player = createAudioPlayer(source);
+  player.shouldCorrectPitch = false;
+  return player;
+}
+
 const makePool = (source: number, size: number): Pool => ({
-  voices: Array.from({ length: size }, () => ({ player: createAudioPlayer(source) })),
+  voices: Array.from({ length: size }, () => ({ player: createPlayer(source) })),
   next: 0,
 });
 
