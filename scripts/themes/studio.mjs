@@ -385,10 +385,10 @@ async function importPetFile(id, kind, slot, originalName, data) {
     const meta = await sharp(data).metadata();
     // Centre and scale the pet the same way in every picture, so the normal,
     // blink and talk pictures line up even when the AI shifted them.
-    const { png, transparent } = await alignPetImage(data);
+    const { png, transparent, cutOff } = await alignPetImage(data);
     const name = uniqueName(dir, `img-${slot}`, '.png');
     writeFileSync(join(dir, name), png);
-    return { file: name, width: meta.width, height: meta.height, transparent };
+    return { file: name, width: meta.width, height: meta.height, transparent, cutOff };
   }
   if (kind === 'voice') {
     if (!PET_SOUND_EXTENSIONS.includes(ext)) throw new HttpError(400, `Sounds must be ${PET_SOUND_EXTENSIONS.join(', ')}`);

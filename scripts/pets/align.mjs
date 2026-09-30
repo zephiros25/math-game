@@ -21,6 +21,8 @@ export async function alignPetImage(input) {
   const { data, info } = await sharp(input).rotate().ensureAlpha().raw().toBuffer({ resolveWithObject: true });
   const { width, height } = info;
 
+  let minX = width;
+  let maxX = -1;
   let minY = height;
   let maxY = -1;
   let massX = 0;
@@ -29,6 +31,8 @@ export async function alignPetImage(input) {
     for (let x = 0; x < width; x++) {
       const a = data[(y * width + x) * 4 + 3];
       if (a < ALPHA_THRESHOLD) continue;
+      if (x < minX) minX = x;
+      if (x > maxX) maxX = x;
       if (y < minY) minY = y;
       if (y > maxY) maxY = y;
       massX += x * a;
@@ -56,6 +60,9 @@ export async function alignPetImage(input) {
   const png = await sharp(out).extract({ left: pad, top: pad, width: CANVAS, height: CANVAS }).png({ compressionLevel: 9 }).toBuffer();
 
   // A picture that's almost entirely opaque has no transparent background:
-  // the "pet" is really a whole rectangle.
-  return { png, transparent: opaqueShare < 0.9 };
+  // the "pet" is really a whole rectangle. A pet touching the left, right or
+  // top edge is probably cut off (e.g. sliced from a sheet of several pets).
+  // The bottom edge is fine: feet often touch it.
+  const cutOff = [minX === 0 && 'left', maxX === width - 1 && 'right', minY === 0 && 'top'].filter(Boolean);
+  return { png, transparent: opaqueShare < 0.9, cutOff };
 }

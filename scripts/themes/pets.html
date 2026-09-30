@@ -354,6 +354,8 @@ function picturesCard(p) {
       dropZone(`Drop the "${slot}" picture (PNG with a transparent background)`, 'image/*', false, async ([f]) => {
         const r = await upload('image', f, slot);
         if (!r.transparent) setStatus(`⚠ ${f.name} has no transparent background; the pet will sit on a box`, true);
+        else if (r.cutOff.length) setStatus(`⚠ In ${f.name} the pet touches the ${r.cutOff.join(' and ')} edge: part of it may be cut off. Use the full original image.`, true);
+        else if (Math.min(r.width, r.height) < 400) setStatus(`⚠ ${f.name} is small (${r.width}×${r.height}); it may look blurry. Use the full-size original.`, true);
         p.images[slot] = r.file;
         render(); changed(); renderList();
       }),
