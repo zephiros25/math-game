@@ -1,0 +1,1147 @@
+MATH RUN · 100 PET IDEAS WITH CHATGPT PROMPTS
+==============================================
+
+How to use:
+1. Start a NEW ChatGPT chat for each pet and paste Prompt 1.
+2. In the same chat, paste Prompt 2 (eyes closed), then Prompt 3 (mouth open).
+3. Copy each picture into the Studio (Pets page): Prompt 1 -> "idle",
+   Prompt 2 -> "blink", Prompt 3 -> "talk". The tagline goes in "Tagline".
+4. If the pet moves or changes size between pictures, ask again with:
+   "keep the exact same pose, size and position as the first image".
+
+
+############################################################
+# FOREST & COUNTRYSIDE (15)
+############################################################
+
+001. Hazel
+     Tagline: Prickly outside, cuddly inside
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a round baby hedgehog with soft cream-coloured spikes and a tiny pink nose. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+002. Pip
+     Tagline: Small but super brave
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a chubby little field mouse holding a tiny acorn. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+003. Maple
+     Tagline: Quick as a fox, sharp as a tack
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a fluffy red fox cub with a big white-tipped tail. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+004. Bramble
+     Tagline: Digs deep for every answer
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a sleepy baby badger with a black-and-white striped face. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+005. Clover
+     Tagline: Brings a little luck to every sum
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a round lop-eared bunny with a four-leaf clover tucked behind one ear. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+006. Hootie
+     Tagline: Wise beyond its years
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a fluffy baby owl with big round eyes and tiny ear tufts. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+007. Acorn
+     Tagline: Saves up answers like nuts
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a chubby baby squirrel hugging its big bushy tail. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+008. Truffle
+     Tagline: Sniffs out the right answer
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a tiny round pink piglet with a curly tail. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+009. Bumble
+     Tagline: Big hugs for big wins
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a round fuzzy brown baby bear cub. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+010. Willow
+     Tagline: Gentle, graceful and gutsy
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a baby deer fawn with white spots and big gentle eyes. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+011. Nutmeg
+     Tagline: Stuffs its cheeks with numbers
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a round little golden hamster with puffed-out cheeks. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+012. Puddle
+     Tagline: Hops from sum to sum
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a little green frog sitting on a lily pad. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+013. Waddles
+     Tagline: Always keeps its ducks in a row
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a fluffy yellow baby duckling. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+014. Moss
+     Tagline: Slow and steady wins the race
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a small round tortoise with a soft green mossy shell. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+015. Barley
+     Tagline: Counting sheep has never been this fun
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a fluffy baby lamb with curly white wool. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+############################################################
+# PETS AT HOME (8)
+############################################################
+
+016. Biscuit
+     Tagline: Wiggles its tail at every right answer
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a round corgi puppy with short legs and big ears. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+017. Whiskers
+     Tagline: Curious about every number
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a chubby grey tabby kitten with a striped tail. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+018. Domino
+     Tagline: Spot-on with every answer
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a dalmatian puppy with black spots and floppy ears. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+019. Pudding
+     Tagline: Squeaks with joy
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a round guinea pig with brown and white patches. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+020. Goldie
+     Tagline: Blows bubbles of brilliance
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a round orange goldfish inside a small floating bubble. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+021. Button
+     Tagline: Small nose, big heart
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a tiny pug puppy with a curly tail and a wrinkly face. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+022. Snowball
+     Tagline: Soft as a cloud
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a fluffy white kitten with blue eyes. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+023. Pebbles
+     Tagline: The fluffiest friend around
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a round, fluffy silver chinchilla. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+############################################################
+# OCEAN & WATER (14)
+############################################################
+
+024. Bubbles
+     Tagline: Cracks every problem
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a baby sea otter floating on its back holding a seashell. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+025. Finn
+     Tagline: Leaps through the levels
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a round baby dolphin with a big friendly smile. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+026. Coral
+     Tagline: Eight arms, eight times the fun
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a tiny pink octopus with curly arms. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+027. Shelly
+     Tagline: Carries its home and its homework
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a small hermit crab peeking out of a spiral shell. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+028. Splash
+     Tagline: Makes a big splash
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a round baby blue whale with a little water spout. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+029. Puff
+     Tagline: Puffs up with pride
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a round spiky pufferfish, puffed up and happy. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+030. Pearl
+     Tagline: Flippers up for every answer
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a fluffy white baby seal pup. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+031. Starla
+     Tagline: A five-star friend
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a smiling orange starfish. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+032. Tidbit
+     Tagline: Tiny, curly and clever
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a small seahorse with a curly tail. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+033. Jelly
+     Tagline: Glows when you get it right
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a round pastel-pink jellyfish with short wavy tentacles. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+034. Stripes
+     Tagline: Always ready to make you smile
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a round orange clownfish with white stripes. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+035. Scoot
+     Tagline: Paddles through every problem
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a small sea turtle hatchling with little flippers. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+036. Manny
+     Tagline: The gentlest giant of the sea
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a round grey baby manatee. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+037. Axo
+     Tagline: Always grows back stronger
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a pink axolotl with frilly gills and a big smile. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+############################################################
+# JUNGLE, SAVANNA & FAR AWAY (15)
+############################################################
+
+038. Kiko
+     Tagline: Swings from number to number
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a baby monkey holding a banana. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+039. Mango
+     Tagline: Brightest beak in the jungle
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a round baby toucan with a big rainbow-coloured beak. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+040. Leo
+     Tagline: Roars at every right answer
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a lion cub with a fluffy little mane. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+041. Tango
+     Tagline: Stripes and smarts
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a baby tiger cub with orange and black stripes. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+042. Peanut
+     Tagline: Never forgets a times table
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a baby elephant with big floppy ears. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+043. Zuri
+     Tagline: Always reaches higher
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a baby giraffe with a long neck and brown spots. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+044. Ziggy
+     Tagline: Black, white and bright
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a baby zebra with black and white stripes. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+045. Gumdrop
+     Tagline: Small hippo, big smile
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a round baby hippo. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+046. Chomp
+     Tagline: Snaps up every answer
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a small friendly baby crocodile with a big toothless smile. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+047. Sloane
+     Tagline: Takes its time and gets it right
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a baby sloth hugging a small branch. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+048. Coco
+     Tagline: Hugs every good answer
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a round baby koala hugging a eucalyptus leaf. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+049. Hopper
+     Tagline: Jumps up the levels
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a baby kangaroo joey with big feet. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+050. Pi
+     Tagline: Loves 3.14 bites of bamboo
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a round baby panda holding a stick of bamboo. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+051. Rascal
+     Tagline: A little mischief, a lot of maths
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a baby red panda with a ringed tail. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+052. Lemony
+     Tagline: Wide-eyed and wonder-full
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a baby ring-tailed lemur with big yellow eyes. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+############################################################
+# SNOW & ICE (8)
+############################################################
+
+053. Frost
+     Tagline: Cool under pressure
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a fluffy white baby polar bear cub. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+054. Tux
+     Tagline: Slides into every answer
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a round baby penguin. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+055. Snowdrop
+     Tagline: Quiet as snow, sharp as ice
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a fluffy white arctic fox cub. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+056. Tusk
+     Tagline: Big whiskers, bigger brain
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a round baby walrus with two small tusks and whiskers. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+057. Flurry
+     Tagline: Sees the answer through the snow
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a fluffy white snowy owl chick. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+058. Blizzard
+     Tagline: Pulls you through any problem
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a baby husky puppy with blue eyes. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+059. Mo
+     Tagline: Dives deep for answers
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a round puffin with a colourful orange beak. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+060. Jingle
+     Tagline: Leads the way on snowy days
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a baby reindeer with tiny antlers and a rosy nose. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+############################################################
+# BIRDS (7)
+############################################################
+
+061. Rio
+     Tagline: Repeats every right answer
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a bright green baby parrot. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+062. Chirpy
+     Tagline: Sings when you score
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a round yellow canary. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+063. Rosie
+     Tagline: Balances every equation
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a baby pink flamingo standing on one leg. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+064. Plume
+     Tagline: Shows off every win
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a baby peacock with a small colourful tail fan. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+065. Zippy
+     Tagline: Fastest wings, fastest answers
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a tiny hummingbird with shimmering green feathers. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+066. Berry
+     Tagline: The early bird gets the answer
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a round robin with a red chest. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+067. Lulu
+     Tagline: Glides through every sum
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a fluffy grey baby swan cygnet. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+############################################################
+# BUGS & SMALL CRITTERS (7)
+############################################################
+
+068. Dot
+     Tagline: Counts all seven spots
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a round red ladybug with seven black spots. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+069. Buzz
+     Tagline: Busy bee, busy brain
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a chubby fuzzy bumblebee. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+070. Flutter
+     Tagline: Turns every mistake into something beautiful
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a small butterfly with pastel rainbow wings. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+071. Sparky
+     Tagline: Lights up when you are right
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a round firefly with a glowing tail. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+072. Inchy
+     Tagline: Measures up to every challenge
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a green inchworm caterpillar. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+073. Swirl
+     Tagline: Spirals all the way to the top
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a snail with a pastel spiral shell. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+074. Lime
+     Tagline: Sticks with it
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a small green gecko with big round eyes. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+############################################################
+# DINOSAURS (8)
+############################################################
+
+075. Rexy
+     Tagline: Tiny arms, huge brain
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a baby T-rex with tiny arms and a big smile. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+076. Trixie
+     Tagline: Three horns, triple the fun
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a baby triceratops with three little rounded horns. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+077. Spike
+     Tagline: Plates full of numbers
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a baby stegosaurus with rounded plates on its back. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+078. Brontie
+     Tagline: Stretches for every answer
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a baby long-necked brontosaurus. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+079. Pterry
+     Tagline: Soars above the rest
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a baby pterodactyl with small wings. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+080. Anky
+     Tagline: Tough as a shell
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a baby ankylosaurus with a little club tail. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+081. Dash
+     Tagline: Fast and fearless
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a small fluffy feathered baby raptor. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+082. Nugget
+     Tagline: Just hatched and ready to learn
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a baby dinosaur peeking out of a cracked egg. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+############################################################
+# MYTHICAL CREATURES (18)
+############################################################
+
+083. Sparkle
+     Tagline: Magic in every answer
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a baby unicorn with a pastel rainbow mane and a golden horn. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+084. Ember
+     Tagline: Fiery fast at facts
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a round baby dragon with tiny wings. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+085. Glimmer
+     Tagline: Takes your maths to new heights
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a baby pegasus with small feathered wings. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+086. Blaze
+     Tagline: Rises again after every mistake
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a baby phoenix chick with flame-coloured feathers. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+087. Gryff
+     Tagline: Brave as a lion, sharp as an eagle
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a baby griffin, half eagle and half lion cub. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+088. Yuki
+     Tagline: Big feet, bigger smile
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a tiny fluffy white baby yeti. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+089. Loch
+     Tagline: Pops up to say well done
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a friendly baby sea serpent with a long curvy neck. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+090. Kitsu
+     Tagline: Three tails, three times as clever
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a baby fox spirit with three fluffy tails. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+091. Jade
+     Tagline: Brings good fortune
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a baby qilin with soft green scales and a tiny horn. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+092. Triplet
+     Tagline: Three heads are better than one
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a friendly baby hydra with three small smiling heads. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+093. Wisp
+     Tagline: A little light in the dark
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a round glowing forest spirit with leaf ears. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+094. Inky
+     Tagline: Grabs every answer
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a baby kraken with swirly purple tentacles. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+095. Twinkle
+     Tagline: Small wings, big magic
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a tiny fairy dragon with butterfly wings. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+096. Moonbeam
+     Tagline: Hops down from the moon to help you
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a baby moon rabbit holding a little star. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+097. Nimbus
+     Tagline: Floats through every sum
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a fluffy cloud sheep with a tiny rainbow. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+098. Riddle
+     Tagline: Loves a good riddle
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a baby sphinx cat wearing a small golden headdress. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+099. Gem
+     Tagline: Shines brighter with every answer
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a tiny turtle with a sparkling crystal shell. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
+
+100. Cosmo
+     Tagline: Swims through the stars
+
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a baby space whale with stars on its skin. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.
+
+     Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.
+
+     Prompt 3: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.
+
+------------------------------------------------------------
