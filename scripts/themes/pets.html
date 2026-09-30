@@ -43,6 +43,15 @@
   .line-row { display: grid; grid-template-columns: 170px 1fr; gap: 12px; padding: 8px 0; border-top: 1px solid var(--line); }
   .line-row:first-of-type { border-top: none; }
   .thumb-list img { width: 34px; height: 34px; object-fit: contain; }
+  .quick { border: 2px solid var(--accent); }
+  .quick ol { padding-left: 20px; margin: 8px 0; }
+  .quick li { margin: 10px 0; }
+  .paste-zone { border: 2px dashed var(--accent); border-radius: 14px; padding: 16px; text-align: center; background: #fff7f3; }
+  .paste-zone.over { background: #ffe9df; }
+  .paste-thumbs { display: flex; gap: 10px; justify-content: center; margin-top: 10px; }
+  .paste-thumbs .pic { width: 70px; height: 70px; }
+  .paste-thumbs .empty-slot { width: 70px; height: 70px; border-radius: 14px; border: 2px dashed var(--line); display: flex; align-items: center; justify-content: center; color: var(--soft); font-size: 12px; }
+  kbd.big { font-size: 15px; padding: 2px 8px; }
 </style>
 </head>
 <body>
@@ -53,6 +62,7 @@
     <span class="status" id="status"></span>
     <span class="spacer"></span>
     <span class="hint">Save with <kbd>Ctrl</kbd>+<kbd>S</kbd>. With <kbd>npx expo start</kbd> running, saves show up on your phone.</span>
+    <button id="nextPet" title="Start the next pet from docs/pet-ideas.json">✨ Next pet</button>
     <button class="primary" id="save" disabled>Save</button>
   </header>
   <aside>
@@ -102,6 +112,7 @@ let meta = null; // formats, default lines and a blank pet from the server
 let pets = []; // [{ id, json, files, errors, warnings }]
 let current = null; // the pet being edited (working copy in current.json)
 let savedJson = '';
+let ideas = []; // pet ideas from docs/pet-ideas.json
 
 const PROMPTS = {
   idle: 'Create a cute cartoon pet character for a children’s math app: [describe your pet, e.g. a round baby dragon with tiny wings]. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow. Output a PNG with a fully transparent background.',
@@ -313,7 +324,9 @@ async function select(id) {
   current = { ...p, json: withDefaults(p.json ?? meta.defaultPet) };
   savedJson = p.json ? JSON.stringify(current.json) : '';
   renderList(); renderEditor(); renderPet(); updateStatus(); startLife();
-  showMessages(p.errors, p.warnings);
+  // While a pet is still being made, missing pictures are expected, not errors.
+  const making = document.querySelector('.quick');
+  showMessages(making ? p.errors.filter((e) => !e.includes('images.idle')) : p.errors, making ? [] : p.warnings);
   setTimeout(() => say(`Hi, I'm ${current.json.name}!`), 400);
 }
 
@@ -321,7 +334,8 @@ async function select(id) {
 function renderEditor() {
   if (!current) { fill($('#editor'), h('div', { class: 'empty' }, 'Pick a pet on the left, or create a new one.')); return; }
   const p = current.json;
-  fill($('#editor'), h('div', { class: 'messages', id: 'messages' }), basicsCard(p), picturesCard(p), voiceCard(p), linesCard(p));
+  const missing = ['idle', 'blink', 'talk'].some((slot) => !p.images[slot]);
+  fill($('#editor'), h('div', { class: 'messages', id: 'messages' }), missing ? quickCard(p) : null, basicsCard(p), picturesCard(p), voiceCard(p), linesCard(p));
 }
 
 function basicsCard(p) {
@@ -349,8 +363,15 @@ function picturesCard(p) {
   const render = () => fill(body,
     ...Object.entries(meta.imageSlots).map(([slot, label]) => h('div', { class: 'pic-row' },
       h('div', {}, h('div', { class: 'slot', style: { fontWeight: 600 } }, slot), h('div', { class: 'hint' }, label)),
-      h('div', { class: 'pic' }, p.images[slot] ? [h('img', { src: fileUrl(current.id, p.images[slot]) }),
+      h('div', {}, h('div', { class: 'pic' }, p.images[slot] ? [h('img', { src: fileUrl(current.id, p.images[slot]) }),
         h('button', { title: 'Remove', onclick: () => { p.images[slot] = null; render(); changed(); renderList(); } }, '✕')] : null),
+        p.images[slot] ? h('select', { style: { marginTop: '6px', fontSize: '12px' }, onchange: (e) => {
+          // Swap this picture with another slot, for when the automatic sorting got it wrong.
+          const other = e.target.value;
+          [p.images[slot], p.images[other]] = [p.images[other], p.images[slot]];
+          render(); changed(); renderList();
+          setStatus(`Swapped ${slot} and ${other}. Check the preview, then save.`);
+        } }, h('option', { value: '' }, 'Swap with…'), ...['idle', 'blink', 'talk'].filter((o) => o !== slot).map((o) => h('option', { value: o }, o))) : null),
       dropZone(`Drop the "${slot}" picture (PNG with a transparent background)`, 'image/*', false, async ([f]) => {
         const r = await upload('image', f, slot);
         if (!r.transparent) setStatus(`⚠ ${f.name} has no transparent background; the pet will sit on a box`, true);
@@ -372,6 +393,138 @@ function picturesCard(p) {
   );
   render();
   return h('section', { class: 'card' }, h('h2', {}, 'Pictures'), body);
+}
+
+// ---------------------------------------------------------------- quick add
+// The fast way to make a pet: copy the three prompts into a fresh ChatGPT
+// chat, then paste the three pictures here (Ctrl+V) in any order. The Studio
+// sorts them into normal / blink / talk and saves.
+
+const ideaFor = (id) => ideas.find((i) => i.id === id);
+const promptsFor = (id) => {
+  const idea = ideaFor(id);
+  return {
+    idle: idea ? PROMPTS.idle.replace(/\[describe[^\]]*\]/, idea.description) : PROMPTS.idle,
+    blink: PROMPTS.blink,
+    talk: PROMPTS.talk,
+  };
+};
+
+function quickCard(p) {
+  const prompts = promptsFor(current.id);
+  const slots = ['idle', 'blink', 'talk'];
+  const count = slots.filter((slot) => p.images[slot]).length;
+  const zone = h('div', { class: 'paste-zone' },
+    h('div', { style: { fontWeight: 600, fontSize: '16px' } }, 'In ChatGPT: right-click a picture → Copy image. Then press ', h('kbd', { class: 'big' }, 'Ctrl'), ' + ', h('kbd', { class: 'big' }, 'V'), ' anywhere on this page.'),
+    h('div', { class: 'hint', style: { marginTop: '4px' } }, 'Any order is fine: the Studio works out which is normal, blink and talk. You can also drop the three files here.'),
+    h('div', { class: 'paste-thumbs' }, slots.map((slot) => p.images[slot]
+      ? h('div', { class: 'pic' }, h('img', { src: fileUrl(current.id, p.images[slot]) }))
+      : h('div', { class: 'empty-slot' }, '?'))),
+    h('div', { style: { marginTop: '8px', fontWeight: 600 } }, `${count} of 3 pictures`),
+  );
+  zone.addEventListener('dragover', (e) => { e.preventDefault(); zone.classList.add('over'); });
+  zone.addEventListener('dragleave', () => zone.classList.remove('over'));
+  zone.addEventListener('drop', async (e) => {
+    e.preventDefault();
+    zone.classList.remove('over');
+    for (const file of [...e.dataTransfer.files].filter((file) => file.type.startsWith('image/'))) await addPicture(file);
+  });
+  return h('section', { class: 'card quick' },
+    h('h2', {}, `Make ${p.name} with ChatGPT`),
+    h('ol', {},
+      h('li', {}, 'Start a ', h('b', {}, 'new temporary chat'), ' in ChatGPT and paste:', promptBox(prompts.idle)),
+      h('li', {}, 'When the picture is done, paste:', promptBox(prompts.blink)),
+      h('li', {}, 'Then:', promptBox(prompts.talk)),
+      h('li', {}, 'Copy the three pictures into the Studio:', zone),
+    ),
+  );
+}
+
+// Adds a picture to the first empty slot; with all three in, sorts and saves.
+async function addPicture(file) {
+  if (!current) return;
+  const p = current.json;
+  const slot = ['idle', 'blink', 'talk'].find((s) => !p.images[s]);
+  if (!slot) {
+    setStatus('All three pictures are in. Remove one (✕ in Pictures) to replace it.', true);
+    return;
+  }
+  const r = await upload('image', file, slot).catch(() => null);
+  if (!r) return;
+  if (!r.transparent) showMessages([], ['This picture has no transparent background, so the pet will sit on a box. Ask ChatGPT for a transparent PNG.']);
+  else if (r.cutOff.length) showMessages([], [`The pet touches the ${r.cutOff.join(' and ')} edge of this picture: part of it may be cut off.`]);
+  p.images[slot] = r.file;
+  renderEditor(); renderPet(); renderList(); updateStatus();
+  if (['idle', 'blink', 'talk'].every((s) => p.images[s])) await autoSort();
+}
+
+async function autoSort() {
+  await save();
+  try {
+    const result = await api(`/api/pets/${current.id}/sort`, { method: 'POST' });
+    current.json.images = result.images;
+    savedJson = JSON.stringify(current.json);
+    const idx = pets.findIndex((x) => x.id === current.id);
+    pets[idx] = { ...result, json: clone(current.json) };
+    renderEditor(); renderPet(); renderList(); updateStatus();
+    if (result.unsure) {
+      showMessages(result.errors, [...result.warnings, 'Saved, but please check the preview: I was not completely sure which picture is which. If blinking or talking looks wrong, use "Swap with…" under Pictures and save.']);
+    } else {
+      showMessages(result.errors, result.warnings, `✓ Sorted into normal, blink and talk, and saved. ${current.json.name} is in the app.`);
+    }
+    setTimeout(() => say(`Hi, I'm ${current.json.name}!`), 300);
+  } catch (e) {
+    showMessages([e.message], []);
+  }
+}
+
+document.addEventListener('paste', async (e) => {
+  if (!current) return;
+  // Let normal text pasting into inputs work.
+  const files = [...(e.clipboardData?.items ?? [])].filter((item) => item.type.startsWith('image/')).map((item) => item.getAsFile()).filter(Boolean);
+  if (!files.length) return;
+  e.preventDefault();
+  for (const [i, blob] of files.entries()) {
+    await addPicture(new File([blob], `pasted-${Date.now()}-${i}.png`, { type: blob.type || 'image/png' }));
+  }
+});
+
+// Creates the next pet from the ideas list, fills it in and copies prompt 1.
+async function nextPet() {
+  if (!confirmLeave()) return;
+  const idea = ideas.find((i) => !pets.some((p) => p.id === i.id));
+  if (!idea) {
+    alert('Every pet from docs/pet-ideas.json has been made!');
+    return;
+  }
+  try {
+    const created = await api('/api/pets', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ id: idea.id }) });
+    const json = withDefaults(created.json);
+    Object.assign(json, { name: idea.name, tagline: idea.tagline, order: idea.order, price: idea.price, premium: false });
+    json.voice.pitch = idea.pitch;
+    const saved = await api(`/api/pets/${idea.id}`, { method: 'PUT', headers: { 'content-type': 'application/json' }, body: JSON.stringify(json) });
+    pets.push({ ...saved, json });
+    pets.sort((a, b) => (a.json?.order ?? 999) - (b.json?.order ?? 999));
+    current = null;
+    savedJson = '';
+    await select(idea.id);
+    updateNextButton();
+    try {
+      await navigator.clipboard.writeText(promptsFor(idea.id).idle);
+      setStatus(`Prompt 1 for ${idea.name} is copied. Paste it into a new temporary ChatGPT chat.`);
+    } catch {
+      setStatus(`${idea.name} is ready. Copy prompt 1 below into a new temporary ChatGPT chat.`);
+    }
+  } catch (e) {
+    alert(e.message);
+  }
+}
+
+function updateNextButton() {
+  const made = ideas.filter((i) => pets.some((p) => p.id === i.id)).length;
+  const button = $('#nextPet');
+  button.textContent = `✨ Next pet (${made}/${ideas.length})`;
+  button.disabled = !ideas.length || made === ideas.length;
 }
 
 function promptBox(text) {
@@ -471,6 +624,7 @@ async function create(from) {
   } catch (e) { alert(e.message); }
 }
 
+$('#nextPet').onclick = nextPet;
 $('#newPet').onclick = () => create(null);
 $('#dupPet').onclick = () => current && create(current.id);
 $('#delPet').onclick = async () => {
@@ -490,6 +644,8 @@ window.addEventListener('beforeunload', (e) => { if (isDirty()) { e.preventDefau
 (async () => {
   meta = await api('/api/pet-meta');
   pets = await api('/api/pets');
+  ideas = await api('/api/pet-ideas');
+  updateNextButton();
   renderList();
   if (pets.length) await select(pets[0].id); else renderEditor();
 })();

@@ -1,0 +1,1002 @@
+[
+  {
+    "id": "hazel",
+    "name": "Hazel",
+    "group": "Forest & countryside",
+    "description": "a round baby hedgehog with soft cream-coloured spikes and a tiny pink nose",
+    "tagline": "Prickly outside, cuddly inside",
+    "order": 40,
+    "pitch": 1.2,
+    "price": 5
+  },
+  {
+    "id": "pip",
+    "name": "Pip",
+    "group": "Forest & countryside",
+    "description": "a chubby little field mouse holding a tiny acorn",
+    "tagline": "Small but super brave",
+    "order": 50,
+    "pitch": 1.2,
+    "price": 5
+  },
+  {
+    "id": "maple",
+    "name": "Maple",
+    "group": "Forest & countryside",
+    "description": "a fluffy red fox cub with a big white-tipped tail",
+    "tagline": "Quick as a fox, sharp as a tack",
+    "order": 60,
+    "pitch": 1.2,
+    "price": 5
+  },
+  {
+    "id": "bramble",
+    "name": "Bramble",
+    "group": "Forest & countryside",
+    "description": "a sleepy baby badger with a black-and-white striped face",
+    "tagline": "Digs deep for every answer",
+    "order": 70,
+    "pitch": 1.2,
+    "price": 5
+  },
+  {
+    "id": "clover",
+    "name": "Clover",
+    "group": "Forest & countryside",
+    "description": "a round lop-eared bunny with a four-leaf clover tucked behind one ear",
+    "tagline": "Brings a little luck to every sum",
+    "order": 80,
+    "pitch": 1.2,
+    "price": 5
+  },
+  {
+    "id": "hootie",
+    "name": "Hootie",
+    "group": "Forest & countryside",
+    "description": "a fluffy baby owl with big round eyes and tiny ear tufts",
+    "tagline": "Wise beyond its years",
+    "order": 90,
+    "pitch": 1.2,
+    "price": 5
+  },
+  {
+    "id": "acorn",
+    "name": "Acorn",
+    "group": "Forest & countryside",
+    "description": "a chubby baby squirrel hugging its big bushy tail",
+    "tagline": "Saves up answers like nuts",
+    "order": 100,
+    "pitch": 1.2,
+    "price": 5
+  },
+  {
+    "id": "truffle",
+    "name": "Truffle",
+    "group": "Forest & countryside",
+    "description": "a tiny round pink piglet with a curly tail",
+    "tagline": "Sniffs out the right answer",
+    "order": 110,
+    "pitch": 1.2,
+    "price": 5
+  },
+  {
+    "id": "bumble",
+    "name": "Bumble",
+    "group": "Forest & countryside",
+    "description": "a round fuzzy brown baby bear cub",
+    "tagline": "Big hugs for big wins",
+    "order": 120,
+    "pitch": 1.2,
+    "price": 5
+  },
+  {
+    "id": "willow",
+    "name": "Willow",
+    "group": "Forest & countryside",
+    "description": "a baby deer fawn with white spots and big gentle eyes",
+    "tagline": "Gentle, graceful and gutsy",
+    "order": 130,
+    "pitch": 1.2,
+    "price": 5
+  },
+  {
+    "id": "nutmeg",
+    "name": "Nutmeg",
+    "group": "Forest & countryside",
+    "description": "a round little golden hamster with puffed-out cheeks",
+    "tagline": "Stuffs its cheeks with numbers",
+    "order": 140,
+    "pitch": 1.2,
+    "price": 5
+  },
+  {
+    "id": "puddle",
+    "name": "Puddle",
+    "group": "Forest & countryside",
+    "description": "a little green frog sitting on a lily pad",
+    "tagline": "Hops from sum to sum",
+    "order": 150,
+    "pitch": 1.2,
+    "price": 5
+  },
+  {
+    "id": "waddles",
+    "name": "Waddles",
+    "group": "Forest & countryside",
+    "description": "a fluffy yellow baby duckling",
+    "tagline": "Always keeps its ducks in a row",
+    "order": 160,
+    "pitch": 1.2,
+    "price": 5
+  },
+  {
+    "id": "moss",
+    "name": "Moss",
+    "group": "Forest & countryside",
+    "description": "a small round tortoise with a soft green mossy shell",
+    "tagline": "Slow and steady wins the race",
+    "order": 170,
+    "pitch": 1.2,
+    "price": 5
+  },
+  {
+    "id": "barley",
+    "name": "Barley",
+    "group": "Forest & countryside",
+    "description": "a fluffy baby lamb with curly white wool",
+    "tagline": "Counting sheep has never been this fun",
+    "order": 180,
+    "pitch": 1.2,
+    "price": 5
+  },
+  {
+    "id": "biscuit",
+    "name": "Biscuit",
+    "group": "Pets at home",
+    "description": "a round corgi puppy with short legs and big ears",
+    "tagline": "Wiggles its tail at every right answer",
+    "order": 190,
+    "pitch": 1.2,
+    "price": 5
+  },
+  {
+    "id": "whiskers",
+    "name": "Whiskers",
+    "group": "Pets at home",
+    "description": "a chubby grey tabby kitten with a striped tail",
+    "tagline": "Curious about every number",
+    "order": 200,
+    "pitch": 1.2,
+    "price": 5
+  },
+  {
+    "id": "domino",
+    "name": "Domino",
+    "group": "Pets at home",
+    "description": "a dalmatian puppy with black spots and floppy ears",
+    "tagline": "Spot-on with every answer",
+    "order": 210,
+    "pitch": 1.2,
+    "price": 5
+  },
+  {
+    "id": "pudding",
+    "name": "Pudding",
+    "group": "Pets at home",
+    "description": "a round guinea pig with brown and white patches",
+    "tagline": "Squeaks with joy",
+    "order": 220,
+    "pitch": 1.2,
+    "price": 5
+  },
+  {
+    "id": "goldie",
+    "name": "Goldie",
+    "group": "Pets at home",
+    "description": "a round orange goldfish inside a small floating bubble",
+    "tagline": "Blows bubbles of brilliance",
+    "order": 230,
+    "pitch": 1.2,
+    "price": 5
+  },
+  {
+    "id": "button",
+    "name": "Button",
+    "group": "Pets at home",
+    "description": "a tiny pug puppy with a curly tail and a wrinkly face",
+    "tagline": "Small nose, big heart",
+    "order": 240,
+    "pitch": 1.2,
+    "price": 5
+  },
+  {
+    "id": "snowball",
+    "name": "Snowball",
+    "group": "Pets at home",
+    "description": "a fluffy white kitten with blue eyes",
+    "tagline": "Soft as a cloud",
+    "order": 250,
+    "pitch": 1.2,
+    "price": 5
+  },
+  {
+    "id": "pebbles",
+    "name": "Pebbles",
+    "group": "Pets at home",
+    "description": "a round, fluffy silver chinchilla",
+    "tagline": "The fluffiest friend around",
+    "order": 260,
+    "pitch": 1.2,
+    "price": 5
+  },
+  {
+    "id": "bubbles",
+    "name": "Bubbles",
+    "group": "Ocean & water",
+    "description": "a baby sea otter floating on its back holding a seashell",
+    "tagline": "Cracks every problem",
+    "order": 270,
+    "pitch": 1.1,
+    "price": 5
+  },
+  {
+    "id": "finn",
+    "name": "Finn",
+    "group": "Ocean & water",
+    "description": "a round baby dolphin with a big friendly smile",
+    "tagline": "Leaps through the levels",
+    "order": 280,
+    "pitch": 1.1,
+    "price": 5
+  },
+  {
+    "id": "coral",
+    "name": "Coral",
+    "group": "Ocean & water",
+    "description": "a tiny pink octopus with curly arms",
+    "tagline": "Eight arms, eight times the fun",
+    "order": 290,
+    "pitch": 1.1,
+    "price": 5
+  },
+  {
+    "id": "shelly",
+    "name": "Shelly",
+    "group": "Ocean & water",
+    "description": "a small hermit crab peeking out of a spiral shell",
+    "tagline": "Carries its home and its homework",
+    "order": 300,
+    "pitch": 1.1,
+    "price": 5
+  },
+  {
+    "id": "splash",
+    "name": "Splash",
+    "group": "Ocean & water",
+    "description": "a round baby blue whale with a little water spout",
+    "tagline": "Makes a big splash",
+    "order": 310,
+    "pitch": 1.1,
+    "price": 5
+  },
+  {
+    "id": "puff",
+    "name": "Puff",
+    "group": "Ocean & water",
+    "description": "a round spiky pufferfish, puffed up and happy",
+    "tagline": "Puffs up with pride",
+    "order": 320,
+    "pitch": 1.1,
+    "price": 5
+  },
+  {
+    "id": "pearl",
+    "name": "Pearl",
+    "group": "Ocean & water",
+    "description": "a fluffy white baby seal pup",
+    "tagline": "Flippers up for every answer",
+    "order": 330,
+    "pitch": 1.1,
+    "price": 5
+  },
+  {
+    "id": "starla",
+    "name": "Starla",
+    "group": "Ocean & water",
+    "description": "a smiling orange starfish",
+    "tagline": "A five-star friend",
+    "order": 340,
+    "pitch": 1.1,
+    "price": 5
+  },
+  {
+    "id": "tidbit",
+    "name": "Tidbit",
+    "group": "Ocean & water",
+    "description": "a small seahorse with a curly tail",
+    "tagline": "Tiny, curly and clever",
+    "order": 350,
+    "pitch": 1.1,
+    "price": 5
+  },
+  {
+    "id": "jelly",
+    "name": "Jelly",
+    "group": "Ocean & water",
+    "description": "a round pastel-pink jellyfish with short wavy tentacles",
+    "tagline": "Glows when you get it right",
+    "order": 360,
+    "pitch": 1.1,
+    "price": 5
+  },
+  {
+    "id": "stripes",
+    "name": "Stripes",
+    "group": "Ocean & water",
+    "description": "a round orange clownfish with white stripes",
+    "tagline": "Always ready to make you smile",
+    "order": 370,
+    "pitch": 1.1,
+    "price": 5
+  },
+  {
+    "id": "scoot",
+    "name": "Scoot",
+    "group": "Ocean & water",
+    "description": "a small sea turtle hatchling with little flippers",
+    "tagline": "Paddles through every problem",
+    "order": 380,
+    "pitch": 1.1,
+    "price": 5
+  },
+  {
+    "id": "manny",
+    "name": "Manny",
+    "group": "Ocean & water",
+    "description": "a round grey baby manatee",
+    "tagline": "The gentlest giant of the sea",
+    "order": 390,
+    "pitch": 1.1,
+    "price": 5
+  },
+  {
+    "id": "axo",
+    "name": "Axo",
+    "group": "Ocean & water",
+    "description": "a pink axolotl with frilly gills and a big smile",
+    "tagline": "Always grows back stronger",
+    "order": 400,
+    "pitch": 1.1,
+    "price": 5
+  },
+  {
+    "id": "kiko",
+    "name": "Kiko",
+    "group": "Jungle, savanna & far away",
+    "description": "a baby monkey holding a banana",
+    "tagline": "Swings from number to number",
+    "order": 410,
+    "pitch": 1,
+    "price": 8
+  },
+  {
+    "id": "mango",
+    "name": "Mango",
+    "group": "Jungle, savanna & far away",
+    "description": "a round baby toucan with a big rainbow-coloured beak",
+    "tagline": "Brightest beak in the jungle",
+    "order": 420,
+    "pitch": 1,
+    "price": 8
+  },
+  {
+    "id": "leo",
+    "name": "Leo",
+    "group": "Jungle, savanna & far away",
+    "description": "a lion cub with a fluffy little mane",
+    "tagline": "Roars at every right answer",
+    "order": 430,
+    "pitch": 1,
+    "price": 8
+  },
+  {
+    "id": "tango",
+    "name": "Tango",
+    "group": "Jungle, savanna & far away",
+    "description": "a baby tiger cub with orange and black stripes",
+    "tagline": "Stripes and smarts",
+    "order": 440,
+    "pitch": 1,
+    "price": 8
+  },
+  {
+    "id": "peanut",
+    "name": "Peanut",
+    "group": "Jungle, savanna & far away",
+    "description": "a baby elephant with big floppy ears",
+    "tagline": "Never forgets a times table",
+    "order": 450,
+    "pitch": 1,
+    "price": 8
+  },
+  {
+    "id": "zuri",
+    "name": "Zuri",
+    "group": "Jungle, savanna & far away",
+    "description": "a baby giraffe with a long neck and brown spots",
+    "tagline": "Always reaches higher",
+    "order": 460,
+    "pitch": 1,
+    "price": 8
+  },
+  {
+    "id": "ziggy",
+    "name": "Ziggy",
+    "group": "Jungle, savanna & far away",
+    "description": "a baby zebra with black and white stripes",
+    "tagline": "Black, white and bright",
+    "order": 470,
+    "pitch": 1,
+    "price": 8
+  },
+  {
+    "id": "gumdrop",
+    "name": "Gumdrop",
+    "group": "Jungle, savanna & far away",
+    "description": "a round baby hippo",
+    "tagline": "Small hippo, big smile",
+    "order": 480,
+    "pitch": 1,
+    "price": 8
+  },
+  {
+    "id": "chomp",
+    "name": "Chomp",
+    "group": "Jungle, savanna & far away",
+    "description": "a small friendly baby crocodile with a big toothless smile",
+    "tagline": "Snaps up every answer",
+    "order": 490,
+    "pitch": 1,
+    "price": 8
+  },
+  {
+    "id": "sloane",
+    "name": "Sloane",
+    "group": "Jungle, savanna & far away",
+    "description": "a baby sloth hugging a small branch",
+    "tagline": "Takes its time and gets it right",
+    "order": 500,
+    "pitch": 1,
+    "price": 8
+  },
+  {
+    "id": "coco",
+    "name": "Coco",
+    "group": "Jungle, savanna & far away",
+    "description": "a round baby koala hugging a eucalyptus leaf",
+    "tagline": "Hugs every good answer",
+    "order": 510,
+    "pitch": 1,
+    "price": 8
+  },
+  {
+    "id": "hopper",
+    "name": "Hopper",
+    "group": "Jungle, savanna & far away",
+    "description": "a baby kangaroo joey with big feet",
+    "tagline": "Jumps up the levels",
+    "order": 520,
+    "pitch": 1,
+    "price": 8
+  },
+  {
+    "id": "pi",
+    "name": "Pi",
+    "group": "Jungle, savanna & far away",
+    "description": "a round baby panda holding a stick of bamboo",
+    "tagline": "Loves 3.14 bites of bamboo",
+    "order": 530,
+    "pitch": 1,
+    "price": 8
+  },
+  {
+    "id": "rascal",
+    "name": "Rascal",
+    "group": "Jungle, savanna & far away",
+    "description": "a baby red panda with a ringed tail",
+    "tagline": "A little mischief, a lot of maths",
+    "order": 540,
+    "pitch": 1,
+    "price": 8
+  },
+  {
+    "id": "lemony",
+    "name": "Lemony",
+    "group": "Jungle, savanna & far away",
+    "description": "a baby ring-tailed lemur with big yellow eyes",
+    "tagline": "Wide-eyed and wonder-full",
+    "order": 550,
+    "pitch": 1,
+    "price": 8
+  },
+  {
+    "id": "frost",
+    "name": "Frost",
+    "group": "Snow & ice",
+    "description": "a fluffy white baby polar bear cub",
+    "tagline": "Cool under pressure",
+    "order": 560,
+    "pitch": 1.05,
+    "price": 8
+  },
+  {
+    "id": "tux",
+    "name": "Tux",
+    "group": "Snow & ice",
+    "description": "a round baby penguin",
+    "tagline": "Slides into every answer",
+    "order": 570,
+    "pitch": 1.05,
+    "price": 8
+  },
+  {
+    "id": "snowdrop",
+    "name": "Snowdrop",
+    "group": "Snow & ice",
+    "description": "a fluffy white arctic fox cub",
+    "tagline": "Quiet as snow, sharp as ice",
+    "order": 580,
+    "pitch": 1.05,
+    "price": 8
+  },
+  {
+    "id": "tusk",
+    "name": "Tusk",
+    "group": "Snow & ice",
+    "description": "a round baby walrus with two small tusks and whiskers",
+    "tagline": "Big whiskers, bigger brain",
+    "order": 590,
+    "pitch": 1.05,
+    "price": 8
+  },
+  {
+    "id": "flurry",
+    "name": "Flurry",
+    "group": "Snow & ice",
+    "description": "a fluffy white snowy owl chick",
+    "tagline": "Sees the answer through the snow",
+    "order": 600,
+    "pitch": 1.05,
+    "price": 8
+  },
+  {
+    "id": "blizzard",
+    "name": "Blizzard",
+    "group": "Snow & ice",
+    "description": "a baby husky puppy with blue eyes",
+    "tagline": "Pulls you through any problem",
+    "order": 610,
+    "pitch": 1.05,
+    "price": 8
+  },
+  {
+    "id": "mo",
+    "name": "Mo",
+    "group": "Snow & ice",
+    "description": "a round puffin with a colourful orange beak",
+    "tagline": "Dives deep for answers",
+    "order": 620,
+    "pitch": 1.05,
+    "price": 8
+  },
+  {
+    "id": "jingle",
+    "name": "Jingle",
+    "group": "Snow & ice",
+    "description": "a baby reindeer with tiny antlers and a rosy nose",
+    "tagline": "Leads the way on snowy days",
+    "order": 630,
+    "pitch": 1.05,
+    "price": 8
+  },
+  {
+    "id": "rio",
+    "name": "Rio",
+    "group": "Birds",
+    "description": "a bright green baby parrot",
+    "tagline": "Repeats every right answer",
+    "order": 640,
+    "pitch": 1.35,
+    "price": 5
+  },
+  {
+    "id": "chirpy",
+    "name": "Chirpy",
+    "group": "Birds",
+    "description": "a round yellow canary",
+    "tagline": "Sings when you score",
+    "order": 650,
+    "pitch": 1.35,
+    "price": 5
+  },
+  {
+    "id": "rosie",
+    "name": "Rosie",
+    "group": "Birds",
+    "description": "a baby pink flamingo standing on one leg",
+    "tagline": "Balances every equation",
+    "order": 660,
+    "pitch": 1.35,
+    "price": 5
+  },
+  {
+    "id": "plume",
+    "name": "Plume",
+    "group": "Birds",
+    "description": "a baby peacock with a small colourful tail fan",
+    "tagline": "Shows off every win",
+    "order": 670,
+    "pitch": 1.35,
+    "price": 5
+  },
+  {
+    "id": "zippy",
+    "name": "Zippy",
+    "group": "Birds",
+    "description": "a tiny hummingbird with shimmering green feathers",
+    "tagline": "Fastest wings, fastest answers",
+    "order": 680,
+    "pitch": 1.35,
+    "price": 5
+  },
+  {
+    "id": "berry",
+    "name": "Berry",
+    "group": "Birds",
+    "description": "a round robin with a red chest",
+    "tagline": "The early bird gets the answer",
+    "order": 690,
+    "pitch": 1.35,
+    "price": 5
+  },
+  {
+    "id": "lulu",
+    "name": "Lulu",
+    "group": "Birds",
+    "description": "a fluffy grey baby swan cygnet",
+    "tagline": "Glides through every sum",
+    "order": 700,
+    "pitch": 1.35,
+    "price": 5
+  },
+  {
+    "id": "dot",
+    "name": "Dot",
+    "group": "Bugs & small critters",
+    "description": "a round red ladybug with seven black spots",
+    "tagline": "Counts all seven spots",
+    "order": 710,
+    "pitch": 1.45,
+    "price": 5
+  },
+  {
+    "id": "buzz",
+    "name": "Buzz",
+    "group": "Bugs & small critters",
+    "description": "a chubby fuzzy bumblebee",
+    "tagline": "Busy bee, busy brain",
+    "order": 720,
+    "pitch": 1.45,
+    "price": 5
+  },
+  {
+    "id": "flutter",
+    "name": "Flutter",
+    "group": "Bugs & small critters",
+    "description": "a small butterfly with pastel rainbow wings",
+    "tagline": "Turns every mistake into something beautiful",
+    "order": 730,
+    "pitch": 1.45,
+    "price": 5
+  },
+  {
+    "id": "sparky",
+    "name": "Sparky",
+    "group": "Bugs & small critters",
+    "description": "a round firefly with a glowing tail",
+    "tagline": "Lights up when you are right",
+    "order": 740,
+    "pitch": 1.45,
+    "price": 5
+  },
+  {
+    "id": "inchy",
+    "name": "Inchy",
+    "group": "Bugs & small critters",
+    "description": "a green inchworm caterpillar",
+    "tagline": "Measures up to every challenge",
+    "order": 750,
+    "pitch": 1.45,
+    "price": 5
+  },
+  {
+    "id": "swirl",
+    "name": "Swirl",
+    "group": "Bugs & small critters",
+    "description": "a snail with a pastel spiral shell",
+    "tagline": "Spirals all the way to the top",
+    "order": 760,
+    "pitch": 1.45,
+    "price": 5
+  },
+  {
+    "id": "lime",
+    "name": "Lime",
+    "group": "Bugs & small critters",
+    "description": "a small green gecko with big round eyes",
+    "tagline": "Sticks with it",
+    "order": 770,
+    "pitch": 1.45,
+    "price": 5
+  },
+  {
+    "id": "rexy",
+    "name": "Rexy",
+    "group": "Dinosaurs",
+    "description": "a baby T-rex with tiny arms and a big smile",
+    "tagline": "Tiny arms, huge brain",
+    "order": 780,
+    "pitch": 0.85,
+    "price": 12
+  },
+  {
+    "id": "trixie",
+    "name": "Trixie",
+    "group": "Dinosaurs",
+    "description": "a baby triceratops with three little rounded horns",
+    "tagline": "Three horns, triple the fun",
+    "order": 790,
+    "pitch": 0.85,
+    "price": 12
+  },
+  {
+    "id": "spike",
+    "name": "Spike",
+    "group": "Dinosaurs",
+    "description": "a baby stegosaurus with rounded plates on its back",
+    "tagline": "Plates full of numbers",
+    "order": 800,
+    "pitch": 0.85,
+    "price": 12
+  },
+  {
+    "id": "brontie",
+    "name": "Brontie",
+    "group": "Dinosaurs",
+    "description": "a baby long-necked brontosaurus",
+    "tagline": "Stretches for every answer",
+    "order": 810,
+    "pitch": 0.85,
+    "price": 12
+  },
+  {
+    "id": "pterry",
+    "name": "Pterry",
+    "group": "Dinosaurs",
+    "description": "a baby pterodactyl with small wings",
+    "tagline": "Soars above the rest",
+    "order": 820,
+    "pitch": 0.85,
+    "price": 12
+  },
+  {
+    "id": "anky",
+    "name": "Anky",
+    "group": "Dinosaurs",
+    "description": "a baby ankylosaurus with a little club tail",
+    "tagline": "Tough as a shell",
+    "order": 830,
+    "pitch": 0.85,
+    "price": 12
+  },
+  {
+    "id": "dash",
+    "name": "Dash",
+    "group": "Dinosaurs",
+    "description": "a small fluffy feathered baby raptor",
+    "tagline": "Fast and fearless",
+    "order": 840,
+    "pitch": 0.85,
+    "price": 12
+  },
+  {
+    "id": "nugget",
+    "name": "Nugget",
+    "group": "Dinosaurs",
+    "description": "a baby dinosaur peeking out of a cracked egg",
+    "tagline": "Just hatched and ready to learn",
+    "order": 850,
+    "pitch": 0.85,
+    "price": 12
+  },
+  {
+    "id": "sparkle",
+    "name": "Sparkle",
+    "group": "Mythical creatures",
+    "description": "a baby unicorn with a pastel rainbow mane and a golden horn",
+    "tagline": "Magic in every answer",
+    "order": 860,
+    "pitch": 1,
+    "price": 15
+  },
+  {
+    "id": "ember",
+    "name": "Ember",
+    "group": "Mythical creatures",
+    "description": "a round baby dragon with tiny wings",
+    "tagline": "Fiery fast at facts",
+    "order": 870,
+    "pitch": 1,
+    "price": 15
+  },
+  {
+    "id": "glimmer",
+    "name": "Glimmer",
+    "group": "Mythical creatures",
+    "description": "a baby pegasus with small feathered wings",
+    "tagline": "Takes your maths to new heights",
+    "order": 880,
+    "pitch": 1,
+    "price": 15
+  },
+  {
+    "id": "blaze",
+    "name": "Blaze",
+    "group": "Mythical creatures",
+    "description": "a baby phoenix chick with flame-coloured feathers",
+    "tagline": "Rises again after every mistake",
+    "order": 890,
+    "pitch": 1,
+    "price": 15
+  },
+  {
+    "id": "gryff",
+    "name": "Gryff",
+    "group": "Mythical creatures",
+    "description": "a baby griffin, half eagle and half lion cub",
+    "tagline": "Brave as a lion, sharp as an eagle",
+    "order": 900,
+    "pitch": 1,
+    "price": 15
+  },
+  {
+    "id": "yuki",
+    "name": "Yuki",
+    "group": "Mythical creatures",
+    "description": "a tiny fluffy white baby yeti",
+    "tagline": "Big feet, bigger smile",
+    "order": 910,
+    "pitch": 1,
+    "price": 15
+  },
+  {
+    "id": "loch",
+    "name": "Loch",
+    "group": "Mythical creatures",
+    "description": "a friendly baby sea serpent with a long curvy neck",
+    "tagline": "Pops up to say well done",
+    "order": 920,
+    "pitch": 1,
+    "price": 15
+  },
+  {
+    "id": "kitsu",
+    "name": "Kitsu",
+    "group": "Mythical creatures",
+    "description": "a baby fox spirit with three fluffy tails",
+    "tagline": "Three tails, three times as clever",
+    "order": 930,
+    "pitch": 1,
+    "price": 15
+  },
+  {
+    "id": "jade",
+    "name": "Jade",
+    "group": "Mythical creatures",
+    "description": "a baby qilin with soft green scales and a tiny horn",
+    "tagline": "Brings good fortune",
+    "order": 940,
+    "pitch": 1,
+    "price": 15
+  },
+  {
+    "id": "triplet",
+    "name": "Triplet",
+    "group": "Mythical creatures",
+    "description": "a friendly baby hydra with three small smiling heads",
+    "tagline": "Three heads are better than one",
+    "order": 950,
+    "pitch": 1,
+    "price": 15
+  },
+  {
+    "id": "wisp",
+    "name": "Wisp",
+    "group": "Mythical creatures",
+    "description": "a round glowing forest spirit with leaf ears",
+    "tagline": "A little light in the dark",
+    "order": 960,
+    "pitch": 1,
+    "price": 15
+  },
+  {
+    "id": "inky",
+    "name": "Inky",
+    "group": "Mythical creatures",
+    "description": "a baby kraken with swirly purple tentacles",
+    "tagline": "Grabs every answer",
+    "order": 970,
+    "pitch": 1,
+    "price": 15
+  },
+  {
+    "id": "twinkle",
+    "name": "Twinkle",
+    "group": "Mythical creatures",
+    "description": "a tiny fairy dragon with butterfly wings",
+    "tagline": "Small wings, big magic",
+    "order": 980,
+    "pitch": 1,
+    "price": 15
+  },
+  {
+    "id": "moonbeam",
+    "name": "Moonbeam",
+    "group": "Mythical creatures",
+    "description": "a baby moon rabbit holding a little star",
+    "tagline": "Hops down from the moon to help you",
+    "order": 990,
+    "pitch": 1,
+    "price": 15
+  },
+  {
+    "id": "nimbus",
+    "name": "Nimbus",
+    "group": "Mythical creatures",
+    "description": "a fluffy cloud sheep with a tiny rainbow",
+    "tagline": "Floats through every sum",
+    "order": 1000,
+    "pitch": 1,
+    "price": 15
+  },
+  {
+    "id": "riddle",
+    "name": "Riddle",
+    "group": "Mythical creatures",
+    "description": "a baby sphinx cat wearing a small golden headdress",
+    "tagline": "Loves a good riddle",
+    "order": 1010,
+    "pitch": 1,
+    "price": 15
+  },
+  {
+    "id": "gem",
+    "name": "Gem",
+    "group": "Mythical creatures",
+    "description": "a tiny turtle with a sparkling crystal shell",
+    "tagline": "Shines brighter with every answer",
+    "order": 1020,
+    "pitch": 1,
+    "price": 15
+  },
+  {
+    "id": "cosmo",
+    "name": "Cosmo",
+    "group": "Mythical creatures",
+    "description": "a baby space whale with stars on its skin",
+    "tagline": "Swims through the stars",
+    "order": 1030,
+    "pitch": 1,
+    "price": 15
+  }
+]

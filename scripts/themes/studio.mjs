@@ -14,6 +14,7 @@ import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
 
 import { alignPetImage } from '../pets/align.mjs';
+import { classifyPetPictures } from '../pets/sort.mjs';
 import { buildPets } from '../pets/build.mjs';
 import {
   defaultPet,
@@ -49,6 +50,7 @@ const petsHtml = fileURLToPath(new URL('./pets.html', import.meta.url));
 const studioCss = fileURLToPath(new URL('./studio.css', import.meta.url));
 const petsDir = fileURLToPath(PETS_DIR);
 const defaultLinesFile = fileURLToPath(new URL('../../src/pet-lines.json', import.meta.url));
+const petIdeasFile = fileURLToPath(new URL('../../docs/pet-ideas.json', import.meta.url));
 
 // Files the Studio creates get these prefixes; only those are cleaned up
 // automatically when a theme stops referencing them.
@@ -399,6 +401,30 @@ async function importPetFile(id, kind, slot, originalName, data) {
   throw new HttpError(400, `Unknown upload kind "${kind}"`);
 }
 
+// Works out which of a pet's three pictures is the normal pose, the blink and
+// the talk, whatever order they were added in (see scripts/pets/sort.mjs).
+async function sortPetPictures(id) {
+  const dir = petDir(id);
+  const json = JSON.parse(readFileSync(join(dir, 'pet.json'), 'utf8'));
+  const files = ['idle', 'blink', 'talk'].map((slot) => json.images?.[slot]);
+  if (files.some((file) => !file)) throw new HttpError(400, 'Add all three pictures first');
+  const { idle, blink, talk, unsure } = await classifyPetPictures(files.map((file) => join(dir, file)));
+
+  // Rewrite the files under names matching their slots.
+  const buffers = files.map((file) => readFileSync(join(dir, file)));
+  files.forEach((file) => rmSync(join(dir, file)));
+  const images = {};
+  for (const [slot, k] of [['idle', idle], ['blink', blink], ['talk', talk]]) {
+    const name = uniqueName(dir, `img-${slot}`, '.png');
+    writeFileSync(join(dir, name), buffers[k]);
+    images[slot] = name;
+  }
+  json.images = images;
+  writeFileSync(join(dir, 'pet.json'), JSON.stringify(json, null, 2) + '\n');
+  const moved = ['idle', 'blink', 'talk'].filter((slot, k) => [idle, blink, talk][k] !== k);
+  return { ...rebuildPet(id), images, moved, unsure };
+}
+
 async function handlePets(req, res, parts, url) {
   const method = req.method;
   if (method === 'GET' && parts.length === 2) return send(res, 200, listPets());
@@ -413,6 +439,7 @@ async function handlePets(req, res, parts, url) {
     deletePet(id);
     return send(res, 200, { ok: true });
   }
+  if (method === 'POST' && parts[3] === 'sort') return send(res, 200, await sortPetPictures(id));
   if (method === 'POST' && parts[3] === 'upload') {
     const result = await importPetFile(
       id,
@@ -444,6 +471,9 @@ async function handle(req, res) {
       defaultLines: JSON.parse(readFileSync(defaultLinesFile, 'utf8')),
       defaultPet: defaultPet(),
     });
+  }
+  if (parts[0] === 'api' && parts[1] === 'pet-ideas' && method === 'GET') {
+    return send(res, 200, existsSync(petIdeasFile) ? JSON.parse(readFileSync(petIdeasFile, 'utf8')) : []);
   }
   if (parts[0] === 'api' && parts[1] === 'pets') return handlePets(req, res, parts, url);
 
