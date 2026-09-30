@@ -1,0 +1,19 @@
+{
+  "name": "Rio",
+  "tagline": "Repeats every right answer",
+  "order": 640,
+  "price": 5,
+  "premium": false,
+  "images": {
+    "idle": "img-idle.webp",
+    "blink": "img-blink.webp",
+    "talk": "img-talk.webp"
+  },
+  "size": 1,
+  "voice": {
+    "pitch": 1.35,
+    "files": [],
+    "volume": 0.8
+  },
+  "lines": {}
+}

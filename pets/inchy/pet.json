@@ -1,0 +1,19 @@
+{
+  "name": "Inchy",
+  "tagline": "Measures up to every challenge",
+  "order": 750,
+  "price": 5,
+  "premium": false,
+  "images": {
+    "idle": "img-idle.webp",
+    "blink": "img-blink.webp",
+    "talk": "img-talk.webp"
+  },
+  "size": 1,
+  "voice": {
+    "pitch": 1.45,
+    "files": [],
+    "volume": 0.8
+  },
+  "lines": {}
+}

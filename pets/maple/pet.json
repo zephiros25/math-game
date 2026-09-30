@@ -5,9 +5,9 @@
   "price": 5,
   "premium": false,
   "images": {
-    "idle": "img-idle.png",
-    "blink": "img-blink.png",
-    "talk": "img-talk.png"
+    "idle": "img-idle.webp",
+    "blink": "img-blink.webp",
+    "talk": "img-talk.webp"
   },
   "size": 1,
   "voice": {

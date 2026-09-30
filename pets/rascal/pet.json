@@ -1,0 +1,19 @@
+{
+  "name": "Rascal",
+  "tagline": "A little mischief, a lot of maths",
+  "order": 540,
+  "price": 8,
+  "premium": false,
+  "images": {
+    "idle": "img-idle.webp",
+    "blink": "img-blink.webp",
+    "talk": "img-talk.webp"
+  },
+  "size": 1,
+  "voice": {
+    "pitch": 1,
+    "files": [],
+    "volume": 0.8
+  },
+  "lines": {}
+}

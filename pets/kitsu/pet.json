@@ -1,0 +1,19 @@
+{
+  "name": "Kitsu",
+  "tagline": "Three tails, three times as clever",
+  "order": 930,
+  "price": 15,
+  "premium": false,
+  "images": {
+    "idle": "img-idle.webp",
+    "blink": "img-blink.webp",
+    "talk": "img-talk.webp"
+  },
+  "size": 1,
+  "voice": {
+    "pitch": 1,
+    "files": [],
+    "volume": 0.8
+  },
+  "lines": {}
+}

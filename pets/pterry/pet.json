@@ -1,0 +1,19 @@
+{
+  "name": "Pterry",
+  "tagline": "Soars above the rest",
+  "order": 820,
+  "price": 12,
+  "premium": false,
+  "images": {
+    "idle": "img-idle.webp",
+    "blink": "img-blink.webp",
+    "talk": "img-talk.webp"
+  },
+  "size": 1,
+  "voice": {
+    "pitch": 0.85,
+    "files": [],
+    "volume": 0.8
+  },
+  "lines": {}
+}

@@ -1,0 +1,19 @@
+{
+  "name": "Button",
+  "tagline": "Small nose, big heart",
+  "order": 240,
+  "price": 5,
+  "premium": false,
+  "images": {
+    "idle": "img-talk.webp",
+    "blink": "img-blink.webp",
+    "talk": "img-idle.webp"
+  },
+  "size": 1,
+  "voice": {
+    "pitch": 1.2,
+    "files": [],
+    "volume": 0.8
+  },
+  "lines": {}
+}

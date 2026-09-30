@@ -1,0 +1,19 @@
+{
+  "name": "Manny",
+  "tagline": "The gentlest giant of the sea",
+  "order": 390,
+  "price": 5,
+  "premium": false,
+  "images": {
+    "idle": "img-idle.webp",
+    "blink": "img-blink.webp",
+    "talk": "img-talk.webp"
+  },
+  "size": 1,
+  "voice": {
+    "pitch": 1.1,
+    "files": [],
+    "volume": 0.8
+  },
+  "lines": {}
+}

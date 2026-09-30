@@ -1,0 +1,19 @@
+{
+  "name": "Coral",
+  "tagline": "Eight arms, eight times the fun",
+  "order": 290,
+  "price": 5,
+  "premium": false,
+  "images": {
+    "idle": "img-talk.webp",
+    "blink": "img-blink.webp",
+    "talk": "img-idle.webp"
+  },
+  "size": 1,
+  "voice": {
+    "pitch": 1.1,
+    "files": [],
+    "volume": 0.8
+  },
+  "lines": {}
+}

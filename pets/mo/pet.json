@@ -1,0 +1,19 @@
+{
+  "name": "Mo",
+  "tagline": "Dives deep for answers",
+  "order": 620,
+  "price": 8,
+  "premium": false,
+  "images": {
+    "idle": "img-idle.webp",
+    "blink": "img-blink.webp",
+    "talk": "img-talk.webp"
+  },
+  "size": 1,
+  "voice": {
+    "pitch": 1.05,
+    "files": [],
+    "volume": 0.8
+  },
+  "lines": {}
+}

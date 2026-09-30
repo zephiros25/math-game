@@ -1,0 +1,19 @@
+{
+  "name": "Waddles",
+  "tagline": "Always keeps its ducks in a row",
+  "order": 160,
+  "price": 5,
+  "premium": false,
+  "images": {
+    "idle": "img-idle.webp",
+    "blink": "img-blink.webp",
+    "talk": "img-talk.webp"
+  },
+  "size": 1,
+  "voice": {
+    "pitch": 1.2,
+    "files": [],
+    "volume": 0.8
+  },
+  "lines": {}
+}
