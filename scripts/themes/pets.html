@@ -114,6 +114,7 @@ let pets = []; // [{ id, json, files, errors, warnings }]
 let current = null; // the pet being edited (working copy in current.json)
 let savedJson = '';
 let ideas = []; // pet ideas from docs/pet-ideas.json
+let defaultVoice = []; // default pet voice syllables made on the Sounds page
 
 // One picture with all three versions (fastest: one ChatGPT generation).
 const SHEET_PROMPT = 'Create a character sheet with three versions of the same cute cartoon pet for a children\u2019s math app, side by side in one row: [describe your pet, e.g. a round baby dragon with tiny wings]. All three identical in every detail, pose and size, except: 1) eyes open, mouth closed; 2) eyes closed in a happy blink, mouth closed; 3) eyes open, mouth open as if happily talking. Full body, facing forward, sitting, soft rounded shapes, thick dark outline, kawaii sticker style, clear empty space between the three, no text, no numbers, no shadow, wide landscape image. Output a PNG with a fully transparent background.';
@@ -220,15 +221,29 @@ async function playUrl(url, volume = 1, rate = 1) {
     const gain = audio.createGain();
     src.buffer = buf; src.playbackRate.value = rate; gain.gain.value = volume;
     src.connect(gain).connect(audio.destination); src.start();
-  } catch (e) { setStatus(`Could not play a sound: ${e.message}`, true); }
+    return (buf.duration * 1000) / rate;
+  } catch (e) { setStatus(`Could not play a sound: ${e.message}`, true); return 0; }
+}
+// One babble syllable, as in the app (src/feedback.ts): the pet's own, else
+// the default voice made on the Sounds page, else the built-in one. Small
+// pitch changes, never the same syllable twice in a row. Resolves to its
+// length in ms.
+let lastSyllable = -1;
+function pickSyllable(count) {
+  let i = Math.floor(Math.random() * count);
+  if (count > 1 && i === lastSyllable) i = (i + 1 + Math.floor(Math.random() * (count - 1))) % count;
+  lastSyllable = i;
+  return i;
 }
 function syllable() {
   const v = current.json.voice;
-  const rate = Math.min(2, Math.max(0.5, v.pitch * (0.88 + Math.random() * 0.3)));
+  const rate = Math.min(2, Math.max(0.5, v.pitch * (0.96 + Math.random() * 0.08)));
   const url = v.files.length
-    ? fileUrl(current.id, v.files[Math.floor(Math.random() * v.files.length)])
-    : `/default-sounds/voice-${'aeiou'[Math.floor(Math.random() * 5)]}.wav`;
-  playUrl(url, v.volume, rate);
+    ? fileUrl(current.id, v.files[pickSyllable(v.files.length)])
+    : defaultVoice.length
+      ? `/default-set/${encodeURIComponent(defaultVoice[pickSyllable(defaultVoice.length)])}`
+      : `/default-sounds/voice-${'aeiou'[pickSyllable(5)]}.wav`;
+  return playUrl(url, v.volume, rate);
 }
 
 // ---------------------------------------------------------------- live pet
@@ -293,14 +308,28 @@ function say(text) {
   speech.textContent = text;
   speech.classList.remove('hidden');
   petState.talking = true;
-  // Same pace as the app (src/components/pet-view.tsx).
+  // As in the app (src/components/pet-view.tsx): each syllable starts when
+  // the previous one has ended, plus a short gap.
   const SYLLABLE_MS = 280;
+  const GAP_MS = 50;
   const syllables = Math.min(9, Math.max(2, Math.round(text.length / 4.5)));
-  for (let i = 0; i < syllables; i++) {
-    at(i * SYLLABLE_MS, () => { frame('talk'); syllable(); animate($('#petjump'), 'bounce'); at(SYLLABLE_MS * 0.6, () => frame('idle')); });
-  }
-  at(syllables * SYLLABLE_MS, () => { petState.talking = false; frame('idle'); });
-  at(syllables * SYLLABLE_MS + 1500, () => speech.classList.add('hidden'));
+  const timers = petState.talkTimers;
+  const step = async (i) => {
+    if (petState.talkTimers !== timers) return; // a newer sentence started
+    if (i >= syllables) {
+      petState.talking = false;
+      frame('idle');
+      at(1500, () => speech.classList.add('hidden'));
+      return;
+    }
+    frame('talk');
+    animate($('#petjump'), 'bounce');
+    const played = await syllable();
+    const length = played > 0 ? Math.min(played, 600) : SYLLABLE_MS - GAP_MS;
+    at(length * 0.6, () => frame('idle'));
+    at(length + GAP_MS, () => step(i + 1));
+  };
+  step(0);
 }
 
 function lineFor(moment) {
@@ -680,6 +709,7 @@ window.addEventListener('beforeunload', (e) => { if (isDirty()) { e.preventDefau
   meta = await api('/api/pet-meta');
   pets = await api('/api/pets');
   ideas = await api('/api/pet-ideas');
+  defaultVoice = (await api('/api/sound-targets')).targets.find((t) => t.kind === 'default')?.files?.voice?.files ?? [];
   updateNextButton();
   renderList();
   if (pets.length) await select(pets[0].id); else renderEditor();

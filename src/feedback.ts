@@ -65,7 +65,38 @@ const DEFAULT_SLOTS: Record<Exclude<SoundSlot, 'correct'>, { sounds: DefaultSoun
 // playback rate every platform supports).
 const STREAK_SEMITONES = [0, 2, 4, 7, 9, 12];
 
-type Pool = { players: AudioPlayer[]; next: number };
+// Each sound has a few players so quick repeats can overlap. Jumping back to
+// the start (seekTo) is asynchronous: calling play() right after it could
+// start from the end of the sound and play nothing (missing key taps). So
+// every player rewinds as soon as its sound finishes, and a press plays a
+// player that is already rewound ("ready").
+type Voice = { player: AudioPlayer; ready: boolean };
+type Pool = { voices: Voice[]; next: number };
+
+function rewind(voice: Voice) {
+  voice.player
+    .seekTo(0)
+    .then(() => {
+      voice.ready = true;
+    })
+    .catch(() => {});
+}
+
+function makePool(source: number, size: number): Pool {
+  const voices = Array.from({ length: size }, () => {
+    const voice: Voice = { player: createAudioPlayer(source), ready: true };
+    voice.player.addListener('playbackStatusUpdate', (status) => {
+      if (status.didJustFinish) rewind(voice);
+    });
+    return voice;
+  });
+  return { voices, next: 0 };
+}
+
+const releasePool = (pool: Pool) => pool.voices.forEach((v) => v.player.remove());
+
+// Players per recording: more for sounds that repeat quickly.
+const poolSize = (slot: DefaultSetSlot) => (slot === 'coin' ? 4 : slot === 'tap' ? 3 : 2);
 
 const VOICE_SYLLABLES: DefaultSound[] = ['voice-a', 'voice-e', 'voice-i', 'voice-o', 'voice-u'];
 
@@ -81,13 +112,10 @@ let muted = false;
 export function initFeedback() {
   setAudioModeAsync({ interruptionMode: 'mixWithOthers' }).catch(() => {});
   for (const name of Object.keys(DEFAULTS) as DefaultSound[]) {
-    const players = Array.from({ length: POOL_SIZE[name] ?? 1 }, () => createAudioPlayer(DEFAULTS[name]));
-    defaultPools.set(name, { players, next: 0 });
+    defaultPools.set(name, makePool(DEFAULTS[name], POOL_SIZE[name] ?? 1));
   }
   for (const [slot, sound] of Object.entries(DEFAULT_SET) as [DefaultSetSlot, { sources: number[]; volume: number }][]) {
-    const size = slot === 'coin' ? 4 : 2;
-    const pools = sound.sources.map((source) => ({ players: Array.from({ length: size }, () => createAudioPlayer(source)), next: 0 }));
-    defaultSetPools.set(slot, { pools, volume: sound.volume });
+    defaultSetPools.set(slot, { pools: sound.sources.map((source) => makePool(source, poolSize(slot))), volume: sound.volume });
   }
 }
 
@@ -96,16 +124,11 @@ export function applyThemeSounds(theme: Theme) {
   if (theme.id === themeSoundsId) return;
   themeSoundsId = theme.id;
   for (const { pools } of themePools.values()) {
-    for (const pool of pools) pool.players.forEach((p) => p.remove());
+    pools.forEach(releasePool);
   }
   themePools = new Map();
   for (const [slot, sound] of Object.entries(theme.sounds) as [SoundSlot, { sources: number[]; volume: number }][]) {
-    const size = slot === 'coin' ? 4 : 2;
-    const pools = sound.sources.map((source) => ({
-      players: Array.from({ length: size }, () => createAudioPlayer(source)),
-      next: 0,
-    }));
-    themePools.set(slot, { pools, volume: sound.volume });
+    themePools.set(slot, { pools: sound.sources.map((source) => makePool(source, poolSize(slot))), volume: sound.volume });
   }
 }
 
@@ -114,11 +137,11 @@ let petVoice: { id: string; pools: Pool[]; volume: number; pitch: number } | nul
 
 export function applyPetVoice(pet: Pet | null) {
   if ((pet?.id ?? null) === (petVoice?.id ?? null)) return;
-  petVoice?.pools.forEach((pool) => pool.players.forEach((p) => p.remove()));
+  petVoice?.pools.forEach(releasePool);
   petVoice = pet
     ? {
         id: pet.id,
-        pools: pet.voiceFiles.map((source) => ({ players: [createAudioPlayer(source), createAudioPlayer(source)], next: 0 })),
+        pools: pet.voiceFiles.map((source) => makePool(source, 2)),
         volume: pet.voiceVolume,
         pitch: pet.voicePitch,
       }
@@ -136,16 +159,28 @@ let busyUntil = 0;
 // Used when a player hasn't loaded its file yet and doesn't know its length.
 const FALLBACK_SECONDS = 0.5;
 
-function playFrom(pool: Pool | undefined, volume: number, rate?: number, isPet = false) {
-  if (muted || !pool) return;
-  const player = pool.players[pool.next];
-  pool.next = (pool.next + 1) % pool.players.length;
+function playFrom(pool: Pool | undefined, volume: number, rate?: number, isPet = false): Voice | undefined {
+  if (muted || !pool) return undefined;
+  // The next rewound player; if all are still busy, restart the oldest one
+  // (waiting for its rewind before playing).
+  const count = pool.voices.length;
+  let pick = 0;
+  while (pick < count && !pool.voices[(pool.next + pick) % count].ready) pick++;
+  const voice = pool.voices[(pool.next + (pick < count ? pick : 0)) % count];
+  pool.next = (pool.voices.indexOf(voice) + 1) % count;
+  const wasReady = voice.ready;
+  voice.ready = false;
+  const player = voice.player;
   try {
     player.volume = volume;
     // No pitch correction argument: changing the rate changes the pitch.
     if (rate !== undefined) player.setPlaybackRate(rate);
-    player.seekTo(0);
-    player.play();
+    if (wasReady) player.play();
+    else
+      player
+        .seekTo(0)
+        .then(() => player.play())
+        .catch(() => {});
     if (!isPet) {
       const seconds = (player.duration > 0 ? player.duration : FALLBACK_SECONDS) / (rate ?? 1);
       busyUntil = Math.max(busyUntil, Date.now() + seconds * 1000);
@@ -153,11 +188,21 @@ function playFrom(pool: Pool | undefined, volume: number, rate?: number, isPet =
   } catch {
     // A missed sound effect should never break the game.
   }
+  return voice;
 }
 
 // Milliseconds until the sound effects playing now have finished (0 = quiet).
 export function quietIn() {
   return muted ? 0 : Math.max(0, busyUntil - Date.now());
+}
+
+let lastSyllable = -1;
+// A random syllable, never the same one twice in a row.
+function pickSyllable(count: number) {
+  let i = Math.floor(Math.random() * count);
+  if (count > 1 && i === lastSyllable) i = (i + 1 + Math.floor(Math.random() * (count - 1))) % count;
+  lastSyllable = i;
+  return i;
 }
 
 let variant = 0;
@@ -220,19 +265,26 @@ export const feedback = {
   },
   // One babble syllable while a pet talks, at a slightly random pitch so a
   // sentence sounds like cute chatter. `pet` sets the voice's pitch.
-  petSyllable(pet: Pet) {
+  // One babble syllable of a talking pet. Returns how long it lasts (ms), so
+  // the pet can start the next one only when this one is over; 0 when it
+  // stayed silent. The pitch varies only a little, and the same syllable
+  // never plays twice in a row, so a sentence sounds like calm chatter.
+  petSyllable(pet: Pet): number {
     // Another sound started while the pet was talking: let it finish silently.
-    if (quietIn() > 0) return;
-    const rate = Math.min(2, Math.max(0.5, pet.voicePitch * (0.88 + Math.random() * 0.3)));
+    if (quietIn() > 0) return 0;
+    const rate = Math.min(2, Math.max(0.5, pet.voicePitch * (0.96 + Math.random() * 0.08)));
     const setVoice = defaultSetPools.get('voice');
+    let voice: Voice | undefined;
     if (petVoice?.id === pet.id && petVoice.pools.length) {
-      playFrom(petVoice.pools[Math.floor(Math.random() * petVoice.pools.length)], petVoice.volume, rate, true);
+      voice = playFrom(petVoice.pools[pickSyllable(petVoice.pools.length)], petVoice.volume, rate, true);
     } else if (setVoice) {
-      playFrom(setVoice.pools[Math.floor(Math.random() * setVoice.pools.length)], pet.voiceVolume * setVoice.volume, rate, true);
+      voice = playFrom(setVoice.pools[pickSyllable(setVoice.pools.length)], pet.voiceVolume * setVoice.volume, rate, true);
     } else {
-      const syllable = VOICE_SYLLABLES[Math.floor(Math.random() * VOICE_SYLLABLES.length)];
-      playFrom(defaultPools.get(syllable), pet.voiceVolume, rate, true);
+      voice = playFrom(defaultPools.get(VOICE_SYLLABLES[pickSyllable(VOICE_SYLLABLES.length)]), pet.voiceVolume, rate, true);
     }
+    if (!voice) return 0;
+    const seconds = voice.player.duration > 0 ? voice.player.duration : 0.25;
+    return Math.round((seconds * 1000) / rate);
   },
   fanfare() {
     playSlot('fanfare');

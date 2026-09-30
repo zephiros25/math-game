@@ -85,8 +85,7 @@ export default function Play() {
   const petSay = (text: string, important = false) => {
     if (!important && now() - lastTalk.current < 3000) return petRef.current?.hop();
     lastTalk.current = now();
-    // Let the answer sound ring first.
-    setTimeout(() => petRef.current?.say(text), 220);
+    petRef.current?.say(text);
   };
   useEffect(() => {
     if (!pet) return;
@@ -300,7 +299,8 @@ export default function Play() {
         </View>
 
         <View style={[styles.petRow, !pet && styles.petRowEmpty]}>
-          {pet && <PetView ref={petRef} pet={pet} size={72} bubble="right" />}
+          {/* Quiet during a run: the game's own sounds are enough. */}
+          {pet && <PetView ref={petRef} pet={pet} size={72} bubble="right" silent />}
           <Text style={styles.counter}>
             {Math.min(index, total)} / {total}
           </Text>

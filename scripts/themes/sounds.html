@@ -104,17 +104,29 @@ const fileUrl = (t, f) =>
 const doneCount = (t) => slotsFor(t.kind).filter((s) => filesOf(t, s).length > 0).length;
 
 // ---------------------------------------------------------------- playing
+// Plays a sound; resolves to its length in ms once it has started.
 function play(t, f, rate = 1) {
   const a = new Audio(fileUrl(t, f));
   a.preservesPitch = false;
   a.playbackRate = rate;
-  a.play().catch(() => {});
+  return a.play().then(() => (a.duration * 1000) / rate, () => 0);
 }
-// A pet voice: a little sentence of random syllables at slightly varied pitch.
-function babble(t) {
+// A pet voice, as in the app: seven syllables one after another (each starts
+// when the previous one ends, plus a short gap), small pitch changes, never
+// the same syllable twice in a row.
+let babbleRun = 0;
+async function babble(t) {
   const files = filesOf(t, 'voice');
   if (!files.length) return;
-  for (let i = 0; i < 7; i++) setTimeout(() => play(t, files[Math.floor(Math.random() * files.length)], 0.9 + Math.random() * 0.3), i * 190);
+  const run = ++babbleRun;
+  let last = -1;
+  for (let i = 0; i < 7 && run === babbleRun; i++) {
+    let k = Math.floor(Math.random() * files.length);
+    if (files.length > 1 && k === last) k = (k + 1 + Math.floor(Math.random() * (files.length - 1))) % files.length;
+    last = k;
+    const length = (await play(t, files[k], 0.96 + Math.random() * 0.08)) || 250;
+    await new Promise((r) => setTimeout(r, Math.min(length, 600) + 50));
+  }
 }
 // Correct: the same note climbing, as in a streak.
 function streak(t) {

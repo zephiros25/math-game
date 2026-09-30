@@ -37,13 +37,18 @@ type Props = {
   // Where the speech bubble appears.
   bubble?: 'right' | 'top';
   onPress?: () => void;
+  // Talks with its speech bubble and mouth only, no voice (during a run).
+  silent?: boolean;
   ref?: Ref<PetHandle>;
 };
 
-// Talking pace: one mouth flap (and babble syllable) per SYLLABLE_MS, with
-// the mouth open for MOUTH_OPEN of each flap. Keep in sync with the Studio
-// preview (scripts/themes/pets.html).
+// Talking: one babble syllable after another, each starting only when the
+// previous one has ended (plus SYLLABLE_GAP_MS), so they never overlap. The
+// mouth is open for MOUTH_OPEN of each syllable. A silent pet (or one whose
+// syllable couldn't play) flaps every SYLLABLE_MS. Keep in sync with the
+// Studio previews (scripts/themes/pets.html, sounds.html).
 const SYLLABLE_MS = 280;
+const SYLLABLE_GAP_MS = 50;
 const MAX_WAIT_MS = 4000;
 const MOUTH_OPEN = 0.6;
 const syllablesFor = (text: string) => Math.min(9, Math.max(2, Math.round(text.length / 4.5)));
@@ -52,7 +57,7 @@ const IDLE = 0;
 const BLINK = 1;
 const TALK = 2;
 
-export function PetView({ pet, size: baseSize, bubble = 'right', onPress, ref }: Props) {
+export function PetView({ pet, size: baseSize, bubble = 'right', onPress, silent = false, ref }: Props) {
   const t = useTheme();
   const styles = useMemo(() => makeStyles(t), [t]);
   const size = Math.round(baseSize * pet.size);
@@ -163,27 +168,28 @@ export function PetView({ pet, size: baseSize, bubble = 'right', onPress, ref }:
   const say = (text: string) => {
     talkTimers.current.forEach(clearTimeout);
     talkTimers.current.clear();
-    whileTalking(Math.min(quietIn(), MAX_WAIT_MS), () => talk(text));
+    whileTalking(silent ? 0 : Math.min(quietIn(), MAX_WAIT_MS), () => talk(text));
   };
 
   const talk = (text: string) => {
     talking.current = true;
     setSpeech(text);
     const syllables = syllablesFor(text);
-    for (let i = 0; i < syllables; i++) {
-      whileTalking(i * SYLLABLE_MS, () => {
-        if (hasTalk) frame.set(TALK);
-        feedback.petSyllable(pet);
-        if (!still) jump.set(withSequence(withTiming(-3, { duration: 110 }), withTiming(0, { duration: 150 })));
-        whileTalking(SYLLABLE_MS * MOUTH_OPEN, () => frame.set(IDLE));
-      });
-    }
-    const done = syllables * SYLLABLE_MS;
-    whileTalking(done, () => {
-      talking.current = false;
-      frame.set(IDLE);
-    });
-    whileTalking(done + 1500, () => setSpeech(null));
+    const step = (i: number) => {
+      if (i >= syllables) {
+        talking.current = false;
+        frame.set(IDLE);
+        whileTalking(1500, () => setSpeech(null));
+        return;
+      }
+      if (hasTalk) frame.set(TALK);
+      const played = silent ? 0 : feedback.petSyllable(pet);
+      const length = played > 0 ? Math.min(played, 600) : SYLLABLE_MS - SYLLABLE_GAP_MS;
+      if (!still) jump.set(withSequence(withTiming(-3, { duration: 110 }), withTiming(0, { duration: 150 })));
+      whileTalking(length * MOUTH_OPEN, () => frame.set(IDLE));
+      whileTalking(length + SYLLABLE_GAP_MS, () => step(i + 1));
+    };
+    step(0);
   };
 
   useImperativeHandle(ref, () => ({ say, hop }));
