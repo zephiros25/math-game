@@ -65,38 +65,19 @@ const DEFAULT_SLOTS: Record<Exclude<SoundSlot, 'correct'>, { sounds: DefaultSoun
 // playback rate every platform supports).
 const STREAK_SEMITONES = [0, 2, 4, 7, 9, 12];
 
-// Each sound has a few players so quick repeats can overlap. Jumping back to
-// the start (seekTo) is asynchronous: calling play() right after it could
-// start from the end of the sound and play nothing (missing key taps). So
-// every player rewinds as soon as its sound finishes, and a press plays a
-// player that is already rewound ("ready").
-type Voice = { player: AudioPlayer; ready: boolean };
+// Each sound has a few players so quick repeats can overlap.
+type Voice = { player: AudioPlayer };
 type Pool = { voices: Voice[]; next: number };
 
-function rewind(voice: Voice) {
-  voice.player
-    .seekTo(0)
-    .then(() => {
-      voice.ready = true;
-    })
-    .catch(() => {});
-}
-
-function makePool(source: number, size: number): Pool {
-  const voices = Array.from({ length: size }, () => {
-    const voice: Voice = { player: createAudioPlayer(source), ready: true };
-    voice.player.addListener('playbackStatusUpdate', (status) => {
-      if (status.didJustFinish) rewind(voice);
-    });
-    return voice;
-  });
-  return { voices, next: 0 };
-}
+const makePool = (source: number, size: number): Pool => ({
+  voices: Array.from({ length: size }, () => ({ player: createAudioPlayer(source) })),
+  next: 0,
+});
 
 const releasePool = (pool: Pool) => pool.voices.forEach((v) => v.player.remove());
 
 // Players per recording: more for sounds that repeat quickly.
-const poolSize = (slot: DefaultSetSlot) => (slot === 'coin' ? 4 : slot === 'tap' ? 3 : 2);
+const poolSize = (slot: DefaultSetSlot) => (slot === 'coin' ? 4 : 2);
 
 const VOICE_SYLLABLES: DefaultSound[] = ['voice-a', 'voice-e', 'voice-i', 'voice-o', 'voice-u'];
 
@@ -161,26 +142,30 @@ const FALLBACK_SECONDS = 0.5;
 
 function playFrom(pool: Pool | undefined, volume: number, rate?: number, isPet = false): Voice | undefined {
   if (muted || !pool) return undefined;
-  // The next rewound player; if all are still busy, restart the oldest one
-  // (waiting for its rewind before playing).
-  const count = pool.voices.length;
-  let pick = 0;
-  while (pick < count && !pool.voices[(pool.next + pick) % count].ready) pick++;
-  const voice = pool.voices[(pool.next + (pick < count ? pick : 0)) % count];
-  pool.next = (pool.voices.indexOf(voice) + 1) % count;
-  const wasReady = voice.ready;
-  voice.ready = false;
+  const voice = pool.voices[pool.next];
+  pool.next = (pool.next + 1) % pool.voices.length;
   const player = voice.player;
   try {
     player.volume = volume;
     // No pitch correction argument: changing the rate changes the pitch.
     if (rate !== undefined) player.setPlaybackRate(rate);
-    if (wasReady) player.play();
-    else
-      player
-        .seekTo(0)
-        .then(() => player.play())
-        .catch(() => {});
+    // Jumping back to the start is asynchronous. A player still at the end
+    // of its last sound must wait for it, or play() starts at the end and
+    // plays nothing (the missing key taps).
+    // (If the jump back doesn't confirm quickly, play anyway after 60 ms.)
+    if (player.currentTime > 0.02) {
+      let started = false;
+      const start = () => {
+        if (started) return;
+        started = true;
+        player.play();
+      };
+      player.seekTo(0).then(start, start);
+      setTimeout(start, 60);
+    } else {
+      player.seekTo(0);
+      player.play();
+    }
     if (!isPet) {
       const seconds = (player.duration > 0 ? player.duration : FALLBACK_SECONDS) / (rate ?? 1);
       busyUntil = Math.max(busyUntil, Date.now() + seconds * 1000);
