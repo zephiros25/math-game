@@ -67,19 +67,62 @@ function loudestRms(s) {
   return Math.sqrt(best / w);
 }
 
-// Cuts off silence before and after the sound (anything 45 dB below the peak).
-function trim(s) {
-  const floor = Math.max(peakOf(s) * 0.0056, 1e-4);
-  let start = 0;
-  while (start < s.length && Math.abs(s[start]) < floor) start++;
-  let end = s.length - 1;
-  while (end > start && Math.abs(s[end]) < floor) end--;
-  return s.slice(Math.max(0, start - ms(3)), Math.min(s.length, end + ms(10)));
+// Loudness (RMS) of every 5 ms stretch. Judging by stretches rather than
+// single samples keeps faint hiss or a lone click from counting as sound.
+const ENV_MS = 5;
+function envelope(s) {
+  const w = ms(ENV_MS);
+  const env = [];
+  for (let i = 0; i < s.length; i += w) {
+    let sum = 0;
+    const end = Math.min(s.length, i + w);
+    for (let j = i; j < end; j++) sum += s[j] * s[j];
+    env.push(Math.sqrt(sum / (end - i)));
+  }
+  return env;
 }
+
+// Cuts off the silence before and after the sound: it starts where it gets
+// within 35 dB of its loudest moment and ends when it fades below 50 dB.
+function trim(s) {
+  const env = envelope(s);
+  const top = Math.max(...env);
+  const first = env.findIndex((v) => v >= top * 10 ** (-35 / 20));
+  let last = env.length - 1;
+  while (last > first && env[last] < top * 10 ** (-50 / 20)) last--;
+  const w = ms(ENV_MS);
+  return s.slice(Math.max(0, first * w - ms(3)), Math.min(s.length, (last + 1) * w + ms(5)));
+}
+
+// The separate hits in a clip (generators often make several in a row):
+// stretches within 30 dB of the loudest moment, apart by at least 40 ms of
+// quiet. Returns [start, end] sample positions; each hit runs until the next
+// one starts, so its natural decay is kept.
+function hits(s) {
+  const env = envelope(s);
+  const top = Math.max(...env);
+  const on = top * 10 ** (-30 / 20);
+  const gap = Math.round(40 / ENV_MS);
+  const starts = [];
+  let quiet = gap;
+  env.forEach((v, i) => {
+    if (v >= on) {
+      if (quiet >= gap) starts.push(i);
+      quiet = 0;
+    } else quiet++;
+  });
+  const w = ms(ENV_MS);
+  return starts.map((a, k) => [Math.max(0, a * w - ms(3)), k + 1 < starts.length ? starts[k + 1] * w - ms(5) : s.length]);
+}
+
+// Sounds that should be one short hit, and how many of them to keep (the
+// tap rotates between up to three variations).
+const SINGLE_HITS = { tap: 3, backspace: 1, button: 1, coin: 1, correct: 1 };
 
 export function processSamples(samples, kind) {
   const rule = RULES[kind];
   if (!rule) throw new Error(`unknown sound "${kind}"`);
+  if (peakOf(samples) < 1e-4) throw new Error('the sound is silent');
   let s = trim(samples);
   if (s.length < ms(15)) throw new Error('the sound is (almost) silent');
   if (s.length > ms(rule.maxMs)) s = s.slice(0, ms(rule.maxMs));
@@ -136,9 +179,20 @@ export function encode(samples) {
   return length >= AAC_FROM_MS ? { data: aac(samples), ext: '.m4a', ms: length } : { data: wav(samples), ext: '.wav', ms: length };
 }
 
-// A downloaded sound, ready for the game.
-export function prepareSound(data, kind) {
-  return encode(processSamples(decode(data), kind));
+// A downloaded sound, ready for the game: a list of prepared sounds (one,
+// or up to three tap variations when the clip holds several hits).
+export function prepareSounds(data, kind) {
+  const s = decode(data);
+  const keep = SINGLE_HITS[kind];
+  if (!keep) return [encode(processSamples(s, kind))];
+  // Keep only full hits (within 6 dB of the loudest), not quiet echoes.
+  const found = hits(s).map(([a, b]) => s.slice(a, b));
+  const peaks = found.map(peakOf);
+  const loudest = Math.max(...peaks);
+  return found
+    .filter((_, i) => peaks[i] >= loudest / 2)
+    .slice(0, keep)
+    .map((hit) => encode(processSamples(hit, kind)));
 }
 
 // Cuts a babble clip into syllables at the quiet gaps between them. Returns

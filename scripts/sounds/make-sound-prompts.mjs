@@ -16,29 +16,29 @@ const read = (path) => JSON.parse(readFileSync(new URL(path, root), 'utf8'));
 
 // What each sound is for, and how long it should be.
 export const SLOTS = {
-  tap: { label: 'Number key tap', when: 'every key press (download up to 3 variations)', length: 'very short, under 0.2 s' },
-  backspace: { label: 'Backspace', when: 'deleting a digit', length: 'very short' },
-  button: { label: 'Menu button', when: 'buttons outside the keypad', length: 'short, about 0.2 s' },
-  correct: { label: 'Correct answer', when: 'every right answer; the game plays it higher for each answer in a streak, so it must be ONE note', length: 'about 0.5 s' },
-  wrong: { label: 'Wrong answer', when: 'a wrong answer; must be kind, never a buzzer', length: 'about 0.5 s' },
-  levelUp: { label: 'New best level', when: 'passing your best level during a run', length: 'about 1 s' },
-  fanfare: { label: 'Fanfare', when: 'end of a run, unlocking a theme or pet', length: 'about 2 s' },
-  coin: { label: 'Coin', when: 'coins counting up on the results screen (plays many times in a row)', length: 'very short' },
-  gem: { label: 'Gem', when: 'earning a gem', length: 'about 0.7 s' },
-  voice: { label: 'Pet voice', when: 'a pet talking; the Studio cuts the clip into separate syllables', length: 'about 2–3 s' },
+  tap: { label: 'Number key tap', when: 'every key press (a clip with several taps gives up to 3 variations)', length: 'generate at the shortest length (0.5 s)' },
+  backspace: { label: 'Backspace', when: 'deleting a digit', length: 'generate at the shortest length (0.5 s)' },
+  button: { label: 'Menu button', when: 'buttons outside the keypad', length: 'generate at the shortest length (0.5 s)' },
+  correct: { label: 'Correct answer', when: 'every right answer; the game plays it higher for each answer in a streak, so it must be ONE note', length: 'generate at 0.5–1 s' },
+  wrong: { label: 'Wrong answer', when: 'a wrong answer; must be kind, never a buzzer', length: 'generate at about 1 s' },
+  levelUp: { label: 'New best level', when: 'passing your best level during a run', length: 'generate at 1–1.5 s' },
+  fanfare: { label: 'Fanfare', when: 'end of a run, unlocking a theme or pet', length: 'generate at 2–3 s' },
+  coin: { label: 'Coin', when: 'coins counting up on the results screen (plays many times in a row)', length: 'generate at the shortest length (0.5 s)' },
+  gem: { label: 'Gem', when: 'earning a gem', length: 'generate at 0.5–1 s' },
+  voice: { label: 'Pet voice', when: 'a pet talking; the Studio cuts the clip into separate syllables', length: 'generate at 2–3 s' },
 };
 
 const CLEAN = 'Isolated sound, clean close recording, nothing else playing, no background noise, no echo, soft and pleasant, never harsh or shrill.';
 
 const TEMPLATES = {
-  tap: ({ touch }) => `One soft, short, muted tap on ${touch}, like pressing a well-made button. Gentle and satisfying, very short. ${CLEAN}`,
-  backspace: ({ touch }) => `One soft, slightly lower and duller tap on ${touch}, a gentle "tuk" for undoing something. Very short. ${CLEAN}`,
-  button: ({ touch }) => `One soft, round, friendly pop on ${touch}, like a light bubble or cork. Short. ${CLEAN}`,
+  tap: ({ touch }) => `One soft, short, muted tap on ${touch}, like pressing a well-made button. Gentle and satisfying, very short. Only one tap, then silence. ${CLEAN}`,
+  backspace: ({ touch }) => `One soft, slightly lower and duller tap on ${touch}, a gentle "tuk" for undoing something. Very short. Only one tap, then silence. ${CLEAN}`,
+  button: ({ touch }) => `One soft, round, friendly pop on ${touch}, like a light bubble or cork. Short. Only one pop, then silence. ${CLEAN}`,
   correct: ({ tone }) => `One single clear, warm note on ${tone}, gentle attack and a short natural fade. Only one note, no melody, no chord. ${CLEAN}`,
   wrong: ({ tone }) => `A soft, kind "oops": two gentle low notes stepping down on ${tone}, muted and short. Not a buzzer, not sad, not harsh. ${CLEAN}`,
   levelUp: ({ tone }) => `A short, cheerful rising run of four quick notes on ${tone}, ending on a bright note. About 1 second. ${CLEAN}`,
   fanfare: ({ tone }) => `A short, happy celebration jingle on ${tone} with a light sparkle at the end, about 2 seconds, ending cleanly. Cute, for a children's game, not loud. ${CLEAN}`,
-  coin: ({ tone }) => `One tiny, soft, high "ting" of a small coin, with a hint of ${tone}. Very short and delicate. ${CLEAN}`,
+  coin: ({ tone }) => `One tiny, soft, high "ting" of a small coin, with a hint of ${tone}. Very short and delicate. Only one ting, then silence. ${CLEAN}`,
   gem: ({ tone }) => `A small magical sparkle: a soft shimmer with one bright bell-like ping on ${tone}. About 0.7 seconds. ${CLEAN}`,
 };
 
@@ -237,7 +237,8 @@ L.push('The Studio copies each prompt and catches the file you download from the
 L.push('generator (it watches your Downloads folder), then trims it, evens out the volume');
 L.push('and adds soft fades. No renaming, no dragging.', '');
 L.push('Generator tips:');
-L.push(' - Set the length close to the one given per sound (shorter is better).');
+L.push(' - Set the length yourself (not Auto, which tends to make 7-second clips): see the');
+L.push('   length per sound below. A long clip still works: the Studio keeps the best hit.');
 L.push(' - Most generators make several versions: listen and download only the nicest.');
 L.push(' - For the tap sound, download up to 3 versions: the game rotates between them.');
 L.push(' - Check the licence: the sounds must be allowed in a paid app.', '');

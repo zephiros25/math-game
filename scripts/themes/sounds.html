@@ -183,12 +183,13 @@ async function poll() {
     armed.since = file.mtime;
     setStatus(`Cleaning up ${file.name}…`);
     const r = await post('/api/sounds/take', { kind: t.kind, id: t.id, slot, file: file.name, append: slot === 'tap' && armed.count > 0 });
-    armed.count++;
+    armed.count += r.added ?? 1;
     await refresh();
     const nt = target();
     setStatus(`✓ ${file.name} → ${prompts.slots[slot].label}`);
     if (slot === 'voice') babble(nt);
-    else play(nt, r.files[r.files.length - 1]);
+    // Several taps from one clip: play them one after another.
+    else r.files.slice(-(r.added ?? 1)).forEach((f, n) => setTimeout(() => play(nt, f), n * 350));
     // The tap sound takes up to three variations; everything else one.
     if (slot !== 'tap' || armed.count >= 3) {
       disarm();
@@ -240,7 +241,7 @@ function render() {
     flowState = [`Waiting for your download: ${label}`, h('span', { class: 'hint' },
       armed.slot === 'tap'
         ? `Prompt copied. Download up to 3 versions (${armed.count}/3 in).`
-        : 'Prompt copied: paste it into the sound generator, then download the one you like best.')];
+        : 'Prompt copied: paste it into the sound generator (set the length, not Auto), then download the one you like best.')];
     flowButtons.push(h('button', { onclick: () => { disarm(); render(); } }, armed.slot === 'tap' && armed.count ? 'Done with taps' : 'Stop waiting'));
   } else {
     const step = nextStep();

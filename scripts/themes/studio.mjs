@@ -23,7 +23,7 @@ import { splitSheet } from '../pets/sheet.mjs';
 import { classifyPetPictures } from '../pets/sort.mjs';
 import { buildPets } from '../pets/build.mjs';
 import { buildDefaultSounds, DEFAULT_SET_DIR, DEFAULT_SLOTS, readDefaultSet } from '../sounds/build.mjs';
-import { prepareSound, prepareVoice } from '../sounds/process.mjs';
+import { prepareSounds, prepareVoice } from '../sounds/process.mjs';
 import {
   defaultPet,
   ID_PATTERN as PET_ID_PATTERN,
@@ -619,7 +619,7 @@ async function assignSound(kind, id, slot, data, append) {
   const isVoice = slot === 'voice';
   const prepare = () => {
     try {
-      return isVoice ? prepareVoice(data) : [prepareSound(data, slot)];
+      return isVoice ? prepareVoice(data) : prepareSounds(data, slot);
     } catch (e) {
       throw new HttpError(400, `Could not use this sound: ${e.message}`);
     }
@@ -632,17 +632,18 @@ async function assignSound(kind, id, slot, data, append) {
     // Real recordings already have the right pitch.
     json.voice = { ...json.voice, files, pitch: 1 };
     savePet(id, json);
-    return { files };
+    return { files, added: files.length };
   }
   if (kind === 'theme') {
     if (isVoice || !DEFAULT_SLOTS.includes(slot)) throw new HttpError(400, `Unknown sound "${slot}"`);
     const dir = themeDir(id);
     const json = JSON.parse(readFileSync(join(dir, 'theme.json'), 'utf8'));
-    const [file] = writeFiles(dir, `sound-${slot}`, prepare());
+    const written = writeFiles(dir, `sound-${slot}`, prepare());
     const old = json.sounds?.[slot];
-    json.sounds = { ...json.sounds, [slot]: { files: append && old ? [...old.files, file].slice(-3) : [file], volume: old?.volume ?? 1 } };
+    const files = append && old ? [...old.files, ...written].slice(-3) : written;
+    json.sounds = { ...json.sounds, [slot]: { files, volume: old?.volume ?? 1 } };
     saveTheme(id, json);
-    return { files: json.sounds[slot].files };
+    return { files, added: written.length };
   }
   if (kind === 'default') {
     if (!DEFAULT_SLOTS.includes(slot)) throw new HttpError(400, `Unknown sound "${slot}"`);
@@ -653,7 +654,7 @@ async function assignSound(kind, id, slot, data, append) {
     const files = isVoice ? written : append && old ? [...old.files, ...written].slice(-3) : written;
     set[slot] = { files, volume: old?.volume ?? 1 };
     saveDefaultSet(set);
-    return { files };
+    return { files, added: written.length };
   }
   throw new HttpError(400, `Unknown kind "${kind}"`);
 }
