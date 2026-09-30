@@ -44,6 +44,7 @@
   .line-row:first-of-type { border-top: none; }
   .thumb-list img { width: 34px; height: 34px; object-fit: contain; }
   .quick { border: 2px solid var(--accent); }
+  .prompt b.animal { background: #fff1b8; border-radius: 4px; padding: 0 3px; }
   .quick ol { padding-left: 20px; margin: 8px 0; }
   .quick li { margin: 10px 0; }
   .paste-zone { border: 2px dashed var(--accent); border-radius: 14px; padding: 16px; text-align: center; background: #fff7f3; }
@@ -437,13 +438,13 @@ function quickCard(p) {
   return h('section', { class: 'card quick' },
     h('h2', {}, `Make ${p.name} with ChatGPT`),
     h('ol', {},
-      h('li', {}, 'Start a ', h('b', {}, 'new temporary chat'), ' in ChatGPT and paste this (one picture with all three versions):', promptBox(prompts.sheet)),
+      h('li', {}, 'Start a ', h('b', {}, 'new temporary chat'), ' in ChatGPT and paste this (one picture with all three versions):', promptBox(prompts.sheet, ideaFor(current.id)?.description)),
       h('li', {}, 'Copy the picture into the Studio: the Studio cuts it into three and sorts them.', zone),
     ),
     h('details', { class: 'recipe' },
       h('summary', {}, 'If the sheet comes out wrong: make three separate pictures instead'),
       h('ol', {},
-        h('li', {}, 'In a new temporary chat:', promptBox(prompts.idle)),
+        h('li', {}, 'In a new temporary chat:', promptBox(prompts.idle, ideaFor(current.id)?.description)),
         h('li', {}, 'Then:', promptBox(prompts.blink)),
         h('li', {}, 'Then:', promptBox(prompts.talk)),
       ),
@@ -528,6 +529,9 @@ async function nextPet() {
     alert('Every pet from docs/pet-ideas.json has been made!');
     return;
   }
+  // Copy right away, while this still counts as part of the click: browsers
+  // only allow clipboard writes during a user action, not seconds later.
+  const copied = navigator.clipboard.writeText(promptsFor(idea.id).sheet).then(() => true, () => false);
   try {
     const created = await api('/api/pets', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ id: idea.id }) });
     const json = withDefaults(created.json);
@@ -540,12 +544,9 @@ async function nextPet() {
     savedJson = '';
     await select(idea.id);
     updateNextButton();
-    try {
-      await navigator.clipboard.writeText(promptsFor(idea.id).sheet);
-      setStatus(`The prompt for ${idea.name} is copied. Paste it into a new temporary ChatGPT chat.`);
-    } catch {
-      setStatus(`${idea.name} is ready. Copy the prompt below into a new temporary ChatGPT chat.`);
-    }
+    setStatus((await copied)
+      ? `✓ The prompt for ${idea.name} is copied. Paste it into a new temporary ChatGPT chat.`
+      : `${idea.name} is ready. Copy the prompt below into a new temporary ChatGPT chat.`);
   } catch (e) {
     alert(e.message);
   }
@@ -558,8 +559,11 @@ function updateNextButton() {
   button.disabled = !ideas.length || made === ideas.length;
 }
 
-function promptBox(text) {
-  return h('div', { class: 'prompt' }, text, ' ', h('button', { class: 'small', onclick: () => { navigator.clipboard.writeText(text); setStatus('Prompt copied'); } }, 'Copy'));
+// Shows a prompt with a Copy button; `highlight` (the animal) is shown in bold.
+function promptBox(text, highlight) {
+  const at = highlight ? text.indexOf(highlight) : -1;
+  const shown = at < 0 ? [text] : [text.slice(0, at), h('b', { class: 'animal' }, highlight), text.slice(at + highlight.length)];
+  return h('div', { class: 'prompt' }, ...shown, ' ', h('button', { class: 'small', onclick: () => { navigator.clipboard.writeText(text); setStatus('Prompt copied'); } }, 'Copy'));
 }
 
 function voiceCard(p) {
