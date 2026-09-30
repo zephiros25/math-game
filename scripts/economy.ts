@@ -11,7 +11,7 @@ import { readdirSync, readFileSync } from 'node:fs';
 
 import { judge } from '../src/game/engine';
 import { generateQuestion, MAX_LEVEL } from '../src/game/levels';
-import { coinsFor, GEMS, isStreakGem, runBonusGems } from '../src/game/rewards';
+import { COINS_PER_FINISHED_RUN, coinsFor, GEMS, isStreakGem, runBonusGems } from '../src/game/rewards';
 
 type Skill = (level: number) => [ms: number, accuracy: number];
 
@@ -75,6 +75,7 @@ for (const [name, skill] of Object.entries(PLAYERS)) {
         level = v.nextLevel;
         peak = Math.max(peak, level);
       }
+      coins += COINS_PER_FINISHED_RUN;
       gems += runBonusGems({ correct, total: QUESTIONS, peakLevel: peak, previousBest: best, firstRunToday: run % 3 !== 2 }).gems;
       best = Math.max(best, peak);
       coinsAt[run] += coins;

@@ -1,5 +1,6 @@
-// Coins reward every correct answer, weighted by level and speed, so a child
-// playing at their own level still earns steadily; they buy themes.
+// Coins reward every correct answer, weighted by level and speed, plus a
+// flat bonus for finishing a run so younger players earn steadily too;
+// they buy themes.
 //
 // Gems buy pets, and mostly reward effort rather than skill, so younger and
 // struggling players collect pets too: every finished run earns one, and the
@@ -8,6 +9,8 @@
 // See scripts/economy.ts for how fast this pays out.
 
 import type { Speed } from './engine';
+
+export const COINS_PER_FINISHED_RUN = 10;
 
 export const GEMS = {
   welcome: 3, // once, at first launch, so a child can pick a pet right away
