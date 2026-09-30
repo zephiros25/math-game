@@ -13,6 +13,10 @@ import { fileURLToPath } from 'node:url';
 
 import sharp from 'sharp';
 
+// sharp's cache keeps image files open, and Windows can't delete or rename
+// open files (removing pictures and deleting pets would fail).
+sharp.cache(false);
+
 import { alignPetImage } from '../pets/align.mjs';
 import { splitSheet } from '../pets/sheet.mjs';
 import { classifyPetPictures } from '../pets/sort.mjs';
@@ -304,6 +308,11 @@ function sendFile(res, path) {
 
 const PET_MANAGED_PREFIXES = ['img-', 'voice-'];
 
+// Pet pictures are stored as WebP: about 8x smaller than PNG at the same
+// visible quality, with transparency, and supported by the app on iOS and
+// Android. (104 pets: 82 MB as PNG, 11 MB as WebP.)
+const toWebp = (png) => sharp(png).webp({ quality: 85, alphaQuality: 90, effort: 6 }).toBuffer();
+
 const petDir = (id) => {
   if (!PET_ID_PATTERN.test(id)) throw new HttpError(400, `Invalid pet id "${id}"`);
   return join(petsDir, id);
@@ -389,8 +398,8 @@ async function importPetFile(id, kind, slot, originalName, data) {
     // Centre and scale the pet the same way in every picture, so the normal,
     // blink and talk pictures line up even when the AI shifted them.
     const { png, transparent, cutOff } = await alignPetImage(data);
-    const name = uniqueName(dir, `img-${slot}`, '.png');
-    writeFileSync(join(dir, name), png);
+    const name = uniqueName(dir, `img-${slot}`, '.webp');
+    writeFileSync(join(dir, name), await toWebp(png));
     return { file: name, width: meta.width, height: meta.height, transparent, cutOff };
   }
   if (kind === 'sheet') {
@@ -407,8 +416,8 @@ async function importPetFile(id, kind, slot, originalName, data) {
     const cutOff = [];
     for (const [i, part] of parts.entries()) {
       const aligned = await alignPetImage(part);
-      const name = uniqueName(dir, `img-${['idle', 'blink', 'talk'][i]}`, '.png');
-      writeFileSync(join(dir, name), aligned.png);
+      const name = uniqueName(dir, `img-${['idle', 'blink', 'talk'][i]}`, '.webp');
+      writeFileSync(join(dir, name), await toWebp(aligned.png));
       files.push(name);
       cutOff.push(...aligned.cutOff.filter((edge) => edge === 'top'));
     }
@@ -431,14 +440,15 @@ async function sortPetPictures(id) {
   const json = JSON.parse(readFileSync(join(dir, 'pet.json'), 'utf8'));
   const files = ['idle', 'blink', 'talk'].map((slot) => json.images?.[slot]);
   if (files.some((file) => !file)) throw new HttpError(400, 'Add all three pictures first');
-  const { idle, blink, talk, unsure } = await classifyPetPictures(files.map((file) => join(dir, file)));
+  // Read the files into memory first, so nothing keeps them open.
+  const buffers = files.map((file) => readFileSync(join(dir, file)));
+  const { idle, blink, talk, unsure } = await classifyPetPictures(buffers);
 
   // Rewrite the files under names matching their slots.
-  const buffers = files.map((file) => readFileSync(join(dir, file)));
   files.forEach((file) => rmSync(join(dir, file)));
   const images = {};
   for (const [slot, k] of [['idle', idle], ['blink', blink], ['talk', talk]]) {
-    const name = uniqueName(dir, `img-${slot}`, '.png');
+    const name = uniqueName(dir, `img-${slot}`, extname(files[k]));
     writeFileSync(join(dir, name), buffers[k]);
     images[slot] = name;
   }

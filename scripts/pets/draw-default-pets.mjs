@@ -1,4 +1,4 @@
-// Draws the built-in starter pets as PNGs (normal, eyes closed, mouth open)
+// Draws the built-in starter pets as WebP pictures (normal, eyes closed, mouth open)
 // so the pet feature works before any AI artwork is added. Each pet is the
 // same round, sticker-style creature with its own colors and headwear.
 // Run with: node scripts/pets/draw-default-pets.mjs
@@ -82,16 +82,16 @@ function svg(pet, { eyes, mouth }) {
 }
 
 const STATES = {
-  'img-idle.png': { eyes: 'open', mouth: 'closed' },
-  'img-blink.png': { eyes: 'closed', mouth: 'closed' },
-  'img-talk.png': { eyes: 'open', mouth: 'open' },
+  'img-idle.webp': { eyes: 'open', mouth: 'closed' },
+  'img-blink.webp': { eyes: 'closed', mouth: 'closed' },
+  'img-talk.webp': { eyes: 'open', mouth: 'open' },
 };
 
 for (const [id, pet] of Object.entries(PETS)) {
   const dir = join(petsDir, id);
   mkdirSync(dir, { recursive: true });
   for (const [file, state] of Object.entries(STATES)) {
-    writeFileSync(join(dir, file), await sharp(Buffer.from(svg(pet, state))).png({ compressionLevel: 9 }).toBuffer());
+    writeFileSync(join(dir, file), await sharp(Buffer.from(svg(pet, state))).webp({ quality: 85, alphaQuality: 90, effort: 6 }).toBuffer());
   }
   console.log(`  ${id}: ${Object.keys(STATES).join(', ')}`);
 }
