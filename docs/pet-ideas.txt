@@ -382,7 +382,7 @@ MATH RUN · 100 PET IDEAS WITH CHATGPT PROMPTS
 034. Stripes
      Tagline: Always ready to make you smile
 
-     Prompt 1: Create a cute cartoon pet character for a children’s math app: a round orange clownfish with white stripes. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow. Output a PNG with a fully transparent background.
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a little round tropical reef fish with bright orange scales, soft white bands, big friendly fins and a curly tail. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow. Output a PNG with a fully transparent background.
 
      Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink. Output a PNG with a fully transparent background.
 
@@ -676,7 +676,7 @@ MATH RUN · 100 PET IDEAS WITH CHATGPT PROMPTS
 060. Jingle
      Tagline: Leads the way on snowy days
 
-     Prompt 1: Create a cute cartoon pet character for a children’s math app: a baby reindeer with tiny antlers and a rosy nose. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow. Output a PNG with a fully transparent background.
+     Prompt 1: Create a cute cartoon pet character for a children’s math app: a baby reindeer with tiny fuzzy antlers and a snowflake-patterned scarf. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow. Output a PNG with a fully transparent background.
 
      Prompt 2: Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink. Output a PNG with a fully transparent background.
 
