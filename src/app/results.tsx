@@ -1,6 +1,6 @@
 import { router, useLocalSearchParams } from 'expo-router';
-import { useEffect, useMemo, useRef, useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { useEffect, useImperativeHandle, useMemo, useRef, useState, type Ref } from 'react';
+import { StyleSheet, Text, View, type StyleProp, type TextStyle } from 'react-native';
 import Animated, { FadeInDown, ZoomIn } from 'react-native-reanimated';
 
 import { ChunkyButton } from '@/components/chunky-button';
@@ -12,6 +12,33 @@ import { levelInfo } from '@/game/levels';
 import { petLine, usePet } from '@/pets';
 import { useTheme, type Theme } from '@/theme';
 
+type CounterHandle = { start: (onDone: () => void) => void };
+
+// Counts up to the coins earned, one tick at a time. Only this number
+// re-renders on each tick (not the whole screen), and each tick schedules the
+// next, so a busy moment delays the count instead of making it jump.
+function CoinCounter({ target, style, ref }: { target: number; style: StyleProp<TextStyle>; ref?: Ref<CounterHandle> }) {
+  const [shown, setShown] = useState(0);
+  const timer = useRef<ReturnType<typeof setTimeout>>(undefined);
+  useEffect(() => () => clearTimeout(timer.current), []);
+  useImperativeHandle(ref, () => ({
+    start(onDone) {
+      const ticks = Math.min(target, COIN_TICKS);
+      if (ticks <= 0) return onDone();
+      let i = 0;
+      const tick = () => {
+        i++;
+        setShown(Math.round((target * i) / ticks));
+        feedback.coin();
+        if (i < ticks) timer.current = setTimeout(tick, COIN_TICK_MS);
+        else onDone();
+      };
+      tick();
+    },
+  }));
+  return <Text style={style}>+{shown}</Text>;
+}
+
 function starsFor(correct: number, total: number) {
   const pct = correct / total;
   return pct >= 0.95 ? 3 : pct >= 0.8 ? 2 : pct >= 0.5 ? 1 : 0;
@@ -19,6 +46,10 @@ function starsFor(correct: number, total: number) {
 
 const STAR_DELAY = 500;
 const STAR_GAP = 350;
+// The coin count-up: one tick (number step, coin sound) every COIN_TICK_MS,
+// at most COIN_TICKS ticks, so even a big reward counts up in about 1.6 s.
+const COIN_TICK_MS = 110;
+const COIN_TICKS = 15;
 
 export default function Results() {
   const t = useTheme();
@@ -35,8 +66,8 @@ export default function Results() {
   const focus = params.focus; // what a focus run practised, if it was one
   const stars = starsFor(correct, total);
 
-  const [shownCoins, setShownCoins] = useState(0);
   const [showGems, setShowGems] = useState(false);
+  const counterRef = useRef<CounterHandle>(null);
 
   const pet = usePet();
   const petRef = useRef<PetHandle>(null);
@@ -53,22 +84,17 @@ export default function Results() {
     for (let i = 0; i < stars; i++) at(STAR_DELAY + i * STAR_GAP, () => petRef.current?.hop());
 
     const coinsStart = Math.max(STAR_DELAY + stars * STAR_GAP, quietIn()) + 150;
-    const ticks = Math.min(coins, 24);
-    for (let i = 1; i <= ticks; i++) {
-      at(coinsStart + i * 55, () => {
-        setShownCoins(Math.round((coins * i) / ticks));
-        feedback.coin();
-      });
-    }
-    at(coinsStart + ticks * 55 + 100, () => {
-      const finish = () => pet && petRef.current?.say(petLine(pet, 'finish'));
-      if (gems === 0) return finish();
-      at(quietIn() + 100, () => {
-        setShowGems(true);
-        feedback.gem();
-        finish();
-      });
-    });
+    at(coinsStart, () =>
+      counterRef.current?.start(() => {
+        const finish = () => pet && petRef.current?.say(petLine(pet, 'finish'));
+        if (gems === 0) return finish();
+        at(quietIn() + 100, () => {
+          setShowGems(true);
+          feedback.gem();
+          finish();
+        });
+      }),
+    );
     return () => timers.forEach(clearTimeout);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [coins, gems, stars]);
@@ -114,7 +140,7 @@ export default function Results() {
           <View style={styles.rewards}>
             <View style={styles.reward}>
               <Coin size={36} />
-              <Text style={styles.rewardValue}>+{shownCoins}</Text>
+              <CoinCounter ref={counterRef} target={coins} style={styles.rewardValue} />
             </View>
             {showGems && (
               <Animated.View entering={ZoomIn.springify().damping(8)} style={styles.reward}>
