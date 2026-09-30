@@ -155,7 +155,7 @@ const backgroundPrompt = (idea) =>
 const assetsPrompt = (idea) =>
   `Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the "${idea.name}" theme of a children's math game. Left: a square app icon of ${idea.icon}, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of ${idea.keys}, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background.`;
 
-const slug = (name) => name.toLowerCase().replace(/'/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+const slug = (name) => name.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/'/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
 const ideas = [];
 let order = 100;

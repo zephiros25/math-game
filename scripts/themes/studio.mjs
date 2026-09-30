@@ -6,8 +6,9 @@
 // `npx expo start` picks the change up immediately on your phone.
 // Only listens on localhost.
 
-import { cpSync, existsSync, mkdirSync, readdirSync, readFileSync, renameSync, rmSync, writeFileSync } from 'node:fs';
+import { cpSync, existsSync, mkdirSync, readdirSync, readFileSync, renameSync, rmSync, statSync, writeFileSync } from 'node:fs';
 import { createServer } from 'node:http';
+import { homedir } from 'node:os';
 import { extname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -21,6 +22,8 @@ import { alignPetImage } from '../pets/align.mjs';
 import { splitSheet } from '../pets/sheet.mjs';
 import { classifyPetPictures } from '../pets/sort.mjs';
 import { buildPets } from '../pets/build.mjs';
+import { buildDefaultSounds, DEFAULT_SET_DIR, DEFAULT_SLOTS, readDefaultSet } from '../sounds/build.mjs';
+import { prepareSound, prepareVoice } from '../sounds/process.mjs';
 import {
   defaultPet,
   ID_PATTERN as PET_ID_PATTERN,
@@ -53,6 +56,10 @@ const soundsDir = fileURLToPath(new URL('../../assets/sounds/', import.meta.url)
 const studioHtml = fileURLToPath(new URL('./studio.html', import.meta.url));
 const petsHtml = fileURLToPath(new URL('./pets.html', import.meta.url));
 const studioCss = fileURLToPath(new URL('./studio.css', import.meta.url));
+const soundsHtml = fileURLToPath(new URL('./sounds.html', import.meta.url));
+const soundPromptsFile = fileURLToPath(new URL('../../docs/sound-prompts.json', import.meta.url));
+// Where the sound generator's downloads land (the Sounds page picks them up).
+const INBOX = process.env.SOUND_INBOX || join(homedir(), 'Downloads');
 const petsDir = fileURLToPath(PETS_DIR);
 const defaultLinesFile = fileURLToPath(new URL('../../src/pet-lines.json', import.meta.url));
 const petIdeasFile = fileURLToPath(new URL('../../docs/pet-ideas.json', import.meta.url));
@@ -554,6 +561,153 @@ async function handlePets(req, res, parts, url) {
   throw new HttpError(404, 'Not found');
 }
 
+// ---------------------------------------------------------------- sounds
+// The Sounds page: new sounds for the default set, a theme or a pet's voice,
+// taken from the Downloads folder (or dropped in), cleaned up by
+// scripts/sounds/process.mjs.
+
+const INBOX_EXTENSIONS = ['.mp3', '.wav', '.m4a', '.aac', '.ogg', '.flac', '.opus', '.webm'];
+const inboxSizes = new Map(); // name -> { size, at }: a file counts once its size stops changing
+
+function newestDownload(since) {
+  if (!existsSync(INBOX)) return null;
+  let best = null;
+  const now = Date.now();
+  for (const name of readdirSync(INBOX)) {
+    if (!INBOX_EXTENSIONS.includes(extname(name).toLowerCase())) continue;
+    let st;
+    try {
+      st = statSync(join(INBOX, name));
+    } catch {
+      continue;
+    }
+    if (!st.isFile() || st.mtimeMs <= since || st.size === 0) continue;
+    const seen = inboxSizes.get(name);
+    if (!seen || seen.size !== st.size) {
+      inboxSizes.set(name, { size: st.size, at: now });
+      continue;
+    }
+    if (now - seen.at < 600) continue;
+    if (!best || st.mtimeMs > best.mtime) best = { name, mtime: st.mtimeMs, size: st.size };
+  }
+  return best;
+}
+
+function soundTargets() {
+  const set = readDefaultSet();
+  const count = (sounds) => Object.fromEntries(Object.entries(sounds ?? {}).map(([slot, v]) => [slot, v.files?.length ?? 0]));
+  return {
+    inbox: INBOX,
+    targets: [
+      { kind: 'default', id: 'default', name: 'Default sounds', filled: count(set), files: set },
+      ...listThemes().map((t) => ({ kind: 'theme', id: t.id, name: t.json?.name ?? t.id, filled: count(t.json?.sounds), files: t.json?.sounds ?? {} })),
+      ...listPets().map((p) => ({ kind: 'pet', id: p.id, name: p.json?.name ?? p.id, filled: { voice: p.json?.voice?.files?.length ?? 0 }, files: { voice: p.json?.voice ?? {} } })),
+    ],
+  };
+}
+
+function writeFiles(dir, base, prepared) {
+  return prepared.map((p) => {
+    const name = uniqueName(dir, base, p.ext);
+    writeFileSync(join(dir, name), p.data);
+    return name;
+  });
+}
+
+// Puts a new sound in a slot. `append` adds a variation (tap keeps up to 3).
+async function assignSound(kind, id, slot, data, append) {
+  const isVoice = slot === 'voice';
+  const prepare = () => {
+    try {
+      return isVoice ? prepareVoice(data) : [prepareSound(data, slot)];
+    } catch (e) {
+      throw new HttpError(400, `Could not use this sound: ${e.message}`);
+    }
+  };
+  if (kind === 'pet') {
+    if (!isVoice) throw new HttpError(400, 'Pets only have a voice');
+    const dir = petDir(id);
+    const json = JSON.parse(readFileSync(join(dir, 'pet.json'), 'utf8'));
+    const files = writeFiles(dir, 'voice', prepare());
+    // Real recordings already have the right pitch.
+    json.voice = { ...json.voice, files, pitch: 1 };
+    savePet(id, json);
+    return { files };
+  }
+  if (kind === 'theme') {
+    if (isVoice || !DEFAULT_SLOTS.includes(slot)) throw new HttpError(400, `Unknown sound "${slot}"`);
+    const dir = themeDir(id);
+    const json = JSON.parse(readFileSync(join(dir, 'theme.json'), 'utf8'));
+    const [file] = writeFiles(dir, `sound-${slot}`, prepare());
+    const old = json.sounds?.[slot];
+    json.sounds = { ...json.sounds, [slot]: { files: append && old ? [...old.files, file].slice(-3) : [file], volume: old?.volume ?? 1 } };
+    saveTheme(id, json);
+    return { files: json.sounds[slot].files };
+  }
+  if (kind === 'default') {
+    if (!DEFAULT_SLOTS.includes(slot)) throw new HttpError(400, `Unknown sound "${slot}"`);
+    mkdirSync(DEFAULT_SET_DIR, { recursive: true });
+    const set = readDefaultSet();
+    const written = writeFiles(DEFAULT_SET_DIR, slot, prepare());
+    const old = set[slot];
+    const files = isVoice ? written : append && old ? [...old.files, ...written].slice(-3) : written;
+    set[slot] = { files, volume: old?.volume ?? 1 };
+    saveDefaultSet(set);
+    return { files };
+  }
+  throw new HttpError(400, `Unknown kind "${kind}"`);
+}
+
+function saveDefaultSet(set) {
+  mkdirSync(DEFAULT_SET_DIR, { recursive: true });
+  writeFileSync(join(DEFAULT_SET_DIR, 'sounds.json'), JSON.stringify(set, null, 2) + '\n');
+  const used = new Set(Object.values(set).flatMap((v) => v.files ?? []));
+  for (const f of readdirSync(DEFAULT_SET_DIR)) if (f !== 'sounds.json' && !used.has(f)) rmSync(join(DEFAULT_SET_DIR, f));
+  buildDefaultSounds({ quiet: true });
+}
+
+function clearSound(kind, id, slot) {
+  if (kind === 'pet') {
+    const json = JSON.parse(readFileSync(join(petDir(id), 'pet.json'), 'utf8'));
+    json.voice = { ...json.voice, files: [] };
+    savePet(id, json);
+  } else if (kind === 'theme') {
+    const json = JSON.parse(readFileSync(join(themeDir(id), 'theme.json'), 'utf8'));
+    delete json.sounds?.[slot];
+    saveTheme(id, json);
+  } else if (kind === 'default') {
+    const set = readDefaultSet();
+    delete set[slot];
+    saveDefaultSet(set);
+  }
+}
+
+async function handleSounds(req, res, parts, url) {
+  const method = req.method;
+  if (method === 'GET' && parts[1] === 'sound-prompts') return send(res, 200, existsSync(soundPromptsFile) ? JSON.parse(readFileSync(soundPromptsFile, 'utf8')) : {});
+  if (method === 'GET' && parts[1] === 'sound-targets') return send(res, 200, soundTargets());
+  if (method === 'GET' && parts[1] === 'inbox') return send(res, 200, { file: newestDownload(Number(url.searchParams.get('since')) || 0) });
+  if (method === 'POST' && parts[1] === 'sounds' && parts[2] === 'take') {
+    const { kind, id, slot, file, append } = JSON.parse((await readBody(req)).toString());
+    // Only a plain file name inside the Downloads folder, with a sound extension.
+    const plain = /^[^\\/:*?"<>|]+$/.test(file ?? '') && !file.startsWith('.');
+    if (!plain || !INBOX_EXTENSIONS.includes(extname(file).toLowerCase())) throw new HttpError(400, 'Bad file name');
+    const path = join(INBOX, file);
+    if (!existsSync(path)) throw new HttpError(404, `${file} is no longer in ${INBOX}`);
+    return send(res, 200, await assignSound(kind, id, slot, readFileSync(path), append));
+  }
+  if (method === 'POST' && parts[1] === 'sounds' && parts[2] === 'upload') {
+    const q = (k) => url.searchParams.get(k);
+    return send(res, 200, await assignSound(q('kind'), q('id'), q('slot'), await readBody(req), q('append') === '1'));
+  }
+  if (method === 'POST' && parts[1] === 'sounds' && parts[2] === 'clear') {
+    const { kind, id, slot } = JSON.parse((await readBody(req)).toString());
+    clearSound(kind, id, slot);
+    return send(res, 200, { ok: true });
+  }
+  throw new HttpError(404, 'Not found');
+}
+
 async function handle(req, res) {
   const url = new URL(req.url, 'http://localhost');
   const parts = url.pathname.split('/').filter(Boolean).map(decodeURIComponent);
@@ -562,6 +716,9 @@ async function handle(req, res) {
   if (method === 'GET' && parts.length === 0) return sendFile(res, studioHtml);
   if (method === 'GET' && parts.length === 1 && parts[0] === 'pets') return sendFile(res, petsHtml);
   if (method === 'GET' && parts.length === 1 && parts[0] === 'studio.css') return sendFile(res, studioCss);
+  if (method === 'GET' && parts.length === 1 && parts[0] === 'sounds') return sendFile(res, soundsHtml);
+  if (method === 'GET' && parts[0] === 'default-set' && parts.length === 2 && SAFE_FILE.test(parts[1])) return sendFile(res, join(DEFAULT_SET_DIR, parts[1]));
+  if (parts[0] === 'api' && ['sound-prompts', 'sound-targets', 'inbox', 'sounds'].includes(parts[1])) return handleSounds(req, res, parts, url);
   if (method === 'GET' && parts[0] === 'pet-files' && parts.length === 3 && SAFE_FILE.test(parts[2])) {
     return sendFile(res, join(petDir(parts[1]), parts[2]));
   }
@@ -632,6 +789,7 @@ createServer((req, res) => {
   });
 }).listen(PORT, '127.0.0.1', () => {
   buildPets({ quiet: true });
+  buildDefaultSounds({ quiet: true });
   const { themes, errors } = buildThemes({ quiet: true });
   console.log(`Theme Studio: http://localhost:${PORT}  (${themes.length} themes${errors.length ? `, ${errors.length} error(s)` : ''})`);
   console.log('Keep `npx expo start` running next to it: saved themes appear on your phone right away.');

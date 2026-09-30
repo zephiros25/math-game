@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Sounds · Math Run Studio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/studio.css">
+<style>
+  .app { grid-template-columns: 260px minmax(420px, 1fr); }
+  aside { overflow-y: auto; }
+  .group-title { font-size: 12px; font-weight: 700; color: var(--soft); text-transform: uppercase; letter-spacing: .06em; margin: 14px 0 4px; }
+  .progress { font-size: 12px; color: var(--soft); margin-left: auto; font-weight: 600; }
+  .progress.done { color: var(--ok); }
+  .theme-item { padding: 6px 8px; }
+  .flow { position: sticky; top: 0; z-index: 2; border: 2px solid var(--accent); display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  .flow .state { flex: 1; min-width: 240px; font-weight: 600; }
+  .flow .state .hint { font-weight: 400; display: block; margin-top: 2px; }
+  .flow.waiting .state::before { content: ''; display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); margin-right: 8px; animation: pulse 1s infinite; }
+  @keyframes pulse { 50% { opacity: .25; } }
+  .slot { display: grid; grid-template-columns: 1fr auto; gap: 8px 14px; padding: 14px 0; border-top: 1px solid var(--line); }
+  .slot:first-of-type { border-top: none; }
+  .slot.armed { background: #fff7f3; margin: 0 -16px; padding: 14px 16px; border-radius: 10px; }
+  .slot h3 { margin: 0; font-size: 16px; }
+  .slot .when { font-size: 12px; color: var(--soft); }
+  .prompt { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; font-size: 13px; margin-top: 6px; white-space: pre-wrap; }
+  .files { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin-top: 6px; }
+  .files .none { color: var(--soft); font-size: 13px; }
+  .actions { display: flex; flex-direction: column; gap: 6px; align-items: stretch; min-width: 170px; }
+  .drop { padding: 8px; font-size: 12px; }
+  .char { color: var(--soft); margin: 2px 0 0; }
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="top">
+    <h1>🔊 Studio</h1>
+    <nav class="nav"><a href="/">Themes</a><a href="/pets">Pets</a><a href="/sounds" class="on">Sounds</a></nav>
+    <span class="status" id="status"></span>
+    <span class="spacer"></span>
+    <span class="hint" id="inboxHint"></span>
+  </header>
+  <aside id="list"></aside>
+  <main id="editor"><div class="empty">Loading…</div></main>
+</div>
+
+<script>
+// Makes new sounds with an AI sound generator: copy a prompt, generate,
+// download. The page watches the Downloads folder and puts each new download
+// into the waiting slot; the server trims it, evens out the volume and adds
+// soft fades (scripts/sounds/process.mjs).
+
+let prompts = null;   // docs/sound-prompts.json
+let targets = [];     // default set, themes and pets with their current sounds
+let inbox = '';
+let current = null;   // { kind, id }
+let armed = null;     // { slot, since, count }: waiting for a download
+let lastGot = null;   // the slot that just received a sound
+let pollTimer = null;
+
+const THEME_SLOTS = ['tap', 'backspace', 'button', 'correct', 'wrong', 'levelUp', 'fanfare', 'coin', 'gem'];
+const slotsFor = (kind) => (kind === 'pet' ? ['voice'] : kind === 'default' ? [...THEME_SLOTS, 'voice'] : THEME_SLOTS);
+
+// ---------------------------------------------------------------- helpers
+const $ = (sel, root = document) => root.querySelector(sel);
+const h = (tag, attrs = {}, ...children) => {
+  const el = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs)) {
+    if (k === 'style' && typeof v === 'object') Object.assign(el.style, v);
+    else if (k.startsWith('on')) el.addEventListener(k.slice(2), v);
+    else if (v === true) el.setAttribute(k, '');
+    else if (v !== false && v != null) el.setAttribute(k, v);
+  }
+  for (const c of children.flat(Infinity)) if (c != null && c !== false) el.append(c.nodeType ? c : document.createTextNode(c));
+  return el;
+};
+const fill = (el, ...kids) => el.replaceChildren(...kids.flat(Infinity).filter((k) => k != null && k !== false));
+
+async function api(path, opts = {}) {
+  const res = await fetch(path, opts);
+  const body = await res.json().catch(() => ({ error: `The Studio server answered with an error (${res.status})` }));
+  if (!res.ok) throw new Error(body.error || res.statusText);
+  return body;
+}
+const post = (path, body) => api(path, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) });
+
+function setStatus(text, isError = false) {
+  const st = $('#status');
+  st.textContent = text;
+  st.style.color = isError ? 'var(--err)' : '';
+}
+
+const target = () => targets.find((t) => t.kind === current?.kind && t.id === current?.id);
+const info = (t) => (t.kind === 'default' ? prompts.default : t.kind === 'theme' ? prompts.themes[t.id] : prompts.pets[t.id]);
+const promptFor = (t, slot) => {
+  const i = info(t);
+  if (!i) return null;
+  return t.kind === 'pet' ? i.prompt : i.prompts[slot];
+};
+const filesOf = (t, slot) => t.files?.[slot]?.files ?? [];
+const fileUrl = (t, f) =>
+  (t.kind === 'default' ? `/default-set/${encodeURIComponent(f)}` : t.kind === 'theme' ? `/files/${t.id}/${encodeURIComponent(f)}` : `/pet-files/${t.id}/${encodeURIComponent(f)}`) + `?v=${Date.now()}`;
+const doneCount = (t) => slotsFor(t.kind).filter((s) => filesOf(t, s).length > 0).length;
+
+// ---------------------------------------------------------------- playing
+function play(t, f, rate = 1) {
+  const a = new Audio(fileUrl(t, f));
+  a.preservesPitch = false;
+  a.playbackRate = rate;
+  a.play().catch(() => {});
+}
+// A pet voice: a little sentence of random syllables at slightly varied pitch.
+function babble(t) {
+  const files = filesOf(t, 'voice');
+  if (!files.length) return;
+  for (let i = 0; i < 7; i++) setTimeout(() => play(t, files[Math.floor(Math.random() * files.length)], 0.9 + Math.random() * 0.3), i * 190);
+}
+// Correct: the same note climbing, as in a streak.
+function streak(t) {
+  const [f] = filesOf(t, 'correct');
+  if (f) [0, 2, 4, 7, 9, 12].forEach((st, i) => setTimeout(() => play(t, f, 2 ** (st / 12)), i * 420));
+}
+
+// ---------------------------------------------------------------- list
+function renderList() {
+  const groups = [['Game', 'default'], ['Themes', 'theme'], ['Pets', 'pet']];
+  fill($('#list'), groups.map(([title, kind]) => [
+    h('div', { class: 'group-title' }, title),
+    targets.filter((t) => t.kind === kind).map((t) => {
+      const done = doneCount(t);
+      const total = slotsFor(kind).length;
+      const hasPrompts = Boolean(info(t));
+      return h('div', { class: `theme-item${current?.kind === t.kind && current?.id === t.id ? ' active' : ''}`, onclick: () => select(t.kind, t.id) },
+        h('div', {}, h('div', { class: 'name' }, t.name), !hasPrompts ? h('div', { class: 'sub' }, t.id === 'sunny' ? 'uses the default sounds' : 'no prompts yet') : null),
+        h('span', { class: `progress${done === total ? ' done' : ''}` }, done === total ? '✓' : `${done}/${total}`));
+    }),
+  ]));
+}
+
+async function refresh() {
+  const r = await api('/api/sound-targets');
+  targets = r.targets;
+  inbox = r.inbox;
+  $('#inboxHint').textContent = `Watching ${inbox}`;
+  renderList();
+}
+
+function select(kind, id) {
+  disarm();
+  current = { kind, id };
+  lastGot = null;
+  renderList();
+  render();
+}
+
+// ---------------------------------------------------------------- the waiting slot
+function arm(slot) {
+  const t = target();
+  const text = promptFor(t, slot);
+  // Copy right away, while this still counts as part of the click.
+  if (text) navigator.clipboard.writeText(text).then(() => {}, () => {});
+  armed = { slot, since: Date.now(), count: 0 };
+  lastGot = null;
+  clearInterval(pollTimer);
+  pollTimer = setInterval(poll, 800);
+  render();
+}
+function disarm() {
+  armed = null;
+  clearInterval(pollTimer);
+}
+
+let polling = false;
+async function poll() {
+  if (!armed || polling) return;
+  polling = true;
+  try {
+    const { file } = await api(`/api/inbox?since=${armed.since}`);
+    if (!file || !armed) return;
+    const t = target();
+    const slot = armed.slot;
+    armed.since = file.mtime;
+    setStatus(`Cleaning up ${file.name}…`);
+    const r = await post('/api/sounds/take', { kind: t.kind, id: t.id, slot, file: file.name, append: slot === 'tap' && armed.count > 0 });
+    armed.count++;
+    await refresh();
+    const nt = target();
+    setStatus(`✓ ${file.name} → ${prompts.slots[slot].label}`);
+    if (slot === 'voice') babble(nt);
+    else play(nt, r.files[r.files.length - 1]);
+    // The tap sound takes up to three variations; everything else one.
+    if (slot !== 'tap' || armed.count >= 3) {
+      disarm();
+      lastGot = slot;
+    }
+    render();
+  } catch (e) {
+    setStatus(`✖ ${e.message}`, true);
+  } finally {
+    polling = false;
+  }
+}
+
+// What the big button does next: the next sound of this target, or the next
+// target that still needs sounds.
+function nextStep() {
+  const t = target();
+  const slots = slotsFor(t.kind);
+  const after = lastGot ? slots.slice(slots.indexOf(lastGot) + 1) : slots;
+  const slot = after.find((s) => filesOf(t, s).length === 0) ?? (lastGot ? null : slots[0]);
+  if (slot) return { label: `Next: ${prompts.slots[slot].label} ▸`, run: () => arm(slot) };
+  const same = targets.filter((x) => x.kind === t.kind && info(x));
+  const next = same.slice(same.indexOf(t) + 1).find((x) => doneCount(x) < slotsFor(x.kind).length);
+  if (!next) return null;
+  const word = t.kind === 'pet' ? 'pet' : 'theme';
+  return {
+    label: `Next ${word}: ${next.name} ▸`,
+    run: () => {
+      select(next.kind, next.id);
+      arm(slotsFor(next.kind).find((s) => filesOf(next, s).length === 0));
+    },
+  };
+}
+
+// ---------------------------------------------------------------- editor
+function render() {
+  const ed = $('#editor');
+  const t = target();
+  if (!t) { fill(ed, h('div', { class: 'empty' }, 'Pick the default sounds, a theme or a pet on the left.')); return; }
+  const i = info(t);
+  if (!i) {
+    fill(ed, h('div', { class: 'empty' }, `No prompts for ${t.name} yet. Add it to scripts/sounds/make-sound-prompts.mjs and run it.`));
+    return;
+  }
+
+  let flowState, flowButtons = [];
+  if (armed) {
+    const label = prompts.slots[armed.slot].label;
+    flowState = [`Waiting for your download: ${label}`, h('span', { class: 'hint' },
+      armed.slot === 'tap'
+        ? `Prompt copied. Download up to 3 versions (${armed.count}/3 in).`
+        : 'Prompt copied: paste it into the sound generator, then download the one you like best.')];
+    flowButtons.push(h('button', { onclick: () => { disarm(); render(); } }, armed.slot === 'tap' && armed.count ? 'Done with taps' : 'Stop waiting'));
+  } else {
+    const step = nextStep();
+    flowState = [lastGot ? `✓ ${prompts.slots[lastGot].label} is in.` : 'Ready.', h('span', { class: 'hint' },
+      step ? 'The button copies the next prompt and waits for the download.' : 'Everything here has a sound.')];
+    if (step) flowButtons.push(h('button', { class: 'primary', onclick: step.run }, step.label));
+  }
+
+  const slotEl = (slot) => {
+    const files = filesOf(t, slot);
+    const meta = prompts.slots[slot];
+    const text = promptFor(t, slot);
+    const isArmed = armed?.slot === slot;
+    const drop = h('div', { class: 'drop' }, 'or drop a file here');
+    drop.addEventListener('dragover', (e) => { e.preventDefault(); drop.classList.add('over'); });
+    drop.addEventListener('dragleave', () => drop.classList.remove('over'));
+    drop.addEventListener('drop', async (e) => {
+      e.preventDefault();
+      drop.classList.remove('over');
+      const [file] = e.dataTransfer.files;
+      if (!file) return;
+      try {
+        setStatus(`Cleaning up ${file.name}…`);
+        await api(`/api/sounds/upload?kind=${t.kind}&id=${t.id}&slot=${slot}&name=${encodeURIComponent(file.name)}`, { method: 'POST', body: file });
+        await refresh();
+        setStatus(`✓ ${file.name} → ${meta.label}`);
+        render();
+      } catch (err) { setStatus(`✖ ${err.message}`, true); }
+    });
+    const playButtons = slot === 'voice'
+      ? (files.length ? [h('button', { class: 'small', onclick: () => babble(target()) }, `▶ Talk (${files.length} syllables)`)] : [])
+      : files.map((f, n) => h('button', { class: 'small', onclick: () => play(target(), f) }, files.length > 1 ? `▶ ${n + 1}` : '▶ Play'));
+    if (slot === 'correct' && files.length) playButtons.push(h('button', { class: 'small', onclick: () => streak(target()) }, '▶ As a streak'));
+    return h('div', { class: `slot${isArmed ? ' armed' : ''}` },
+      h('div', {},
+        h('h3', {}, meta.label),
+        h('div', { class: 'when' }, `${meta.when} · ${meta.length}`),
+        h('div', { class: 'prompt' }, text, ' ', h('button', { class: 'small', onclick: () => { navigator.clipboard.writeText(text); setStatus('Prompt copied'); } }, 'Copy')),
+        h('div', { class: 'files' }, playButtons.length ? playButtons : h('span', { class: 'none' }, t.kind === 'theme' ? 'Uses the default sound' : 'Uses the built-in sound')),
+      ),
+      h('div', { class: 'actions' },
+        h('button', { class: isArmed ? '' : 'primary', onclick: () => (isArmed ? (disarm(), render()) : arm(slot)) }, isArmed ? 'Stop waiting' : files.length ? 'Replace: copy & wait' : 'Copy & wait'),
+        drop,
+        files.length ? h('button', { class: 'small', onclick: async () => {
+          if (!confirm(`Remove the ${meta.label.toLowerCase()} sound of ${t.name}?`)) return;
+          await post('/api/sounds/clear', { kind: t.kind, id: t.id, slot });
+          await refresh(); render();
+        } }, '✕ Remove') : null,
+      ),
+    );
+  };
+
+  fill(ed,
+    h('section', { class: `card flow${armed ? ' waiting' : ''}` }, h('div', { class: 'state' }, flowState), flowButtons),
+    h('section', { class: 'card' },
+      h('h2', {}, t.kind === 'default' ? 'Default sounds' : t.name),
+      t.kind === 'pet'
+        ? h('p', { class: 'char' }, `Voice: ${i.voice}. One clip is cut into separate babble syllables.`)
+        : h('p', { class: 'char' }, `Keys feel like ${i.touch} · instrument: ${i.tone}`),
+      t.kind === 'default' ? h('p', { class: 'hint' }, 'Used by Sunny and by every theme and pet without its own sounds.') : null,
+      slotsFor(t.kind).map(slotEl),
+    ),
+  );
+}
+
+// ---------------------------------------------------------------- start
+(async () => {
+  prompts = await api('/api/sound-prompts');
+  if (!prompts.slots) {
+    fill($('#editor'), h('div', { class: 'empty' }, 'No prompts yet: run node scripts/sounds/make-sound-prompts.mjs'));
+    return;
+  }
+  await refresh();
+  select('default', 'default');
+})();
+</script>
+</body>
+</html>

@@ -2,12 +2,15 @@
 // players so rapid taps can overlap instead of cutting each other off.
 //
 // Themes can replace any sound slot with their own recordings
-// (`applyThemeSounds`); slots a theme leaves out use the defaults below.
+// (`applyThemeSounds`); slots a theme leaves out use the default set made in
+// the Studio (src/default-sounds.generated.ts), and slots without one of
+// those use the built-in synthesized sounds below.
 
 import { createAudioPlayer, setAudioModeAsync, type AudioPlayer } from 'expo-audio';
 import * as Haptics from 'expo-haptics';
 import { Platform } from 'react-native';
 
+import { DEFAULT_SET } from '@/default-sounds.generated';
 import type { Pet } from '@/pets';
 import type { SoundSlot, Theme } from '@/theme';
 
@@ -41,6 +44,10 @@ const DEFAULTS = {
 
 type DefaultSound = keyof typeof DEFAULTS;
 
+// Slots the Studio's default set can fill: every theme slot plus the voice
+// used by pets without their own.
+export type DefaultSetSlot = SoundSlot | 'voice';
+
 // Default sound(s) for each slot, with their base volume.
 const DEFAULT_SLOTS: Record<Exclude<SoundSlot, 'correct'>, { sounds: DefaultSound[]; volume: number }> = {
   tap: { sounds: ['key1', 'key2', 'key3'], volume: 0.9 },
@@ -68,6 +75,7 @@ const defaultPools = new Map<DefaultSound, Pool>();
 // The active theme's overrides: one pool per recording (tap can have several).
 let themePools = new Map<SoundSlot, { pools: Pool[]; volume: number }>();
 let themeSoundsId: string | null = null;
+const defaultSetPools = new Map<DefaultSetSlot, { pools: Pool[]; volume: number }>();
 let muted = false;
 
 export function initFeedback() {
@@ -75,6 +83,11 @@ export function initFeedback() {
   for (const name of Object.keys(DEFAULTS) as DefaultSound[]) {
     const players = Array.from({ length: POOL_SIZE[name] ?? 1 }, () => createAudioPlayer(DEFAULTS[name]));
     defaultPools.set(name, { players, next: 0 });
+  }
+  for (const [slot, sound] of Object.entries(DEFAULT_SET) as [DefaultSetSlot, { sources: number[]; volume: number }][]) {
+    const size = slot === 'coin' ? 4 : 2;
+    const pools = sound.sources.map((source) => ({ players: Array.from({ length: size }, () => createAudioPlayer(source)), next: 0 }));
+    defaultSetPools.set(slot, { pools, volume: sound.volume });
   }
 }
 
@@ -136,7 +149,7 @@ let variant = 0;
 function playSlot(slot: Exclude<SoundSlot, 'correct'>) {
   // Rotate through variations (tap has three) so repeats don't sound robotic.
   variant += 1 + Math.floor(Math.random() * 2);
-  const custom = themePools.get(slot);
+  const custom = themePools.get(slot) ?? defaultSetPools.get(slot);
   if (custom) {
     playFrom(custom.pools[variant % custom.pools.length], custom.volume);
     return;
@@ -165,7 +178,7 @@ export const feedback = {
   },
   // Each answer in a streak rings one pentatonic step higher.
   correct(streak: number) {
-    const custom = themePools.get('correct');
+    const custom = themePools.get('correct') ?? defaultSetPools.get('correct');
     if (custom) {
       const semitones = STREAK_SEMITONES[Math.min(streak - 1, STREAK_SEMITONES.length - 1)];
       playFrom(custom.pools[0], custom.volume, 2 ** (semitones / 12));
@@ -193,8 +206,11 @@ export const feedback = {
   // sentence sounds like cute chatter. `pet` sets the voice's pitch.
   petSyllable(pet: Pet) {
     const rate = Math.min(2, Math.max(0.5, pet.voicePitch * (0.88 + Math.random() * 0.3)));
+    const setVoice = defaultSetPools.get('voice');
     if (petVoice?.id === pet.id && petVoice.pools.length) {
       playFrom(petVoice.pools[Math.floor(Math.random() * petVoice.pools.length)], petVoice.volume, rate);
+    } else if (setVoice) {
+      playFrom(setVoice.pools[Math.floor(Math.random() * setVoice.pools.length)], pet.voiceVolume * setVoice.volume, rate);
     } else {
       const syllable = VOICE_SYLLABLES[Math.floor(Math.random() * VOICE_SYLLABLES.length)];
       playFrom(defaultPools.get(syllable), pet.voiceVolume, rate);

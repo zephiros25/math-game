@@ -28,7 +28,7 @@
 <div class="app">
   <header class="top">
     <h1>🎨 Studio</h1>
-    <nav class="nav"><a href="/" class="on">Themes</a><a href="/pets">Pets</a></nav>
+    <nav class="nav"><a href="/" class="on">Themes</a><a href="/pets">Pets</a><a href="/sounds">Sounds</a></nav>
     <span class="status" id="status"></span>
     <span class="spacer"></span>
     <span class="hint">Save with <kbd>Ctrl</kbd>+<kbd>S</kbd>. With <kbd>npx expo start</kbd> running, saves show up on your phone.</span>
@@ -84,6 +84,7 @@ let current = null;      // the theme being edited (working copy in current.json
 let savedJson = '';      // JSON string of the last saved version, to detect changes
 let screen = 'play';
 let ideas = [];          // docs/theme-ideas.json, for "Next theme"
+let defaultSet = {};     // default sounds made on the Sounds page (assets/sounds/default-set)
 
 const COLOR_GROUPS = [
   ['Screen', 'The page itself.', [['background', 'Background'], ['backgroundDeep', 'Background, deeper'], ['text', 'Text'], ['textSoft', 'Soft text']]],
@@ -208,23 +209,36 @@ async function playUrl(url, volume = 1, rate = 1) {
   } catch (e) { setStatus(`Could not play ${url.split('/').pop()}: ${e.message}`); }
 }
 let variant = 0;
+// The default sound for a slot: the default set made on the Sounds page if
+// it has one, otherwise the built-in sound.
+function playDefault(slot, streak = 1) {
+  const semis = STREAK_SEMITONES[Math.min(streak - 1, STREAK_SEMITONES.length - 1)];
+  const made = defaultSet[slot];
+  if (made?.files?.length) {
+    const file = made.files[variant % made.files.length];
+    return playUrl(`/default-set/${encodeURIComponent(file)}`, made.volume ?? 1, slot === 'correct' ? 2 ** (semis / 12) : 1);
+  }
+  if (slot === 'correct') return playUrl(`/default-sounds/chime${Math.min(streak - 1, 9)}.wav`, 1);
+  const [names, vol] = DEFAULT_SOUNDS[slot];
+  return playUrl(`/default-sounds/${names[variant % names.length]}.wav`, vol);
+}
+
 function playSlot(slot, opts = {}) {
   const custom = current?.json.sounds?.[slot];
   if (slot === 'correct') {
     const streak = opts.streak ?? 1;
-    if (custom?.files?.length) {
+    if (custom?.files?.length && !opts.useDefault) {
       const semis = STREAK_SEMITONES[Math.min(streak - 1, STREAK_SEMITONES.length - 1)];
       return playUrl(fileUrl(current.id, custom.files[0]), custom.volume, 2 ** (semis / 12));
     }
-    return playUrl(`/default-sounds/chime${Math.min(streak - 1, 9)}.wav`, 1);
+    return playDefault('correct', streak);
   }
   variant += 1 + Math.floor(Math.random() * 2);
   if (custom?.files?.length && !opts.useDefault) {
     const files = slot === 'tap' ? custom.files.slice(0, 3) : custom.files.slice(0, 1);
     return playUrl(fileUrl(current.id, files[variant % files.length]), custom.volume);
   }
-  const [names, vol] = DEFAULT_SOUNDS[slot];
-  return playUrl(`/default-sounds/${names[variant % names.length]}.wav`, vol);
+  return playDefault(slot);
 }
 
 // ---------------------------------------------------------------- list + selection
@@ -617,7 +631,7 @@ function soundsCard(j) {
           h('div', {},
             h('button', { class: 'small', onclick: () => slot === 'correct' ? playLadder() : playSlot(slot) }, slot === 'correct' ? '▶ Streak' : '▶ Theme'),
             ' ',
-            h('button', { class: 'small', onclick: () => slot === 'correct' ? playUrl('/default-sounds/chime0.wav') : playSlot(slot, { useDefault: true }) }, '▶ Default'),
+            h('button', { class: 'small', onclick: () => slot === 'correct' ? playDefault('correct') : playSlot(slot, { useDefault: true }) }, '▶ Default'),
           ),
         ),
       );
@@ -1001,6 +1015,7 @@ document.querySelectorAll('[data-test]').forEach((b) => b.addEventListener('clic
   meta = await api('/api/meta');
   themes = await api('/api/themes');
   ideas = await api('/api/theme-ideas');
+  defaultSet = (await api('/api/sound-targets')).targets.find((t) => t.kind === 'default')?.files ?? {};
   updateNextButton();
   renderList();
   if (themes.length) await select(themes[0].id); else renderEditor();
