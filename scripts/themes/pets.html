@@ -104,11 +104,11 @@ let current = null; // the pet being edited (working copy in current.json)
 let savedJson = '';
 
 const PROMPTS = {
-  idle: 'Create a cute cartoon pet character for a children’s math app: [describe your pet, e.g. a round baby dragon with tiny wings]. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow.',
+  idle: 'Create a cute cartoon pet character for a children’s math app: [describe your pet, e.g. a round baby dragon with tiny wings]. Full body, mouth closed, facing forward, sitting, centered with some empty space around it, soft rounded shapes, thick dark outline, kawaii sticker style, transparent background, square image, no text, no shadow. Output a PNG with a fully transparent background.',
   // Both edits point back to the first image; otherwise ChatGPT tends to edit
   // the latest picture (the talk version would come out with closed eyes).
-  blink: 'Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink.',
-  talk: 'Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking.',
+  blink: 'Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the eyes closed in a happy blink. Output a PNG with a fully transparent background.',
+  talk: 'Make exactly the same image, identical in every detail, pose, size and position as the first image, but with the mouth open as if happily talking. Output a PNG with a fully transparent background.',
 };
 
 // ---------------------------------------------------------------- helpers
