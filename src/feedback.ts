@@ -236,13 +236,19 @@ function pickSyllable(count: number) {
 
 let variant = 0;
 
-function playSlot(slot: Exclude<SoundSlot, 'correct'>) {
+// `vary` plays the sound with a little random change: pitch by up to
+// ±vary.pitch semitones, volume down by up to vary.volume (0–1).
+type Vary = { pitch: number; volume: number };
+
+function playSlot(slot: Exclude<SoundSlot, 'correct'>, vary?: Vary) {
   // Rotate through variations (tap has three) so repeats don't sound robotic.
   variant += 1 + Math.floor(Math.random() * 2);
+  const rate = vary ? 2 ** (((Math.random() * 2 - 1) * vary.pitch) / 12) : undefined;
+  const gain = vary ? 1 - Math.random() * vary.volume : 1;
   const custom = themePools.get(slot) ?? defaultSetPools.get(slot);
-  if (custom) return playFrom(custom.pools[variant % custom.pools.length], custom.volume);
+  if (custom) return playFrom(custom.pools[variant % custom.pools.length], custom.volume * gain, rate);
   const { sounds, volume } = DEFAULT_SLOTS[slot];
-  return playFrom(defaultPools.get(sounds[variant % sounds.length]), volume);
+  return playFrom(defaultPools.get(sounds[variant % sounds.length]), volume * gain, rate);
 }
 
 // The answer is judged on the last key press, so the correct/wrong sound
@@ -298,8 +304,10 @@ export const feedback = {
   levelUp() {
     playSlot('levelUp');
   },
+  // Each coin a touch higher or lower and softer or louder, so a count-up
+  // sounds like real coins rather than one sample repeated.
   coin() {
-    playSlot('coin');
+    playSlot('coin', { pitch: 1, volume: 0.25 });
     buzz(() => Haptics.selectionAsync());
   },
   gem() {
