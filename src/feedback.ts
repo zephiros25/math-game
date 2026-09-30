@@ -170,11 +170,44 @@ function playFrom(pool: Pool | undefined, volume: number, rate?: number, isPet =
       const seconds = (player.duration > 0 ? player.duration : FALLBACK_SECONDS) / (rate ?? 1);
       busyUntil = Math.max(busyUntil, Date.now() + seconds * 1000);
     }
-  } catch {
-    // A missed sound effect should never break the game.
+  } catch (e) {
+    // A missed sound effect should never break the game, but remember why
+    // for the Sound check in the grown-ups' screen.
+    lastError = e instanceof Error ? e.message : String(e);
   }
   return voice;
 }
+
+let lastError: string | null = null;
+
+// For the Sound check (settings): plays one slot's sound and reports what the
+// audio player says about it a moment later.
+export async function checkSound(slot: DefaultSetSlot) {
+  const set = defaultSetPools.get(slot);
+  const theme = slot === 'voice' ? undefined : themePools.get(slot);
+  const pool = (theme ?? set)?.pools[0] ?? defaultPools.get(slot === 'voice' ? 'voice-a' : DEFAULT_SLOTS_FOR_CHECK[slot]);
+  const source = theme ? 'theme' : set ? 'default set' : 'built-in';
+  if (!pool) return `${slot}: no sound`;
+  const errorBefore = lastError;
+  const voice = playFrom(pool, 1);
+  await new Promise((r) => setTimeout(r, 150));
+  const p = voice?.player;
+  if (!p) return `${slot} (${source}): not played${muted ? ' (muted)' : ''}`;
+  const error = lastError !== errorBefore ? ` · error: ${lastError}` : '';
+  return `${slot} (${source}): loaded ${p.isLoaded ? 'yes' : 'NO'}, ${p.playing ? 'playing' : 'NOT playing'}, at ${p.currentTime.toFixed(2)} of ${p.duration.toFixed(2)} s${error}`;
+}
+
+const DEFAULT_SLOTS_FOR_CHECK: Record<Exclude<DefaultSetSlot, 'voice'>, DefaultSound> = {
+  tap: 'key1',
+  backspace: 'back',
+  button: 'pop',
+  correct: 'chime0',
+  wrong: 'wrong',
+  levelUp: 'levelup',
+  fanfare: 'fanfare',
+  coin: 'coin',
+  gem: 'gem',
+};
 
 // Milliseconds until the sound effects playing now have finished (0 = quiet).
 export function quietIn() {

@@ -3,7 +3,7 @@ import { Fragment, useMemo, useRef, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Switch, Text, TextInput, View } from 'react-native';
 
 import { Screen } from '@/components/screen';
-import { feedback } from '@/feedback';
+import { checkSound, feedback, type DefaultSetSlot } from '@/feedback';
 import { FOCUS_TABLES, MIN_TRICKY, tablesLabel } from '@/game/focus';
 import { LEVEL_GROUPS, levelInfo } from '@/game/levels';
 import {
@@ -32,6 +32,18 @@ export default function Settings() {
   const scroll = useRef<ScrollView>(null);
   const scrolled = useRef(false);
   const [editing, setEditing] = useState<string | null>(null);
+  const [soundReport, setSoundReport] = useState<string[] | null>(null);
+
+  // Plays every sound once and lists what the phone's audio player reports.
+  const runSoundCheck = async () => {
+    const slots: DefaultSetSlot[] = ['tap', 'backspace', 'button', 'correct', 'wrong', 'coin', 'gem', 'voice'];
+    const lines: string[] = [];
+    for (const slot of slots) {
+      lines.push(await checkSound(slot));
+      setSoundReport([...lines]);
+      await new Promise((r) => setTimeout(r, 450));
+    }
+  };
   const [draft, setDraft] = useState('');
   const [confirmRemove, setConfirmRemove] = useState<string | null>(null);
   const player = activePlayer(device);
@@ -258,6 +270,19 @@ export default function Settings() {
               thumbColor={t.card}
             />
           </View>
+
+          <Text style={[styles.heading, styles.headingSpaced]}>Sound check</Text>
+          <Pressable onPress={runSoundCheck} style={styles.row}>
+            <View style={styles.rowText}>
+              <Text style={styles.rowTitle}>Play every sound</Text>
+              <Text style={styles.rowExample}>If sounds stay silent, this shows what the phone reports for each one.</Text>
+            </View>
+          </Pressable>
+          {soundReport?.map((line, i) => (
+            <Text key={i} selectable style={styles.rowExample}>
+              {line}
+            </Text>
+          ))}
 
           <Text style={[styles.heading, styles.headingSpaced]}>Highest level</Text>
           <Text style={styles.intro}>
