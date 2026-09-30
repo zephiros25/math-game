@@ -229,12 +229,20 @@ function playSlot(slot: Exclude<SoundSlot, 'correct'>) {
   // Rotate through variations (tap has three) so repeats don't sound robotic.
   variant += 1 + Math.floor(Math.random() * 2);
   const custom = themePools.get(slot) ?? defaultSetPools.get(slot);
-  if (custom) {
-    playFrom(custom.pools[variant % custom.pools.length], custom.volume);
-    return;
-  }
+  if (custom) return playFrom(custom.pools[variant % custom.pools.length], custom.volume);
   const { sounds, volume } = DEFAULT_SLOTS[slot];
-  playFrom(defaultPools.get(sounds[variant % sounds.length]), volume);
+  return playFrom(defaultPools.get(sounds[variant % sounds.length]), volume);
+}
+
+// The answer is judged on the last key press, so the correct/wrong sound
+// waits for that key's tap to finish instead of sounding on top of it (at
+// most AFTER_TAP_MAX_MS, so it never feels slow).
+const AFTER_TAP_MAX_MS = 300;
+let tapEndsAt = 0;
+export function afterTap(fn: () => void) {
+  const wait = Math.min(Math.max(0, tapEndsAt - Date.now()), AFTER_TAP_MAX_MS);
+  if (wait > 0) setTimeout(fn, wait);
+  else fn();
 }
 
 const canBuzz = Platform.OS === 'ios' || Platform.OS === 'android';
@@ -244,7 +252,9 @@ const buzz = (fn: () => Promise<void>) => {
 
 export const feedback = {
   key() {
-    playSlot('tap');
+    const voice = playSlot('tap');
+    const seconds = voice && voice.player.duration > 0 ? voice.player.duration : 0;
+    tapEndsAt = Date.now() + seconds * 1000;
     buzz(() => Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light));
   },
   backspace() {
@@ -257,18 +267,22 @@ export const feedback = {
   },
   // Each answer in a streak rings one pentatonic step higher.
   correct(streak: number) {
-    const custom = themePools.get('correct') ?? defaultSetPools.get('correct');
-    if (custom) {
-      const semitones = STREAK_SEMITONES[Math.min(streak - 1, STREAK_SEMITONES.length - 1)];
-      playFrom(custom.pools[0], custom.volume, 2 ** (semitones / 12));
-    } else {
-      playFrom(defaultPools.get(`chime${Math.min(streak - 1, 9)}` as DefaultSound), 1);
-    }
-    buzz(() => Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success));
+    afterTap(() => {
+      const custom = themePools.get('correct') ?? defaultSetPools.get('correct');
+      if (custom) {
+        const semitones = STREAK_SEMITONES[Math.min(streak - 1, STREAK_SEMITONES.length - 1)];
+        playFrom(custom.pools[0], custom.volume, 2 ** (semitones / 12));
+      } else {
+        playFrom(defaultPools.get(`chime${Math.min(streak - 1, 9)}` as DefaultSound), 1);
+      }
+      buzz(() => Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success));
+    });
   },
   wrong() {
-    playSlot('wrong');
-    buzz(() => Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy));
+    afterTap(() => {
+      playSlot('wrong');
+      buzz(() => Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy));
+    });
   },
   levelUp() {
     playSlot('levelUp');

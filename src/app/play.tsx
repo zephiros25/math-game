@@ -18,7 +18,7 @@ import { Coin } from '@/components/coin';
 import { Keypad } from '@/components/keypad';
 import { PetView, type PetHandle } from '@/components/pet-view';
 import { Screen } from '@/components/screen';
-import { feedback } from '@/feedback';
+import { afterTap, feedback } from '@/feedback';
 import { judge, type Verdict } from '@/game/engine';
 import { focusPlan } from '@/game/focus';
 import { generateQuestion, levelInfo, type Question } from '@/game/levels';
@@ -132,8 +132,9 @@ export default function Play() {
       pop.set(withSequence(withSpring(1.18, { damping: 6, stiffness: 500 }), withSpring(1, { damping: 10 })));
       coinBump.set(withSequence(withTiming(1.35, { duration: 90 }), withSpring(1, { damping: 8 })));
       // Crossing your all-time best level is worth a little fanfare.
-      if (newBest) feedback.levelUp();
-      if (streakGem) setTimeout(feedback.gem, 250);
+      // Both wait for the last key tap to finish, like the correct sound.
+      if (newBest) afterTap(feedback.levelUp);
+      if (streakGem) afterTap(() => setTimeout(feedback.gem, 250));
       if (pet) {
         if (newBest) petSay(petLine(pet, 'newBest'), true);
         else if (streak === 3 || (streak >= 5 && streak % 5 === 0)) petSay(petLine(pet, 'streak', { streak }), true);
