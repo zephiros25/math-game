@@ -6,7 +6,7 @@
 import type { Focus } from '@/progress';
 import { trickyFacts, type Stats } from '@/stats';
 
-import { plusMinus, timesDivide, type Question } from './levels';
+import { plusMinus, tableKey, timesDivide, type Question } from './levels';
 
 export const FOCUS_TABLES = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] as const;
 
@@ -40,8 +40,11 @@ export function focusPlan(focus: Focus, stats: Stats): FocusPlan | null {
       label: tablesLabel(focus.tables),
       next: (previous) => {
         for (let tries = 0; ; tries++) {
+          // Multiplication only (no division), the table either first or second.
           const table = pick(focus.tables);
-          const q = { ...timesDivide(int(2, 10), table), level: TABLE_LEVEL[table] ?? 18 };
+          const other = int(2, 10);
+          const [a, b] = Math.random() < 0.5 ? [table, other] : [other, table];
+          const q: Question = { text: `${a} × ${b}`, answer: a * b, effort: 1, fact: tableKey(a, b), level: TABLE_LEVEL[table] ?? 18 };
           if (q.text !== previous?.text || tries > 10) return q;
         }
       },
