@@ -15,6 +15,7 @@ import Animated, {
   useAnimatedStyle,
   useReducedMotion,
   useSharedValue,
+  withDelay,
   withRepeat,
   withSequence,
   withSpring,
@@ -51,6 +52,10 @@ const SYLLABLE_MS = 280;
 const SYLLABLE_GAP_MS = 50;
 const MAX_WAIT_MS = 4000;
 const MOUTH_OPEN = 0.6;
+// How long a picture that is being replaced stays visible (see idleStyle).
+// Blinks and mouth flaps end that much earlier, so they look as long as before.
+const COVER_MS = 80;
+const BLINK_MS = 120;
 const syllablesFor = (text: string) => Math.min(9, Math.max(2, Math.round(text.length / 4.5)));
 const BUBBLE_WIDTH = 200;
 const IDLE = 0;
@@ -123,7 +128,7 @@ export function PetView({ pet, size: baseSize, bubble = 'right', onPress, silent
       later(after, () => {
         if (talking.current) return;
         frame.set(BLINK);
-        later(120, () => frame.get() === BLINK && frame.set(IDLE));
+        later(BLINK_MS - COVER_MS, () => frame.get() === BLINK && frame.set(IDLE));
       });
     const loop = () =>
       later(2200 + Math.random() * 3500, () => {
@@ -186,7 +191,7 @@ export function PetView({ pet, size: baseSize, bubble = 'right', onPress, silent
       const played = silent ? 0 : feedback.petSyllable(pet);
       const length = played > 0 ? Math.min(played, 600) : SYLLABLE_MS - SYLLABLE_GAP_MS;
       if (!still) jump.set(withSequence(withTiming(-3, { duration: 110 }), withTiming(0, { duration: 150 })));
-      whileTalking(length * MOUTH_OPEN, () => frame.set(IDLE));
+      whileTalking(Math.max(40, length * MOUTH_OPEN - COVER_MS), () => frame.set(IDLE));
       whileTalking(length + SYLLABLE_GAP_MS, () => step(i + 1));
     };
     step(0);
@@ -207,11 +212,20 @@ export function PetView({ pet, size: baseSize, bubble = 'right', onPress, silent
       ],
     };
   });
-  const idleStyle = useAnimatedStyle(() => ({
-    opacity: frame.value === IDLE || (frame.value === BLINK && !hasBlink) || (frame.value === TALK && !hasTalk) ? 1 : 0,
+  // The blink and talk pictures are laid on top of the normal one. Switching
+  // pictures at the same instant could leave a moment with neither drawn on
+  // iPhones (the pet blinked out of sight), so a picture that goes away stays
+  // for COVER_MS underneath the one that takes over.
+  const idleStyle = useAnimatedStyle(() => {
+    const covered = (frame.value === BLINK && hasBlink) || (frame.value === TALK && hasTalk);
+    return { opacity: covered ? withDelay(COVER_MS, withTiming(0, { duration: 0 })) : 1 };
+  });
+  const blinkStyle = useAnimatedStyle(() => ({
+    opacity: frame.value === BLINK ? 1 : withDelay(COVER_MS, withTiming(0, { duration: 0 })),
   }));
-  const blinkStyle = useAnimatedStyle(() => ({ opacity: frame.value === BLINK ? 1 : 0 }));
-  const talkStyle = useAnimatedStyle(() => ({ opacity: frame.value === TALK ? 1 : 0 }));
+  const talkStyle = useAnimatedStyle(() => ({
+    opacity: frame.value === TALK ? 1 : withDelay(COVER_MS, withTiming(0, { duration: 0 })),
+  }));
 
   // The bubble gets its own width (otherwise it would wrap to the pet's
   // width); the speech inside shrinks to fit shorter sentences.
