@@ -28,7 +28,7 @@
 <div class="app">
   <header class="top">
     <h1>🎨 Studio</h1>
-    <nav class="nav"><a href="/" class="on">Themes</a><a href="/pets">Pets</a><a href="/sounds">Sounds</a></nav>
+    <nav class="nav"><a href="/" class="on">Themes</a><a href="/batch">Batch</a><a href="/pets">Pets</a><a href="/sounds">Sounds</a></nav>
     <span class="status" id="status"></span>
     <span class="spacer"></span>
     <span class="hint">Save with <kbd>Ctrl</kbd>+<kbd>S</kbd>. With <kbd>npx expo start</kbd> running, saves show up on your phone.</span>
@@ -1018,7 +1018,9 @@ document.querySelectorAll('[data-test]').forEach((b) => b.addEventListener('clic
   defaultSet = (await api('/api/sound-targets')).targets.find((t) => t.kind === 'default')?.files ?? {};
   updateNextButton();
   renderList();
-  if (themes.length) await select(themes[0].id); else renderEditor();
+  // "/#coral-reef" opens that theme (the Batch page links here).
+  const wanted = decodeURIComponent(location.hash.slice(1));
+  if (themes.length) await select(themes.some((t) => t.id === wanted) ? wanted : themes[0].id); else renderEditor();
 })();
 </script>
 </body>

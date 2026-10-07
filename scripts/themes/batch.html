@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Batch · Math Run Studio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/studio.css">
+<style>
+  .app { display: block; height: auto; min-height: 100vh; }
+  main { padding: 16px 20px 60px; }
+  .bar { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-bottom: 14px; }
+  .bar .grow { flex: 1; }
+  .steps { margin: 0 0 14px; padding-left: 20px; color: var(--soft); font-size: 13px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 14px; }
+  .bcard { cursor: pointer; border: 2px solid var(--line); transition: border-color .15s, box-shadow .15s; }
+  .bcard.target { border-color: var(--accent); box-shadow: 0 0 0 4px #ffe1d6; }
+  .bcard.done { opacity: .6; }
+  .bcard.over { background: #fff7f3; }
+  .bcard h3 { margin: 0; font-size: 17px; display: flex; gap: 8px; align-items: center; }
+  .bcard h3 .tag { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 99px; background: var(--bg); color: var(--soft); }
+  .bcard.target h3 .tag { background: var(--accent); color: #fff; }
+  .bcard.done h3 .tag { background: #e8f6ee; color: var(--ok); }
+  .thumbs { display: flex; gap: 10px; align-items: flex-end; margin: 10px 0; }
+  .thumbs figure { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 3px; font-size: 11px; color: var(--soft); }
+  .thumbs img, .thumbs .slot { width: 64px; height: 64px; border-radius: 12px; object-fit: contain; background: #fff; border: 1px solid var(--line); }
+  .thumbs img.bg, .thumbs .slot.bg { width: 46px; height: 82px; object-fit: cover; }
+  .thumbs .slot { border-style: dashed; display: flex; align-items: center; justify-content: center; }
+  .prompts { display: flex; gap: 6px; flex-wrap: wrap; }
+  .bcard details { margin-top: 8px; font-size: 12px; }
+  .bcard details p { margin: 6px 0; white-space: pre-wrap; }
+  .watch { display: flex; align-items: center; gap: 8px; font-weight: 600; }
+  .watch .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--line); }
+  .watch.on .dot { background: var(--ok); animation: pulse 1.2s infinite; }
+  @keyframes pulse { 50% { opacity: .3; } }
+  .log { font-size: 13px; margin-top: 4px; }
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="top">
+    <h1>🎨 Studio</h1>
+    <nav class="nav"><a href="/">Themes</a><a href="/batch" class="on">Batch</a><a href="/pets">Pets</a><a href="/sounds">Sounds</a></nav>
+    <span class="status" id="status"></span>
+    <span class="spacer"></span>
+  </header>
+  <main>
+    <div class="bar">
+      <button class="primary" id="add5">+ Next 5 themes</button>
+      <button id="add10">+ Next 10</button>
+      <span class="grow"></span>
+      <label class="watch on" id="watch"><span class="dot"></span><input type="checkbox" id="watchBox" checked> Pick up downloads</label>
+      <span class="hint" id="inboxHint"></span>
+    </div>
+    <ol class="steps">
+      <li>For each card: <b>Copy prompt A</b> into a new temporary ChatGPT chat, and <b>Copy prompt B</b> into another. Start them all; ChatGPT works on them at the same time.</li>
+      <li>When a theme&rsquo;s pictures are ready: <b>click its card</b> (it turns orange), then download both pictures in ChatGPT. The Studio picks them up: tall = background, wide = icon + button.</li>
+      <li>Ctrl+V pastes into the orange card; you can also drop pictures on any card. A finished card turns grey and the next one becomes orange.</li>
+    </ol>
+    <div class="msg" id="log" hidden></div>
+    <div class="grid" id="grid"></div>
+  </main>
+</div>
+
+<script>
+let ideas = [];    // docs/theme-ideas.json
+let themes = [];   // [{ id, json, ... }] from the server
+let cards = [];    // theme ids shown as cards, in order
+let target = null; // the card that downloads and pastes go to
+let since = Date.now();
+let busy = false;
+
+// ---------------------------------------------------------------- helpers
+const $ = (sel, root = document) => root.querySelector(sel);
+const h = (tag, attrs = {}, ...children) => {
+  const el = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs)) {
+    if (k === 'style' && typeof v === 'object') Object.assign(el.style, v);
+    else if (k.startsWith('on')) el.addEventListener(k.slice(2), v);
+    else if (v === true) el.setAttribute(k, '');
+    else if (v !== false && v != null) el.setAttribute(k, v);
+  }
+  for (const c of children.flat(Infinity)) if (c != null && c !== false) el.append(c.nodeType ? c : document.createTextNode(c));
+  return el;
+};
+const fill = (el, ...kids) => el.replaceChildren(...kids.flat(Infinity).filter((k) => k != null && k !== false));
+
+async function api(path, opts = {}) {
+  const res = await fetch(path, opts);
+  const body = await res.json().catch(() => ({ error: `The Studio server answered with an error (${res.status})` }));
+  if (!res.ok) throw new Error(body.error || res.statusText);
+  return body;
+}
+function setStatus(text, isError = false) {
+  const st = $('#status');
+  st.textContent = text;
+  st.style.color = isError ? 'var(--err)' : '';
+}
+function log(text, kind = 'ok') {
+  const el = $('#log');
+  el.className = `msg ${kind}`;
+  el.textContent = text;
+  el.hidden = false;
+}
+
+const ideaFor = (id) => ideas.find((i) => i.id === id);
+const themeFor = (id) => themes.find((t) => t.id === id);
+const fileUrl = (id, f) => `/files/${id}/${encodeURIComponent(f)}`;
+const missing = (j) => ({ background: !j?.background?.image, icon: !j?.icon, button: !j?.keys?.image });
+const complete = (id) => {
+  const m = missing(themeFor(id)?.json);
+  return !m.background && !m.icon && !m.button;
+};
+const nextTarget = (after) => {
+  const from = Math.max(0, cards.indexOf(after) + 1);
+  return [...cards.slice(from), ...cards.slice(0, from)].find((id) => !complete(id)) ?? null;
+};
+
+// ---------------------------------------------------------------- cards
+function render() {
+  fill($('#grid'), cards.map((id) => {
+    const t = themeFor(id);
+    const idea = ideaFor(id);
+    const j = t?.json ?? {};
+    const done = complete(id);
+    const thumb = (label, file, cls = '') => h('figure', {},
+      file ? h('img', { class: cls, src: fileUrl(id, file) }) : h('div', { class: `slot ${cls}` }, '?'), label);
+    const copy = (label, text) => h('button', { class: 'small', onclick: (e) => {
+      e.stopPropagation();
+      navigator.clipboard.writeText(text);
+      setTarget(id);
+      setStatus(`${label} for ${j.name ?? id} copied`);
+    } }, label);
+    const card = h('section', { class: `card bcard${id === target ? ' target' : ''}${done ? ' done' : ''}`, onclick: () => setTarget(id) },
+      h('h3', {}, j.name ?? id, h('span', { class: 'tag' }, done ? '✓ done' : id === target ? 'downloads go here' : 'waiting')),
+      h('div', { class: 'thumbs' }, thumb('Background', j.background?.image, 'bg'), thumb('Icon', j.icon), thumb('Button', j.keys?.image)),
+      idea ? h('div', { class: 'prompts' }, copy('Copy prompt A', idea.prompts.background), copy('Copy prompt B', idea.prompts.assets),
+        h('a', { href: `/#${id}`, target: '_blank', class: 'small', onclick: (e) => e.stopPropagation() }, 'Edit ↗')) : null,
+      idea ? h('details', { onclick: (e) => e.stopPropagation() }, h('summary', {}, 'Show prompts'),
+        h('p', {}, h('b', {}, 'A: '), idea.prompts.background), h('p', {}, h('b', {}, 'B: '), idea.prompts.assets)) : null,
+    );
+    card.addEventListener('dragover', (e) => { e.preventDefault(); card.classList.add('over'); });
+    card.addEventListener('dragleave', () => card.classList.remove('over'));
+    card.addEventListener('drop', async (e) => {
+      e.preventDefault();
+      card.classList.remove('over');
+      for (const file of [...e.dataTransfer.files].filter((f) => f.type.startsWith('image/'))) await upload(id, file, file.name);
+    });
+    return card;
+  }));
+  if (!cards.length) fill($('#grid'), h('div', { class: 'empty' }, 'No themes in progress. Click "+ Next 5 themes" to start a batch.'));
+}
+
+function setTarget(id) {
+  if (target === id) return;
+  target = id;
+  render();
+}
+
+// After a picture arrived: refresh the theme, and move on once it is complete.
+function took(id, result) {
+  const i = themes.findIndex((t) => t.id === id);
+  if (i >= 0) themes[i] = result; else themes.push(result);
+  const name = result.json?.name ?? id;
+  const what = result.kind === 'background' ? 'background' : 'icon + button';
+  let text = `✓ ${what} → ${name}`;
+  if (!result.transparent) text += ' (no transparent background: the icon and button sit on a box; ask ChatGPT for a transparent PNG)';
+  if (complete(id)) {
+    text += `. ${name} is complete and in the app.`;
+    target = nextTarget(id);
+  }
+  log(text, result.transparent ? 'ok' : 'warn');
+  render();
+}
+
+async function upload(id, blob, name) {
+  setStatus(`Adding ${name} to ${themeFor(id)?.json?.name ?? id}…`);
+  try {
+    took(id, await api(`/api/themes/${id}/upload?kind=picture&name=${encodeURIComponent(name)}`, { method: 'POST', body: blob }));
+    setStatus('');
+  } catch (e) {
+    log(`✖ ${e.message}`, 'err');
+    setStatus('');
+  }
+}
+
+// ---------------------------------------------------------------- batches
+async function addNext(n) {
+  const next = ideas.filter((i) => !themeFor(i.id)).slice(0, n);
+  if (!next.length) return alert('Every theme from docs/theme-ideas.json has been made!');
+  for (const [k, idea] of next.entries()) {
+    setStatus(`Creating ${idea.name} (${k + 1}/${next.length})…`);
+    try {
+      const t = await api('/api/themes', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ id: idea.id, idea: true }) });
+      themes.push(t);
+      cards.push(idea.id);
+      if (t.fontError) log(`${idea.name}: could not fetch the font "${idea.font}" (${t.fontError}); it uses the default font.`, 'warn');
+    } catch (e) {
+      log(`✖ ${idea.name}: ${e.message}`, 'err');
+    }
+    target ??= nextTarget(null);
+    render();
+  }
+  setStatus(`${next.length} new themes ready: copy their prompts into ChatGPT.`);
+}
+$('#add5').onclick = () => addNext(5);
+$('#add10').onclick = () => addNext(10);
+
+// ---------------------------------------------------------------- downloads and pasting
+async function poll() {
+  if (busy || !$('#watchBox').checked) return;
+  busy = true;
+  try {
+    const { file } = await api(`/api/inbox?kind=image&since=${since}`);
+    if (!file) return;
+    since = file.mtime;
+    if (!target) {
+      log(`${file.name} was downloaded, but no card is orange: click a card first, then drop the file on it.`, 'warn');
+      return;
+    }
+    const id = target;
+    setStatus(`Adding ${file.name} to ${themeFor(id)?.json?.name ?? id}…`);
+    took(id, await api(`/api/themes/${id}/take`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ file: file.name }) }));
+    setStatus('');
+  } catch (e) {
+    log(`✖ ${e.message}`, 'err');
+    setStatus('');
+  } finally {
+    busy = false;
+  }
+}
+setInterval(poll, 1000);
+$('#watchBox').onchange = () => {
+  $('#watch').classList.toggle('on', $('#watchBox').checked);
+  // Only downloads from now on.
+  since = Date.now();
+};
+
+document.addEventListener('paste', async (e) => {
+  const files = [...(e.clipboardData?.items ?? [])].filter((item) => item.type.startsWith('image/')).map((item) => item.getAsFile()).filter(Boolean);
+  if (!files.length) return;
+  e.preventDefault();
+  if (!target) return log('Click a card first: pasted pictures go to the orange card.', 'warn');
+  for (const [i, blob] of files.entries()) await upload(target, blob, `pasted-${Date.now()}-${i}.png`);
+});
+
+// ---------------------------------------------------------------- start
+(async () => {
+  ideas = await api('/api/theme-ideas');
+  themes = await api('/api/themes');
+  const { inbox } = await api('/api/sound-targets');
+  $('#inboxHint').textContent = `Watching ${inbox}`;
+  // Themes from the ideas list that still miss pictures: pick up where you left off.
+  cards = ideas.filter((i) => themeFor(i.id) && !complete(i.id)).map((i) => i.id);
+  target = nextTarget(null);
+  render();
+})();
+</script>
+</body>
+</html>

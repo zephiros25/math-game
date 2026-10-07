@@ -57,6 +57,7 @@ const studioHtml = fileURLToPath(new URL('./studio.html', import.meta.url));
 const petsHtml = fileURLToPath(new URL('./pets.html', import.meta.url));
 const studioCss = fileURLToPath(new URL('./studio.css', import.meta.url));
 const soundsHtml = fileURLToPath(new URL('./sounds.html', import.meta.url));
+const batchHtml = fileURLToPath(new URL('./batch.html', import.meta.url));
 const soundPromptsFile = fileURLToPath(new URL('../../docs/sound-prompts.json', import.meta.url));
 // Where the sound generator's downloads land (the Sounds page picks them up).
 const INBOX = process.env.SOUND_INBOX || join(homedir(), 'Downloads');
@@ -256,6 +257,32 @@ async function importThemeSheet(id, data) {
     key: await importFile(id, 'key', 'button.png', key.png),
     transparent: Boolean(hasAlpha),
   };
+}
+
+// A ChatGPT picture for a theme (Batch page): a tall one is the background,
+// a wide one the sheet with the icon and the button. Updates theme.json.
+async function addThemePicture(id, data, name = 'picture.png') {
+  const dir = themeDir(id);
+  let meta;
+  try {
+    meta = await sharp(data).metadata();
+  } catch {
+    throw new HttpError(400, `${name} is not a picture`);
+  }
+  const json = JSON.parse(readFileSync(join(dir, 'theme.json'), 'utf8'));
+  let kind;
+  let transparent = true;
+  if (meta.height > meta.width) {
+    kind = 'background';
+    json.background = { ...json.background, image: await importFile(id, 'background', name, data) };
+  } else {
+    kind = 'sheet';
+    const r = await importThemeSheet(id, data);
+    json.icon = r.icon;
+    json.keys = { ...json.keys, image: r.key };
+    transparent = r.transparent;
+  }
+  return { kind, transparent, ...saveTheme(id, json) };
 }
 
 // Creates a theme from docs/theme-ideas.json: name, colours, particles and
@@ -569,12 +596,14 @@ async function handlePets(req, res, parts, url) {
 const INBOX_EXTENSIONS = ['.mp3', '.wav', '.m4a', '.aac', '.ogg', '.flac', '.opus', '.webm'];
 const inboxSizes = new Map(); // name -> { size, at }: a file counts once its size stops changing
 
-function newestDownload(since) {
+// The oldest download newer than `since` that has finished downloading (its
+// size stopped changing), so several quick downloads are all picked up in turn.
+function nextDownload(since, extensions = INBOX_EXTENSIONS) {
   if (!existsSync(INBOX)) return null;
   let best = null;
   const now = Date.now();
   for (const name of readdirSync(INBOX)) {
-    if (!INBOX_EXTENSIONS.includes(extname(name).toLowerCase())) continue;
+    if (!extensions.includes(extname(name).toLowerCase())) continue;
     let st;
     try {
       st = statSync(join(INBOX, name));
@@ -588,7 +617,7 @@ function newestDownload(since) {
       continue;
     }
     if (now - seen.at < 600) continue;
-    if (!best || st.mtimeMs > best.mtime) best = { name, mtime: st.mtimeMs, size: st.size };
+    if (!best || st.mtimeMs < best.mtime) best = { name, mtime: st.mtimeMs, size: st.size };
   }
   return best;
 }
@@ -687,7 +716,10 @@ async function handleSounds(req, res, parts, url) {
   const method = req.method;
   if (method === 'GET' && parts[1] === 'sound-prompts') return send(res, 200, existsSync(soundPromptsFile) ? JSON.parse(readFileSync(soundPromptsFile, 'utf8')) : {});
   if (method === 'GET' && parts[1] === 'sound-targets') return send(res, 200, soundTargets());
-  if (method === 'GET' && parts[1] === 'inbox') return send(res, 200, { file: newestDownload(Number(url.searchParams.get('since')) || 0) });
+  if (method === 'GET' && parts[1] === 'inbox') {
+    const extensions = url.searchParams.get('kind') === 'image' ? IMAGE_EXTENSIONS : INBOX_EXTENSIONS;
+    return send(res, 200, { file: nextDownload(Number(url.searchParams.get('since')) || 0, extensions) });
+  }
   if (method === 'POST' && parts[1] === 'sounds' && parts[2] === 'take') {
     const { kind, id, slot, file, append } = JSON.parse((await readBody(req)).toString());
     // Only a plain file name inside the Downloads folder, with a sound extension.
@@ -718,6 +750,7 @@ async function handle(req, res) {
   if (method === 'GET' && parts.length === 1 && parts[0] === 'pets') return sendFile(res, petsHtml);
   if (method === 'GET' && parts.length === 1 && parts[0] === 'studio.css') return sendFile(res, studioCss);
   if (method === 'GET' && parts.length === 1 && parts[0] === 'sounds') return sendFile(res, soundsHtml);
+  if (method === 'GET' && parts.length === 1 && parts[0] === 'batch') return sendFile(res, batchHtml);
   if (method === 'GET' && parts[0] === 'default-set' && parts.length === 2 && SAFE_FILE.test(parts[1])) return sendFile(res, join(DEFAULT_SET_DIR, parts[1]));
   if (parts[0] === 'api' && ['sound-prompts', 'sound-targets', 'inbox', 'sounds'].includes(parts[1])) return handleSounds(req, res, parts, url);
   if (method === 'GET' && parts[0] === 'pet-files' && parts.length === 3 && SAFE_FILE.test(parts[2])) {
@@ -768,6 +801,14 @@ async function handle(req, res) {
     deleteTheme(id);
     return send(res, 200, { ok: true });
   }
+  if (method === 'POST' && parts[3] === 'take') {
+    const { file } = JSON.parse((await readBody(req)).toString());
+    const plain = /^[^\\/:*?"<>|]+$/.test(file ?? '') && !file.startsWith('.');
+    if (!plain || !IMAGE_EXTENSIONS.includes(extname(file).toLowerCase())) throw new HttpError(400, 'Bad file name');
+    const path = join(INBOX, file);
+    if (!existsSync(path)) throw new HttpError(404, `${file} is no longer in ${INBOX}`);
+    return send(res, 200, await addThemePicture(id, readFileSync(path), file));
+  }
   if (method === 'POST' && parts[3] === 'google-font') {
     const { family } = JSON.parse((await readBody(req)).toString());
     return send(res, 200, await importGoogleFont(id, family));
@@ -776,6 +817,7 @@ async function handle(req, res) {
     const kind = url.searchParams.get('kind');
     const name = url.searchParams.get('name') ?? 'file';
     if (kind === 'sheet') return send(res, 200, await importThemeSheet(id, await readBody(req)));
+    if (kind === 'picture') return send(res, 200, await addThemePicture(id, await readBody(req), name));
     const file = await importFile(id, kind, name, await readBody(req));
     return send(res, 200, { file });
   }
