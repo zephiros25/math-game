@@ -54,7 +54,7 @@
       <span class="hint" id="inboxHint"></span>
     </div>
     <ol class="steps">
-      <li>For each card: <b>Copy prompt A</b> into a new temporary ChatGPT chat, and <b>Copy prompt B</b> into another. Start them all; ChatGPT works on them at the same time.</li>
+      <li>For each card: <b>Copy prompt A</b> into a new ChatGPT chat, and <b>Copy prompt B</b> into another. Start them all; ChatGPT works on them at the same time. The prompts start with the theme name and 1 (background) or 2 (icon + button), so ChatGPT usually names the chats that way.</li>
       <li>When a theme&rsquo;s pictures are ready: <b>click its card</b> (it turns orange), then download both pictures in ChatGPT. The Studio picks them up: tall = background, wide = icon + button.</li>
       <li>Ctrl+V pastes into the orange card; you can also drop pictures on any card. A finished card turns grey and the next one becomes orange.</li>
     </ol>
@@ -126,16 +126,19 @@ function render() {
     const done = complete(id);
     const thumb = (label, file, cls = '') => h('figure', {},
       file ? h('img', { class: cls, src: fileUrl(id, file) }) : h('div', { class: `slot ${cls}` }, '?'), label);
-    const copy = (label, text) => h('button', { class: 'small', onclick: (e) => {
+    // The prompt starts with "Spring Showers 1" (background) or "Spring Showers 2"
+    // (icon + button): ChatGPT names a chat after its first message, so the
+    // chats are easy to find in its list.
+    const copy = (label, text, n) => h('button', { class: 'small', onclick: (e) => {
       e.stopPropagation();
-      navigator.clipboard.writeText(text);
+      navigator.clipboard.writeText(`${j.name ?? id} ${n}. ${text}`);
       setTarget(id);
       setStatus(`${label} for ${j.name ?? id} copied`);
     } }, label);
     const card = h('section', { class: `card bcard${id === target ? ' target' : ''}${done ? ' done' : ''}`, onclick: () => setTarget(id) },
       h('h3', {}, j.name ?? id, h('span', { class: 'tag' }, done ? '✓ done' : id === target ? 'downloads go here' : 'waiting')),
       h('div', { class: 'thumbs' }, thumb('Background', j.background?.image, 'bg'), thumb('Icon', j.icon), thumb('Button', j.keys?.image)),
-      idea ? h('div', { class: 'prompts' }, copy('Copy prompt A', idea.prompts.background), copy('Copy prompt B', idea.prompts.assets),
+      idea ? h('div', { class: 'prompts' }, copy('Copy prompt A', idea.prompts.background, 1), copy('Copy prompt B', idea.prompts.assets, 2),
         h('a', { href: `/#${id}`, target: '_blank', class: 'small', onclick: (e) => e.stopPropagation() }, 'Edit ↗')) : null,
       idea ? h('details', { onclick: (e) => e.stopPropagation() }, h('summary', {}, 'Show prompts'),
         h('p', {}, h('b', {}, 'A: '), idea.prompts.background), h('p', {}, h('b', {}, 'B: '), idea.prompts.assets)) : null,
