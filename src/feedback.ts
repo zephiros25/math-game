@@ -72,8 +72,13 @@ type Pool = { voices: Voice[]; next: number };
 // Playing faster must also sound higher (the streak climbs a scale, pets
 // talk at their own pitch), so pitch correction is off: by default a faster
 // rate keeps the pitch and just rushes the sound.
+//
+// keepAudioSessionActive: by default iOS switches the app's audio session off
+// after every sound and back on (synchronously, blocking the app) for the
+// next one. With a sound every few hundred milliseconds that made screens
+// like the results' coin count-up stutter, so the session simply stays on.
 function createPlayer(source: number) {
-  const player = createAudioPlayer(source);
+  const player = createAudioPlayer(source, { keepAudioSessionActive: true });
   player.shouldCorrectPitch = false;
   return player;
 }
