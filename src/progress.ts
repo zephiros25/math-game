@@ -11,7 +11,8 @@ import { GEMS } from '@/game/rewards';
 import { loadStats, removeStats } from '@/stats';
 
 // What a practice run drills instead of the adaptive ladder (a Plus feature).
-export type Focus = { kind: 'tricky' } | { kind: 'tables'; tables: number[] } | null;
+// For tables, `division` also asks the matching divisions (56 ÷ 8), off by default.
+export type Focus = { kind: 'tricky' } | { kind: 'tables'; tables: number[]; division?: boolean } | null;
 
 export type Progress = {
   coins: number;

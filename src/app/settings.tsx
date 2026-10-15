@@ -63,7 +63,7 @@ export default function Settings() {
   const toggleTable = (table: number) => {
     const tables = focus?.kind === 'tables' ? focus.tables : [];
     const next = tables.includes(table) ? tables.filter((x) => x !== table) : [...tables, table];
-    setFocus({ kind: 'tables', tables: next });
+    setFocus({ kind: 'tables', tables: next, division: focus?.kind === 'tables' && focus.division });
   };
 
   const newPlayer = async () => {
@@ -238,8 +238,8 @@ export default function Settings() {
           {focusRow(
             plusFocus?.kind === 'tables',
             'Times tables',
-            plusFocus?.kind === 'tables' && plusFocus.tables.length ? tablesLabel(plusFocus.tables) : 'Pick the tables to practise',
-            { kind: 'tables', tables: plusFocus?.kind === 'tables' ? plusFocus.tables : [] },
+            plusFocus?.kind === 'tables' && plusFocus.tables.length ? tablesLabel(plusFocus.tables) + (plusFocus.division ? ' with ÷' : '') : 'Pick the tables to practise',
+            { kind: 'tables', tables: plusFocus?.kind === 'tables' ? plusFocus.tables : [], division: plusFocus?.kind === 'tables' && plusFocus.division },
           )}
           {plusFocus?.kind === 'tables' && (
             <View style={styles.tableChips}>
@@ -251,6 +251,20 @@ export default function Settings() {
                   </Pressable>
                 );
               })}
+            </View>
+          )}
+          {plusFocus?.kind === 'tables' && (
+            <View style={[styles.row, styles.switchRow]}>
+              <View style={styles.rowText}>
+                <Text style={styles.rowTitle}>Include division</Text>
+                <Text style={styles.rowExample}>Off: only 7 × 8 and 8 × 7. On: also 56 ÷ 8.</Text>
+              </View>
+              <Switch
+                value={Boolean(plusFocus.division)}
+                onValueChange={(on) => setFocus({ ...plusFocus, division: on })}
+                trackColor={{ true: t.primary, false: t.track }}
+                thumbColor={t.card}
+              />
             </View>
           )}
 

@@ -37,14 +37,21 @@ function fromFact(fact: string, level: number): Question {
 export function focusPlan(focus: Focus, stats: Stats): FocusPlan | null {
   if (focus?.kind === 'tables' && focus.tables.length > 0) {
     return {
-      label: tablesLabel(focus.tables),
+      label: tablesLabel(focus.tables) + (focus.division ? ' with ÷' : ''),
       next: (previous) => {
         for (let tries = 0; ; tries++) {
-          // Multiplication only (no division), the table either first or second.
           const table = pick(focus.tables);
           const other = int(2, 10);
-          const [a, b] = Math.random() < 0.5 ? [table, other] : [other, table];
-          const q: Question = { text: `${a} × ${b}`, answer: a * b, effort: 1, fact: tableKey(a, b), level: TABLE_LEVEL[table] ?? 18 };
+          const level = TABLE_LEVEL[table] ?? 18;
+          let q: Question;
+          if (focus.division) {
+            // Half multiplication, half dividing by the table (56 ÷ 8).
+            q = { ...timesDivide(other, table), level };
+          } else {
+            // Multiplication only, the table either first or second.
+            const [a, b] = Math.random() < 0.5 ? [table, other] : [other, table];
+            q = { text: `${a} × ${b}`, answer: a * b, effort: 1, fact: tableKey(a, b), level };
+          }
           if (q.text !== previous?.text || tries > 10) return q;
         }
       },
