@@ -20,6 +20,11 @@
       "predictiveBackGestureEnabled": false
     },
     "web": {
+      "name": "Math Run",
+      "shortName": "Math Run",
+      "lang": "nl",
+      "themeColor": "#FFF4E6",
+      "backgroundColor": "#FFF4E6",
       "output": "single",
       "favicon": "./assets/images/favicon.png"
     },

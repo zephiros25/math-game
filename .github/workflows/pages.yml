@@ -1,0 +1,54 @@
+# Builds the web version of the app and publishes it on GitHub Pages
+# (https://zephiros25.github.io/math-game/) on every push to master.
+# On an iPhone: open it in Safari, Share → "Zet op beginscherm".
+name: Publish web app
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Export the web app
+        run: npx expo export -p web
+        env:
+          # The site lives under /math-game/ (see app.config.js).
+          EXPO_BASE_URL: /math-game
+      - name: Prepare for GitHub Pages
+        # GitHub Pages has no rewrites: serving the app for unknown paths
+        # (like /math-game/play after a reload) needs a 404.html copy.
+        # .nojekyll keeps files whose names start with _ .
+        run: |
+          cp dist/index.html dist/404.html
+          touch dist/.nojekyll
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
