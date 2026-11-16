@@ -3,7 +3,8 @@
 // (a theme's key texture) is drawn on the face, under the label.
 
 import { Image } from 'expo-image';
-import { Platform, Pressable, StyleSheet, Text, View, type StyleProp, type ViewStyle } from 'react-native';
+import { useRef } from 'react';
+import { Pressable, StyleSheet, Text, View, type StyleProp, type ViewStyle } from 'react-native';
 import Animated, { useAnimatedStyle, useSharedValue, withSpring, withTiming } from 'react-native-reanimated';
 
 import { useTheme } from '@/theme';
@@ -47,9 +48,9 @@ export function ChunkyButton({
   edgeColor ??= t.primaryEdge;
   textColor ??= t.onPrimary;
   const pressed = useSharedValue(0);
-  // react-native-web doesn't reliably deliver press-in for mouse clicks, so
-  // the web build falls back to firing on click.
-  const onTouchDown = fireOnPressIn && Platform.OS !== 'web';
+  // Keys fire the moment they are touched. A press without a touch-down (a
+  // keyboard, or a synthetic click on the web) still fires on release.
+  const firedOnTouch = useRef(false);
 
   const faceStyle = useAnimatedStyle(() => ({
     transform: [{ translateY: pressed.value * (edge - 1) }],
@@ -60,12 +61,18 @@ export function ChunkyButton({
       disabled={disabled}
       onPressIn={() => {
         pressed.set(withTiming(1, { duration: 50 }));
-        if (onTouchDown) onPress();
+        if (fireOnPressIn) {
+          firedOnTouch.current = true;
+          onPress();
+        }
       }}
       onPressOut={() => {
         pressed.set(withSpring(0, { damping: 12, stiffness: 400 }));
       }}
-      onPress={onTouchDown ? undefined : onPress}
+      onPress={() => {
+        if (!firedOnTouch.current) onPress();
+        firedOnTouch.current = false;
+      }}
       style={[{ height: height + edge, opacity: disabled ? 0.5 : 1 }, style]}
     >
       <View style={[styles.edge, { top: edge, height, backgroundColor: edgeColor }]} />

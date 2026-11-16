@@ -13,6 +13,7 @@ import { Platform } from 'react-native';
 import { DEFAULT_SET } from '@/default-sounds.generated';
 import type { Pet } from '@/pets';
 import type { SoundSlot, Theme } from '@/theme';
+import { WebSoundPlayer } from '@/web-sound';
 
 const DEFAULTS = {
   key1: require('@/assets/sounds/key1.wav'),
@@ -77,7 +78,9 @@ type Pool = { voices: Voice[]; next: number };
 // after every sound and back on (synchronously, blocking the app) for the
 // next one. With a sound every few hundred milliseconds that made screens
 // like the results' coin count-up stutter, so the session simply stays on.
+// On the web, Web Audio players (src/web-sound.ts) start sounds without delay.
 function createPlayer(source: number) {
+  if (Platform.OS === 'web') return new WebSoundPlayer(source) as unknown as AudioPlayer;
   const player = createAudioPlayer(source, { keepAudioSessionActive: true });
   player.shouldCorrectPitch = false;
   return player;
