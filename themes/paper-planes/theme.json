@@ -1,0 +1,48 @@
+{
+  "name": "Papieren vliegtuigjes",
+  "tagline": "Opstijgen met elk antwoord",
+  "order": 460,
+  "price": 500,
+  "dark": false,
+  "colors": {
+    "background": "#F4F7FB",
+    "backgroundDeep": "#E0E9F5",
+    "text": "#202D3C",
+    "textSoft": "#5C6A7A",
+    "key": "#FDFEFE",
+    "keyEdge": "#BED1EA",
+    "primary": "#4A90E2",
+    "primaryEdge": "#1B6BCA",
+    "correct": "#3CC47C",
+    "correctEdge": "#2A9A5E",
+    "wrong": "#FF6B6B",
+    "wrongEdge": "#D94B4B",
+    "streak": "#4A90E2",
+    "streakBg": "#DBE9F9",
+    "card": "#FEFEFF",
+    "cardEdge": "#CDDCEF",
+    "track": "#D5E1F1",
+    "keyText": "#202D3C",
+    "onPrimary": "#202D3C",
+    "onFeedback": "#202D3C"
+  },
+  "font": null,
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1791307300765-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "none",
+    "colors": [],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

@@ -1,0 +1,51 @@
+{
+  "name": "Suikerspinwolken",
+  "tagline": "Met je hoofd in de wolken",
+  "order": 350,
+  "price": 500,
+  "dark": false,
+  "colors": {
+    "background": "#F0F6FF",
+    "backgroundDeep": "#D7E7FF",
+    "text": "#20273C",
+    "textSoft": "#5C647A",
+    "key": "#FDFEFF",
+    "keyEdge": "#A9CBFF",
+    "primary": "#6C8EF0",
+    "primaryEdge": "#275AEE",
+    "correct": "#3CC47C",
+    "correctEdge": "#2A9A5E",
+    "wrong": "#FF6B6B",
+    "wrongEdge": "#D94B4B",
+    "streak": "#6C8EF0",
+    "streakBg": "#E2E8FC",
+    "card": "#FEFEFF",
+    "cardEdge": "#BDD7FF",
+    "track": "#C7DEFF",
+    "keyText": "#20273C",
+    "onPrimary": "#20273C",
+    "onFeedback": "#20273C"
+  },
+  "font": null,
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1790845650861-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "sunbeams",
+    "colors": [
+      "#FFFFFF",
+      "#DCE8FF"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

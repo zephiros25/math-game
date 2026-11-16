@@ -1,0 +1,51 @@
+{
+  "name": "Nevel",
+  "tagline": "Gemaakt van sterrenstof",
+  "order": 390,
+  "price": 1500,
+  "dark": true,
+  "colors": {
+    "background": "#1B0F33",
+    "backgroundDeep": "#120924",
+    "text": "#F1EDF7",
+    "textSoft": "#B2A6C9",
+    "key": "#301B5A",
+    "keyEdge": "#0E071C",
+    "primary": "#FF6FD8",
+    "primaryEdge": "#FF1DC2",
+    "correct": "#36D399",
+    "correctEdge": "#1F9E6F",
+    "wrong": "#FF6B8A",
+    "wrongEdge": "#C94464",
+    "streak": "#FF6FD8",
+    "streakBg": "#381F6A",
+    "card": "#2A174F",
+    "cardEdge": "#0E071C",
+    "track": "#341D62",
+    "keyText": "#F1EDF7",
+    "onPrimary": "#1B0F33",
+    "onFeedback": "#1B0F33"
+  },
+  "font": null,
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1791306906255-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "sparkles",
+    "colors": [
+      "#FF9DE2",
+      "#9DB8FF"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

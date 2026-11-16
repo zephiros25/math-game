@@ -1,0 +1,52 @@
+{
+  "name": "Vlindertuin",
+  "tagline": "Fladder maar, rekenster!",
+  "order": 160,
+  "price": 500,
+  "dark": false,
+  "colors": {
+    "background": "#FDF3F7",
+    "backgroundDeep": "#FADCE8",
+    "text": "#3C202C",
+    "textSoft": "#7A5C69",
+    "key": "#FFFDFE",
+    "keyEdge": "#F5B4CE",
+    "primary": "#E86AA0",
+    "primaryEdge": "#E32778",
+    "correct": "#3CC47C",
+    "correctEdge": "#2A9A5E",
+    "wrong": "#FF6B6B",
+    "wrongEdge": "#D94B4B",
+    "streak": "#E86AA0",
+    "streakBg": "#FAE1EC",
+    "card": "#FFFEFE",
+    "cardEdge": "#F7C6DA",
+    "track": "#F8CFDF",
+    "keyText": "#3C202C",
+    "onPrimary": "#3C202C",
+    "onFeedback": "#3C202C"
+  },
+  "font": null,
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1790797407950-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "confetti",
+    "colors": [
+      "#FFB3D1",
+      "#B3E5FC",
+      "#FFE082"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

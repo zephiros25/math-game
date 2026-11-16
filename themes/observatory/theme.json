@@ -1,0 +1,51 @@
+{
+  "name": "Sterrenwacht",
+  "tagline": "Kijk naar de sterren",
+  "order": 420,
+  "price": 1000,
+  "dark": true,
+  "colors": {
+    "background": "#16213F",
+    "backgroundDeep": "#0F1831",
+    "text": "#EDF0F7",
+    "textSoft": "#A6AFC9",
+    "key": "#233565",
+    "keyEdge": "#0D1529",
+    "primary": "#7FD1FF",
+    "primaryEdge": "#2DB4FF",
+    "correct": "#36D399",
+    "correctEdge": "#1F9E6F",
+    "wrong": "#FF6B8A",
+    "wrongEdge": "#C94464",
+    "streak": "#7FD1FF",
+    "streakBg": "#283D74",
+    "card": "#1F2F59",
+    "cardEdge": "#0D1529",
+    "track": "#26396C",
+    "keyText": "#EDF0F7",
+    "onPrimary": "#16213F",
+    "onFeedback": "#16213F"
+  },
+  "font": null,
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1791307000323-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "stars",
+    "colors": [
+      "#FFFFFF",
+      "#BFE6FF"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

@@ -1,0 +1,59 @@
+{
+  "name": "Paddenstoeldorp",
+  "tagline": "Kleine deurtjes, grote avonturen",
+  "order": 110,
+  "price": 1000,
+  "dark": false,
+  "colors": {
+    "background": "#F7F0E6",
+    "backgroundDeep": "#F2E5D2",
+    "text": "#3C2120",
+    "textSoft": "#7A5D5C",
+    "key": "#FEFDFB",
+    "keyEdge": "#E8D0AE",
+    "primary": "#D9534F",
+    "primaryEdge": "#BD2823",
+    "correct": "#3CC47C",
+    "correctEdge": "#2A9A5E",
+    "wrong": "#FF6B6B",
+    "wrongEdge": "#D94B4B",
+    "streak": "#D9534F",
+    "streakBg": "#F7DDDC",
+    "card": "#FEFEFD",
+    "cardEdge": "#ECD9BE",
+    "track": "#EFDEC6",
+    "keyText": "#3C2120",
+    "onPrimary": "#FFFFFF",
+    "onFeedback": "#3C2120"
+  },
+  "font": {
+    "name": "Baloo 2",
+    "files": {
+      "regular": "font-baloo-2-regular.ttf",
+      "medium": "font-baloo-2-medium.ttf",
+      "semibold": "font-baloo-2-semibold.ttf",
+      "bold": "font-baloo-2-bold.ttf"
+    }
+  },
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1790796567004-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "leaves",
+    "colors": [
+      "#E8B08A",
+      "#C9D98F"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

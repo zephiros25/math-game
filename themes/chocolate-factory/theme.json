@@ -1,0 +1,51 @@
+{
+  "name": "Chocoladefabriek",
+  "tagline": "Zo zoet als maar kan",
+  "order": 590,
+  "price": 1000,
+  "dark": true,
+  "colors": {
+    "background": "#3A241B",
+    "backgroundDeep": "#2D1B13",
+    "text": "#F7F0ED",
+    "textSoft": "#C9B0A6",
+    "key": "#5D3A2B",
+    "keyEdge": "#261710",
+    "primary": "#F2B6C6",
+    "primaryEdge": "#E96D8E",
+    "correct": "#36D399",
+    "correctEdge": "#1F9E6F",
+    "wrong": "#FF6B8A",
+    "wrongEdge": "#C94464",
+    "streak": "#F2B6C6",
+    "streakBg": "#6B4232",
+    "card": "#523326",
+    "cardEdge": "#261710",
+    "track": "#643E2E",
+    "keyText": "#F7F0ED",
+    "onPrimary": "#3A241B",
+    "onFeedback": "#3A241B"
+  },
+  "font": null,
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1791397260872-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "confetti",
+    "colors": [
+      "#F7C6D0",
+      "#FFF1D6"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

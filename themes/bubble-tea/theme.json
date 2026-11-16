@@ -1,0 +1,51 @@
+{
+  "name": "Bubbelthee",
+  "tagline": "Slurp, denk, los op",
+  "order": 620,
+  "price": 500,
+  "dark": false,
+  "colors": {
+    "background": "#FBF4EC",
+    "backgroundDeep": "#F8E8D6",
+    "text": "#3C2C20",
+    "textSoft": "#7A695C",
+    "key": "#FEFDFC",
+    "keyEdge": "#F0D2AF",
+    "primary": "#A0714F",
+    "primaryEdge": "#744F34",
+    "correct": "#3CC47C",
+    "correctEdge": "#2A9A5E",
+    "wrong": "#FF6B6B",
+    "wrongEdge": "#D94B4B",
+    "streak": "#A0714F",
+    "streakBg": "#ECE3DC",
+    "card": "#FFFEFD",
+    "cardEdge": "#F4DCC0",
+    "track": "#F5E1C9",
+    "keyText": "#3C2C20",
+    "onPrimary": "#FFFFFF",
+    "onFeedback": "#3C2C20"
+  },
+  "font": null,
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1791397290210-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "bubbles",
+    "colors": [
+      "#6B4A3A",
+      "#E8D5C0"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

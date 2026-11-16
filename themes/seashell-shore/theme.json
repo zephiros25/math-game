@@ -1,0 +1,59 @@
+{
+  "name": "Schelpenstrand",
+  "tagline": "Luister naar de zee",
+  "order": 340,
+  "price": 500,
+  "dark": false,
+  "colors": {
+    "background": "#FFF6F1",
+    "backgroundDeep": "#FFE6D7",
+    "text": "#3C2520",
+    "textSoft": "#7A625C",
+    "key": "#FFFEFD",
+    "keyEdge": "#FFC8AA",
+    "primary": "#E8836B",
+    "primaryEdge": "#E34C28",
+    "correct": "#3CC47C",
+    "correctEdge": "#2A9A5E",
+    "wrong": "#FF6B6B",
+    "wrongEdge": "#D94B4B",
+    "streak": "#E8836B",
+    "streakBg": "#FAE6E1",
+    "card": "#FFFEFE",
+    "cardEdge": "#FFD5BE",
+    "track": "#FFDCC8",
+    "keyText": "#3C2520",
+    "onPrimary": "#3C2520",
+    "onFeedback": "#3C2520"
+  },
+  "font": {
+    "name": "Quicksand",
+    "files": {
+      "regular": "font-quicksand-regular.ttf",
+      "medium": "font-quicksand-medium.ttf",
+      "semibold": "font-quicksand-semibold.ttf",
+      "bold": "font-quicksand-bold.ttf"
+    }
+  },
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1790845558269-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "petals",
+    "colors": [
+      "#FFD6C9",
+      "#FDEBD0"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

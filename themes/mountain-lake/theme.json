@@ -1,0 +1,51 @@
+{
+  "name": "Bergmeer",
+  "tagline": "Frisse lucht, helder hoofd",
+  "order": 190,
+  "price": 1000,
+  "dark": false,
+  "colors": {
+    "background": "#EAF2F8",
+    "backgroundDeep": "#D6E6F3",
+    "text": "#202E3C",
+    "textSoft": "#5C6B7A",
+    "key": "#FCFDFE",
+    "keyEdge": "#B2D1E8",
+    "primary": "#3A7CC0",
+    "primaryEdge": "#26598D",
+    "correct": "#3CC47C",
+    "correctEdge": "#2A9A5E",
+    "wrong": "#FF6B6B",
+    "wrongEdge": "#D94B4B",
+    "streak": "#3A7CC0",
+    "streakBg": "#D8E5F2",
+    "card": "#FDFEFE",
+    "cardEdge": "#C2DBED",
+    "track": "#CADFEF",
+    "keyText": "#202E3C",
+    "onPrimary": "#FFFFFF",
+    "onFeedback": "#202E3C"
+  },
+  "font": null,
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1790797650696-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "sunbeams",
+    "colors": [
+      "#CFE3F5",
+      "#FFFFFF"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

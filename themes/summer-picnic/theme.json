@@ -1,0 +1,52 @@
+{
+  "name": "Zomerpicknick",
+  "tagline": "Een traktatie voor je brein",
+  "order": 500,
+  "price": 500,
+  "dark": false,
+  "colors": {
+    "background": "#FFF9EE",
+    "backgroundDeep": "#FFF0D5",
+    "text": "#3C2020",
+    "textSoft": "#7A5C5C",
+    "key": "#FFFEFC",
+    "keyEdge": "#FFE0A7",
+    "primary": "#E85D5D",
+    "primaryEdge": "#E31A1A",
+    "correct": "#3CC47C",
+    "correctEdge": "#2A9A5E",
+    "wrong": "#FF6B6B",
+    "wrongEdge": "#D94B4B",
+    "streak": "#E85D5D",
+    "streakBg": "#FADFDF",
+    "card": "#FFFFFE",
+    "cardEdge": "#FFE7BB",
+    "track": "#FFEBC5",
+    "keyText": "#3C2020",
+    "onPrimary": "#3C2020",
+    "onFeedback": "#3C2020"
+  },
+  "font": null,
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1791396867892-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "confetti",
+    "colors": [
+      "#FFB3A7",
+      "#FFE08A",
+      "#B3E5B3"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

@@ -1,0 +1,51 @@
+{
+  "name": "Duikboot",
+  "tagline": "Duik in de sommen",
+  "order": 330,
+  "price": 1000,
+  "dark": false,
+  "colors": {
+    "background": "#E5F3FB",
+    "backgroundDeep": "#CEE9F9",
+    "text": "#3C3220",
+    "textSoft": "#7A705C",
+    "key": "#FBFDFE",
+    "keyEdge": "#A5D7F4",
+    "primary": "#F2B233",
+    "primaryEdge": "#D59009",
+    "correct": "#3CC47C",
+    "correctEdge": "#2A9A5E",
+    "wrong": "#FF6B6B",
+    "wrongEdge": "#D94B4B",
+    "streak": "#F2B233",
+    "streakBg": "#FCF0D6",
+    "card": "#FDFEFF",
+    "cardEdge": "#B7DFF6",
+    "track": "#C0E3F7",
+    "keyText": "#3C3220",
+    "onPrimary": "#3C3220",
+    "onFeedback": "#3C3220"
+  },
+  "font": null,
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1790845487001-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "bubbles",
+    "colors": [
+      "#BCE3F7",
+      "#FFFFFF"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

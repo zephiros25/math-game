@@ -1,0 +1,51 @@
+{
+  "name": "Toverbibliotheek",
+  "tagline": "Elke bladzijde een puzzel",
+  "order": 730,
+  "price": 1000,
+  "dark": true,
+  "colors": {
+    "background": "#2A1E17",
+    "backgroundDeep": "#1E140F",
+    "text": "#F7F1ED",
+    "textSoft": "#C9B3A6",
+    "key": "#4B3629",
+    "keyEdge": "#17100B",
+    "primary": "#F2C14E",
+    "primaryEdge": "#E3A30C",
+    "correct": "#36D399",
+    "correctEdge": "#1F9E6F",
+    "wrong": "#FF6B8A",
+    "wrongEdge": "#C94464",
+    "streak": "#F2C14E",
+    "streakBg": "#583F30",
+    "card": "#412E24",
+    "cardEdge": "#17100B",
+    "track": "#523A2D",
+    "keyText": "#F7F1ED",
+    "onPrimary": "#2A1E17",
+    "onFeedback": "#2A1E17"
+  },
+  "font": null,
+  "icon": null,
+  "keys": {
+    "image": null,
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": null,
+    "dim": 0
+  },
+  "particles": {
+    "style": "sparkles",
+    "colors": [
+      "#FFE08A",
+      "#FFFFFF"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

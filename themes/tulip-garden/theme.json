@@ -1,0 +1,51 @@
+{
+  "name": "Tulpentuin",
+  "tagline": "De lente in volle bloei",
+  "order": 210,
+  "price": 500,
+  "dark": false,
+  "colors": {
+    "background": "#FFF3F0",
+    "backgroundDeep": "#FFDFD7",
+    "text": "#3C2220",
+    "textSoft": "#7A5E5C",
+    "key": "#FFFDFD",
+    "keyEdge": "#FFBAA9",
+    "primary": "#E4574F",
+    "primaryEdge": "#D1241B",
+    "correct": "#3CC47C",
+    "correctEdge": "#2A9A5E",
+    "wrong": "#FF6B6B",
+    "wrongEdge": "#D94B4B",
+    "streak": "#E4574F",
+    "streakBg": "#FADDDC",
+    "card": "#FFFEFE",
+    "cardEdge": "#FFCABD",
+    "track": "#FFD2C7",
+    "keyText": "#3C2220",
+    "onPrimary": "#3C2220",
+    "onFeedback": "#3C2220"
+  },
+  "font": null,
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1790797844572-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "petals",
+    "colors": [
+      "#FF9E9E",
+      "#FFD1DC"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

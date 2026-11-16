@@ -1,0 +1,52 @@
+{
+  "name": "Herfstbladeren",
+  "tagline": "Knisperende blaadjes, slimme sommen",
+  "order": 470,
+  "price": 500,
+  "dark": false,
+  "colors": {
+    "background": "#FFF4E6",
+    "backgroundDeep": "#FFE9CC",
+    "text": "#3C2920",
+    "textSoft": "#7A665C",
+    "key": "#FFFDFB",
+    "keyEdge": "#FFD59F",
+    "primary": "#D9682E",
+    "primaryEdge": "#A6491A",
+    "correct": "#3CC47C",
+    "correctEdge": "#2A9A5E",
+    "wrong": "#FF6B6B",
+    "wrongEdge": "#D94B4B",
+    "streak": "#D9682E",
+    "streakBg": "#F7E1D5",
+    "card": "#FFFEFD",
+    "cardEdge": "#FFDEB3",
+    "track": "#FFE2BD",
+    "keyText": "#3C2920",
+    "onPrimary": "#3C2920",
+    "onFeedback": "#3C2920"
+  },
+  "font": null,
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1791307354514-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "leaves",
+    "colors": [
+      "#F2A65A",
+      "#E0703A",
+      "#F6C453"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

@@ -1,0 +1,51 @@
+{
+  "name": "Winderige dag",
+  "tagline": "Blaas een wens, maak een som",
+  "order": 550,
+  "price": 500,
+  "dark": false,
+  "colors": {
+    "background": "#F2F8F4",
+    "backgroundDeep": "#E1F0E6",
+    "text": "#203C20",
+    "textSoft": "#5C7A5C",
+    "key": "#FDFEFD",
+    "keyEdge": "#C2E1CC",
+    "primary": "#5CB85C",
+    "primaryEdge": "#3A933A",
+    "correct": "#3CC47C",
+    "correctEdge": "#2A9A5E",
+    "wrong": "#FF6B6B",
+    "wrongEdge": "#D94B4B",
+    "streak": "#5CB85C",
+    "streakBg": "#DEF1DE",
+    "card": "#FEFEFE",
+    "cardEdge": "#CFE8D7",
+    "track": "#D6EBDD",
+    "keyText": "#203C20",
+    "onPrimary": "#203C20",
+    "onFeedback": "#203C20"
+  },
+  "font": null,
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1791396936739-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "leaves",
+    "colors": [
+      "#A8D98F",
+      "#FFFFFF"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

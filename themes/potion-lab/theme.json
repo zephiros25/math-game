@@ -1,0 +1,51 @@
+{
+  "name": "Toverdranklab",
+  "tagline": "Mengen, roeren, oplossen!",
+  "order": 740,
+  "price": 1000,
+  "dark": true,
+  "colors": {
+    "background": "#1F1A2E",
+    "backgroundDeep": "#161222",
+    "text": "#F0EDF7",
+    "textSoft": "#AFA6C9",
+    "key": "#352C4F",
+    "keyEdge": "#110E1B",
+    "primary": "#5BE38C",
+    "primaryEdge": "#1ECF5D",
+    "correct": "#36D399",
+    "correctEdge": "#1F9E6F",
+    "wrong": "#FF6B8A",
+    "wrongEdge": "#C94464",
+    "streak": "#5BE38C",
+    "streakBg": "#3E345C",
+    "card": "#2E2745",
+    "cardEdge": "#110E1B",
+    "track": "#393055",
+    "keyText": "#F0EDF7",
+    "onPrimary": "#1F1A2E",
+    "onFeedback": "#1F1A2E"
+  },
+  "font": null,
+  "icon": null,
+  "keys": {
+    "image": null,
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": null,
+    "dim": 0
+  },
+  "particles": {
+    "style": "bubbles",
+    "colors": [
+      "#9BF0B8",
+      "#D9A8FF"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

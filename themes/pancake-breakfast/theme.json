@@ -1,0 +1,51 @@
+{
+  "name": "Pannenkoekenontbijt",
+  "tagline": "Ontbijt voor je brein",
+  "order": 640,
+  "price": 500,
+  "dark": false,
+  "colors": {
+    "background": "#FFF8E6",
+    "backgroundDeep": "#FFF1CC",
+    "text": "#3C3220",
+    "textSoft": "#7A6F5C",
+    "key": "#FFFEFB",
+    "keyEdge": "#FFE49F",
+    "primary": "#E3A02B",
+    "primaryEdge": "#B37913",
+    "correct": "#3CC47C",
+    "correctEdge": "#2A9A5E",
+    "wrong": "#FF6B6B",
+    "wrongEdge": "#D94B4B",
+    "streak": "#E3A02B",
+    "streakBg": "#F9ECD5",
+    "card": "#FFFEFD",
+    "cardEdge": "#FFEAB3",
+    "track": "#FFEDBD",
+    "keyText": "#3C3220",
+    "onPrimary": "#3C3220",
+    "onFeedback": "#3C3220"
+  },
+  "font": null,
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1791397308229-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "confetti",
+    "colors": [
+      "#FFE08A",
+      "#FFB3A7"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

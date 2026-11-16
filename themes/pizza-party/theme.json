@@ -1,0 +1,52 @@
+{
+  "name": "Pizzafeest",
+  "tagline": "Een puntje rekenwerk",
+  "order": 660,
+  "price": 500,
+  "dark": false,
+  "colors": {
+    "background": "#FFF6EA",
+    "backgroundDeep": "#FFEBD0",
+    "text": "#3C2420",
+    "textSoft": "#7A615C",
+    "key": "#FFFEFC",
+    "keyEdge": "#FFD7A3",
+    "primary": "#E0492F",
+    "primaryEdge": "#B22D16",
+    "correct": "#3CC47C",
+    "correctEdge": "#2A9A5E",
+    "wrong": "#FF6B6B",
+    "wrongEdge": "#D94B4B",
+    "streak": "#E0492F",
+    "streakBg": "#F9DBD5",
+    "card": "#FFFEFD",
+    "cardEdge": "#FFE0B7",
+    "track": "#FFE5C1",
+    "keyText": "#3C2420",
+    "onPrimary": "#FFFFFF",
+    "onFeedback": "#3C2420"
+  },
+  "font": null,
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1791397635785-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "confetti",
+    "colors": [
+      "#FFD166",
+      "#E0492F",
+      "#8BC34A"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

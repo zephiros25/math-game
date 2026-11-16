@@ -1,0 +1,51 @@
+{
+  "name": "Betoverd mos",
+  "tagline": "Zachte stapjes, slimme ideeën",
+  "order": 220,
+  "price": 1000,
+  "dark": false,
+  "colors": {
+    "background": "#EEF5E6",
+    "backgroundDeep": "#E2EFD3",
+    "text": "#2E3C20",
+    "textSoft": "#6C7A5C",
+    "key": "#FCFEFB",
+    "keyEdge": "#CBE3B1",
+    "primary": "#6C9A3B",
+    "primaryEdge": "#486924",
+    "correct": "#3CC47C",
+    "correctEdge": "#2A9A5E",
+    "wrong": "#FF6B6B",
+    "wrongEdge": "#D94B4B",
+    "streak": "#6C9A3B",
+    "streakBg": "#E2EBD8",
+    "card": "#FEFEFD",
+    "cardEdge": "#D5E8C0",
+    "track": "#DAEBC7",
+    "keyText": "#2E3C20",
+    "onPrimary": "#2E3C20",
+    "onFeedback": "#2E3C20"
+  },
+  "font": null,
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1790797919435-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "sparkles",
+    "colors": [
+      "#D6F0A8",
+      "#FFF6B3"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

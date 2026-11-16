@@ -1,0 +1,51 @@
+{
+  "name": "Bamboebos",
+  "tagline": "Rustig en kalm",
+  "order": 130,
+  "price": 500,
+  "dark": false,
+  "colors": {
+    "background": "#EEF7EC",
+    "backgroundDeep": "#DDF0D9",
+    "text": "#203C2E",
+    "textSoft": "#5C7A6B",
+    "key": "#FCFEFC",
+    "keyEdge": "#C0E4B8",
+    "primary": "#3E9B6C",
+    "primaryEdge": "#276B48",
+    "correct": "#3CC47C",
+    "correctEdge": "#2A9A5E",
+    "wrong": "#FF6B6B",
+    "wrongEdge": "#D94B4B",
+    "streak": "#3E9B6C",
+    "streakBg": "#D8EBE2",
+    "card": "#FEFEFD",
+    "cardEdge": "#CDE9C7",
+    "track": "#D3ECCE",
+    "keyText": "#203C2E",
+    "onPrimary": "#203C2E",
+    "onFeedback": "#203C2E"
+  },
+  "font": null,
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1790797019025-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "leaves",
+    "colors": [
+      "#9FD8A6",
+      "#C7E8B0"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

@@ -1,0 +1,52 @@
+{
+  "name": "Lollyland",
+  "tagline": "Draaikolken vol plezier",
+  "order": 650,
+  "price": 1000,
+  "dark": false,
+  "colors": {
+    "background": "#FDF1FF",
+    "backgroundDeep": "#F9D7FF",
+    "text": "#36203C",
+    "textSoft": "#745C7A",
+    "key": "#FFFDFF",
+    "keyEdge": "#F3AAFF",
+    "primary": "#C75BE0",
+    "primaryEdge": "#B122D2",
+    "correct": "#3CC47C",
+    "correctEdge": "#2A9A5E",
+    "wrong": "#FF6B6B",
+    "wrongEdge": "#D94B4B",
+    "streak": "#C75BE0",
+    "streakBg": "#F4DEF9",
+    "card": "#FFFEFF",
+    "cardEdge": "#F6BEFF",
+    "track": "#F7C8FF",
+    "keyText": "#36203C",
+    "onPrimary": "#36203C",
+    "onFeedback": "#36203C"
+  },
+  "font": null,
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1791397320150-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "confetti",
+    "colors": [
+      "#FF9EE1",
+      "#9EE8FF",
+      "#FFF09E"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

@@ -1,0 +1,51 @@
+{
+  "name": "Parellagune",
+  "tagline": "Parels van wijsheid",
+  "order": 310,
+  "price": 1500,
+  "dark": false,
+  "colors": {
+    "background": "#EAF7F7",
+    "backgroundDeep": "#D6F1F1",
+    "text": "#35203C",
+    "textSoft": "#735C7A",
+    "key": "#FCFEFE",
+    "keyEdge": "#B4E5E5",
+    "primary": "#B45FD0",
+    "primaryEdge": "#9630B8",
+    "correct": "#3CC47C",
+    "correctEdge": "#2A9A5E",
+    "wrong": "#FF6B6B",
+    "wrongEdge": "#D94B4B",
+    "streak": "#B45FD0",
+    "streakBg": "#F0DFF6",
+    "card": "#FDFEFE",
+    "cardEdge": "#C3EBEB",
+    "track": "#CBEDED",
+    "keyText": "#35203C",
+    "onPrimary": "#35203C",
+    "onFeedback": "#35203C"
+  },
+  "font": null,
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1790799891362-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "sparkles",
+    "colors": [
+      "#B3E5FC",
+      "#E1BEE7"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

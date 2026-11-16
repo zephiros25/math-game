@@ -1,0 +1,51 @@
+{
+  "name": "Kasteelrijk",
+  "tagline": "Heers over het rijk der getallen",
+  "order": 710,
+  "price": 1000,
+  "dark": false,
+  "colors": {
+    "background": "#F2F4FB",
+    "backgroundDeep": "#DEE3F6",
+    "text": "#20253C",
+    "textSoft": "#5C617A",
+    "key": "#FDFDFE",
+    "keyEdge": "#BAC5EC",
+    "primary": "#5B6FD8",
+    "primaryEdge": "#2941C3",
+    "correct": "#3CC47C",
+    "correctEdge": "#2A9A5E",
+    "wrong": "#FF6B6B",
+    "wrongEdge": "#D94B4B",
+    "streak": "#5B6FD8",
+    "streakBg": "#DEE2F7",
+    "card": "#FEFEFF",
+    "cardEdge": "#CAD2F0",
+    "track": "#D2D9F3",
+    "keyText": "#20253C",
+    "onPrimary": "#FFFFFF",
+    "onFeedback": "#20253C"
+  },
+  "font": null,
+  "icon": null,
+  "keys": {
+    "image": null,
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": null,
+    "dim": 0
+  },
+  "particles": {
+    "style": "confetti",
+    "colors": [
+      "#FFD54F",
+      "#A7B6FF"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

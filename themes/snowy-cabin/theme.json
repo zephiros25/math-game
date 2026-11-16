@@ -1,0 +1,51 @@
+{
+  "name": "Sneeuwhut",
+  "tagline": "Warm binnen, sneeuw buiten",
+  "order": 520,
+  "price": 1000,
+  "dark": false,
+  "colors": {
+    "background": "#F2F5FA",
+    "backgroundDeep": "#DFE7F4",
+    "text": "#3C2620",
+    "textSoft": "#7A635C",
+    "key": "#FDFEFE",
+    "keyEdge": "#BDCDE8",
+    "primary": "#B5563A",
+    "primaryEdge": "#823A25",
+    "correct": "#3CC47C",
+    "correctEdge": "#2A9A5E",
+    "wrong": "#FF6B6B",
+    "wrongEdge": "#D94B4B",
+    "streak": "#B5563A",
+    "streakBg": "#F0DDD8",
+    "card": "#FEFEFF",
+    "cardEdge": "#CCD8ED",
+    "track": "#D3DEF0",
+    "keyText": "#3C2620",
+    "onPrimary": "#FFFFFF",
+    "onFeedback": "#3C2620"
+  },
+  "font": null,
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1791396904569-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "petals",
+    "colors": [
+      "#FFFFFF",
+      "#DDE8F5"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

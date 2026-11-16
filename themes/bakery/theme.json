@@ -1,0 +1,51 @@
+{
+  "name": "Bakkerij",
+  "tagline": "Versgebakken sommen",
+  "order": 580,
+  "price": 500,
+  "dark": false,
+  "colors": {
+    "background": "#FFF7EC",
+    "backgroundDeep": "#FFECD3",
+    "text": "#3C2C20",
+    "textSoft": "#7A695C",
+    "key": "#FFFEFC",
+    "keyEdge": "#FFD9A5",
+    "primary": "#C6773D",
+    "primaryEdge": "#955527",
+    "correct": "#3CC47C",
+    "correctEdge": "#2A9A5E",
+    "wrong": "#FF6B6B",
+    "wrongEdge": "#D94B4B",
+    "streak": "#C6773D",
+    "streakBg": "#F4E4D8",
+    "card": "#FFFEFD",
+    "cardEdge": "#FFE2B9",
+    "track": "#FFE6C3",
+    "keyText": "#3C2C20",
+    "onPrimary": "#3C2C20",
+    "onFeedback": "#3C2C20"
+  },
+  "font": null,
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1791397240350-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "confetti",
+    "colors": [
+      "#F5D0A9",
+      "#FFFFFF"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

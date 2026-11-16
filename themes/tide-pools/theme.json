@@ -1,0 +1,51 @@
+{
+  "name": "Getijdenpoelen",
+  "tagline": "Schatten bij eb",
+  "order": 280,
+  "price": 500,
+  "dark": false,
+  "colors": {
+    "background": "#EEF7F5",
+    "backgroundDeep": "#DCF0EB",
+    "text": "#3C2920",
+    "textSoft": "#7A655C",
+    "key": "#FCFEFE",
+    "keyEdge": "#BCE2DA",
+    "primary": "#F08A5D",
+    "primaryEdge": "#EF5917",
+    "correct": "#3CC47C",
+    "correctEdge": "#2A9A5E",
+    "wrong": "#FF6B6B",
+    "wrongEdge": "#D94B4B",
+    "streak": "#F08A5D",
+    "streakBg": "#FCE8DF",
+    "card": "#FEFEFE",
+    "cardEdge": "#CAE8E1",
+    "track": "#D1EBE5",
+    "keyText": "#3C2920",
+    "onPrimary": "#3C2920",
+    "onFeedback": "#3C2920"
+  },
+  "font": null,
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1790798739643-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "bubbles",
+    "colors": [
+      "#BFE6DF",
+      "#FFD3B8"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

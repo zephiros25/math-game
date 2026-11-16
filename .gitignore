@@ -47,3 +47,7 @@ themes/.deleted/
 
 # Pets deleted in the Studio
 pets/.deleted/
+
+# Studio trash (deleted themes and pets)
+themes/.deleted/
+pets/.deleted/

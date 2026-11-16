@@ -1,0 +1,52 @@
+{
+  "name": "Fruitmarkt",
+  "tagline": "Een gezonde geest",
+  "order": 610,
+  "price": 500,
+  "dark": false,
+  "colors": {
+    "background": "#F6FBEF",
+    "backgroundDeep": "#EBF7DA",
+    "text": "#3C2E20",
+    "textSoft": "#7A6B5C",
+    "key": "#FEFEFD",
+    "keyEdge": "#D6EFB4",
+    "primary": "#F28C28",
+    "primaryEdge": "#CB6808",
+    "correct": "#3CC47C",
+    "correctEdge": "#2A9A5E",
+    "wrong": "#FF6B6B",
+    "wrongEdge": "#D94B4B",
+    "streak": "#F28C28",
+    "streakBg": "#FCE8D4",
+    "card": "#FEFFFE",
+    "cardEdge": "#DFF2C5",
+    "track": "#E4F4CD",
+    "keyText": "#3C2E20",
+    "onPrimary": "#3C2E20",
+    "onFeedback": "#3C2E20"
+  },
+  "font": null,
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1791397285238-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "leaves",
+    "colors": [
+      "#FFB84D",
+      "#FF7B7B",
+      "#9BDB6B"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

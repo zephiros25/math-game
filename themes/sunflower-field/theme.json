@@ -1,0 +1,51 @@
+{
+  "name": "Zonnebloemveld",
+  "tagline": "Altijd richting de zon",
+  "order": 120,
+  "price": 500,
+  "dark": false,
+  "colors": {
+    "background": "#FFF8E1",
+    "backgroundDeep": "#FFF2C7",
+    "text": "#3C3120",
+    "textSoft": "#7A6E5C",
+    "key": "#FFFEFB",
+    "keyEdge": "#FFE79A",
+    "primary": "#F2A93B",
+    "primaryEdge": "#DC880A",
+    "correct": "#3CC47C",
+    "correctEdge": "#2A9A5E",
+    "wrong": "#FF6B6B",
+    "wrongEdge": "#D94B4B",
+    "streak": "#F2A93B",
+    "streakBg": "#FCEED8",
+    "card": "#FFFEFD",
+    "cardEdge": "#FFECAE",
+    "track": "#FFEEB8",
+    "keyText": "#3C3120",
+    "onPrimary": "#3C3120",
+    "onFeedback": "#3C3120"
+  },
+  "font": null,
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1790796944686-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "petals",
+    "colors": [
+      "#FFD54F",
+      "#FFB74D"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

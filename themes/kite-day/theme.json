@@ -1,0 +1,52 @@
+{
+  "name": "Vliegerdag",
+  "tagline": "Laat je ideeën vliegen",
+  "order": 450,
+  "price": 500,
+  "dark": false,
+  "colors": {
+    "background": "#EEF7FF",
+    "backgroundDeep": "#D5EBFF",
+    "text": "#3C2026",
+    "textSoft": "#7A5C62",
+    "key": "#FCFEFF",
+    "keyEdge": "#A7D5FF",
+    "primary": "#FF6B8A",
+    "primaryEdge": "#FF2452",
+    "correct": "#3CC47C",
+    "correctEdge": "#2A9A5E",
+    "wrong": "#FF6B6B",
+    "wrongEdge": "#D94B4B",
+    "streak": "#FF6B8A",
+    "streakBg": "#FFE1E8",
+    "card": "#FEFEFF",
+    "cardEdge": "#BBDFFF",
+    "track": "#C5E4FF",
+    "keyText": "#3C2026",
+    "onPrimary": "#3C2026",
+    "onFeedback": "#3C2026"
+  },
+  "font": null,
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1791307192139-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "confetti",
+    "colors": [
+      "#FFB3C6",
+      "#B3DAFF",
+      "#FFE8A3"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

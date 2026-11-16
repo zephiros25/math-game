@@ -1,0 +1,52 @@
+{
+  "name": "Eenhoornwolken",
+  "tagline": "Magie in elk antwoord",
+  "order": 700,
+  "price": 1000,
+  "dark": false,
+  "colors": {
+    "background": "#FDF5FF",
+    "backgroundDeep": "#F8DCFF",
+    "text": "#3C2032",
+    "textSoft": "#7A5C70",
+    "key": "#FFFEFF",
+    "keyEdge": "#EFAEFF",
+    "primary": "#FF8AD8",
+    "primaryEdge": "#FF43C0",
+    "correct": "#3CC47C",
+    "correctEdge": "#2A9A5E",
+    "wrong": "#FF6B6B",
+    "wrongEdge": "#D94B4B",
+    "streak": "#FF8AD8",
+    "streakBg": "#FFE8F7",
+    "card": "#FFFEFF",
+    "cardEdge": "#F3C2FF",
+    "track": "#F5CCFF",
+    "keyText": "#3C2032",
+    "onPrimary": "#3C2032",
+    "onFeedback": "#3C2032"
+  },
+  "font": null,
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1791397691631-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "confetti",
+    "colors": [
+      "#FFB3E6",
+      "#B3E0FF",
+      "#FFF3B3"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

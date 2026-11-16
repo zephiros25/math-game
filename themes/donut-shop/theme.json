@@ -1,0 +1,52 @@
+{
+  "name": "Donutwinkel",
+  "tagline": "Gaatjes vol lekkers",
+  "order": 600,
+  "price": 500,
+  "dark": false,
+  "colors": {
+    "background": "#FFF3F8",
+    "backgroundDeep": "#FFD9E9",
+    "text": "#3C202B",
+    "textSoft": "#7A5C68",
+    "key": "#FFFDFE",
+    "keyEdge": "#FFACCE",
+    "primary": "#FF6FA8",
+    "primaryEdge": "#FF287D",
+    "correct": "#3CC47C",
+    "correctEdge": "#2A9A5E",
+    "wrong": "#FF6B6B",
+    "wrongEdge": "#D94B4B",
+    "streak": "#FF6FA8",
+    "streakBg": "#FFE2EE",
+    "card": "#FFFEFE",
+    "cardEdge": "#FFC0DA",
+    "track": "#FFCAE0",
+    "keyText": "#3C202B",
+    "onPrimary": "#3C202B",
+    "onFeedback": "#3C202B"
+  },
+  "font": null,
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1791397269492-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "confetti",
+    "colors": [
+      "#FF9EC4",
+      "#9ED8FF",
+      "#FFE08A"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

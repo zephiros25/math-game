@@ -1,0 +1,53 @@
+{
+  "name": "Regenbooglanden",
+  "tagline": "Elke kleur telt",
+  "order": 240,
+  "price": 500,
+  "dark": false,
+  "colors": {
+    "background": "#F4FAFF",
+    "backgroundDeep": "#DBEEFF",
+    "text": "#26203C",
+    "textSoft": "#625C7A",
+    "key": "#FDFEFF",
+    "keyEdge": "#ADDAFF",
+    "primary": "#7C5CFF",
+    "primaryEdge": "#4315FF",
+    "correct": "#3CC47C",
+    "correctEdge": "#2A9A5E",
+    "wrong": "#FF6B6B",
+    "wrongEdge": "#D94B4B",
+    "streak": "#7C5CFF",
+    "streakBg": "#E5DEFF",
+    "card": "#FEFFFF",
+    "cardEdge": "#C1E3FF",
+    "track": "#CBE7FF",
+    "keyText": "#26203C",
+    "onPrimary": "#FFFFFF",
+    "onFeedback": "#26203C"
+  },
+  "font": null,
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1790798198989-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "confetti",
+    "colors": [
+      "#FFB3BA",
+      "#BAFFC9",
+      "#BAE1FF",
+      "#FFFFBA"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

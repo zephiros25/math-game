@@ -1,0 +1,51 @@
+{
+  "name": "Onweer",
+  "tagline": "Zo snel als de bliksem",
+  "order": 510,
+  "price": 1000,
+  "dark": true,
+  "colors": {
+    "background": "#1C2233",
+    "backgroundDeep": "#141927",
+    "text": "#EDF0F7",
+    "textSoft": "#A6AFC9",
+    "key": "#2E3854",
+    "keyEdge": "#101420",
+    "primary": "#FFD23F",
+    "primaryEdge": "#ECB500",
+    "correct": "#36D399",
+    "correctEdge": "#1F9E6F",
+    "wrong": "#FF6B8A",
+    "wrongEdge": "#C94464",
+    "streak": "#FFD23F",
+    "streakBg": "#354161",
+    "card": "#29314A",
+    "cardEdge": "#101420",
+    "track": "#323C5B",
+    "keyText": "#EDF0F7",
+    "onPrimary": "#1C2233",
+    "onFeedback": "#1C2233"
+  },
+  "font": null,
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1791396894386-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "sparkles",
+    "colors": [
+      "#FFE680",
+      "#B3C7FF"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

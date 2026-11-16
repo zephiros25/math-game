@@ -1,0 +1,51 @@
+{
+  "name": "Maannacht",
+  "tagline": "Dromerig en helder",
+  "order": 400,
+  "price": 1000,
+  "dark": true,
+  "colors": {
+    "background": "#121A33",
+    "backgroundDeep": "#0C1225",
+    "text": "#EDF0F7",
+    "textSoft": "#A6AEC9",
+    "key": "#1F2D59",
+    "keyEdge": "#090E1D",
+    "primary": "#F5D76E",
+    "primaryEdge": "#F4C51D",
+    "correct": "#36D399",
+    "correctEdge": "#1F9E6F",
+    "wrong": "#FF6B8A",
+    "wrongEdge": "#C94464",
+    "streak": "#F5D76E",
+    "streakBg": "#253568",
+    "card": "#1B274D",
+    "cardEdge": "#090E1D",
+    "track": "#223160",
+    "keyText": "#EDF0F7",
+    "onPrimary": "#121A33",
+    "onFeedback": "#121A33"
+  },
+  "font": null,
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1791306915810-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "stars",
+    "colors": [
+      "#FFFFFF",
+      "#FFE9A8"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

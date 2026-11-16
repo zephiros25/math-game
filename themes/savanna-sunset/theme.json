@@ -1,0 +1,51 @@
+{
+  "name": "Savannezon",
+  "tagline": "Gouden uur voor getallen",
+  "order": 230,
+  "price": 1000,
+  "dark": false,
+  "colors": {
+    "background": "#FFF1E0",
+    "backgroundDeep": "#FFE5C6",
+    "text": "#3C2C20",
+    "textSoft": "#7A695C",
+    "key": "#FFFDFA",
+    "keyEdge": "#FFD199",
+    "primary": "#E0782E",
+    "primaryEdge": "#B15616",
+    "correct": "#3CC47C",
+    "correctEdge": "#2A9A5E",
+    "wrong": "#FF6B6B",
+    "wrongEdge": "#D94B4B",
+    "streak": "#E0782E",
+    "streakBg": "#F9E4D5",
+    "card": "#FFFEFD",
+    "cardEdge": "#FFDAAD",
+    "track": "#FFDFB7",
+    "keyText": "#3C2C20",
+    "onPrimary": "#3C2C20",
+    "onFeedback": "#3C2C20"
+  },
+  "font": null,
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1790798137643-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "sunbeams",
+    "colors": [
+      "#FFC98A",
+      "#FFB07A"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

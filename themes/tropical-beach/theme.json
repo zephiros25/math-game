@@ -1,0 +1,51 @@
+{
+  "name": "Tropisch strand",
+  "tagline": "Zon, zee en sommen",
+  "order": 270,
+  "price": 500,
+  "dark": false,
+  "colors": {
+    "background": "#FFF7E8",
+    "backgroundDeep": "#FFEECE",
+    "text": "#20393C",
+    "textSoft": "#5C777A",
+    "key": "#FFFEFC",
+    "keyEdge": "#FFDEA1",
+    "primary": "#1FB5C8",
+    "primaryEdge": "#12808D",
+    "correct": "#3CC47C",
+    "correctEdge": "#2A9A5E",
+    "wrong": "#FF6B6B",
+    "wrongEdge": "#D94B4B",
+    "streak": "#1FB5C8",
+    "streakBg": "#D2F0F4",
+    "card": "#FFFEFD",
+    "cardEdge": "#FFE5B5",
+    "track": "#FFE9BF",
+    "keyText": "#20393C",
+    "onPrimary": "#20393C",
+    "onFeedback": "#20393C"
+  },
+  "font": null,
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1790798669798-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "sunbeams",
+    "colors": [
+      "#FFE3A8",
+      "#B8EEF5"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

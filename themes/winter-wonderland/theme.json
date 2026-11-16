@@ -1,0 +1,51 @@
+{
+  "name": "Winterwonderland",
+  "tagline": "Sneeuwdag, rekendag",
+  "order": 480,
+  "price": 500,
+  "dark": false,
+  "colors": {
+    "background": "#EEF5FB",
+    "backgroundDeep": "#D8E9F7",
+    "text": "#202D3C",
+    "textSoft": "#5C6A7A",
+    "key": "#FCFEFE",
+    "keyEdge": "#B2D3EF",
+    "primary": "#4F8FD9",
+    "primaryEdge": "#236BBD",
+    "correct": "#3CC47C",
+    "correctEdge": "#2A9A5E",
+    "wrong": "#FF6B6B",
+    "wrongEdge": "#D94B4B",
+    "streak": "#4F8FD9",
+    "streakBg": "#DCE9F7",
+    "card": "#FEFEFF",
+    "cardEdge": "#C3DDF3",
+    "track": "#CCE2F4",
+    "keyText": "#202D3C",
+    "onPrimary": "#202D3C",
+    "onFeedback": "#202D3C"
+  },
+  "font": null,
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1791307371539-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "petals",
+    "colors": [
+      "#FFFFFF",
+      "#D6E9FF"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

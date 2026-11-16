@@ -1,0 +1,56 @@
+{
+  "name": "Piratenbaai",
+  "tagline": "X wijst het antwoord aan",
+  "order": 300,
+  "price": 1000,
+  "dark": false,
+  "colors": {
+    "background": "#F6F0E4",
+    "backgroundDeep": "#F1E6D0",
+    "text": "#3C2320",
+    "textSoft": "#7A5F5C",
+    "key": "#FEFDFB",
+    "keyEdge": "#E6D3AC",
+    "primary": "#C0392B",
+    "primaryEdge": "#89251B",
+    "correct": "#3CC47C",
+    "correctEdge": "#2A9A5E",
+    "wrong": "#FF6B6B",
+    "wrongEdge": "#D94B4B",
+    "streak": "#C0392B",
+    "streakBg": "#F2D7D5",
+    "card": "#FEFEFD",
+    "cardEdge": "#EBDBBC",
+    "track": "#EDE0C4",
+    "keyText": "#3C2320",
+    "onPrimary": "#FFFFFF",
+    "onFeedback": "#3C2320"
+  },
+  "font": {
+    "name": "Sniglet",
+    "files": {
+      "regular": "font-sniglet-regular.ttf"
+    }
+  },
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1790799182330-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "sparkles",
+    "colors": [
+      "#FFD54F",
+      "#FFF1B8"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

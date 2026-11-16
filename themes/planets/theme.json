@@ -1,0 +1,51 @@
+{
+  "name": "Planeten",
+  "tagline": "Niet van deze wereld",
+  "order": 380,
+  "price": 1000,
+  "dark": true,
+  "colors": {
+    "background": "#1A1440",
+    "backgroundDeep": "#130E32",
+    "text": "#EFEDF7",
+    "textSoft": "#ABA6C9",
+    "key": "#2A2067",
+    "keyEdge": "#100C2A",
+    "primary": "#FFB84D",
+    "primaryEdge": "#FA9700",
+    "correct": "#36D399",
+    "correctEdge": "#1F9E6F",
+    "wrong": "#FF6B8A",
+    "wrongEdge": "#C94464",
+    "streak": "#FFB84D",
+    "streakBg": "#302576",
+    "card": "#251C5B",
+    "cardEdge": "#100C2A",
+    "track": "#2D236F",
+    "keyText": "#EFEDF7",
+    "onPrimary": "#1A1440",
+    "onFeedback": "#1A1440"
+  },
+  "font": null,
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1790845833136-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "stars",
+    "colors": [
+      "#FFFFFF",
+      "#C9B8FF"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

@@ -1,0 +1,51 @@
+{
+  "name": "Watervaloase",
+  "tagline": "Laat de getallen stromen",
+  "order": 320,
+  "price": 1000,
+  "dark": false,
+  "colors": {
+    "background": "#E8F6F2",
+    "backgroundDeep": "#D5F0E8",
+    "text": "#203C38",
+    "textSoft": "#5C7A76",
+    "key": "#FCFEFD",
+    "keyEdge": "#B3E4D6",
+    "primary": "#2A9D8F",
+    "primaryEdge": "#18675E",
+    "correct": "#3CC47C",
+    "correctEdge": "#2A9A5E",
+    "wrong": "#FF6B6B",
+    "wrongEdge": "#D94B4B",
+    "streak": "#2A9D8F",
+    "streakBg": "#D4EBE9",
+    "card": "#FDFEFE",
+    "cardEdge": "#C2E9DE",
+    "track": "#C9ECE2",
+    "keyText": "#203C38",
+    "onPrimary": "#203C38",
+    "onFeedback": "#203C38"
+  },
+  "font": null,
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1790845438568-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "bubbles",
+    "colors": [
+      "#BDEBE3",
+      "#FFFFFF"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

@@ -1,0 +1,51 @@
+{
+  "name": "Komeet",
+  "tagline": "Zo snel als een komeet",
+  "order": 430,
+  "price": 1000,
+  "dark": true,
+  "colors": {
+    "background": "#10183A",
+    "backgroundDeep": "#0B112B",
+    "text": "#EDEFF7",
+    "textSoft": "#A6ADC9",
+    "key": "#1B2962",
+    "keyEdge": "#090E23",
+    "primary": "#6FE3FF",
+    "primaryEdge": "#1DD3FF",
+    "correct": "#36D399",
+    "correctEdge": "#1F9E6F",
+    "wrong": "#FF6B8A",
+    "wrongEdge": "#C94464",
+    "streak": "#6FE3FF",
+    "streakBg": "#1F2F72",
+    "card": "#182456",
+    "cardEdge": "#090E23",
+    "track": "#1D2C6A",
+    "keyText": "#EDEFF7",
+    "onPrimary": "#10183A",
+    "onFeedback": "#10183A"
+  },
+  "font": null,
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1791307093335-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "sparkles",
+    "colors": [
+      "#BFF3FF",
+      "#FFFFFF"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

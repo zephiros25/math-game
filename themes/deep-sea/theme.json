@@ -1,0 +1,51 @@
+{
+  "name": "Diepzee",
+  "tagline": "Gloeien in de diepte",
+  "order": 260,
+  "price": 1500,
+  "dark": true,
+  "colors": {
+    "background": "#0B2238",
+    "backgroundDeep": "#071828",
+    "text": "#EDF2F7",
+    "textSoft": "#A6B8C9",
+    "key": "#133C63",
+    "keyEdge": "#05121F",
+    "primary": "#2FD3E0",
+    "primaryEdge": "#159EA9",
+    "correct": "#36D399",
+    "correctEdge": "#1F9E6F",
+    "wrong": "#FF6B8A",
+    "wrongEdge": "#C94464",
+    "streak": "#2FD3E0",
+    "streakBg": "#174674",
+    "card": "#113456",
+    "cardEdge": "#05121F",
+    "track": "#15416B",
+    "keyText": "#EDF2F7",
+    "onPrimary": "#0B2238",
+    "onFeedback": "#0B2238"
+  },
+  "font": null,
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1790798586880-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "bubbles",
+    "colors": [
+      "#3BC9DB",
+      "#9BE7F0"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

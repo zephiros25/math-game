@@ -1,0 +1,51 @@
+{
+  "name": "Ruimtestation",
+  "tagline": "Missie: rekenen!",
+  "order": 440,
+  "price": 1500,
+  "dark": true,
+  "colors": {
+    "background": "#151D2E",
+    "backgroundDeep": "#0E1421",
+    "text": "#EDF0F7",
+    "textSoft": "#A6B1C9",
+    "key": "#253351",
+    "keyEdge": "#0B0F1A",
+    "primary": "#4FD18B",
+    "primaryEdge": "#27A862",
+    "correct": "#36D399",
+    "correctEdge": "#1F9E6F",
+    "wrong": "#FF6B8A",
+    "wrongEdge": "#C94464",
+    "streak": "#4FD18B",
+    "streakBg": "#2B3C5F",
+    "card": "#202C47",
+    "cardEdge": "#0B0F1A",
+    "track": "#283758",
+    "keyText": "#EDF0F7",
+    "onPrimary": "#151D2E",
+    "onFeedback": "#151D2E"
+  },
+  "font": null,
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1791307113487-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "stars",
+    "colors": [
+      "#FFFFFF",
+      "#9EF0C4"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

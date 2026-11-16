@@ -1,0 +1,51 @@
+{
+  "name": "Tovenaarstoren",
+  "tagline": "Rekenen is toveren",
+  "order": 680,
+  "price": 1500,
+  "dark": true,
+  "colors": {
+    "background": "#1C1633",
+    "backgroundDeep": "#140F26",
+    "text": "#EFEDF7",
+    "textSoft": "#ADA6C9",
+    "key": "#302557",
+    "keyEdge": "#100C1E",
+    "primary": "#B18CFF",
+    "primaryEdge": "#7A3AFF",
+    "correct": "#36D399",
+    "correctEdge": "#1F9E6F",
+    "wrong": "#FF6B8A",
+    "wrongEdge": "#C94464",
+    "streak": "#B18CFF",
+    "streakBg": "#372C65",
+    "card": "#2A214C",
+    "cardEdge": "#100C1E",
+    "track": "#33285E",
+    "keyText": "#EFEDF7",
+    "onPrimary": "#1C1633",
+    "onFeedback": "#1C1633"
+  },
+  "font": null,
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1791397667712-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "sparkles",
+    "colors": [
+      "#D9C9FF",
+      "#FFE8A3"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

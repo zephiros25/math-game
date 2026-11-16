@@ -1,0 +1,59 @@
+{
+  "name": "Mistige ochtend",
+  "tagline": "Een helder hoofd op mistige dagen",
+  "order": 540,
+  "price": 500,
+  "dark": false,
+  "colors": {
+    "background": "#F1F3F6",
+    "backgroundDeep": "#E1E6ED",
+    "text": "#202B3C",
+    "textSoft": "#5C687A",
+    "key": "#FDFDFE",
+    "keyEdge": "#C4CDDC",
+    "primary": "#7A8CA8",
+    "primaryEdge": "#526789",
+    "correct": "#3CC47C",
+    "correctEdge": "#2A9A5E",
+    "wrong": "#FF6B6B",
+    "wrongEdge": "#D94B4B",
+    "streak": "#7A8CA8",
+    "streakBg": "#E4E8EE",
+    "card": "#FEFEFE",
+    "cardEdge": "#D0D8E4",
+    "track": "#D7DDE7",
+    "keyText": "#202B3C",
+    "onPrimary": "#202B3C",
+    "onFeedback": "#202B3C"
+  },
+  "font": {
+    "name": "Quicksand",
+    "files": {
+      "regular": "font-quicksand-regular.ttf",
+      "medium": "font-quicksand-medium.ttf",
+      "semibold": "font-quicksand-semibold.ttf",
+      "bold": "font-quicksand-bold.ttf"
+    }
+  },
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1791396922786-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "sunbeams",
+    "colors": [
+      "#FFFFFF",
+      "#E2E8F0"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

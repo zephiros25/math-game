@@ -1,0 +1,51 @@
+{
+  "name": "Vuurtorenbaai",
+  "tagline": "Wijst je de weg naar huis",
+  "order": 290,
+  "price": 1000,
+  "dark": false,
+  "colors": {
+    "background": "#EDF4FA",
+    "backgroundDeep": "#D8E8F5",
+    "text": "#3C2120",
+    "textSoft": "#7A5D5C",
+    "key": "#FCFDFE",
+    "keyEdge": "#B3D2EC",
+    "primary": "#D9534F",
+    "primaryEdge": "#BD2823",
+    "correct": "#3CC47C",
+    "correctEdge": "#2A9A5E",
+    "wrong": "#FF6B6B",
+    "wrongEdge": "#D94B4B",
+    "streak": "#D9534F",
+    "streakBg": "#F7DDDC",
+    "card": "#FEFEFF",
+    "cardEdge": "#C4DCF0",
+    "track": "#CCE1F2",
+    "keyText": "#3C2120",
+    "onPrimary": "#FFFFFF",
+    "onFeedback": "#3C2120"
+  },
+  "font": null,
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1790798848554-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "bubbles",
+    "colors": [
+      "#CFE3F5",
+      "#FFFFFF"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

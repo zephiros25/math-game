@@ -1,0 +1,51 @@
+{
+  "name": "Regenwoud",
+  "tagline": "Waar wilde sommen groeien",
+  "order": 140,
+  "price": 1000,
+  "dark": false,
+  "colors": {
+    "background": "#E6F4EA",
+    "backgroundDeep": "#D3EDDB",
+    "text": "#203C30",
+    "textSoft": "#5C7A6E",
+    "key": "#FBFDFC",
+    "keyEdge": "#B2E0BF",
+    "primary": "#1E9E6A",
+    "primaryEdge": "#106442",
+    "correct": "#3CC47C",
+    "correctEdge": "#2A9A5E",
+    "wrong": "#FF6B6B",
+    "wrongEdge": "#D94B4B",
+    "streak": "#1E9E6A",
+    "streakBg": "#D2ECE1",
+    "card": "#FDFEFD",
+    "cardEdge": "#C1E6CC",
+    "track": "#C8E9D2",
+    "keyText": "#203C30",
+    "onPrimary": "#203C30",
+    "onFeedback": "#203C30"
+  },
+  "font": null,
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1790797272851-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "leaves",
+    "colors": [
+      "#7FD1A0",
+      "#FFB26B"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

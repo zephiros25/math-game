@@ -1,0 +1,51 @@
+{
+  "name": "Vuurvliegjesnacht",
+  "tagline": "Lichtjes in het donker",
+  "order": 200,
+  "price": 1000,
+  "dark": true,
+  "colors": {
+    "background": "#15233A",
+    "backgroundDeep": "#0E1A2C",
+    "text": "#EDF1F7",
+    "textSoft": "#A6B3C9",
+    "key": "#233A5F",
+    "keyEdge": "#0C1525",
+    "primary": "#F5C84C",
+    "primaryEdge": "#E8AC08",
+    "correct": "#36D399",
+    "correctEdge": "#1F9E6F",
+    "wrong": "#FF6B8A",
+    "wrongEdge": "#C94464",
+    "streak": "#F5C84C",
+    "streakBg": "#28436E",
+    "card": "#1E3354",
+    "cardEdge": "#0C1525",
+    "track": "#253E67",
+    "keyText": "#EDF1F7",
+    "onPrimary": "#15233A",
+    "onFeedback": "#15233A"
+  },
+  "font": null,
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1790797753961-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "sparkles",
+    "colors": [
+      "#FFE58A",
+      "#C8F08F"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

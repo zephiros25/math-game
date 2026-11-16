@@ -1,0 +1,51 @@
+{
+  "name": "Feeëntuin",
+  "tagline": "Een snufje feeënstof",
+  "order": 690,
+  "price": 1000,
+  "dark": false,
+  "colors": {
+    "background": "#F6F2FB",
+    "backgroundDeep": "#E8DEF6",
+    "text": "#3C2037",
+    "textSoft": "#7A5C75",
+    "key": "#FEFDFE",
+    "keyEdge": "#D0BAEC",
+    "primary": "#E07BD0",
+    "primaryEdge": "#D73CBF",
+    "correct": "#3CC47C",
+    "correctEdge": "#2A9A5E",
+    "wrong": "#FF6B6B",
+    "wrongEdge": "#D94B4B",
+    "streak": "#E07BD0",
+    "streakBg": "#F9E5F6",
+    "card": "#FEFEFF",
+    "cardEdge": "#DBCAF0",
+    "track": "#E0D2F3",
+    "keyText": "#3C2037",
+    "onPrimary": "#3C2037",
+    "onFeedback": "#3C2037"
+  },
+  "font": null,
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1791397701519-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "sparkles",
+    "colors": [
+      "#FFC4F0",
+      "#FFF2A8"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

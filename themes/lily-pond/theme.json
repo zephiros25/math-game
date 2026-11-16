@@ -1,0 +1,51 @@
+{
+  "name": "Lelievijver",
+  "tagline": "Rimpelingen van rust",
+  "order": 180,
+  "price": 500,
+  "dark": false,
+  "colors": {
+    "background": "#EAF6F4",
+    "backgroundDeep": "#D7EFEB",
+    "text": "#203C37",
+    "textSoft": "#5C7A75",
+    "key": "#FCFEFD",
+    "keyEdge": "#B6E3DB",
+    "primary": "#3BAE9A",
+    "primaryEdge": "#267C6D",
+    "correct": "#3CC47C",
+    "correctEdge": "#2A9A5E",
+    "wrong": "#FF6B6B",
+    "wrongEdge": "#D94B4B",
+    "streak": "#3BAE9A",
+    "streakBg": "#D8EFEB",
+    "card": "#FDFEFE",
+    "cardEdge": "#C5E8E2",
+    "track": "#CCEBE6",
+    "keyText": "#203C37",
+    "onPrimary": "#203C37",
+    "onFeedback": "#203C37"
+  },
+  "font": null,
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1790797562689-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "bubbles",
+    "colors": [
+      "#BDE8E0",
+      "#F7C6D9"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

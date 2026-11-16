@@ -1,0 +1,59 @@
+{
+  "name": "Lavendelvelden",
+  "tagline": "Rustgevende paarse heuvels",
+  "order": 150,
+  "price": 500,
+  "dark": false,
+  "colors": {
+    "background": "#F4F0FA",
+    "backgroundDeep": "#E6DCF5",
+    "text": "#2A203C",
+    "textSoft": "#675C7A",
+    "key": "#FDFDFE",
+    "keyEdge": "#CCB9EA",
+    "primary": "#8E6BC8",
+    "primaryEdge": "#673BB0",
+    "correct": "#3CC47C",
+    "correctEdge": "#2A9A5E",
+    "wrong": "#FF6B6B",
+    "wrongEdge": "#D94B4B",
+    "streak": "#8E6BC8",
+    "streakBg": "#E8E1F4",
+    "card": "#FEFEFF",
+    "cardEdge": "#D8C8EF",
+    "track": "#DDD0F1",
+    "keyText": "#2A203C",
+    "onPrimary": "#FFFFFF",
+    "onFeedback": "#2A203C"
+  },
+  "font": {
+    "name": "Quicksand",
+    "files": {
+      "regular": "font-quicksand-regular.ttf",
+      "medium": "font-quicksand-medium.ttf",
+      "semibold": "font-quicksand-semibold.ttf",
+      "bold": "font-quicksand-bold.ttf"
+    }
+  },
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1790797247073-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "petals",
+    "colors": [
+      "#C9B3F0",
+      "#E4D8FA"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

@@ -1,0 +1,51 @@
+{
+  "name": "Bevroren meer",
+  "tagline": "Glijd door de getallen",
+  "order": 560,
+  "price": 1000,
+  "dark": false,
+  "colors": {
+    "background": "#EAF4FB",
+    "backgroundDeep": "#D4E9F8",
+    "text": "#20343C",
+    "textSoft": "#5C727A",
+    "key": "#FCFDFE",
+    "keyEdge": "#ACD5F2",
+    "primary": "#3AA6D0",
+    "primaryEdge": "#227DA1",
+    "correct": "#3CC47C",
+    "correctEdge": "#2A9A5E",
+    "wrong": "#FF6B6B",
+    "wrongEdge": "#D94B4B",
+    "streak": "#3AA6D0",
+    "streakBg": "#D8EDF6",
+    "card": "#FDFEFF",
+    "cardEdge": "#BEDEF4",
+    "track": "#C6E2F6",
+    "keyText": "#20343C",
+    "onPrimary": "#20343C",
+    "onFeedback": "#20343C"
+  },
+  "font": null,
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1791397208198-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "sparkles",
+    "colors": [
+      "#BFE6FF",
+      "#FFFFFF"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

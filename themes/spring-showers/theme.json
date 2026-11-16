@@ -1,0 +1,51 @@
+{
+  "name": "Lenteregen",
+  "tagline": "Zonneschijn na de regen",
+  "order": 490,
+  "price": 500,
+  "dark": false,
+  "colors": {
+    "background": "#F0F7F2",
+    "backgroundDeep": "#DEEFE3",
+    "text": "#203C39",
+    "textSoft": "#5C7A77",
+    "key": "#FDFEFD",
+    "keyEdge": "#C0E0C9",
+    "primary": "#4DB6AC",
+    "primaryEdge": "#338981",
+    "correct": "#3CC47C",
+    "correctEdge": "#2A9A5E",
+    "wrong": "#FF6B6B",
+    "wrongEdge": "#D94B4B",
+    "streak": "#4DB6AC",
+    "streakBg": "#DBF0EE",
+    "card": "#FEFEFE",
+    "cardEdge": "#CDE7D5",
+    "track": "#D4EADA",
+    "keyText": "#203C39",
+    "onPrimary": "#203C39",
+    "onFeedback": "#203C39"
+  },
+  "font": null,
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1791396855546-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "bubbles",
+    "colors": [
+      "#B2DFDB",
+      "#FFFFFF"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

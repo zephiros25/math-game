@@ -1,0 +1,51 @@
+{
+  "name": "Raketlancering",
+  "tagline": "3, 2, 1... lancering!",
+  "order": 370,
+  "price": 1000,
+  "dark": true,
+  "colors": {
+    "background": "#141B3C",
+    "backgroundDeep": "#0E132E",
+    "text": "#EDEFF7",
+    "textSoft": "#A6ACC9",
+    "key": "#212C62",
+    "keyEdge": "#0B1026",
+    "primary": "#FF8A3D",
+    "primaryEdge": "#EA5D00",
+    "correct": "#36D399",
+    "correctEdge": "#1F9E6F",
+    "wrong": "#FF6B8A",
+    "wrongEdge": "#C94464",
+    "streak": "#FF8A3D",
+    "streakBg": "#263372",
+    "card": "#1D2757",
+    "cardEdge": "#0B1026",
+    "track": "#23306A",
+    "keyText": "#EDEFF7",
+    "onPrimary": "#141B3C",
+    "onFeedback": "#141B3C"
+  },
+  "font": null,
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1790845848641-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "stars",
+    "colors": [
+      "#FFFFFF",
+      "#FFD27A"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

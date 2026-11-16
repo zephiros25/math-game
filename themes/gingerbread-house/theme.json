@@ -1,0 +1,51 @@
+{
+  "name": "Peperkoekhuisje",
+  "tagline": "Zoet en slim",
+  "order": 630,
+  "price": 1000,
+  "dark": false,
+  "colors": {
+    "background": "#FFF1E4",
+    "backgroundDeep": "#FFE4CA",
+    "text": "#3C2920",
+    "textSoft": "#7A665C",
+    "key": "#FFFDFB",
+    "keyEdge": "#FFCC9D",
+    "primary": "#B85C2E",
+    "primaryEdge": "#823E1D",
+    "correct": "#3CC47C",
+    "correctEdge": "#2A9A5E",
+    "wrong": "#FF6B6B",
+    "wrongEdge": "#D94B4B",
+    "streak": "#B85C2E",
+    "streakBg": "#F1DED5",
+    "card": "#FFFEFD",
+    "cardEdge": "#FFD7B1",
+    "track": "#FFDCBB",
+    "keyText": "#3C2920",
+    "onPrimary": "#FFFFFF",
+    "onFeedback": "#3C2920"
+  },
+  "font": null,
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1791397299508-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "sparkles",
+    "colors": [
+      "#FFFFFF",
+      "#FFB3B3"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

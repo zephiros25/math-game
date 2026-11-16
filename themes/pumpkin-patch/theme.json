@@ -1,0 +1,51 @@
+{
+  "name": "Pompoenveld",
+  "tagline": "De rijpste antwoorden plukken",
+  "order": 530,
+  "price": 500,
+  "dark": false,
+  "colors": {
+    "background": "#FFF3E3",
+    "backgroundDeep": "#FFE8C9",
+    "text": "#3C2C20",
+    "textSoft": "#7A695C",
+    "key": "#FFFDFB",
+    "keyEdge": "#FFD49C",
+    "primary": "#E97D2B",
+    "primaryEdge": "#BD5A0F",
+    "correct": "#3CC47C",
+    "correctEdge": "#2A9A5E",
+    "wrong": "#FF6B6B",
+    "wrongEdge": "#D94B4B",
+    "streak": "#E97D2B",
+    "streakBg": "#FBE5D5",
+    "card": "#FFFEFD",
+    "cardEdge": "#FFDDB0",
+    "track": "#FFE2BA",
+    "keyText": "#3C2C20",
+    "onPrimary": "#3C2C20",
+    "onFeedback": "#3C2C20"
+  },
+  "font": null,
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1791396910454-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "leaves",
+    "colors": [
+      "#F7A64A",
+      "#C98B4B"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

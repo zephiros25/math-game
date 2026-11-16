@@ -1,0 +1,51 @@
+{
+  "name": "Kristalgrot",
+  "tagline": "Schitter maar",
+  "order": 720,
+  "price": 1500,
+  "dark": true,
+  "colors": {
+    "background": "#141C2E",
+    "backgroundDeep": "#0D1321",
+    "text": "#EDF0F7",
+    "textSoft": "#A6B1C9",
+    "key": "#233252",
+    "keyEdge": "#0A0F19",
+    "primary": "#7EE8FA",
+    "primaryEdge": "#2BDDFB",
+    "correct": "#36D399",
+    "correctEdge": "#1F9E6F",
+    "wrong": "#FF6B8A",
+    "wrongEdge": "#C94464",
+    "streak": "#7EE8FA",
+    "streakBg": "#2A3A60",
+    "card": "#1F2B47",
+    "cardEdge": "#0A0F19",
+    "track": "#273659",
+    "keyText": "#EDF0F7",
+    "onPrimary": "#141C2E",
+    "onFeedback": "#141C2E"
+  },
+  "font": null,
+  "icon": null,
+  "keys": {
+    "image": null,
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": null,
+    "dim": 0
+  },
+  "particles": {
+    "style": "sparkles",
+    "colors": [
+      "#B3F5FF",
+      "#E0B3FF"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

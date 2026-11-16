@@ -1,0 +1,51 @@
+{
+  "name": "Zwevende eilanden",
+  "tagline": "Denken tot in de wolken",
+  "order": 750,
+  "price": 1500,
+  "dark": false,
+  "colors": {
+    "background": "#EEF6FF",
+    "backgroundDeep": "#D5E9FF",
+    "text": "#203C2E",
+    "textSoft": "#5C7A6B",
+    "key": "#FCFEFF",
+    "keyEdge": "#A7D0FF",
+    "primary": "#4CAF7D",
+    "primaryEdge": "#338159",
+    "correct": "#3CC47C",
+    "correctEdge": "#2A9A5E",
+    "wrong": "#FF6B6B",
+    "wrongEdge": "#D94B4B",
+    "streak": "#4CAF7D",
+    "streakBg": "#DBEFE5",
+    "card": "#FEFEFF",
+    "cardEdge": "#BBDBFF",
+    "track": "#C5E0FF",
+    "keyText": "#203C2E",
+    "onPrimary": "#203C2E",
+    "onFeedback": "#203C2E"
+  },
+  "font": null,
+  "icon": null,
+  "keys": {
+    "image": null,
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": null,
+    "dim": 0
+  },
+  "particles": {
+    "style": "sunbeams",
+    "colors": [
+      "#FFFFFF",
+      "#CDEFD9"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

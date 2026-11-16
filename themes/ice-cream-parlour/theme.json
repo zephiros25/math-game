@@ -1,0 +1,52 @@
+{
+  "name": "IJssalon",
+  "tagline": "De coolste sommen",
+  "order": 570,
+  "price": 500,
+  "dark": false,
+  "colors": {
+    "background": "#FFF4F7",
+    "backgroundDeep": "#FFDBE4",
+    "text": "#3C2029",
+    "textSoft": "#7A5C66",
+    "key": "#FFFDFE",
+    "keyEdge": "#FFADC3",
+    "primary": "#F06292",
+    "primaryEdge": "#EF1C63",
+    "correct": "#3CC47C",
+    "correctEdge": "#2A9A5E",
+    "wrong": "#FF6B6B",
+    "wrongEdge": "#D94B4B",
+    "streak": "#F06292",
+    "streakBg": "#FCE0E9",
+    "card": "#FFFEFE",
+    "cardEdge": "#FFC1D2",
+    "track": "#FFCBD9",
+    "keyText": "#3C2029",
+    "onPrimary": "#3C2029",
+    "onFeedback": "#3C2029"
+  },
+  "font": null,
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1791397234384-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "confetti",
+    "colors": [
+      "#FFB3C6",
+      "#FFF0B3",
+      "#B3E5FC"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

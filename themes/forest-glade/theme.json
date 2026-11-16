@@ -1,0 +1,51 @@
+{
+  "name": "Zonnig bos",
+  "tagline": "Zonlicht door de bladeren",
+  "order": 100,
+  "price": 500,
+  "dark": false,
+  "colors": {
+    "background": "#EEF6E8",
+    "backgroundDeep": "#E0F0D5",
+    "text": "#223C20",
+    "textSoft": "#5E7A5C",
+    "key": "#FCFEFC",
+    "keyEdge": "#C8E4B3",
+    "primary": "#5FAF5A",
+    "primaryEdge": "#40863B",
+    "correct": "#3CC47C",
+    "correctEdge": "#2A9A5E",
+    "wrong": "#FF6B6B",
+    "wrongEdge": "#D94B4B",
+    "streak": "#5FAF5A",
+    "streakBg": "#DFEFDE",
+    "card": "#FEFEFD",
+    "cardEdge": "#D3E9C2",
+    "track": "#D8ECC9",
+    "keyText": "#223C20",
+    "onPrimary": "#223C20",
+    "onFeedback": "#223C20"
+  },
+  "font": null,
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1790796449309-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "leaves",
+    "colors": [
+      "#A8D98F",
+      "#E8C97A"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

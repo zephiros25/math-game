@@ -1,0 +1,51 @@
+{
+  "name": "Cactuswoestijn",
+  "tagline": "Prikkelig maar lief",
+  "order": 170,
+  "price": 500,
+  "dark": false,
+  "colors": {
+    "background": "#FFF4E4",
+    "backgroundDeep": "#FFEACA",
+    "text": "#3C2B20",
+    "textSoft": "#7A685C",
+    "key": "#FFFDFB",
+    "keyEdge": "#FFD79D",
+    "primary": "#E07B39",
+    "primaryEdge": "#B95818",
+    "correct": "#3CC47C",
+    "correctEdge": "#2A9A5E",
+    "wrong": "#FF6B6B",
+    "wrongEdge": "#D94B4B",
+    "streak": "#E07B39",
+    "streakBg": "#F9E5D7",
+    "card": "#FFFEFD",
+    "cardEdge": "#FFDFB1",
+    "track": "#FFE3BB",
+    "keyText": "#3C2B20",
+    "onPrimary": "#3C2B20",
+    "onFeedback": "#3C2B20"
+  },
+  "font": null,
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1790797507972-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "sunbeams",
+    "colors": [
+      "#FFD8A8",
+      "#FFC08A"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

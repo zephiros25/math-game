@@ -1,0 +1,52 @@
+{
+  "name": "Luchtballonnen",
+  "tagline": "Op, op en weg!",
+  "order": 360,
+  "price": 1000,
+  "dark": false,
+  "colors": {
+    "background": "#FFF6EC",
+    "backgroundDeep": "#FFEAD3",
+    "text": "#3C2320",
+    "textSoft": "#7A5F5C",
+    "key": "#FFFEFC",
+    "keyEdge": "#FFD4A5",
+    "primary": "#F26B5B",
+    "primaryEdge": "#F22B14",
+    "correct": "#3CC47C",
+    "correctEdge": "#2A9A5E",
+    "wrong": "#FF6B6B",
+    "wrongEdge": "#D94B4B",
+    "streak": "#F26B5B",
+    "streakBg": "#FCE1DE",
+    "card": "#FFFEFD",
+    "cardEdge": "#FFDEB9",
+    "track": "#FFE3C3",
+    "keyText": "#3C2320",
+    "onPrimary": "#3C2320",
+    "onFeedback": "#3C2320"
+  },
+  "font": null,
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1790845661758-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "confetti",
+    "colors": [
+      "#FFB3A7",
+      "#A7D8FF",
+      "#FFE08A"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}

@@ -1,0 +1,51 @@
+{
+  "name": "Drakenhol",
+  "tagline": "Bewaakt door een lieve draak",
+  "order": 670,
+  "price": 1500,
+  "dark": true,
+  "colors": {
+    "background": "#22141A",
+    "backgroundDeep": "#160C10",
+    "text": "#F7EDF2",
+    "textSoft": "#C9A6B5",
+    "key": "#422733",
+    "keyEdge": "#0F080B",
+    "primary": "#FF7A3D",
+    "primaryEdge": "#EA4A00",
+    "correct": "#36D399",
+    "correctEdge": "#1F9E6F",
+    "wrong": "#FF6B8A",
+    "wrongEdge": "#C94464",
+    "streak": "#FF7A3D",
+    "streakBg": "#4F2E3C",
+    "card": "#38212B",
+    "cardEdge": "#0F080B",
+    "track": "#492B37",
+    "keyText": "#F7EDF2",
+    "onPrimary": "#22141A",
+    "onFeedback": "#22141A"
+  },
+  "font": null,
+  "icon": "icon-icon.png",
+  "keys": {
+    "image": "key-button.png",
+    "fit": "stretch",
+    "backspace": false
+  },
+  "background": {
+    "image": "bg-pasted-1791397641551-0.jpg",
+    "dim": 0
+  },
+  "particles": {
+    "style": "sparkles",
+    "colors": [
+      "#FFB347",
+      "#FF6B3D"
+    ],
+    "images": [],
+    "amount": 1,
+    "opacity": 1
+  },
+  "sounds": {}
+}
