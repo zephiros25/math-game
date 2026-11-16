@@ -1,9 +1,8 @@
 {
   "name": "Snowball",
-  "tagline": "Soft as a cloud",
+  "tagline": "Zacht als een wolkje",
   "order": 250,
   "price": 3,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

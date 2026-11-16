@@ -1,9 +1,8 @@
 {
   "name": "Blaze",
-  "tagline": "Rises again after every mistake",
+  "tagline": "Staat na elke fout weer op",
   "order": 890,
   "price": 12,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

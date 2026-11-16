@@ -1,4 +1,4 @@
-import { router } from 'expo-router';
+import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import Animated, {
@@ -20,11 +20,11 @@ import { PetView, type PetHandle } from '@/components/pet-view';
 import { Screen } from '@/components/screen';
 import { afterTap, feedback } from '@/feedback';
 import { judge, type Verdict } from '@/game/engine';
-import { focusPlan } from '@/game/focus';
+import { practicePlan, type PracticeMode } from '@/game/focus';
 import { generateQuestion, levelInfo, type Question } from '@/game/levels';
 import { COINS_PER_FINISHED_RUN, coinsFor, isStreakGem, runBonusGems, today } from '@/game/rewards';
 import { petLine, usePet } from '@/pets';
-import { getDevice, getProgress, updateProgress } from '@/progress';
+import { getProgress, updateProgress } from '@/progress';
 import { getStats, recordAnswer, recordRunEnd } from '@/stats';
 import { useTheme, type Theme } from '@/theme';
 
@@ -32,10 +32,10 @@ const CORRECT_PAUSE_MS = 480;
 const WRONG_PAUSE_MS = 1500;
 
 const SPEED_LABEL = {
-  lightning: '⚡ Lightning!',
-  fast: 'Fast!',
-  steady: 'Nice!',
-  slow: 'Got it!',
+  lightning: '⚡ Bliksemsnel!',
+  fast: 'Snel!',
+  steady: 'Goed zo!',
+  slow: 'Gelukt!',
 } as const;
 
 // Only called from event handlers and effects, never during render.
@@ -57,8 +57,10 @@ export default function Play() {
   const [total] = useState(() => getProgress().runLength);
   const [bestBefore] = useState(() => getProgress().bestLevel);
   const [maxLevel] = useState(() => getProgress().maxLevel ?? undefined);
-  // A focus run (Plus) drills chosen facts instead of climbing the levels.
-  const [focus] = useState(() => (getDevice().plus ? focusPlan(getProgress().focus, getStats()) : null));
+  // A practice run ("Tafels oefenen", or tricky facts from the report) drills
+  // chosen facts instead of climbing the levels.
+  const { mode } = useLocalSearchParams<{ mode?: PracticeMode }>();
+  const [focus] = useState(() => (mode ? practicePlan(mode, getProgress().practice, getStats()) : null));
 
   const [index, setIndex] = useState(1);
   const [level, setLevel] = useState(1);
@@ -178,7 +180,8 @@ export default function Play() {
     const bonus = runBonusGems({
       correct: s.correct,
       total,
-      peakLevel: s.peakLevel,
+      // Practice runs never count as a new best level.
+      peakLevel: focus ? 0 : s.peakLevel,
       previousBest: bestBefore,
       firstRunToday: p.lastRunDay !== day,
     });
@@ -186,7 +189,7 @@ export default function Play() {
     updateProgress({
       coins: p.coins + coins,
       gems: p.gems + s.gems + bonus.gems,
-      bestLevel: Math.max(p.bestLevel, s.peakLevel),
+      bestLevel: focus ? p.bestLevel : Math.max(p.bestLevel, s.peakLevel),
       lastRunDay: day,
     });
     router.replace({
@@ -199,8 +202,8 @@ export default function Play() {
         gems: s.gems + bonus.gems,
         daily: bonus.daily > 0 ? 1 : 0,
         bestStreak: s.bestStreak,
-        newBest: s.peakLevel > bestBefore ? 1 : 0,
-        ...(focus && { focus: focus.label }),
+        newBest: !focus && s.peakLevel > bestBefore ? 1 : 0,
+        ...(focus && { focus: focus.label, mode }),
       },
     });
   }
@@ -251,11 +254,11 @@ export default function Play() {
           {focus ? (
             <View style={styles.levelChip}>
               <Text style={styles.levelNumber}>🎯</Text>
-              <Text style={styles.levelName}>Practising {focus.label}</Text>
+              <Text style={styles.levelName}>Oefenen: {focus.label}</Text>
             </View>
           ) : (
             <Animated.View key={level} entering={ZoomIn.springify().damping(12)} style={styles.levelChip}>
-              <Text style={styles.levelNumber}>Lv {level}</Text>
+              <Text style={styles.levelNumber}>Niv. {level}</Text>
               <Text style={styles.levelName}>{levelInfo(level).name}</Text>
             </Animated.View>
           )}

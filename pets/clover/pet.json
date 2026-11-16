@@ -1,9 +1,8 @@
 {
   "name": "Clover",
-  "tagline": "Brings a little luck to every sum",
+  "tagline": "Brengt een beetje geluk bij elke som",
   "order": 80,
   "price": 3,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

@@ -1,9 +1,8 @@
 {
   "name": "Tango",
-  "tagline": "Stripes and smarts",
+  "tagline": "Strepen en slimheid",
   "order": 440,
   "price": 5,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

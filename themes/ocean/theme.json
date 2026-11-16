@@ -1,9 +1,8 @@
 {
-  "name": "Ocean",
-  "tagline": "Bubbles from the deep",
+  "name": "Oceaan",
+  "tagline": "Bubbels uit de diepte",
   "order": 20,
   "price": 300,
-  "premium": false,
   "dark": false,
   "colors": {
     "background": "#E8F7FC",

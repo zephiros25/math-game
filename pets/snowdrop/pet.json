@@ -1,9 +1,8 @@
 {
   "name": "Snowdrop",
-  "tagline": "Quiet as snow, sharp as ice",
+  "tagline": "Stil als sneeuw, scherp als ijs",
   "order": 580,
   "price": 5,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

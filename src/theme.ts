@@ -3,8 +3,7 @@
 // theme-registry.generated.ts. Every screen reads the active theme via
 // `useTheme()`.
 //
-// Unlock rules: `price` in coins (earned by playing, never sold), or
-// `premium` for themes that come with Math Run Plus (an in-app purchase).
+// Unlock rules: `price` in coins earned by playing (0 = free for everyone).
 
 import { createContext, useContext } from 'react';
 
@@ -50,7 +49,6 @@ export type ThemeData = {
   tagline: string;
   order: number;
   price: number; // coins; 0 = free
-  premium: boolean;
   dark: boolean;
   fontName: string | null; // null = the default font (Fredoka)
   fonts: Record<FontWeight, Asset> | null;

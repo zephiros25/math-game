@@ -246,7 +246,7 @@ function renderList() {
   const list = $('#themeList');
   fill(list, ...themes.map((t) => {
     const j = t.json;
-    const sub = !j ? 'broken JSON' : j.premium ? '★ Premium' : j.price === 0 ? 'Free' : `${j.price} coins`;
+    const sub = !j ? 'broken JSON' : j.price === 0 ? 'Free' : `${j.price} coins`;
     const sw = j?.icon
       ? h('div', { class: 'swatch', style: { backgroundImage: `url(${fileUrl(t.id, j.icon)})` } })
       : h('div', { class: 'swatch', style: { background: j?.colors?.background ?? '#ccc', backgroundImage: j?.background?.image ? `url(${fileUrl(t.id, j.background.image)})` : '' } },
@@ -302,11 +302,10 @@ function field(label, input, hint) {
 }
 
 function basicsCard(j) {
-  const unlock = j.premium ? 'premium' : j.price === 0 ? 'free' : 'coins';
+  const unlock = j.price === 0 ? 'free' : 'coins';
   const price = h('input', { type: 'number', min: 0, step: 50, value: j.price || 500, style: { width: '90px' }, disabled: unlock !== 'coins',
     oninput: (e) => { j.price = Math.max(0, Math.round(Number(e.target.value) || 0)); changed(); } });
   const radio = (value, label) => h('label', {}, h('input', { type: 'radio', name: 'unlock', value, checked: unlock === value, onchange: () => {
-    j.premium = value === 'premium';
     j.price = value === 'coins' ? Math.max(50, Number(price.value) || 500) : 0;
     price.disabled = value !== 'coins';
     changed(); renderList();
@@ -315,7 +314,7 @@ function basicsCard(j) {
     h('h2', {}, 'Basics'),
     field('Name', h('input', { type: 'text', value: j.name, oninput: (e) => { j.name = e.target.value; changed(); } })),
     field('Tagline', h('input', { type: 'text', value: j.tagline, style: { width: '320px' }, oninput: (e) => { j.tagline = e.target.value; changed(); } }), 'Shown under the name in the shop.'),
-    field('Unlock', h('span', { class: 'chips' }, radio('free', 'Free'), radio('coins', 'Coins:'), price, radio('premium', '★ Premium (in-app purchase)'))),
+    field('Unlock', h('span', { class: 'chips' }, radio('free', 'Free'), radio('coins', 'Coins:'), price)),
     iconField(j),
     field('Shop order', h('input', { type: 'number', value: j.order, step: 10, style: { width: '90px' }, oninput: (e) => { j.order = Number(e.target.value) || 0; changed(); } }), 'Lower comes first.'),
     field('Dark theme', h('input', { type: 'checkbox', checked: j.dark, onchange: (e) => { j.dark = e.target.checked; changed(); } }), 'Makes the phone status bar light.'),

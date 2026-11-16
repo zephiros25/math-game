@@ -1,9 +1,8 @@
 {
   "name": "Domino",
-  "tagline": "Spot-on with every answer",
+  "tagline": "Elk antwoord precies raak",
   "order": 210,
   "price": 3,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

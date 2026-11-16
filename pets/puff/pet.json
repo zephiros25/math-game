@@ -1,9 +1,8 @@
 {
   "name": "Puff",
-  "tagline": "Puffs up with pride",
+  "tagline": "Blaast zich op van trots",
   "order": 320,
   "price": 3,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

@@ -1,9 +1,8 @@
 {
   "name": "Brontie",
-  "tagline": "Stretches for every answer",
+  "tagline": "Rekt zich uit voor elk antwoord",
   "order": 810,
   "price": 8,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

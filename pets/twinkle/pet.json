@@ -1,9 +1,8 @@
 {
   "name": "Twinkle",
-  "tagline": "Small wings, big magic",
+  "tagline": "Kleine vleugels, grote magie",
   "order": 980,
   "price": 12,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

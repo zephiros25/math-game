@@ -70,7 +70,7 @@
   },
   "themes": {
     "ocean": {
-      "name": "Ocean",
+      "name": "Oceaan",
       "group": "Existing themes",
       "touch": "a soft water bubble",
       "tone": "a soft vibraphone",
@@ -87,7 +87,7 @@
       }
     },
     "meadow": {
-      "name": "Meadow",
+      "name": "Weide",
       "group": "Existing themes",
       "touch": "a soft wooden block in the grass",
       "tone": "a gentle kalimba",
@@ -104,7 +104,7 @@
       }
     },
     "candy": {
-      "name": "Candy",
+      "name": "Snoep",
       "group": "Existing themes",
       "touch": "a hard sugar candy",
       "tone": "a toy piano",
@@ -121,7 +121,7 @@
       }
     },
     "night": {
-      "name": "Night Sky",
+      "name": "Sterrenhemel",
       "group": "Existing themes",
       "touch": "soft velvet",
       "tone": "a dreamy celesta",
@@ -138,7 +138,7 @@
       }
     },
     "aurora": {
-      "name": "Aurora",
+      "name": "Noorderlicht",
       "group": "Existing themes",
       "touch": "a small piece of icy glass",
       "tone": "a shimmering glass harmonica",
@@ -155,7 +155,7 @@
       }
     },
     "golden": {
-      "name": "Golden",
+      "name": "Goud",
       "group": "Existing themes",
       "touch": "a gold coin on velvet",
       "tone": "a warm deep bell",
@@ -172,7 +172,7 @@
       }
     },
     "blossom": {
-      "name": "Blossom",
+      "name": "Bloesem",
       "group": "Existing themes",
       "touch": "a soft flower petal",
       "tone": "a koto",
@@ -189,7 +189,7 @@
       }
     },
     "diamond": {
-      "name": "Diamond",
+      "name": "Diamant",
       "group": "Existing themes",
       "touch": "a cut crystal",
       "tone": "a crystal glass bell",
@@ -206,7 +206,7 @@
       }
     },
     "forest-glade": {
-      "name": "Forest Glade",
+      "name": "Zonnig bos",
       "group": "Nature",
       "touch": "a soft wooden block",
       "tone": "a warm wooden marimba",
@@ -223,7 +223,7 @@
       }
     },
     "mushroom-village": {
-      "name": "Mushroom Village",
+      "name": "Paddenstoeldorp",
       "group": "Nature",
       "touch": "a soft squishy mushroom cap",
       "tone": "a gentle kalimba",
@@ -240,7 +240,7 @@
       }
     },
     "sunflower-field": {
-      "name": "Sunflower Field",
+      "name": "Zonnebloemveld",
       "group": "Nature",
       "touch": "a soft straw basket",
       "tone": "a bright ukulele",
@@ -257,7 +257,7 @@
       }
     },
     "bamboo-grove": {
-      "name": "Bamboo Grove",
+      "name": "Bamboebos",
       "group": "Nature",
       "touch": "a hollow bamboo stick",
       "tone": "soft bamboo wind chimes",
@@ -274,7 +274,7 @@
       }
     },
     "rainforest": {
-      "name": "Rainforest",
+      "name": "Regenwoud",
       "group": "Nature",
       "touch": "a big leaf with a water drop",
       "tone": "a wooden tongue drum",
@@ -291,7 +291,7 @@
       }
     },
     "lavender-fields": {
-      "name": "Lavender Fields",
+      "name": "Lavendelvelden",
       "group": "Nature",
       "touch": "soft linen fabric",
       "tone": "a gentle harp",
@@ -308,7 +308,7 @@
       }
     },
     "butterfly-garden": {
-      "name": "Butterfly Garden",
+      "name": "Vlindertuin",
       "group": "Nature",
       "touch": "a soft flower petal",
       "tone": "a music box",
@@ -325,7 +325,7 @@
       }
     },
     "cactus-desert": {
-      "name": "Cactus Desert",
+      "name": "Cactuswoestijn",
       "group": "Nature",
       "touch": "a terracotta clay pot",
       "tone": "a soft handpan",
@@ -342,7 +342,7 @@
       }
     },
     "lily-pond": {
-      "name": "Lily Pond",
+      "name": "Lelievijver",
       "group": "Nature",
       "touch": "a water droplet on a lily pad",
       "tone": "a soft water-glass bell",
@@ -359,7 +359,7 @@
       }
     },
     "mountain-lake": {
-      "name": "Mountain Lake",
+      "name": "Bergmeer",
       "group": "Nature",
       "touch": "a smooth river pebble",
       "tone": "a clear glockenspiel",
@@ -376,7 +376,7 @@
       }
     },
     "firefly-night": {
-      "name": "Firefly Night",
+      "name": "Vuurvliegjesnacht",
       "group": "Nature",
       "touch": "soft wood",
       "tone": "a dreamy celesta",
@@ -393,7 +393,7 @@
       }
     },
     "tulip-garden": {
-      "name": "Tulip Garden",
+      "name": "Tulpentuin",
       "group": "Nature",
       "touch": "a painted ceramic tile",
       "tone": "a music box",
@@ -410,7 +410,7 @@
       }
     },
     "enchanted-moss": {
-      "name": "Enchanted Moss",
+      "name": "Betoverd mos",
       "group": "Nature",
       "touch": "soft moss",
       "tone": "an airy kalimba with a magical shimmer",
@@ -427,7 +427,7 @@
       }
     },
     "savanna-sunset": {
-      "name": "Savanna Sunset",
+      "name": "Savannezon",
       "group": "Nature",
       "touch": "warm sandstone",
       "tone": "a warm balafon (wooden xylophone)",
@@ -444,7 +444,7 @@
       }
     },
     "rainbow-hills": {
-      "name": "Rainbow Hills",
+      "name": "Regenbooglanden",
       "group": "Nature",
       "touch": "a soft rubber toy",
       "tone": "a bright toy xylophone",
@@ -461,7 +461,7 @@
       }
     },
     "coral-reef": {
-      "name": "Coral Reef",
+      "name": "Koraalrif",
       "group": "Ocean & water",
       "touch": "a small underwater bubble",
       "tone": "a bubbly vibraphone",
@@ -478,7 +478,7 @@
       }
     },
     "deep-sea": {
-      "name": "Deep Sea",
+      "name": "Diepzee",
       "group": "Ocean & water",
       "touch": "a deep, soft underwater bubble",
       "tone": "a dreamy glass harmonica",
@@ -495,7 +495,7 @@
       }
     },
     "tropical-beach": {
-      "name": "Tropical Beach",
+      "name": "Tropisch strand",
       "group": "Ocean & water",
       "touch": "a coconut shell",
       "tone": "a steel drum",
@@ -512,7 +512,7 @@
       }
     },
     "tide-pools": {
-      "name": "Tide Pools",
+      "name": "Getijdenpoelen",
       "group": "Ocean & water",
       "touch": "frosted sea glass",
       "tone": "glass wind chimes",
@@ -529,7 +529,7 @@
       }
     },
     "lighthouse-bay": {
-      "name": "Lighthouse Bay",
+      "name": "Vuurtorenbaai",
       "group": "Ocean & water",
       "touch": "weathered wood",
       "tone": "a small soft ship bell",
@@ -546,7 +546,7 @@
       }
     },
     "pirate-cove": {
-      "name": "Pirate Cove",
+      "name": "Piratenbaai",
       "group": "Ocean & water",
       "touch": "an old wooden barrel",
       "tone": "a jolly glockenspiel",
@@ -563,7 +563,7 @@
       }
     },
     "mermaid-lagoon": {
-      "name": "Mermaid Lagoon",
+      "name": "Parellagune",
       "group": "Ocean & water",
       "touch": "a pearly seashell",
       "tone": "a shimmering harp",
@@ -580,7 +580,7 @@
       }
     },
     "waterfall-oasis": {
-      "name": "Waterfall Oasis",
+      "name": "Watervaloase",
       "group": "Ocean & water",
       "touch": "a wet smooth pebble",
       "tone": "a watery marimba",
@@ -597,7 +597,7 @@
       }
     },
     "submarine": {
-      "name": "Submarine",
+      "name": "Duikboot",
       "group": "Ocean & water",
       "touch": "a small brass button",
       "tone": "a soft sonar-like bell ping",
@@ -614,7 +614,7 @@
       }
     },
     "seashell-shore": {
-      "name": "Seashell Shore",
+      "name": "Schelpenstrand",
       "group": "Ocean & water",
       "touch": "a polished seashell",
       "tone": "soft wind chimes",
@@ -631,7 +631,7 @@
       }
     },
     "cotton-clouds": {
-      "name": "Cotton Clouds",
+      "name": "Suikerspinwolken",
       "group": "Sky & space",
       "touch": "a soft pillow",
       "tone": "an airy soft synth bell",
@@ -648,7 +648,7 @@
       }
     },
     "hot-air-balloons": {
-      "name": "Hot Air Balloons",
+      "name": "Luchtballonnen",
       "group": "Sky & space",
       "touch": "a soft balloon",
       "tone": "a cheerful ukulele",
@@ -665,7 +665,7 @@
       }
     },
     "rocket-launch": {
-      "name": "Rocket Launch",
+      "name": "Raketlancering",
       "group": "Sky & space",
       "touch": "a soft plastic space button",
       "tone": "a round, soft retro synth",
@@ -682,7 +682,7 @@
       }
     },
     "planets": {
-      "name": "Planets",
+      "name": "Planeten",
       "group": "Sky & space",
       "touch": "a soft rubber ball",
       "tone": "a spacey vibraphone",
@@ -699,7 +699,7 @@
       }
     },
     "nebula": {
-      "name": "Nebula",
+      "name": "Nevel",
       "group": "Sky & space",
       "touch": "a soft glassy bubble",
       "tone": "a shimmering synth bell",
@@ -716,7 +716,7 @@
       }
     },
     "moonlit-night": {
-      "name": "Moonlit Night",
+      "name": "Maannacht",
       "group": "Sky & space",
       "touch": "soft velvet",
       "tone": "a lullaby celesta",
@@ -733,7 +733,7 @@
       }
     },
     "sunrise": {
-      "name": "Sunrise",
+      "name": "Zonsopgang",
       "group": "Sky & space",
       "touch": "warm glass",
       "tone": "a gentle marimba",
@@ -750,7 +750,7 @@
       }
     },
     "observatory": {
-      "name": "Observatory",
+      "name": "Sterrenwacht",
       "group": "Sky & space",
       "touch": "a brass dial",
       "tone": "a bright glockenspiel",
@@ -767,7 +767,7 @@
       }
     },
     "comet-trail": {
-      "name": "Comet Trail",
+      "name": "Komeet",
       "group": "Sky & space",
       "touch": "an icy crystal",
       "tone": "a sparkly synth bell",
@@ -784,7 +784,7 @@
       }
     },
     "space-station": {
-      "name": "Space Station",
+      "name": "Ruimtestation",
       "group": "Sky & space",
       "touch": "a soft spaceship panel button",
       "tone": "a friendly soft synth",
@@ -801,7 +801,7 @@
       }
     },
     "kite-day": {
-      "name": "Kite Day",
+      "name": "Vliegerdag",
       "group": "Sky & space",
       "touch": "light kite fabric",
       "tone": "a bright toy xylophone",
@@ -818,7 +818,7 @@
       }
     },
     "paper-planes": {
-      "name": "Paper Planes",
+      "name": "Papieren vliegtuigjes",
       "group": "Sky & space",
       "touch": "folded paper",
       "tone": "soft pizzicato strings",
@@ -835,7 +835,7 @@
       }
     },
     "autumn-leaves": {
-      "name": "Autumn Leaves",
+      "name": "Herfstbladeren",
       "group": "Seasons & weather",
       "touch": "a dry autumn leaf",
       "tone": "a warm acoustic guitar",
@@ -852,7 +852,7 @@
       }
     },
     "winter-wonderland": {
-      "name": "Winter Wonderland",
+      "name": "Winterwonderland",
       "group": "Seasons & weather",
       "touch": "soft fresh snow",
       "tone": "a celesta with tiny sleigh bells",
@@ -869,7 +869,7 @@
       }
     },
     "spring-showers": {
-      "name": "Spring Showers",
+      "name": "Lenteregen",
       "group": "Seasons & weather",
       "touch": "a raindrop",
       "tone": "a soft kalimba",
@@ -886,7 +886,7 @@
       }
     },
     "summer-picnic": {
-      "name": "Summer Picnic",
+      "name": "Zomerpicknick",
       "group": "Seasons & weather",
       "touch": "a light wicker basket",
       "tone": "a ukulele",
@@ -903,7 +903,7 @@
       }
     },
     "thunderstorm": {
-      "name": "Thunderstorm",
+      "name": "Onweer",
       "group": "Seasons & weather",
       "touch": "a soft raindrop on a window",
       "tone": "a deep warm vibraphone",
@@ -920,7 +920,7 @@
       }
     },
     "snowy-cabin": {
-      "name": "Snowy Cabin",
+      "name": "Sneeuwhut",
       "group": "Seasons & weather",
       "touch": "a wooden log",
       "tone": "a warm music box",
@@ -937,7 +937,7 @@
       }
     },
     "pumpkin-patch": {
-      "name": "Pumpkin Patch",
+      "name": "Pompoenveld",
       "group": "Seasons & weather",
       "touch": "a hollow pumpkin",
       "tone": "a wooden marimba",
@@ -954,7 +954,7 @@
       }
     },
     "foggy-morning": {
-      "name": "Foggy Morning",
+      "name": "Mistige ochtend",
       "group": "Seasons & weather",
       "touch": "a soft pebble",
       "tone": "a muted soft piano",
@@ -971,7 +971,7 @@
       }
     },
     "windy-day": {
-      "name": "Windy Day",
+      "name": "Winderige dag",
       "group": "Seasons & weather",
       "touch": "a soft puff of air",
       "tone": "airy wind chimes",
@@ -988,7 +988,7 @@
       }
     },
     "frozen-lake": {
-      "name": "Frozen Lake",
+      "name": "Bevroren meer",
       "group": "Seasons & weather",
       "touch": "clear ice",
       "tone": "a crystal glass bell",
@@ -1005,7 +1005,7 @@
       }
     },
     "ice-cream-parlour": {
-      "name": "Ice Cream Parlour",
+      "name": "IJssalon",
       "group": "Sweets & treats",
       "touch": "a soft ice cream scoop",
       "tone": "a glockenspiel",
@@ -1022,7 +1022,7 @@
       }
     },
     "bakery": {
-      "name": "Bakery",
+      "name": "Bakkerij",
       "group": "Sweets & treats",
       "touch": "soft bread dough",
       "tone": "a warm toy piano",
@@ -1039,7 +1039,7 @@
       }
     },
     "chocolate-factory": {
-      "name": "Chocolate Factory",
+      "name": "Chocoladefabriek",
       "group": "Sweets & treats",
       "touch": "a small chocolate square",
       "tone": "a bubbly marimba",
@@ -1056,7 +1056,7 @@
       }
     },
     "donut-shop": {
-      "name": "Donut Shop",
+      "name": "Donutwinkel",
       "group": "Sweets & treats",
       "touch": "a soft squishy donut",
       "tone": "a bouncy toy xylophone",
@@ -1073,7 +1073,7 @@
       }
     },
     "fruit-market": {
-      "name": "Fruit Market",
+      "name": "Fruitmarkt",
       "group": "Sweets & treats",
       "touch": "a crisp apple",
       "tone": "a bright marimba",
@@ -1090,7 +1090,7 @@
       }
     },
     "bubble-tea": {
-      "name": "Bubble Tea",
+      "name": "Bubbelthee",
       "group": "Sweets & treats",
       "touch": "a tapioca pearl popping",
       "tone": "a bubbly synth pluck",
@@ -1107,7 +1107,7 @@
       }
     },
     "gingerbread-house": {
-      "name": "Gingerbread House",
+      "name": "Peperkoekhuisje",
       "group": "Sweets & treats",
       "touch": "a gingerbread cookie",
       "tone": "a celesta with tiny sleigh bells",
@@ -1124,7 +1124,7 @@
       }
     },
     "pancake-breakfast": {
-      "name": "Pancake Breakfast",
+      "name": "Pannenkoekenontbijt",
       "group": "Sweets & treats",
       "touch": "a soft pancake",
       "tone": "a cheerful toy piano",
@@ -1141,7 +1141,7 @@
       }
     },
     "lollipop-land": {
-      "name": "Lollipop Land",
+      "name": "Lollyland",
       "group": "Sweets & treats",
       "touch": "a hard candy",
       "tone": "a music box",
@@ -1158,7 +1158,7 @@
       }
     },
     "pizza-party": {
-      "name": "Pizza Party",
+      "name": "Pizzafeest",
       "group": "Sweets & treats",
       "touch": "a soft cardboard box",
       "tone": "a cheerful mandolin",
@@ -1175,7 +1175,7 @@
       }
     },
     "dragons-lair": {
-      "name": "Dragon's Lair",
+      "name": "Drakenhol",
       "group": "Fantasy & magic",
       "touch": "a gold coin on stone",
       "tone": "a warm deep bell",
@@ -1192,7 +1192,7 @@
       }
     },
     "wizard-tower": {
-      "name": "Wizard Tower",
+      "name": "Tovenaarstoren",
       "group": "Fantasy & magic",
       "touch": "an old book cover",
       "tone": "a magical celesta",
@@ -1209,7 +1209,7 @@
       }
     },
     "fairy-garden": {
-      "name": "Fairy Garden",
+      "name": "Feeëntuin",
       "group": "Fantasy & magic",
       "touch": "a tiny flower petal",
       "tone": "tiny fairy bells",
@@ -1226,7 +1226,7 @@
       }
     },
     "unicorn-clouds": {
-      "name": "Unicorn Clouds",
+      "name": "Eenhoornwolken",
       "group": "Fantasy & magic",
       "touch": "a soft cloud puff",
       "tone": "a sparkly harp",
@@ -1243,7 +1243,7 @@
       }
     },
     "castle-kingdom": {
-      "name": "Castle Kingdom",
+      "name": "Kasteelrijk",
       "group": "Fantasy & magic",
       "touch": "carved stone",
       "tone": "a royal glockenspiel",
@@ -1260,7 +1260,7 @@
       }
     },
     "crystal-cave": {
-      "name": "Crystal Cave",
+      "name": "Kristalgrot",
       "group": "Fantasy & magic",
       "touch": "a crystal",
       "tone": "a glass harmonica",
@@ -1277,7 +1277,7 @@
       }
     },
     "enchanted-library": {
-      "name": "Enchanted Library",
+      "name": "Toverbibliotheek",
       "group": "Fantasy & magic",
       "touch": "a leather book cover",
       "tone": "a soft harpsichord",
@@ -1294,7 +1294,7 @@
       }
     },
     "potion-lab": {
-      "name": "Potion Lab",
+      "name": "Toverdranklab",
       "group": "Fantasy & magic",
       "touch": "a small glass bottle",
       "tone": "a bubbly glass marimba",
@@ -1311,7 +1311,7 @@
       }
     },
     "floating-islands": {
-      "name": "Floating Islands",
+      "name": "Zwevende eilanden",
       "group": "Fantasy & magic",
       "touch": "a mossy stone",
       "tone": "an airy harp",
@@ -1328,7 +1328,7 @@
       }
     },
     "magic-lamp": {
-      "name": "Magic Lamp",
+      "name": "Wonderlamp",
       "group": "Fantasy & magic",
       "touch": "a brass lamp",
       "tone": "a shimmering santoor (hammered dulcimer)",
@@ -1345,7 +1345,7 @@
       }
     },
     "pumpkin-night": {
-      "name": "Pumpkin Night",
+      "name": "Pompoennacht",
       "group": "Fantasy & magic",
       "touch": "a hollow pumpkin",
       "tone": "a spooky-cute celesta",
@@ -1362,7 +1362,7 @@
       }
     },
     "treasure-island": {
-      "name": "Treasure Island",
+      "name": "Schateiland",
       "group": "Fantasy & magic",
       "touch": "a gold coin",
       "tone": "a steel drum",
@@ -1379,7 +1379,7 @@
       }
     },
     "cosy-bedroom": {
-      "name": "Cosy Bedroom",
+      "name": "Knusse slaapkamer",
       "group": "Cosy & home",
       "touch": "a soft plush toy",
       "tone": "a lullaby music box",
@@ -1396,7 +1396,7 @@
       }
     },
     "reading-nook": {
-      "name": "Reading Nook",
+      "name": "Leeshoekje",
       "group": "Cosy & home",
       "touch": "a book page",
       "tone": "a soft piano",
@@ -1413,7 +1413,7 @@
       }
     },
     "toy-box": {
-      "name": "Toy Box",
+      "name": "Speelgoedkist",
       "group": "Cosy & home",
       "touch": "a wooden toy block",
       "tone": "a toy xylophone",
@@ -1430,7 +1430,7 @@
       }
     },
     "tea-party": {
-      "name": "Tea Party",
+      "name": "Theekransje",
       "group": "Cosy & home",
       "touch": "a porcelain teacup",
       "tone": "a delicate porcelain bell",
@@ -1447,7 +1447,7 @@
       }
     },
     "rainy-window": {
-      "name": "Rainy Window",
+      "name": "Regenraam",
       "group": "Cosy & home",
       "touch": "a raindrop on glass",
       "tone": "a soft electric piano",
@@ -1464,7 +1464,7 @@
       }
     },
     "knitting-basket": {
-      "name": "Knitting Basket",
+      "name": "Breimand",
       "group": "Cosy & home",
       "touch": "soft wool yarn",
       "tone": "a gentle kalimba",
@@ -1481,7 +1481,7 @@
       }
     },
     "campfire": {
-      "name": "Campfire",
+      "name": "Kampvuur",
       "group": "Cosy & home",
       "touch": "a small dry twig",
       "tone": "an acoustic guitar",
@@ -1498,7 +1498,7 @@
       }
     },
     "treehouse": {
-      "name": "Treehouse",
+      "name": "Boomhut",
       "group": "Cosy & home",
       "touch": "a wooden plank",
       "tone": "a wooden marimba",
@@ -1515,7 +1515,7 @@
       }
     },
     "city-lights": {
-      "name": "City Lights",
+      "name": "Stadslichten",
       "group": "Places & journeys",
       "touch": "a soft keyboard key",
       "tone": "a smooth jazz vibraphone",
@@ -1532,7 +1532,7 @@
       }
     },
     "paris-cafe": {
-      "name": "Paris Café",
+      "name": "Café in Parijs",
       "group": "Places & journeys",
       "touch": "a small porcelain cup",
       "tone": "an accordion",
@@ -1549,7 +1549,7 @@
       }
     },
     "japanese-garden": {
-      "name": "Japanese Garden",
+      "name": "Japanse tuin",
       "group": "Places & journeys",
       "touch": "a bamboo water fountain knock",
       "tone": "a koto",
@@ -1566,7 +1566,7 @@
       }
     },
     "pyramids": {
-      "name": "Pyramids",
+      "name": "Piramides",
       "group": "Places & journeys",
       "touch": "sandstone",
       "tone": "an oud",
@@ -1583,7 +1583,7 @@
       }
     },
     "carnival": {
-      "name": "Carnival",
+      "name": "Kermis",
       "group": "Places & journeys",
       "touch": "a soft squeaky toy",
       "tone": "a carousel organ",
@@ -1600,7 +1600,7 @@
       }
     },
     "train-journey": {
-      "name": "Train Journey",
+      "name": "Treinreis",
       "group": "Places & journeys",
       "touch": "a ticket punch",
       "tone": "a friendly train bell",
@@ -1617,7 +1617,7 @@
       }
     },
     "farm-barn": {
-      "name": "Farm Barn",
+      "name": "Boerderij",
       "group": "Places & journeys",
       "touch": "a wooden fence",
       "tone": "a banjo",
@@ -1634,7 +1634,7 @@
       }
     },
     "snowy-village": {
-      "name": "Snowy Village",
+      "name": "Sneeuwdorp",
       "group": "Places & journeys",
       "touch": "a painted wooden sign",
       "tone": "a music box with tiny sleigh bells",
@@ -1651,7 +1651,7 @@
       }
     },
     "ruby-palace": {
-      "name": "Ruby Palace",
+      "name": "Robijnpaleis",
       "group": "Gems & crafts",
       "touch": "a cut ruby",
       "tone": "a crystal glass bell",
@@ -1668,7 +1668,7 @@
       }
     },
     "emerald-city": {
-      "name": "Emerald City",
+      "name": "Smaragdstad",
       "group": "Gems & crafts",
       "touch": "a cut emerald",
       "tone": "shimmering glass chimes",
@@ -1685,7 +1685,7 @@
       }
     },
     "sapphire-velvet": {
-      "name": "Sapphire Velvet",
+      "name": "Saffierfluweel",
       "group": "Gems & crafts",
       "touch": "a sapphire on velvet",
       "tone": "a deep glass bell",
@@ -1702,7 +1702,7 @@
       }
     },
     "stained-glass": {
-      "name": "Stained Glass",
+      "name": "Glas-in-lood",
       "group": "Gems & crafts",
       "touch": "coloured glass",
       "tone": "a soft tubular bell",
@@ -1736,7 +1736,7 @@
       }
     },
     "crayon-doodles": {
-      "name": "Crayon Doodles",
+      "name": "Krijtkrabbels",
       "group": "Gems & crafts",
       "touch": "a crayon on paper",
       "tone": "a toy piano",
@@ -1753,7 +1753,7 @@
       }
     },
     "pottery-studio": {
-      "name": "Pottery Studio",
+      "name": "Pottenbakkerij",
       "group": "Gems & crafts",
       "touch": "a clay pot",
       "tone": "a soft handpan",
@@ -1770,7 +1770,7 @@
       }
     },
     "football-pitch": {
-      "name": "Football Pitch",
+      "name": "Voetbalveld",
       "group": "Sports & play",
       "touch": "a soft football",
       "tone": "a cheerful soft brass",
@@ -1787,7 +1787,7 @@
       }
     },
     "playground": {
-      "name": "Playground",
+      "name": "Speeltuin",
       "group": "Sports & play",
       "touch": "a soft rubber ball",
       "tone": "a toy xylophone",
@@ -1804,7 +1804,7 @@
       }
     },
     "skate-park": {
-      "name": "Skate Park",
+      "name": "Skatepark",
       "group": "Sports & play",
       "touch": "a skateboard wheel",
       "tone": "a funky synth pluck",
@@ -1821,7 +1821,7 @@
       }
     },
     "race-track": {
-      "name": "Race Track",
+      "name": "Racebaan",
       "group": "Sports & play",
       "touch": "a soft gear-shift click",
       "tone": "a bright synth",
@@ -1838,7 +1838,7 @@
       }
     },
     "swimming-pool": {
-      "name": "Swimming Pool",
+      "name": "Zwembad",
       "group": "Sports & play",
       "touch": "a water drop",
       "tone": "a bubbly vibraphone",
@@ -1855,7 +1855,7 @@
       }
     },
     "circus-tent": {
-      "name": "Circus Tent",
+      "name": "Circustent",
       "group": "Sports & play",
       "touch": "a soft squeaky clown nose",
       "tone": "a circus organ",
@@ -1872,7 +1872,7 @@
       }
     },
     "music-stage": {
-      "name": "Music Stage",
+      "name": "Muziekpodium",
       "group": "Sports & play",
       "touch": "a piano key",
       "tone": "a grand piano",
@@ -1889,7 +1889,7 @@
       }
     },
     "dinosaur-valley": {
-      "name": "Dinosaur Valley",
+      "name": "Dinodal",
       "group": "Sports & play",
       "touch": "a small stone",
       "tone": "a wooden tongue drum",

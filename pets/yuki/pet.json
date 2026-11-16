@@ -1,9 +1,8 @@
 {
   "name": "Yuki",
-  "tagline": "Big feet, bigger smile",
+  "tagline": "Grote voeten, nog grotere glimlach",
   "order": 910,
   "price": 12,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

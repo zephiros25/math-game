@@ -1,9 +1,8 @@
 {
   "name": "Rosie",
-  "tagline": "Balances every equation",
+  "tagline": "Houdt elke som in balans",
   "order": 660,
   "price": 3,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

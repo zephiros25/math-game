@@ -3,12 +3,13 @@
 // Run with: node scripts/themes/make-theme-ideas.mjs
 //
 // Each idea: [name, mood, background, accent, particle style, particle colours,
-// font (Google Fonts name or null for the default), price (coins, or 'premium'),
+// font (Google Fonts name or null for the default), price in coins,
 // background scene, button material, icon subject, tagline]
 
 import { writeFileSync } from 'node:fs';
 
 import { derivePalette } from './palette.mjs';
+import { THEME_NAMES_NL } from './theme-names-nl.mjs';
 
 const GROUPS = {
   'Nature': [
@@ -30,12 +31,12 @@ const GROUPS = {
   ],
   'Ocean & water': [
     ['Coral Reef', 'light', '#E6F7FA', '#FF7A6B', 'bubbles', ['#9FE2F0', '#FFB3A7'], null, 1000, 'colourful coral and seaweed along the bottom with soft blue water above', 'smooth pink coral', 'a pink coral branch', 'A reef full of friends'],
-    ['Deep Sea', 'dark', '#0B2238', '#2FD3E0', 'bubbles', ['#3BC9DB', '#9BE7F0'], null, 'premium', 'the deep ocean with glowing jellyfish and glowing plants at the edges', 'dark glassy sea blue', 'a glowing jellyfish', 'Glow in the deep'],
+    ['Deep Sea', 'dark', '#0B2238', '#2FD3E0', 'bubbles', ['#3BC9DB', '#9BE7F0'], null, 1500, 'the deep ocean with glowing jellyfish and glowing plants at the edges', 'dark glassy sea blue', 'a glowing jellyfish', 'Glow in the deep'],
     ['Tropical Beach', 'light', '#FFF7E8', '#1FB5C8', 'sunbeams', ['#FFE3A8', '#B8EEF5'], null, 500, 'a sandy beach with palm trees at the sides and a turquoise sea', 'smooth warm sand', 'a palm tree on a tiny island', 'Sun, sand and sums'],
     ['Tide Pools', 'light', '#EEF7F5', '#F08A5D', 'bubbles', ['#BFE6DF', '#FFD3B8'], null, 500, 'rocky tide pools with starfish and shells along the bottom', 'smooth frosted sea glass', 'a starfish and a shell', 'Treasures at low tide'],
     ['Lighthouse Bay', 'light', '#EDF4FA', '#D9534F', 'bubbles', ['#CFE3F5', '#FFFFFF'], null, 1000, 'a red and white lighthouse on the rocks at the side of a calm bay', 'weathered white wood', 'a little lighthouse', 'Guiding you home'],
     ['Pirate Cove', 'light', '#F6F0E4', '#C0392B', 'sparkles', ['#FFD54F', '#FFF1B8'], 'Sniglet', 1000, 'a friendly pirate cove with a treasure chest and a ship at the edges', 'old treasure map parchment', 'a treasure chest full of gold coins', 'X marks the answer'],
-    ['Mermaid Lagoon', 'light', '#EAF7F7', '#B45FD0', 'sparkles', ['#B3E5FC', '#E1BEE7'], null, 'premium', 'a shimmering lagoon with pearls, shells and seaweed at the edges', 'shimmering mother of pearl', 'a pearl in an open shell', 'Pearls of wisdom'],
+    ['Mermaid Lagoon', 'light', '#EAF7F7', '#B45FD0', 'sparkles', ['#B3E5FC', '#E1BEE7'], null, 1500, 'a shimmering lagoon with pearls, shells and seaweed at the edges', 'shimmering mother of pearl', 'a pearl in an open shell', 'Pearls of wisdom'],
     ['Waterfall Oasis', 'light', '#E8F6F2', '#2A9D8F', 'bubbles', ['#BDEBE3', '#FFFFFF'], null, 1000, 'a waterfall into a green pool with tropical plants at the sides', 'wet smooth pebble', 'a small waterfall', 'Let the numbers flow'],
     ['Submarine', 'light', '#E5F3FB', '#F2B233', 'bubbles', ['#BCE3F7', '#FFFFFF'], null, 1000, 'the view from a yellow submarine with fish and bubbles at the edges', 'riveted brass', 'a yellow submarine', 'Dive into maths'],
     ['Seashell Shore', 'light', '#FFF6F1', '#E8836B', 'petals', ['#FFD6C9', '#FDEBD0'], 'Quicksand', 500, 'pastel seashells scattered on soft pink sand along the bottom', 'polished pink shell', 'a spiral seashell', 'Listen to the sea'],
@@ -45,12 +46,12 @@ const GROUPS = {
     ['Hot Air Balloons', 'light', '#FFF6EC', '#F26B5B', 'confetti', ['#FFB3A7', '#A7D8FF', '#FFE08A'], null, 1000, 'colourful hot air balloons floating near the edges of a sunrise sky', 'striped balloon fabric', 'a striped hot air balloon', 'Up, up and away'],
     ['Rocket Launch', 'dark', '#141B3C', '#FF8A3D', 'stars', ['#FFFFFF', '#FFD27A'], null, 1000, 'a cartoon rocket launch pad at the bottom with stars above', 'brushed silver metal', 'a little rocket', '3, 2, 1... blast off!'],
     ['Planets', 'dark', '#1A1440', '#FFB84D', 'stars', ['#FFFFFF', '#C9B8FF'], null, 1000, 'colourful cartoon planets and rings around the edges of a starry sky', 'smooth swirling planet rings', 'a ringed planet', 'Out of this world'],
-    ['Nebula', 'dark', '#1B0F33', '#FF6FD8', 'sparkles', ['#FF9DE2', '#9DB8FF'], null, 'premium', 'a glowing pink and purple nebula with twinkling stars', 'swirling cosmic glass', 'a glowing cluster of stars', 'Made of stardust'],
+    ['Nebula', 'dark', '#1B0F33', '#FF6FD8', 'sparkles', ['#FF9DE2', '#9DB8FF'], null, 1500, 'a glowing pink and purple nebula with twinkling stars', 'swirling cosmic glass', 'a glowing cluster of stars', 'Made of stardust'],
     ['Moonlit Night', 'dark', '#121A33', '#F5D76E', 'stars', ['#FFFFFF', '#FFE9A8'], null, 1000, 'a big friendly crescent moon over sleepy hills', 'soft midnight velvet', 'a sleepy crescent moon', 'Dreamy and bright'],
     ['Sunrise', 'light', '#FFF1E8', '#FF8A5B', 'sunbeams', ['#FFD1B8', '#FFE3A8'], null, 500, 'a soft pastel sunrise over rolling hills', 'warm peach glass', 'a smiling rising sun', 'A fresh start'],
     ['Observatory', 'dark', '#16213F', '#7FD1FF', 'stars', ['#FFFFFF', '#BFE6FF'], null, 1000, 'an observatory dome with a telescope at the side under a starry sky', 'polished navy and brass', 'a telescope', 'Look to the stars'],
     ['Comet Trail', 'dark', '#10183A', '#6FE3FF', 'sparkles', ['#BFF3FF', '#FFFFFF'], null, 1000, 'a bright comet with a long sparkling tail across a dark blue sky', 'icy blue crystal', 'a smiling comet', 'Fast as a comet'],
-    ['Space Station', 'dark', '#151D2E', '#4FD18B', 'stars', ['#FFFFFF', '#9EF0C4'], null, 'premium', 'a friendly space station with round windows and solar panels at the edges', 'white spaceship panel', 'an astronaut helmet', 'Mission: math!'],
+    ['Space Station', 'dark', '#151D2E', '#4FD18B', 'stars', ['#FFFFFF', '#9EF0C4'], null, 1500, 'a friendly space station with round windows and solar panels at the edges', 'white spaceship panel', 'an astronaut helmet', 'Mission: math!'],
     ['Kite Day', 'light', '#EEF7FF', '#FF6B8A', 'confetti', ['#FFB3C6', '#B3DAFF', '#FFE8A3'], null, 500, 'colourful kites flying in a breezy blue sky above a green field', 'light kite cloth', 'a diamond kite with a bow tail', 'Let your ideas fly'],
     ['Paper Planes', 'light', '#F4F7FB', '#4A90E2', 'none', [], null, 500, 'white paper planes gliding through a pale sky with dotted flight paths', 'folded white paper', 'a paper plane', 'Take off with every answer'],
   ],
@@ -79,15 +80,15 @@ const GROUPS = {
     ['Pizza Party', 'light', '#FFF6EA', '#E0492F', 'confetti', ['#FFD166', '#E0492F', '#8BC34A'], null, 500, 'pizza slices and party streamers at the edges', 'cheesy pizza crust', 'a pizza slice', 'A slice of maths'],
   ],
   'Fantasy & magic': [
-    ["Dragon's Lair", 'dark', '#22141A', '#FF7A3D', 'sparkles', ['#FFB347', '#FF6B3D'], null, 'premium', "a friendly dragon's cave with piles of gold and glowing crystals at the edges", 'warm dragon scales', 'a baby dragon egg', 'Guarded by a friendly dragon'],
-    ['Wizard Tower', 'dark', '#1C1633', '#B18CFF', 'sparkles', ['#D9C9FF', '#FFE8A3'], null, 'premium', "a wizard's tower room with floating books, potions and candles at the edges", 'old spell book leather', 'a wizard hat with stars', 'Maths is magic'],
+    ["Dragon's Lair", 'dark', '#22141A', '#FF7A3D', 'sparkles', ['#FFB347', '#FF6B3D'], null, 1500, "a friendly dragon's cave with piles of gold and glowing crystals at the edges", 'warm dragon scales', 'a baby dragon egg', 'Guarded by a friendly dragon'],
+    ['Wizard Tower', 'dark', '#1C1633', '#B18CFF', 'sparkles', ['#D9C9FF', '#FFE8A3'], null, 1500, "a wizard's tower room with floating books, potions and candles at the edges", 'old spell book leather', 'a wizard hat with stars', 'Maths is magic'],
     ['Fairy Garden', 'light', '#F6F2FB', '#E07BD0', 'sparkles', ['#FFC4F0', '#FFF2A8'], null, 1000, 'tiny fairy houses, glowing flowers and mushrooms', 'soft petal glass', 'a fairy wand', 'A sprinkle of fairy dust'],
     ['Unicorn Clouds', 'light', '#FDF5FF', '#FF8AD8', 'confetti', ['#FFB3E6', '#B3E0FF', '#FFF3B3'], null, 1000, 'pastel clouds, rainbows and stars in a dreamy sky', 'pastel rainbow cloud', 'a unicorn horn', 'Magic in every answer'],
     ['Castle Kingdom', 'light', '#F2F4FB', '#5B6FD8', 'confetti', ['#FFD54F', '#A7B6FF'], null, 1000, 'a fairytale castle with flags on a hill at the side', 'carved castle stone', 'a little castle with flags', 'Rule the kingdom of numbers'],
-    ['Crystal Cave', 'dark', '#141C2E', '#7EE8FA', 'sparkles', ['#B3F5FF', '#E0B3FF'], null, 'premium', 'a glowing crystal cave with purple and blue crystals at the edges', 'cut crystal facets', 'a cluster of crystals', 'Shine bright'],
+    ['Crystal Cave', 'dark', '#141C2E', '#7EE8FA', 'sparkles', ['#B3F5FF', '#E0B3FF'], null, 1500, 'a glowing crystal cave with purple and blue crystals at the edges', 'cut crystal facets', 'a cluster of crystals', 'Shine bright'],
     ['Enchanted Library', 'dark', '#2A1E17', '#F2C14E', 'sparkles', ['#FFE08A', '#FFFFFF'], null, 1000, 'tall bookshelves with glowing floating books', 'leather book cover', 'a magic book with a star', 'Every page a puzzle'],
     ['Potion Lab', 'dark', '#1F1A2E', '#5BE38C', 'bubbles', ['#9BF0B8', '#D9A8FF'], null, 1000, 'bubbling colourful potion bottles on shelves at the edges', 'glass potion bottle', 'a bubbling potion', 'Mix, stir, solve!'],
-    ['Floating Islands', 'light', '#EEF6FF', '#4CAF7D', 'sunbeams', ['#FFFFFF', '#CDEFD9'], null, 'premium', 'small floating grassy islands with waterfalls in the sky', 'mossy stone', 'a floating island', 'Sky-high thinking'],
+    ['Floating Islands', 'light', '#EEF6FF', '#4CAF7D', 'sunbeams', ['#FFFFFF', '#CDEFD9'], null, 1500, 'small floating grassy islands with waterfalls in the sky', 'mossy stone', 'a floating island', 'Sky-high thinking'],
     ['Magic Lamp', 'light', '#FFF4E0', '#D9A21B', 'sparkles', ['#FFE08A', '#FFFFFF'], null, 1000, 'a golden magic lamp, silk cushions and a starry arch', 'golden lamp brass', 'a golden magic lamp', 'Your wish: more sums!'],
     ['Pumpkin Night', 'dark', '#1E1530', '#FF8A1F', 'sparkles', ['#FFB347', '#B38BFF'], null, 1000, 'a friendly, not scary night with glowing pumpkins and smiling ghosts at the edges', 'glowing pumpkin', 'a smiling jack-o-lantern', 'Spooky-cute sums'],
     ['Treasure Island', 'light', '#FFF6E6', '#D98C1F', 'sparkles', ['#FFD54F', '#FFFFFF'], null, 1000, 'a sandy island with a treasure chest, palm trees and a map', 'treasure gold', 'a gold coin with a star', 'Hunt for the answers'],
@@ -113,9 +114,9 @@ const GROUPS = {
     ['Snowy Village', 'light', '#EEF3FA', '#D9534F', 'petals', ['#FFFFFF', '#DDE8F5'], null, 500, 'a snowy village with colourful wooden houses', 'painted wooden sign', 'a little wooden house with snow on the roof', 'Home sweet home'],
   ],
   'Gems & crafts': [
-    ['Ruby Palace', 'dark', '#2A0F18', '#FF4D6D', 'sparkles', ['#FF8FA3', '#FFD6DE'], null, 'premium', 'a glittering palace hall with red rubies and gold', 'cut ruby facets', 'a ruby gem', 'Precious and bright'],
-    ['Emerald City', 'dark', '#0F2A1E', '#37D67A', 'sparkles', ['#7CF0A8', '#E8FFD6'], null, 'premium', 'shining green towers and emerald gems', 'cut emerald facets', 'an emerald gem', 'Green with genius'],
-    ['Sapphire Velvet', 'dark', '#0F1D3A', '#4D8BFF', 'sparkles', ['#9CC2FF', '#FFFFFF'], null, 'premium', 'sparkling blue sapphires on deep blue velvet', 'cut sapphire facets', 'a sapphire gem', 'Deep blue brilliance'],
+    ['Ruby Palace', 'dark', '#2A0F18', '#FF4D6D', 'sparkles', ['#FF8FA3', '#FFD6DE'], null, 1500, 'a glittering palace hall with red rubies and gold', 'cut ruby facets', 'a ruby gem', 'Precious and bright'],
+    ['Emerald City', 'dark', '#0F2A1E', '#37D67A', 'sparkles', ['#7CF0A8', '#E8FFD6'], null, 1500, 'shining green towers and emerald gems', 'cut emerald facets', 'an emerald gem', 'Green with genius'],
+    ['Sapphire Velvet', 'dark', '#0F1D3A', '#4D8BFF', 'sparkles', ['#9CC2FF', '#FFFFFF'], null, 1500, 'sparkling blue sapphires on deep blue velvet', 'cut sapphire facets', 'a sapphire gem', 'Deep blue brilliance'],
     ['Stained Glass', 'light', '#F6F4F0', '#3A6EA5', 'confetti', ['#F25F5C', '#FFE066', '#70C1B3'], null, 1000, 'a colourful stained glass window with light shining through', 'coloured stained glass', 'a stained glass star', 'Colours of learning'],
     ['Origami', 'light', '#F7F6F2', '#E4572E', 'none', [], null, 500, 'colourful origami cranes, boats and flowers', 'folded coloured paper', 'an origami crane', 'Fold, count, repeat'],
     ['Crayon Doodles', 'light', '#FFFDF7', '#FF6B6B', 'confetti', ['#FF6B6B', '#4ECDC4', '#FFE66D'], 'Sniglet', 500, 'crayon doodles of stars, suns and hearts on white paper', 'crayon scribble texture', 'a box of crayons', 'Draw your own path'],
@@ -161,7 +162,11 @@ const ideas = [];
 let order = 100;
 for (const [group, rows] of Object.entries(GROUPS)) {
   for (const [name, mood, background, accent, particleStyle, particleColors, font, price, scene, keys, icon, tagline] of rows) {
-    const idea = { id: slug(name), name, group, tagline, mood, background, accent, particleStyle, particleColors, font, price, scene, keys, icon, order };
+    // The id comes from the English name; the app shows the Dutch name and tagline.
+    const id = slug(name);
+    const nl = THEME_NAMES_NL[id];
+    if (!nl) throw new Error(`no Dutch name for ${id} in theme-names-nl.mjs`);
+    const idea = { id, name: nl[0], group, tagline: nl[1], mood, background, accent, particleStyle, particleColors, font, price, scene, keys, icon, order };
     idea.colors = derivePalette(idea);
     idea.prompts = { background: backgroundPrompt(idea), assets: assetsPrompt(idea) };
     ideas.push(idea);
@@ -196,7 +201,7 @@ for (const [group, rows] of Object.entries(GROUPS)) {
     n++;
     lines.push(
       '',
-      `${String(n).padStart(3, '0')}. ${idea.name}  (${idea.mood}, ${idea.price === 'premium' ? 'premium' : `${idea.price} coins`})`,
+      `${String(n).padStart(3, '0')}. ${idea.name}  (${idea.mood}, ${idea.price} coins)`,
       `     Tagline: ${idea.tagline}`,
       '',
       `     Prompt A (background): ${idea.prompts.background}`,

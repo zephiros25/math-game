@@ -1,9 +1,8 @@
 {
   "name": "Sparkle",
-  "tagline": "Magic in every answer",
+  "tagline": "Magie in elk antwoord",
   "order": 860,
   "price": 12,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

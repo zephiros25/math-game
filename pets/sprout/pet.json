@@ -1,9 +1,8 @@
 {
   "name": "Sprout",
-  "tagline": "Grows a little with every sum",
+  "tagline": "Groeit een beetje met elke som",
   "order": 10,
   "price": 0,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

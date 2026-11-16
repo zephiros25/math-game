@@ -1,9 +1,8 @@
 {
   "name": "Pterry",
-  "tagline": "Soars above the rest",
+  "tagline": "Vliegt boven de rest uit",
   "order": 820,
   "price": 8,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

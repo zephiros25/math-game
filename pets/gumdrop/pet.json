@@ -1,9 +1,8 @@
 {
   "name": "Gumdrop",
-  "tagline": "Small hippo, big smile",
+  "tagline": "Kleine nijlpaard, grote glimlach",
   "order": 480,
   "price": 5,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

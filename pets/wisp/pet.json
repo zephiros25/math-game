@@ -1,9 +1,8 @@
 {
   "name": "Wisp",
-  "tagline": "A little light in the dark",
+  "tagline": "Een lichtje in het donker",
   "order": 960,
   "price": 12,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

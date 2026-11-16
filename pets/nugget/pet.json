@@ -1,9 +1,8 @@
 {
   "name": "Nugget",
-  "tagline": "Just hatched and ready to learn",
+  "tagline": "Net uit het ei en klaar om te leren",
   "order": 850,
   "price": 8,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

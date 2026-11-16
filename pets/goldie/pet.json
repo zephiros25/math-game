@@ -1,9 +1,8 @@
 {
   "name": "Goldie",
-  "tagline": "Blows bubbles of brilliance",
+  "tagline": "Blaast bubbels vol slimheid",
   "order": 230,
   "price": 3,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

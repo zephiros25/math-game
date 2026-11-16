@@ -1,9 +1,8 @@
 {
   "name": "Buzz",
-  "tagline": "Busy bee, busy brain",
+  "tagline": "Bezige bij, bezig brein",
   "order": 720,
   "price": 3,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

@@ -8,8 +8,7 @@ import { ChunkyButton } from '@/components/chunky-button';
 import { Coin } from '@/components/coin';
 import { Screen } from '@/components/screen';
 import { applyThemeSounds, feedback } from '@/feedback';
-import { useParentGate } from '@/components/parent-gate';
-import { getProgress, updateProgress, useDevice, useProgress } from '@/progress';
+import { getProgress, updateProgress, useProgress } from '@/progress';
 import { ThemeOverride, THEMES, themeById, useTheme, type Theme } from '@/theme';
 
 // The shop renders entirely in the theme being browsed, so tapping a tile
@@ -36,10 +35,8 @@ function Shop({ selected, onSelect }: { selected: Theme; onSelect: (id: string) 
   const t = useTheme();
   const styles = useMemo(() => makeStyles(t), [t]);
   const progress = useProgress();
-  const { plus } = useDevice();
-  const { gate, ask } = useParentGate();
-  // Plus includes every premium theme.
-  const owns = (theme: Theme) => progress.ownedThemes.includes(theme.id) || (theme.premium && plus);
+  // Free themes (price 0) belong to everyone.
+  const owns = (theme: Theme) => progress.ownedThemes.includes(theme.id) || theme.price === 0;
 
   const owned = owns(selected);
   const equipped = progress.theme === selected.id;
@@ -77,22 +74,14 @@ function Shop({ selected, onSelect }: { selected: Theme; onSelect: (id: string) 
   const quiet = { color: t.card, edgeColor: t.cardEdge, textColor: t.textSoft, height: 64 };
 
   if (equipped) {
-    action = <ChunkyButton label="✓ Equipped" onPress={() => {}} {...quiet} />;
+    action = <ChunkyButton label="✓ In gebruik" onPress={() => {}} {...quiet} />;
   } else if (owned) {
-    action = <ChunkyButton label="Use this theme" onPress={equip} height={64} />;
-  } else if (selected.premium) {
-    action = (
-      <View style={styles.premiumNote}>
-        <Text style={styles.premiumTitle}>★ Comes with Math Run Plus</Text>
-        <Text style={styles.premiumBody}>One purchase unlocks every premium theme and pet, and more for grown-ups.</Text>
-        <ChunkyButton label="Ask a grown-up" fontSize={20} height={52} onPress={() => ask(() => router.push('/plus'))} style={styles.askButton} />
-      </View>
-    );
+    action = <ChunkyButton label="Dit thema gebruiken" onPress={equip} height={64} />;
   } else if (shortBy > 0) {
     action = (
       <ChunkyButton onPress={() => feedback.wrong()} {...quiet}>
         <View style={styles.priceRow}>
-          <Text style={[styles.priceText, { color: t.textSoft }]}>Play to earn {shortBy} more</Text>
+          <Text style={[styles.priceText, { color: t.textSoft }]}>Speel nog {shortBy} bij elkaar</Text>
           <Coin size={22} />
         </View>
       </ChunkyButton>
@@ -101,7 +90,7 @@ function Shop({ selected, onSelect }: { selected: Theme; onSelect: (id: string) 
     action = (
       <ChunkyButton onPress={unlock} height={64}>
         <View style={styles.priceRow}>
-          <Text style={styles.priceText}>Unlock for {selected.price}</Text>
+          <Text style={styles.priceText}>Vrijspelen voor {selected.price}</Text>
           {/* A soft backing keeps the coin visible on gold buttons. */}
           <View style={styles.coinBacking}>
             <Coin size={22} />
@@ -115,7 +104,7 @@ function Shop({ selected, onSelect }: { selected: Theme; onSelect: (id: string) 
   // check themes made in the Theme Studio on a real phone.
   const devEquip = __DEV__ && !owned && (
     <Pressable onPress={() => updateProgress({ theme: selected.id, ownedThemes: [...progress.ownedThemes, selected.id] })}>
-      <Text style={styles.devLink}>Developer: unlock &amp; equip for free</Text>
+      <Text style={styles.devLink}>Ontwikkelaar: gratis vrijspelen en gebruiken</Text>
     </Pressable>
   );
 
@@ -132,7 +121,7 @@ function Shop({ selected, onSelect }: { selected: Theme; onSelect: (id: string) 
           >
             <Text style={styles.back}>‹</Text>
           </Pressable>
-          <Text style={styles.title}>Themes</Text>
+          <Text style={styles.title}>Thema’s</Text>
           <View style={styles.wallet}>
             <Coin size={18} />
             <Text style={styles.walletText}>{progress.coins}</Text>
@@ -163,7 +152,6 @@ function Shop({ selected, onSelect }: { selected: Theme; onSelect: (id: string) 
         {devEquip}
         {action}
       </View>
-      {gate}
     </Screen>
   );
 }
@@ -207,9 +195,8 @@ function Tile({ theme, selected, owned, equipped, onPress }: TileProps) {
   const styles = useMemo(() => makeStyles(t), [t]);
 
   let status: React.ReactNode;
-  if (equipped) status = <Text style={styles.tileStatus}>✓ On</Text>;
-  else if (owned) status = <Text style={styles.tileStatus}>Owned</Text>;
-  else if (theme.premium) status = <Text style={[styles.tileStatus, styles.tilePremium]}>★ Premium</Text>;
+  if (equipped) status = <Text style={styles.tileStatus}>✓ Aan</Text>;
+  else if (owned) status = <Text style={styles.tileStatus}>Van jou</Text>;
   else
     status = (
       <View style={styles.tilePrice}>
@@ -230,7 +217,7 @@ function Tile({ theme, selected, owned, equipped, onPress }: TileProps) {
             <View style={[styles.swatchDotSmall, { backgroundColor: theme.correct }]} />
           </>
         )}
-        {!owned && !theme.premium && <Text style={styles.lock}>🔒</Text>}
+        {!owned && <Text style={styles.lock}>🔒</Text>}
         {selected && <Animated.View entering={ZoomIn.springify()} style={[styles.selectedRing, { borderColor: t.primary }]} />}
       </View>
       <Text style={[styles.tileName, { fontFamily: theme.font.semibold }]} numberOfLines={1}>
@@ -451,9 +438,6 @@ const makeStyles = (t: Theme) =>
       fontSize: 12,
       color: t.textSoft,
     },
-    tilePremium: {
-      color: t.primary,
-    },
     tilePrice: {
       flexDirection: 'row',
       alignItems: 'center',
@@ -481,30 +465,5 @@ const makeStyles = (t: Theme) =>
       fontFamily: t.font.semibold,
       fontSize: 22,
       color: t.onPrimary,
-    },
-    premiumNote: {
-      alignItems: 'center',
-      gap: 4,
-      paddingVertical: 12,
-      paddingHorizontal: 16,
-      borderRadius: 20,
-      backgroundColor: t.card,
-      borderBottomWidth: 4,
-      borderColor: t.cardEdge,
-    },
-    premiumTitle: {
-      fontFamily: t.font.bold,
-      fontSize: 18,
-      color: t.text,
-    },
-    premiumBody: {
-      fontFamily: t.font.medium,
-      fontSize: 14,
-      color: t.textSoft,
-      textAlign: 'center',
-    },
-    askButton: {
-      alignSelf: 'stretch',
-      marginTop: 8,
     },
   });

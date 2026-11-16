@@ -202,16 +202,31 @@ export async function checkSound(slot: DefaultSetSlot) {
   const set = defaultSetPools.get(slot);
   const theme = slot === 'voice' ? undefined : themePools.get(slot);
   const pool = (theme ?? set)?.pools[0] ?? defaultPools.get(slot === 'voice' ? 'voice-a' : DEFAULT_SLOTS_FOR_CHECK[slot]);
-  const source = theme ? 'theme' : set ? 'default set' : 'built-in';
-  if (!pool) return `${slot}: no sound`;
+  const source = theme ? 'thema' : set ? 'standaardset' : 'ingebouwd';
+  const name = SLOT_NAMES[slot];
+  if (!pool) return `${name}: geen geluid`;
   const errorBefore = lastError;
   const voice = playFrom(pool, 1);
   await new Promise((r) => setTimeout(r, 150));
   const p = voice?.player;
-  if (!p) return `${slot} (${source}): not played${muted ? ' (muted)' : ''}`;
-  const error = lastError !== errorBefore ? ` · error: ${lastError}` : '';
-  return `${slot} (${source}): loaded ${p.isLoaded ? 'yes' : 'NO'}, ${p.playing ? 'playing' : 'NOT playing'}, at ${p.currentTime.toFixed(2)} of ${p.duration.toFixed(2)} s${error}`;
+  if (!p) return `${name} (${source}): niet afgespeeld${muted ? ' (geluid staat uit)' : ''}`;
+  const error = lastError !== errorBefore ? ` · fout: ${lastError}` : '';
+  return `${name} (${source}): geladen ${p.isLoaded ? 'ja' : 'NEE'}, ${p.playing ? 'speelt' : 'speelt NIET'}, op ${p.currentTime.toFixed(2)} van ${p.duration.toFixed(2)} s${error}`;
 }
+
+// Names in the Sound check list.
+const SLOT_NAMES: Record<DefaultSetSlot, string> = {
+  tap: 'Toets',
+  backspace: 'Wissen',
+  button: 'Knop',
+  correct: 'Goed',
+  wrong: 'Fout',
+  levelUp: 'Nieuw record',
+  fanfare: 'Fanfare',
+  coin: 'Munt',
+  gem: 'Diamant',
+  voice: 'Stem',
+};
 
 const DEFAULT_SLOTS_FOR_CHECK: Record<Exclude<DefaultSetSlot, 'voice'>, DefaultSound> = {
   tap: 'key1',

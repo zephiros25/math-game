@@ -1,9 +1,8 @@
 {
   "name": "Riddle",
-  "tagline": "Loves a good riddle",
+  "tagline": "Houdt van een goed raadsel",
   "order": 1010,
   "price": 12,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

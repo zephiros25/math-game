@@ -1,9 +1,8 @@
 {
   "name": "Ember",
-  "tagline": "Fiery fast at facts",
+  "tagline": "Vurig snel met sommen",
   "order": 870,
   "price": 12,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

@@ -1,9 +1,8 @@
 {
   "name": "Pip",
-  "tagline": "Small but super brave",
+  "tagline": "Klein maar superdapper",
   "order": 50,
   "price": 3,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

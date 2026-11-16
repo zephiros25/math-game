@@ -342,7 +342,7 @@ function lineFor(moment) {
 function renderList() {
   fill($('#petList'), pets.map((p) => {
     const j = p.json;
-    const sub = !j ? 'broken JSON' : j.premium ? '★ Premium' : j.price === 0 ? 'Free' : `💎 ${j.price}`;
+    const sub = !j ? 'broken JSON' : j.price === 0 ? 'Free' : `💎 ${j.price}`;
     return h('div', { class: `theme-item${current?.id === p.id ? ' active' : ''}`, onclick: () => select(p.id) },
       h('div', { class: 'swatch thumb-list', style: { background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center' } },
         j?.images?.idle ? h('img', { src: fileUrl(p.id, j.images.idle) }) : '?'),
@@ -372,11 +372,10 @@ function renderEditor() {
 }
 
 function basicsCard(p) {
-  const unlock = p.premium ? 'premium' : p.price === 0 ? 'free' : 'gems';
+  const unlock = p.price === 0 ? 'free' : 'gems';
   const price = h('input', { type: 'number', min: 1, step: 1, value: p.price || 5, style: { width: '80px' }, disabled: unlock !== 'gems',
     oninput: (e) => { p.price = Math.max(1, Math.round(Number(e.target.value) || 1)); changed(); renderList(); } });
   const radio = (value, label) => h('label', {}, h('input', { type: 'radio', name: 'unlock', value, checked: unlock === value, onchange: () => {
-    p.premium = value === 'premium';
     p.price = value === 'gems' ? Math.max(1, Number(price.value) || 5) : 0;
     price.disabled = value !== 'gems';
     changed(); renderList();
@@ -385,7 +384,7 @@ function basicsCard(p) {
     h('h2', {}, 'Basics'),
     field('Name', h('input', { type: 'text', value: p.name, oninput: (e) => { p.name = e.target.value; changed(); renderList(); } })),
     field('Tagline', h('input', { type: 'text', value: p.tagline, style: { width: '320px' }, oninput: (e) => { p.tagline = e.target.value; changed(); } }), 'Shown under the name in the pet shop.'),
-    field('Unlock', h('span', { class: 'chips' }, radio('free', 'Free'), radio('gems', 'Gems:'), price, radio('premium', '★ Premium (in-app purchase)'))),
+    field('Unlock', h('span', { class: 'chips' }, radio('free', 'Free'), radio('gems', 'Gems:'), price)),
     field('Shop order', h('input', { type: 'number', value: p.order, step: 10, style: { width: '90px' }, oninput: (e) => { p.order = Number(e.target.value) || 0; changed(); } }), 'Lower comes first.'),
     field('Size', h('input', { type: 'range', min: 0.6, max: 1.5, step: 0.05, value: p.size, oninput: (e) => { p.size = Number(e.target.value); changed(); } }), 'How big the pet is drawn in the app.'),
   );
@@ -564,7 +563,7 @@ async function nextPet() {
   try {
     const created = await api('/api/pets', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ id: idea.id }) });
     const json = withDefaults(created.json);
-    Object.assign(json, { name: idea.name, tagline: idea.tagline, order: idea.order, price: idea.price, premium: false });
+    Object.assign(json, { name: idea.name, tagline: idea.tagline, order: idea.order, price: idea.price });
     json.voice.pitch = idea.pitch;
     const saved = await api(`/api/pets/${idea.id}`, { method: 'PUT', headers: { 'content-type': 'application/json' }, body: JSON.stringify(json) });
     pets.push({ ...saved, json });

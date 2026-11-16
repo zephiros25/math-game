@@ -1,9 +1,8 @@
 {
   "name": "Sparky",
-  "tagline": "Lights up when you are right",
+  "tagline": "Licht op als je het goed hebt",
   "order": 740,
   "price": 3,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

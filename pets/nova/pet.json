@@ -1,9 +1,8 @@
 {
   "name": "Nova",
-  "tagline": "A little star from far away",
+  "tagline": "Een sterretje van heel ver weg",
   "order": 30,
-  "price": 0,
-  "premium": true,
+  "price": 12,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

@@ -1,9 +1,8 @@
 {
   "name": "Moss",
-  "tagline": "Slow and steady wins the race",
+  "tagline": "Rustig aan, dan breekt het lijntje niet",
   "order": 170,
   "price": 3,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

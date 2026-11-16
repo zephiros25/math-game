@@ -16,11 +16,10 @@ import { PetView, type PetHandle } from '@/components/pet-view';
 import { Screen } from '@/components/screen';
 import { feedback, setMuted } from '@/feedback';
 import { useParentGate } from '@/components/parent-gate';
-import { focusPlan } from '@/game/focus';
+import { practiceLabel } from '@/game/focus';
 import { levelInfo } from '@/game/levels';
 import { petLine, usePet } from '@/pets';
 import { switchPlayer, updateProgress, useDevice, useProgress } from '@/progress';
-import { useStats } from '@/stats';
 import { useTheme, type Theme } from '@/theme';
 
 const RUN_LENGTHS = [10, 20, 40];
@@ -31,9 +30,7 @@ export default function Home() {
   const styles = useMemo(() => makeStyles(t), [t]);
   const progress = useProgress();
   const device = useDevice();
-  const stats = useStats();
-  const focus = device.plus ? focusPlan(progress.focus, stats) : null;
-  // Settings, the report and Plus are for grown-ups, behind the parental gate.
+  // Settings and the progress report are for grown-ups, behind the parental gate.
   const { gate, ask } = useParentGate();
 
   // The pet greets the child, and says something new every time it's tapped.
@@ -138,28 +135,22 @@ export default function Home() {
 
         <View>
           <View style={styles.card}>
-            <Text style={styles.cardLabel}>Best level</Text>
+            <Text style={styles.cardLabel}>Beste niveau</Text>
             <Text style={styles.cardValue} numberOfLines={1}>
-              {progress.bestLevel > 0 ? `${progress.bestLevel} · ${levelInfo(progress.bestLevel).name}` : 'Not played yet'}
+              {progress.bestLevel > 0 ? `${progress.bestLevel} · ${levelInfo(progress.bestLevel).name}` : 'Nog niet gespeeld'}
             </Text>
-            {focus ? (
+            {progress.maxLevel !== null && (
               <Text style={styles.capText} numberOfLines={1}>
-                🎯 Practising {focus.label}
+                Tot: {levelInfo(progress.maxLevel).name}
               </Text>
-            ) : (
-              progress.maxLevel !== null && (
-                <Text style={styles.capText} numberOfLines={1}>
-                  Up to: {levelInfo(progress.maxLevel).name}
-                </Text>
-              )
             )}
           </View>
         </View>
 
         <View style={styles.shopRow}>
           {[
-            { icon: '🎨', label: 'Themes', route: '/themes' as const },
-            { icon: '🐾', label: 'Pets', route: '/pets' as const },
+            { icon: '🎨', label: 'Thema’s', route: '/themes' as const },
+            { icon: '🐾', label: 'Huisdieren', route: '/pets' as const },
           ].map((b) => (
             <ChunkyButton
               key={b.route}
@@ -182,7 +173,7 @@ export default function Home() {
         </View>
 
         <View style={styles.lengths}>
-          <Text style={styles.lengthsLabel}>Questions</Text>
+          <Text style={styles.lengthsLabel}>Vragen</Text>
           <View style={styles.segment}>
             {RUN_LENGTHS.map((n) => {
               const active = progress.runLength === n;
@@ -202,16 +193,37 @@ export default function Home() {
           </View>
         </View>
 
-        <ChunkyButton
-          label="PLAY"
-          fontSize={34}
-          height={76}
-          edge={8}
-          onPress={() => {
-            feedback.button();
-            router.push('/play');
-          }}
-        />
+        {/* The normal game adapts to the child; the second button practises the
+            times tables chosen in the grown-ups screen. */}
+        <View style={styles.startButtons}>
+          <ChunkyButton
+            label="SPELEN"
+            fontSize={34}
+            height={76}
+            edge={8}
+            onPress={() => {
+              feedback.button();
+              router.push('/play');
+            }}
+          />
+          <ChunkyButton
+            color={t.card}
+            edgeColor={t.cardEdge}
+            height={62}
+            edge={6}
+            onPress={() => {
+              feedback.button();
+              router.push({ pathname: '/play', params: { mode: 'tables' } });
+            }}
+          >
+            <View style={styles.tablesButton}>
+              <Text style={styles.tablesTitle}>✖️ TAFELS OEFENEN</Text>
+              <Text style={styles.tablesSub} numberOfLines={1}>
+                {practiceLabel(progress.practice)}
+              </Text>
+            </View>
+          </ChunkyButton>
+        </View>
       </View>
       {gate}
     </Screen>
@@ -360,6 +372,22 @@ const makeStyles = (t: Theme) =>
     shopRow: {
       flexDirection: 'row',
       gap: 12,
+    },
+    startButtons: {
+      gap: 12,
+    },
+    tablesButton: {
+      alignItems: 'center',
+    },
+    tablesTitle: {
+      fontFamily: t.font.bold,
+      fontSize: 22,
+      color: t.text,
+    },
+    tablesSub: {
+      fontFamily: t.font.medium,
+      fontSize: 13,
+      color: t.textSoft,
     },
     shopButton: {
       flex: 1,

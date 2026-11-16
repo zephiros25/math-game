@@ -1,9 +1,8 @@
 {
   "name": "Shelly",
-  "tagline": "Carries its home and its homework",
+  "tagline": "Draagt zijn huis én zijn huiswerk",
   "order": 300,
   "price": 3,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

@@ -1,9 +1,8 @@
 {
   "name": "Inchy",
-  "tagline": "Measures up to every challenge",
+  "tagline": "Meet zich met elke uitdaging",
   "order": 750,
   "price": 3,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

@@ -1,9 +1,9 @@
 [
   {
     "id": "forest-glade",
-    "name": "Forest Glade",
+    "name": "Zonnig bos",
     "group": "Nature",
-    "tagline": "Sunlight through the leaves",
+    "tagline": "Zonlicht door de bladeren",
     "mood": "light",
     "background": "#EEF6E8",
     "accent": "#5FAF5A",
@@ -42,14 +42,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: a sunny forest clearing with ferns, mushrooms and tall trees at the edges. Soft, dreamy, kawaii illustration style in pale green and green tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Forest Glade\" theme of a children's math game. Left: a square app icon of a cute smiling acorn, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of smooth polished light wood, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Zonnig bos\" theme of a children's math game. Left: a square app icon of a cute smiling acorn, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of smooth polished light wood, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "mushroom-village",
-    "name": "Mushroom Village",
+    "name": "Paddenstoeldorp",
     "group": "Nature",
-    "tagline": "Tiny doors, big adventures",
+    "tagline": "Kleine deurtjes, grote avonturen",
     "mood": "light",
     "background": "#F7F0E6",
     "accent": "#D9534F",
@@ -88,14 +88,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: tiny red-capped mushroom houses with round windows along the bottom and sides. Soft, dreamy, kawaii illustration style in pale orange and red tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Mushroom Village\" theme of a children's math game. Left: a square app icon of a red spotted mushroom house, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of soft cream stone, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Paddenstoeldorp\" theme of a children's math game. Left: a square app icon of a red spotted mushroom house, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of soft cream stone, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "sunflower-field",
-    "name": "Sunflower Field",
+    "name": "Zonnebloemveld",
     "group": "Nature",
-    "tagline": "Always facing the sun",
+    "tagline": "Altijd richting de zon",
     "mood": "light",
     "background": "#FFF8E1",
     "accent": "#F2A93B",
@@ -134,14 +134,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: rows of smiling sunflowers under a pale blue sky. Soft, dreamy, kawaii illustration style in pale yellow and orange tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Sunflower Field\" theme of a children's math game. Left: a square app icon of a smiling sunflower, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of warm golden straw weave, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Zonnebloemveld\" theme of a children's math game. Left: a square app icon of a smiling sunflower, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of warm golden straw weave, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "bamboo-grove",
-    "name": "Bamboo Grove",
+    "name": "Bamboebos",
     "group": "Nature",
-    "tagline": "Calm and steady",
+    "tagline": "Rustig en kalm",
     "mood": "light",
     "background": "#EEF7EC",
     "accent": "#3E9B6C",
@@ -180,14 +180,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: tall green bamboo stalks at the edges with soft morning mist. Soft, dreamy, kawaii illustration style in pale green and green tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Bamboo Grove\" theme of a children's math game. Left: a square app icon of a fresh bamboo sprout, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of smooth pale bamboo, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Bamboebos\" theme of a children's math game. Left: a square app icon of a fresh bamboo sprout, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of smooth pale bamboo, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "rainforest",
-    "name": "Rainforest",
+    "name": "Regenwoud",
     "group": "Nature",
-    "tagline": "Where the wild sums grow",
+    "tagline": "Waar wilde sommen groeien",
     "mood": "light",
     "background": "#E6F4EA",
     "accent": "#1E9E6A",
@@ -226,14 +226,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: lush jungle leaves, vines and a small waterfall at the sides. Soft, dreamy, kawaii illustration style in pale green and green tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Rainforest\" theme of a children's math game. Left: a square app icon of a tropical leaf with a dewdrop, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of glossy green leaf, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Regenwoud\" theme of a children's math game. Left: a square app icon of a tropical leaf with a dewdrop, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of glossy green leaf, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "lavender-fields",
-    "name": "Lavender Fields",
+    "name": "Lavendelvelden",
     "group": "Nature",
-    "tagline": "Soothing purple hills",
+    "tagline": "Rustgevende paarse heuvels",
     "mood": "light",
     "background": "#F4F0FA",
     "accent": "#8E6BC8",
@@ -272,14 +272,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: rolling purple lavender rows under a soft sunset. Soft, dreamy, kawaii illustration style in pale purple and purple tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Lavender Fields\" theme of a children's math game. Left: a square app icon of a sprig of lavender, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of soft lilac linen, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Lavendelvelden\" theme of a children's math game. Left: a square app icon of a sprig of lavender, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of soft lilac linen, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "butterfly-garden",
-    "name": "Butterfly Garden",
+    "name": "Vlindertuin",
     "group": "Nature",
-    "tagline": "Flutter by, math star!",
+    "tagline": "Fladder maar, rekenster!",
     "mood": "light",
     "background": "#FDF3F7",
     "accent": "#E86AA0",
@@ -319,14 +319,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: a flower garden with colourful butterflies near the edges. Soft, dreamy, kawaii illustration style in pale pink and pink tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Butterfly Garden\" theme of a children's math game. Left: a square app icon of a pastel butterfly, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of soft pastel flower petal, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Vlindertuin\" theme of a children's math game. Left: a square app icon of a pastel butterfly, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of soft pastel flower petal, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "cactus-desert",
-    "name": "Cactus Desert",
+    "name": "Cactuswoestijn",
     "group": "Nature",
-    "tagline": "Prickly but friendly",
+    "tagline": "Prikkelig maar lief",
     "mood": "light",
     "background": "#FFF4E4",
     "accent": "#E07B39",
@@ -365,14 +365,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: a gentle desert with cute cacti and pink rock hills at the edges. Soft, dreamy, kawaii illustration style in pale orange and orange tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Cactus Desert\" theme of a children's math game. Left: a square app icon of a smiling cactus in a pot, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of warm terracotta clay, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Cactuswoestijn\" theme of a children's math game. Left: a square app icon of a smiling cactus in a pot, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of warm terracotta clay, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "lily-pond",
-    "name": "Lily Pond",
+    "name": "Lelievijver",
     "group": "Nature",
-    "tagline": "Ripples of calm",
+    "tagline": "Rimpelingen van rust",
     "mood": "light",
     "background": "#EAF6F4",
     "accent": "#3BAE9A",
@@ -411,14 +411,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: a calm pond with lily pads and pink water lilies at the edges. Soft, dreamy, kawaii illustration style in pale teal and teal tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Lily Pond\" theme of a children's math game. Left: a square app icon of a pink water lily, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of smooth jade stone, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Lelievijver\" theme of a children's math game. Left: a square app icon of a pink water lily, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of smooth jade stone, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "mountain-lake",
-    "name": "Mountain Lake",
+    "name": "Bergmeer",
     "group": "Nature",
-    "tagline": "Fresh air and clear thinking",
+    "tagline": "Frisse lucht, helder hoofd",
     "mood": "light",
     "background": "#EAF2F8",
     "accent": "#3A7CC0",
@@ -457,14 +457,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: snowy mountains reflected in a still blue lake along the bottom. Soft, dreamy, kawaii illustration style in pale blue and blue tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Mountain Lake\" theme of a children's math game. Left: a square app icon of a snowy mountain peak, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of smooth grey river stone, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Bergmeer\" theme of a children's math game. Left: a square app icon of a snowy mountain peak, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of smooth grey river stone, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "firefly-night",
-    "name": "Firefly Night",
+    "name": "Vuurvliegjesnacht",
     "group": "Nature",
-    "tagline": "Little lights in the dark",
+    "tagline": "Lichtjes in het donker",
     "mood": "dark",
     "background": "#15233A",
     "accent": "#F5C84C",
@@ -503,14 +503,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: a dark blue meadow at night with glowing fireflies and tall grass at the edges. Soft, dreamy, kawaii illustration style in deep blue and yellow tones, a dark night-time scene. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Firefly Night\" theme of a children's math game. Left: a square app icon of a jar of glowing fireflies, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of dark wood with a warm glow, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Vuurvliegjesnacht\" theme of a children's math game. Left: a square app icon of a jar of glowing fireflies, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of dark wood with a warm glow, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "tulip-garden",
-    "name": "Tulip Garden",
+    "name": "Tulpentuin",
     "group": "Nature",
-    "tagline": "Spring in full bloom",
+    "tagline": "De lente in volle bloei",
     "mood": "light",
     "background": "#FFF3F0",
     "accent": "#E4574F",
@@ -549,14 +549,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: rows of red, pink and yellow tulips with a windmill far away. Soft, dreamy, kawaii illustration style in pale red and red tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Tulip Garden\" theme of a children's math game. Left: a square app icon of a red tulip, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of soft painted tile, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Tulpentuin\" theme of a children's math game. Left: a square app icon of a red tulip, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of soft painted tile, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "enchanted-moss",
-    "name": "Enchanted Moss",
+    "name": "Betoverd mos",
     "group": "Nature",
-    "tagline": "Soft steps, bright ideas",
+    "tagline": "Zachte stapjes, slimme ideeën",
     "mood": "light",
     "background": "#EEF5E6",
     "accent": "#6C9A3B",
@@ -595,14 +595,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: mossy stones and tiny glowing plants at the edges of a soft green forest. Soft, dreamy, kawaii illustration style in pale green and green tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Enchanted Moss\" theme of a children's math game. Left: a square app icon of a glowing mossy stone, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of soft green moss, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Betoverd mos\" theme of a children's math game. Left: a square app icon of a glowing mossy stone, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of soft green moss, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "savanna-sunset",
-    "name": "Savanna Sunset",
+    "name": "Savannezon",
     "group": "Nature",
-    "tagline": "Golden hour for numbers",
+    "tagline": "Gouden uur voor getallen",
     "mood": "light",
     "background": "#FFF1E0",
     "accent": "#E0782E",
@@ -641,14 +641,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: an orange savanna sunset with acacia trees at the edges. Soft, dreamy, kawaii illustration style in pale orange and orange tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Savanna Sunset\" theme of a children's math game. Left: a square app icon of a little acacia tree at sunset, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of warm sandstone, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Savannezon\" theme of a children's math game. Left: a square app icon of a little acacia tree at sunset, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of warm sandstone, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "rainbow-hills",
-    "name": "Rainbow Hills",
+    "name": "Regenbooglanden",
     "group": "Nature",
-    "tagline": "Every colour counts",
+    "tagline": "Elke kleur telt",
     "mood": "light",
     "background": "#F4FAFF",
     "accent": "#7C5CFF",
@@ -689,14 +689,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: soft green hills under a big pastel rainbow. Soft, dreamy, kawaii illustration style in pale blue and purple tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Rainbow Hills\" theme of a children's math game. Left: a square app icon of a pastel rainbow with two clouds, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of smooth pastel rainbow gradient, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Regenbooglanden\" theme of a children's math game. Left: a square app icon of a pastel rainbow with two clouds, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of smooth pastel rainbow gradient, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "coral-reef",
-    "name": "Coral Reef",
+    "name": "Koraalrif",
     "group": "Ocean & water",
-    "tagline": "A reef full of friends",
+    "tagline": "Een rif vol vrienden",
     "mood": "light",
     "background": "#E6F7FA",
     "accent": "#FF7A6B",
@@ -735,14 +735,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: colourful coral and seaweed along the bottom with soft blue water above. Soft, dreamy, kawaii illustration style in pale teal and red tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Coral Reef\" theme of a children's math game. Left: a square app icon of a pink coral branch, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of smooth pink coral, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Koraalrif\" theme of a children's math game. Left: a square app icon of a pink coral branch, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of smooth pink coral, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "deep-sea",
-    "name": "Deep Sea",
+    "name": "Diepzee",
     "group": "Ocean & water",
-    "tagline": "Glow in the deep",
+    "tagline": "Gloeien in de diepte",
     "mood": "dark",
     "background": "#0B2238",
     "accent": "#2FD3E0",
@@ -752,7 +752,7 @@
       "#9BE7F0"
     ],
     "font": null,
-    "price": "premium",
+    "price": 1500,
     "scene": "the deep ocean with glowing jellyfish and glowing plants at the edges",
     "keys": "dark glassy sea blue",
     "icon": "a glowing jellyfish",
@@ -781,14 +781,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: the deep ocean with glowing jellyfish and glowing plants at the edges. Soft, dreamy, kawaii illustration style in deep blue and teal tones, a dark night-time scene. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Deep Sea\" theme of a children's math game. Left: a square app icon of a glowing jellyfish, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of dark glassy sea blue, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Diepzee\" theme of a children's math game. Left: a square app icon of a glowing jellyfish, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of dark glassy sea blue, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "tropical-beach",
-    "name": "Tropical Beach",
+    "name": "Tropisch strand",
     "group": "Ocean & water",
-    "tagline": "Sun, sand and sums",
+    "tagline": "Zon, zee en sommen",
     "mood": "light",
     "background": "#FFF7E8",
     "accent": "#1FB5C8",
@@ -827,14 +827,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: a sandy beach with palm trees at the sides and a turquoise sea. Soft, dreamy, kawaii illustration style in pale orange and teal tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Tropical Beach\" theme of a children's math game. Left: a square app icon of a palm tree on a tiny island, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of smooth warm sand, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Tropisch strand\" theme of a children's math game. Left: a square app icon of a palm tree on a tiny island, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of smooth warm sand, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "tide-pools",
-    "name": "Tide Pools",
+    "name": "Getijdenpoelen",
     "group": "Ocean & water",
-    "tagline": "Treasures at low tide",
+    "tagline": "Schatten bij eb",
     "mood": "light",
     "background": "#EEF7F5",
     "accent": "#F08A5D",
@@ -873,14 +873,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: rocky tide pools with starfish and shells along the bottom. Soft, dreamy, kawaii illustration style in pale teal and orange tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Tide Pools\" theme of a children's math game. Left: a square app icon of a starfish and a shell, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of smooth frosted sea glass, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Getijdenpoelen\" theme of a children's math game. Left: a square app icon of a starfish and a shell, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of smooth frosted sea glass, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "lighthouse-bay",
-    "name": "Lighthouse Bay",
+    "name": "Vuurtorenbaai",
     "group": "Ocean & water",
-    "tagline": "Guiding you home",
+    "tagline": "Wijst je de weg naar huis",
     "mood": "light",
     "background": "#EDF4FA",
     "accent": "#D9534F",
@@ -919,14 +919,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: a red and white lighthouse on the rocks at the side of a calm bay. Soft, dreamy, kawaii illustration style in pale blue and red tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Lighthouse Bay\" theme of a children's math game. Left: a square app icon of a little lighthouse, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of weathered white wood, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Vuurtorenbaai\" theme of a children's math game. Left: a square app icon of a little lighthouse, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of weathered white wood, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "pirate-cove",
-    "name": "Pirate Cove",
+    "name": "Piratenbaai",
     "group": "Ocean & water",
-    "tagline": "X marks the answer",
+    "tagline": "X wijst het antwoord aan",
     "mood": "light",
     "background": "#F6F0E4",
     "accent": "#C0392B",
@@ -965,14 +965,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: a friendly pirate cove with a treasure chest and a ship at the edges. Soft, dreamy, kawaii illustration style in pale orange and red tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Pirate Cove\" theme of a children's math game. Left: a square app icon of a treasure chest full of gold coins, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of old treasure map parchment, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Piratenbaai\" theme of a children's math game. Left: a square app icon of a treasure chest full of gold coins, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of old treasure map parchment, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "mermaid-lagoon",
-    "name": "Mermaid Lagoon",
+    "name": "Parellagune",
     "group": "Ocean & water",
-    "tagline": "Pearls of wisdom",
+    "tagline": "Parels van wijsheid",
     "mood": "light",
     "background": "#EAF7F7",
     "accent": "#B45FD0",
@@ -982,7 +982,7 @@
       "#E1BEE7"
     ],
     "font": null,
-    "price": "premium",
+    "price": 1500,
     "scene": "a shimmering lagoon with pearls, shells and seaweed at the edges",
     "keys": "shimmering mother of pearl",
     "icon": "a pearl in an open shell",
@@ -1011,14 +1011,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: a shimmering lagoon with pearls, shells and seaweed at the edges. Soft, dreamy, kawaii illustration style in pale teal and purple tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Mermaid Lagoon\" theme of a children's math game. Left: a square app icon of a pearl in an open shell, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of shimmering mother of pearl, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Parellagune\" theme of a children's math game. Left: a square app icon of a pearl in an open shell, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of shimmering mother of pearl, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "waterfall-oasis",
-    "name": "Waterfall Oasis",
+    "name": "Watervaloase",
     "group": "Ocean & water",
-    "tagline": "Let the numbers flow",
+    "tagline": "Laat de getallen stromen",
     "mood": "light",
     "background": "#E8F6F2",
     "accent": "#2A9D8F",
@@ -1057,14 +1057,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: a waterfall into a green pool with tropical plants at the sides. Soft, dreamy, kawaii illustration style in pale teal and teal tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Waterfall Oasis\" theme of a children's math game. Left: a square app icon of a small waterfall, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of wet smooth pebble, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Watervaloase\" theme of a children's math game. Left: a square app icon of a small waterfall, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of wet smooth pebble, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "submarine",
-    "name": "Submarine",
+    "name": "Duikboot",
     "group": "Ocean & water",
-    "tagline": "Dive into maths",
+    "tagline": "Duik in de sommen",
     "mood": "light",
     "background": "#E5F3FB",
     "accent": "#F2B233",
@@ -1103,14 +1103,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: the view from a yellow submarine with fish and bubbles at the edges. Soft, dreamy, kawaii illustration style in pale blue and orange tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Submarine\" theme of a children's math game. Left: a square app icon of a yellow submarine, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of riveted brass, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Duikboot\" theme of a children's math game. Left: a square app icon of a yellow submarine, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of riveted brass, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "seashell-shore",
-    "name": "Seashell Shore",
+    "name": "Schelpenstrand",
     "group": "Ocean & water",
-    "tagline": "Listen to the sea",
+    "tagline": "Luister naar de zee",
     "mood": "light",
     "background": "#FFF6F1",
     "accent": "#E8836B",
@@ -1149,14 +1149,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: pastel seashells scattered on soft pink sand along the bottom. Soft, dreamy, kawaii illustration style in pale orange and red tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Seashell Shore\" theme of a children's math game. Left: a square app icon of a spiral seashell, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of polished pink shell, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Schelpenstrand\" theme of a children's math game. Left: a square app icon of a spiral seashell, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of polished pink shell, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "cotton-clouds",
-    "name": "Cotton Clouds",
+    "name": "Suikerspinwolken",
     "group": "Sky & space",
-    "tagline": "Head in the clouds",
+    "tagline": "Met je hoofd in de wolken",
     "mood": "light",
     "background": "#F0F6FF",
     "accent": "#6C8EF0",
@@ -1195,14 +1195,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: fluffy white clouds in a soft blue sky. Soft, dreamy, kawaii illustration style in pale blue and blue tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Cotton Clouds\" theme of a children's math game. Left: a square app icon of a smiling cloud, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of soft cloud white, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Suikerspinwolken\" theme of a children's math game. Left: a square app icon of a smiling cloud, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of soft cloud white, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "hot-air-balloons",
-    "name": "Hot Air Balloons",
+    "name": "Luchtballonnen",
     "group": "Sky & space",
-    "tagline": "Up, up and away",
+    "tagline": "Op, op en weg!",
     "mood": "light",
     "background": "#FFF6EC",
     "accent": "#F26B5B",
@@ -1242,14 +1242,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: colourful hot air balloons floating near the edges of a sunrise sky. Soft, dreamy, kawaii illustration style in pale orange and red tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Hot Air Balloons\" theme of a children's math game. Left: a square app icon of a striped hot air balloon, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of striped balloon fabric, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Luchtballonnen\" theme of a children's math game. Left: a square app icon of a striped hot air balloon, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of striped balloon fabric, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "rocket-launch",
-    "name": "Rocket Launch",
+    "name": "Raketlancering",
     "group": "Sky & space",
-    "tagline": "3, 2, 1... blast off!",
+    "tagline": "3, 2, 1... lancering!",
     "mood": "dark",
     "background": "#141B3C",
     "accent": "#FF8A3D",
@@ -1288,14 +1288,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: a cartoon rocket launch pad at the bottom with stars above. Soft, dreamy, kawaii illustration style in deep blue and orange tones, a dark night-time scene. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Rocket Launch\" theme of a children's math game. Left: a square app icon of a little rocket, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of brushed silver metal, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Raketlancering\" theme of a children's math game. Left: a square app icon of a little rocket, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of brushed silver metal, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "planets",
-    "name": "Planets",
+    "name": "Planeten",
     "group": "Sky & space",
-    "tagline": "Out of this world",
+    "tagline": "Niet van deze wereld",
     "mood": "dark",
     "background": "#1A1440",
     "accent": "#FFB84D",
@@ -1334,14 +1334,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: colourful cartoon planets and rings around the edges of a starry sky. Soft, dreamy, kawaii illustration style in deep blue and orange tones, a dark night-time scene. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Planets\" theme of a children's math game. Left: a square app icon of a ringed planet, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of smooth swirling planet rings, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Planeten\" theme of a children's math game. Left: a square app icon of a ringed planet, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of smooth swirling planet rings, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "nebula",
-    "name": "Nebula",
+    "name": "Nevel",
     "group": "Sky & space",
-    "tagline": "Made of stardust",
+    "tagline": "Gemaakt van sterrenstof",
     "mood": "dark",
     "background": "#1B0F33",
     "accent": "#FF6FD8",
@@ -1351,7 +1351,7 @@
       "#9DB8FF"
     ],
     "font": null,
-    "price": "premium",
+    "price": 1500,
     "scene": "a glowing pink and purple nebula with twinkling stars",
     "keys": "swirling cosmic glass",
     "icon": "a glowing cluster of stars",
@@ -1380,14 +1380,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: a glowing pink and purple nebula with twinkling stars. Soft, dreamy, kawaii illustration style in deep purple and pink tones, a dark night-time scene. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Nebula\" theme of a children's math game. Left: a square app icon of a glowing cluster of stars, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of swirling cosmic glass, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Nevel\" theme of a children's math game. Left: a square app icon of a glowing cluster of stars, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of swirling cosmic glass, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "moonlit-night",
-    "name": "Moonlit Night",
+    "name": "Maannacht",
     "group": "Sky & space",
-    "tagline": "Dreamy and bright",
+    "tagline": "Dromerig en helder",
     "mood": "dark",
     "background": "#121A33",
     "accent": "#F5D76E",
@@ -1426,14 +1426,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: a big friendly crescent moon over sleepy hills. Soft, dreamy, kawaii illustration style in deep blue and yellow tones, a dark night-time scene. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Moonlit Night\" theme of a children's math game. Left: a square app icon of a sleepy crescent moon, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of soft midnight velvet, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Maannacht\" theme of a children's math game. Left: a square app icon of a sleepy crescent moon, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of soft midnight velvet, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "sunrise",
-    "name": "Sunrise",
+    "name": "Zonsopgang",
     "group": "Sky & space",
-    "tagline": "A fresh start",
+    "tagline": "Een frisse start",
     "mood": "light",
     "background": "#FFF1E8",
     "accent": "#FF8A5B",
@@ -1472,14 +1472,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: a soft pastel sunrise over rolling hills. Soft, dreamy, kawaii illustration style in pale orange and orange tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Sunrise\" theme of a children's math game. Left: a square app icon of a smiling rising sun, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of warm peach glass, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Zonsopgang\" theme of a children's math game. Left: a square app icon of a smiling rising sun, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of warm peach glass, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "observatory",
-    "name": "Observatory",
+    "name": "Sterrenwacht",
     "group": "Sky & space",
-    "tagline": "Look to the stars",
+    "tagline": "Kijk naar de sterren",
     "mood": "dark",
     "background": "#16213F",
     "accent": "#7FD1FF",
@@ -1518,14 +1518,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: an observatory dome with a telescope at the side under a starry sky. Soft, dreamy, kawaii illustration style in deep blue and blue tones, a dark night-time scene. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Observatory\" theme of a children's math game. Left: a square app icon of a telescope, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of polished navy and brass, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Sterrenwacht\" theme of a children's math game. Left: a square app icon of a telescope, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of polished navy and brass, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "comet-trail",
-    "name": "Comet Trail",
+    "name": "Komeet",
     "group": "Sky & space",
-    "tagline": "Fast as a comet",
+    "tagline": "Zo snel als een komeet",
     "mood": "dark",
     "background": "#10183A",
     "accent": "#6FE3FF",
@@ -1564,14 +1564,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: a bright comet with a long sparkling tail across a dark blue sky. Soft, dreamy, kawaii illustration style in deep blue and teal tones, a dark night-time scene. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Comet Trail\" theme of a children's math game. Left: a square app icon of a smiling comet, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of icy blue crystal, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Komeet\" theme of a children's math game. Left: a square app icon of a smiling comet, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of icy blue crystal, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "space-station",
-    "name": "Space Station",
+    "name": "Ruimtestation",
     "group": "Sky & space",
-    "tagline": "Mission: math!",
+    "tagline": "Missie: rekenen!",
     "mood": "dark",
     "background": "#151D2E",
     "accent": "#4FD18B",
@@ -1581,7 +1581,7 @@
       "#9EF0C4"
     ],
     "font": null,
-    "price": "premium",
+    "price": 1500,
     "scene": "a friendly space station with round windows and solar panels at the edges",
     "keys": "white spaceship panel",
     "icon": "an astronaut helmet",
@@ -1610,14 +1610,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: a friendly space station with round windows and solar panels at the edges. Soft, dreamy, kawaii illustration style in deep blue and green tones, a dark night-time scene. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Space Station\" theme of a children's math game. Left: a square app icon of an astronaut helmet, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of white spaceship panel, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Ruimtestation\" theme of a children's math game. Left: a square app icon of an astronaut helmet, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of white spaceship panel, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "kite-day",
-    "name": "Kite Day",
+    "name": "Vliegerdag",
     "group": "Sky & space",
-    "tagline": "Let your ideas fly",
+    "tagline": "Laat je ideeën vliegen",
     "mood": "light",
     "background": "#EEF7FF",
     "accent": "#FF6B8A",
@@ -1657,14 +1657,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: colourful kites flying in a breezy blue sky above a green field. Soft, dreamy, kawaii illustration style in pale blue and red tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Kite Day\" theme of a children's math game. Left: a square app icon of a diamond kite with a bow tail, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of light kite cloth, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Vliegerdag\" theme of a children's math game. Left: a square app icon of a diamond kite with a bow tail, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of light kite cloth, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "paper-planes",
-    "name": "Paper Planes",
+    "name": "Papieren vliegtuigjes",
     "group": "Sky & space",
-    "tagline": "Take off with every answer",
+    "tagline": "Opstijgen met elk antwoord",
     "mood": "light",
     "background": "#F4F7FB",
     "accent": "#4A90E2",
@@ -1700,14 +1700,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: white paper planes gliding through a pale sky with dotted flight paths. Soft, dreamy, kawaii illustration style in pale blue and blue tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Paper Planes\" theme of a children's math game. Left: a square app icon of a paper plane, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of folded white paper, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Papieren vliegtuigjes\" theme of a children's math game. Left: a square app icon of a paper plane, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of folded white paper, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "autumn-leaves",
-    "name": "Autumn Leaves",
+    "name": "Herfstbladeren",
     "group": "Seasons & weather",
-    "tagline": "Crunchy leaves, clever sums",
+    "tagline": "Knisperende blaadjes, slimme sommen",
     "mood": "light",
     "background": "#FFF4E6",
     "accent": "#D9682E",
@@ -1747,14 +1747,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: autumn trees with orange and red leaves at the edges. Soft, dreamy, kawaii illustration style in pale orange and orange tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Autumn Leaves\" theme of a children's math game. Left: a square app icon of an orange maple leaf, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of warm maple wood, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Herfstbladeren\" theme of a children's math game. Left: a square app icon of an orange maple leaf, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of warm maple wood, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "winter-wonderland",
-    "name": "Winter Wonderland",
+    "name": "Winterwonderland",
     "group": "Seasons & weather",
-    "tagline": "Snow day, math day",
+    "tagline": "Sneeuwdag, rekendag",
     "mood": "light",
     "background": "#EEF5FB",
     "accent": "#4F8FD9",
@@ -1793,14 +1793,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: snowy pine trees and soft snowy hills. Soft, dreamy, kawaii illustration style in pale blue and blue tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Winter Wonderland\" theme of a children's math game. Left: a square app icon of a snowflake, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of frosted ice, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Winterwonderland\" theme of a children's math game. Left: a square app icon of a snowflake, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of frosted ice, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "spring-showers",
-    "name": "Spring Showers",
+    "name": "Lenteregen",
     "group": "Seasons & weather",
-    "tagline": "Sunshine after the rain",
+    "tagline": "Zonneschijn na de regen",
     "mood": "light",
     "background": "#F0F7F2",
     "accent": "#4DB6AC",
@@ -1839,14 +1839,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: soft spring rain with puddles, umbrellas and flowers at the edges. Soft, dreamy, kawaii illustration style in pale green and teal tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Spring Showers\" theme of a children's math game. Left: a square app icon of a cute umbrella, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of glossy raindrop glass, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Lenteregen\" theme of a children's math game. Left: a square app icon of a cute umbrella, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of glossy raindrop glass, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "summer-picnic",
-    "name": "Summer Picnic",
+    "name": "Zomerpicknick",
     "group": "Seasons & weather",
-    "tagline": "A treat for your brain",
+    "tagline": "Een traktatie voor je brein",
     "mood": "light",
     "background": "#FFF9EE",
     "accent": "#E85D5D",
@@ -1886,14 +1886,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: a picnic blanket, basket and fruit on green grass along the bottom. Soft, dreamy, kawaii illustration style in pale orange and red tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Summer Picnic\" theme of a children's math game. Left: a square app icon of a picnic basket, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of red and white gingham, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Zomerpicknick\" theme of a children's math game. Left: a square app icon of a picnic basket, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of red and white gingham, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "thunderstorm",
-    "name": "Thunderstorm",
+    "name": "Onweer",
     "group": "Seasons & weather",
-    "tagline": "Quick as lightning",
+    "tagline": "Zo snel als de bliksem",
     "mood": "dark",
     "background": "#1C2233",
     "accent": "#FFD23F",
@@ -1932,14 +1932,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: dark stormy clouds with friendly lightning bolts at the edges. Soft, dreamy, kawaii illustration style in deep blue and yellow tones, a dark night-time scene. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Thunderstorm\" theme of a children's math game. Left: a square app icon of a cute lightning bolt, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of slate grey storm cloud, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Onweer\" theme of a children's math game. Left: a square app icon of a cute lightning bolt, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of slate grey storm cloud, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "snowy-cabin",
-    "name": "Snowy Cabin",
+    "name": "Sneeuwhut",
     "group": "Seasons & weather",
-    "tagline": "Warm inside, snowy outside",
+    "tagline": "Warm binnen, sneeuw buiten",
     "mood": "light",
     "background": "#F2F5FA",
     "accent": "#B5563A",
@@ -1978,14 +1978,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: a cosy log cabin with warm lit windows in the snow. Soft, dreamy, kawaii illustration style in pale blue and red tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Snowy Cabin\" theme of a children's math game. Left: a square app icon of a log cabin with a smoking chimney, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of warm log wood, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Sneeuwhut\" theme of a children's math game. Left: a square app icon of a log cabin with a smoking chimney, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of warm log wood, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "pumpkin-patch",
-    "name": "Pumpkin Patch",
+    "name": "Pompoenveld",
     "group": "Seasons & weather",
-    "tagline": "Picking the ripest answers",
+    "tagline": "De rijpste antwoorden plukken",
     "mood": "light",
     "background": "#FFF3E3",
     "accent": "#E97D2B",
@@ -2024,14 +2024,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: a pumpkin patch with hay bales along the bottom. Soft, dreamy, kawaii illustration style in pale orange and orange tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Pumpkin Patch\" theme of a children's math game. Left: a square app icon of a smiling pumpkin, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of orange pumpkin skin, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Pompoenveld\" theme of a children's math game. Left: a square app icon of a smiling pumpkin, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of orange pumpkin skin, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "foggy-morning",
-    "name": "Foggy Morning",
+    "name": "Mistige ochtend",
     "group": "Seasons & weather",
-    "tagline": "Clear heads on misty days",
+    "tagline": "Een helder hoofd op mistige dagen",
     "mood": "light",
     "background": "#F1F3F6",
     "accent": "#7A8CA8",
@@ -2070,14 +2070,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: a soft misty morning over a quiet lake with reeds. Soft, dreamy, kawaii illustration style in pale blue and blue tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Foggy Morning\" theme of a children's math game. Left: a square app icon of a little sun behind a cloud, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of smooth grey pebble, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Mistige ochtend\" theme of a children's math game. Left: a square app icon of a little sun behind a cloud, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of smooth grey pebble, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "windy-day",
-    "name": "Windy Day",
+    "name": "Winderige dag",
     "group": "Seasons & weather",
-    "tagline": "Blow a wish, solve a sum",
+    "tagline": "Blaas een wens, maak een som",
     "mood": "light",
     "background": "#F2F8F4",
     "accent": "#5CB85C",
@@ -2116,14 +2116,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: a breezy day with leaves and dandelion seeds blowing across a field. Soft, dreamy, kawaii illustration style in pale green and green tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Windy Day\" theme of a children's math game. Left: a square app icon of a dandelion puff, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of light fresh green, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Winderige dag\" theme of a children's math game. Left: a square app icon of a dandelion puff, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of light fresh green, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "frozen-lake",
-    "name": "Frozen Lake",
+    "name": "Bevroren meer",
     "group": "Seasons & weather",
-    "tagline": "Glide through the numbers",
+    "tagline": "Glijd door de getallen",
     "mood": "light",
     "background": "#EAF4FB",
     "accent": "#3AA6D0",
@@ -2162,14 +2162,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: a frozen lake with snowy pine trees at the edges. Soft, dreamy, kawaii illustration style in pale blue and blue tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Frozen Lake\" theme of a children's math game. Left: a square app icon of an ice skate, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of clear blue ice, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Bevroren meer\" theme of a children's math game. Left: a square app icon of an ice skate, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of clear blue ice, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "ice-cream-parlour",
-    "name": "Ice Cream Parlour",
+    "name": "IJssalon",
     "group": "Sweets & treats",
-    "tagline": "The coolest maths",
+    "tagline": "De coolste sommen",
     "mood": "light",
     "background": "#FFF4F7",
     "accent": "#F06292",
@@ -2209,14 +2209,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: ice cream cones, sprinkles and a striped awning at the top. Soft, dreamy, kawaii illustration style in pale red and pink tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Ice Cream Parlour\" theme of a children's math game. Left: a square app icon of an ice cream cone, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of strawberry ice cream swirl, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"IJssalon\" theme of a children's math game. Left: a square app icon of an ice cream cone, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of strawberry ice cream swirl, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "bakery",
-    "name": "Bakery",
+    "name": "Bakkerij",
     "group": "Sweets & treats",
-    "tagline": "Freshly baked sums",
+    "tagline": "Versgebakken sommen",
     "mood": "light",
     "background": "#FFF7EC",
     "accent": "#C6773D",
@@ -2255,14 +2255,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: a cosy bakery with cupcakes, croissants and bread on shelves at the edges. Soft, dreamy, kawaii illustration style in pale orange and orange tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Bakery\" theme of a children's math game. Left: a square app icon of a cupcake with a cherry, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of golden pastry crust, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Bakkerij\" theme of a children's math game. Left: a square app icon of a cupcake with a cherry, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of golden pastry crust, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "chocolate-factory",
-    "name": "Chocolate Factory",
+    "name": "Chocoladefabriek",
     "group": "Sweets & treats",
-    "tagline": "Sweet as can be",
+    "tagline": "Zo zoet als maar kan",
     "mood": "dark",
     "background": "#3A241B",
     "accent": "#F2B6C6",
@@ -2301,14 +2301,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: rivers of chocolate and candy pipes at the edges. Soft, dreamy, kawaii illustration style in deep orange and red tones, a dark night-time scene. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Chocolate Factory\" theme of a children's math game. Left: a square app icon of a chocolate bar, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of smooth milk chocolate, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Chocoladefabriek\" theme of a children's math game. Left: a square app icon of a chocolate bar, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of smooth milk chocolate, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "donut-shop",
-    "name": "Donut Shop",
+    "name": "Donutwinkel",
     "group": "Sweets & treats",
-    "tagline": "Hole-y delicious",
+    "tagline": "Gaatjes vol lekkers",
     "mood": "light",
     "background": "#FFF3F8",
     "accent": "#FF6FA8",
@@ -2348,14 +2348,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: pink frosted donuts with sprinkles around the edges. Soft, dreamy, kawaii illustration style in pale pink and pink tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Donut Shop\" theme of a children's math game. Left: a square app icon of a pink sprinkled donut, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of pink frosting with sprinkles, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Donutwinkel\" theme of a children's math game. Left: a square app icon of a pink sprinkled donut, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of pink frosting with sprinkles, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "fruit-market",
-    "name": "Fruit Market",
+    "name": "Fruitmarkt",
     "group": "Sweets & treats",
-    "tagline": "A healthy mind",
+    "tagline": "Een gezonde geest",
     "mood": "light",
     "background": "#F6FBEF",
     "accent": "#F28C28",
@@ -2395,14 +2395,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: colourful fruit crates with apples, oranges and bananas along the bottom. Soft, dreamy, kawaii illustration style in pale green and orange tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Fruit Market\" theme of a children's math game. Left: a square app icon of a smiling strawberry, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of juicy orange peel, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Fruitmarkt\" theme of a children's math game. Left: a square app icon of a smiling strawberry, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of juicy orange peel, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "bubble-tea",
-    "name": "Bubble Tea",
+    "name": "Bubbelthee",
     "group": "Sweets & treats",
-    "tagline": "Sip, think, solve",
+    "tagline": "Slurp, denk, los op",
     "mood": "light",
     "background": "#FBF4EC",
     "accent": "#A0714F",
@@ -2441,14 +2441,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: cute bubble tea cups and tapioca pearls at the edges. Soft, dreamy, kawaii illustration style in pale orange and orange tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Bubble Tea\" theme of a children's math game. Left: a square app icon of a bubble tea cup with a straw, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of milky caramel, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Bubbelthee\" theme of a children's math game. Left: a square app icon of a bubble tea cup with a straw, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of milky caramel, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "gingerbread-house",
-    "name": "Gingerbread House",
+    "name": "Peperkoekhuisje",
     "group": "Sweets & treats",
-    "tagline": "Sweet and clever",
+    "tagline": "Zoet en slim",
     "mood": "light",
     "background": "#FFF1E4",
     "accent": "#B85C2E",
@@ -2487,14 +2487,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: a gingerbread house with icing and candy canes at the sides. Soft, dreamy, kawaii illustration style in pale orange and orange tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Gingerbread House\" theme of a children's math game. Left: a square app icon of a gingerbread cookie, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of gingerbread with white icing, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Peperkoekhuisje\" theme of a children's math game. Left: a square app icon of a gingerbread cookie, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of gingerbread with white icing, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "pancake-breakfast",
-    "name": "Pancake Breakfast",
+    "name": "Pannenkoekenontbijt",
     "group": "Sweets & treats",
-    "tagline": "Breakfast for the brain",
+    "tagline": "Ontbijt voor je brein",
     "mood": "light",
     "background": "#FFF8E6",
     "accent": "#E3A02B",
@@ -2533,14 +2533,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: stacks of pancakes with syrup, berries and butter along the bottom. Soft, dreamy, kawaii illustration style in pale yellow and orange tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Pancake Breakfast\" theme of a children's math game. Left: a square app icon of a stack of pancakes with syrup, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of golden pancake, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Pannenkoekenontbijt\" theme of a children's math game. Left: a square app icon of a stack of pancakes with syrup, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of golden pancake, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "lollipop-land",
-    "name": "Lollipop Land",
+    "name": "Lollyland",
     "group": "Sweets & treats",
-    "tagline": "Swirls of fun",
+    "tagline": "Draaikolken vol plezier",
     "mood": "light",
     "background": "#FDF1FF",
     "accent": "#C75BE0",
@@ -2580,14 +2580,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: giant swirly lollipops and candy trees on pastel hills. Soft, dreamy, kawaii illustration style in pale pink and purple tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Lollipop Land\" theme of a children's math game. Left: a square app icon of a swirl lollipop, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of swirly lollipop, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Lollyland\" theme of a children's math game. Left: a square app icon of a swirl lollipop, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of swirly lollipop, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "pizza-party",
-    "name": "Pizza Party",
+    "name": "Pizzafeest",
     "group": "Sweets & treats",
-    "tagline": "A slice of maths",
+    "tagline": "Een puntje rekenwerk",
     "mood": "light",
     "background": "#FFF6EA",
     "accent": "#E0492F",
@@ -2627,14 +2627,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: pizza slices and party streamers at the edges. Soft, dreamy, kawaii illustration style in pale orange and red tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Pizza Party\" theme of a children's math game. Left: a square app icon of a pizza slice, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of cheesy pizza crust, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Pizzafeest\" theme of a children's math game. Left: a square app icon of a pizza slice, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of cheesy pizza crust, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "dragons-lair",
-    "name": "Dragon's Lair",
+    "name": "Drakenhol",
     "group": "Fantasy & magic",
-    "tagline": "Guarded by a friendly dragon",
+    "tagline": "Bewaakt door een lieve draak",
     "mood": "dark",
     "background": "#22141A",
     "accent": "#FF7A3D",
@@ -2644,7 +2644,7 @@
       "#FF6B3D"
     ],
     "font": null,
-    "price": "premium",
+    "price": 1500,
     "scene": "a friendly dragon's cave with piles of gold and glowing crystals at the edges",
     "keys": "warm dragon scales",
     "icon": "a baby dragon egg",
@@ -2673,14 +2673,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: a friendly dragon's cave with piles of gold and glowing crystals at the edges. Soft, dreamy, kawaii illustration style in deep pink and orange tones, a dark night-time scene. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Dragon's Lair\" theme of a children's math game. Left: a square app icon of a baby dragon egg, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of warm dragon scales, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Drakenhol\" theme of a children's math game. Left: a square app icon of a baby dragon egg, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of warm dragon scales, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "wizard-tower",
-    "name": "Wizard Tower",
+    "name": "Tovenaarstoren",
     "group": "Fantasy & magic",
-    "tagline": "Maths is magic",
+    "tagline": "Rekenen is toveren",
     "mood": "dark",
     "background": "#1C1633",
     "accent": "#B18CFF",
@@ -2690,7 +2690,7 @@
       "#FFE8A3"
     ],
     "font": null,
-    "price": "premium",
+    "price": 1500,
     "scene": "a wizard's tower room with floating books, potions and candles at the edges",
     "keys": "old spell book leather",
     "icon": "a wizard hat with stars",
@@ -2719,14 +2719,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: a wizard's tower room with floating books, potions and candles at the edges. Soft, dreamy, kawaii illustration style in deep purple and purple tones, a dark night-time scene. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Wizard Tower\" theme of a children's math game. Left: a square app icon of a wizard hat with stars, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of old spell book leather, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Tovenaarstoren\" theme of a children's math game. Left: a square app icon of a wizard hat with stars, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of old spell book leather, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "fairy-garden",
-    "name": "Fairy Garden",
+    "name": "Feeëntuin",
     "group": "Fantasy & magic",
-    "tagline": "A sprinkle of fairy dust",
+    "tagline": "Een snufje feeënstof",
     "mood": "light",
     "background": "#F6F2FB",
     "accent": "#E07BD0",
@@ -2765,14 +2765,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: tiny fairy houses, glowing flowers and mushrooms. Soft, dreamy, kawaii illustration style in pale purple and pink tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Fairy Garden\" theme of a children's math game. Left: a square app icon of a fairy wand, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of soft petal glass, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Feeëntuin\" theme of a children's math game. Left: a square app icon of a fairy wand, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of soft petal glass, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "unicorn-clouds",
-    "name": "Unicorn Clouds",
+    "name": "Eenhoornwolken",
     "group": "Fantasy & magic",
-    "tagline": "Magic in every answer",
+    "tagline": "Magie in elk antwoord",
     "mood": "light",
     "background": "#FDF5FF",
     "accent": "#FF8AD8",
@@ -2812,14 +2812,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: pastel clouds, rainbows and stars in a dreamy sky. Soft, dreamy, kawaii illustration style in pale purple and pink tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Unicorn Clouds\" theme of a children's math game. Left: a square app icon of a unicorn horn, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of pastel rainbow cloud, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Eenhoornwolken\" theme of a children's math game. Left: a square app icon of a unicorn horn, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of pastel rainbow cloud, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "castle-kingdom",
-    "name": "Castle Kingdom",
+    "name": "Kasteelrijk",
     "group": "Fantasy & magic",
-    "tagline": "Rule the kingdom of numbers",
+    "tagline": "Heers over het rijk der getallen",
     "mood": "light",
     "background": "#F2F4FB",
     "accent": "#5B6FD8",
@@ -2858,14 +2858,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: a fairytale castle with flags on a hill at the side. Soft, dreamy, kawaii illustration style in pale blue and blue tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Castle Kingdom\" theme of a children's math game. Left: a square app icon of a little castle with flags, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of carved castle stone, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Kasteelrijk\" theme of a children's math game. Left: a square app icon of a little castle with flags, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of carved castle stone, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "crystal-cave",
-    "name": "Crystal Cave",
+    "name": "Kristalgrot",
     "group": "Fantasy & magic",
-    "tagline": "Shine bright",
+    "tagline": "Schitter maar",
     "mood": "dark",
     "background": "#141C2E",
     "accent": "#7EE8FA",
@@ -2875,7 +2875,7 @@
       "#E0B3FF"
     ],
     "font": null,
-    "price": "premium",
+    "price": 1500,
     "scene": "a glowing crystal cave with purple and blue crystals at the edges",
     "keys": "cut crystal facets",
     "icon": "a cluster of crystals",
@@ -2904,14 +2904,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: a glowing crystal cave with purple and blue crystals at the edges. Soft, dreamy, kawaii illustration style in deep blue and teal tones, a dark night-time scene. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Crystal Cave\" theme of a children's math game. Left: a square app icon of a cluster of crystals, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of cut crystal facets, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Kristalgrot\" theme of a children's math game. Left: a square app icon of a cluster of crystals, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of cut crystal facets, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "enchanted-library",
-    "name": "Enchanted Library",
+    "name": "Toverbibliotheek",
     "group": "Fantasy & magic",
-    "tagline": "Every page a puzzle",
+    "tagline": "Elke bladzijde een puzzel",
     "mood": "dark",
     "background": "#2A1E17",
     "accent": "#F2C14E",
@@ -2950,14 +2950,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: tall bookshelves with glowing floating books. Soft, dreamy, kawaii illustration style in deep orange and yellow tones, a dark night-time scene. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Enchanted Library\" theme of a children's math game. Left: a square app icon of a magic book with a star, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of leather book cover, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Toverbibliotheek\" theme of a children's math game. Left: a square app icon of a magic book with a star, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of leather book cover, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "potion-lab",
-    "name": "Potion Lab",
+    "name": "Toverdranklab",
     "group": "Fantasy & magic",
-    "tagline": "Mix, stir, solve!",
+    "tagline": "Mengen, roeren, oplossen!",
     "mood": "dark",
     "background": "#1F1A2E",
     "accent": "#5BE38C",
@@ -2996,14 +2996,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: bubbling colourful potion bottles on shelves at the edges. Soft, dreamy, kawaii illustration style in deep purple and green tones, a dark night-time scene. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Potion Lab\" theme of a children's math game. Left: a square app icon of a bubbling potion, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of glass potion bottle, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Toverdranklab\" theme of a children's math game. Left: a square app icon of a bubbling potion, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of glass potion bottle, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "floating-islands",
-    "name": "Floating Islands",
+    "name": "Zwevende eilanden",
     "group": "Fantasy & magic",
-    "tagline": "Sky-high thinking",
+    "tagline": "Denken tot in de wolken",
     "mood": "light",
     "background": "#EEF6FF",
     "accent": "#4CAF7D",
@@ -3013,7 +3013,7 @@
       "#CDEFD9"
     ],
     "font": null,
-    "price": "premium",
+    "price": 1500,
     "scene": "small floating grassy islands with waterfalls in the sky",
     "keys": "mossy stone",
     "icon": "a floating island",
@@ -3042,14 +3042,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: small floating grassy islands with waterfalls in the sky. Soft, dreamy, kawaii illustration style in pale blue and green tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Floating Islands\" theme of a children's math game. Left: a square app icon of a floating island, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of mossy stone, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Zwevende eilanden\" theme of a children's math game. Left: a square app icon of a floating island, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of mossy stone, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "magic-lamp",
-    "name": "Magic Lamp",
+    "name": "Wonderlamp",
     "group": "Fantasy & magic",
-    "tagline": "Your wish: more sums!",
+    "tagline": "Jouw wens: meer sommen!",
     "mood": "light",
     "background": "#FFF4E0",
     "accent": "#D9A21B",
@@ -3088,14 +3088,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: a golden magic lamp, silk cushions and a starry arch. Soft, dreamy, kawaii illustration style in pale orange and yellow tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Magic Lamp\" theme of a children's math game. Left: a square app icon of a golden magic lamp, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of golden lamp brass, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Wonderlamp\" theme of a children's math game. Left: a square app icon of a golden magic lamp, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of golden lamp brass, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "pumpkin-night",
-    "name": "Pumpkin Night",
+    "name": "Pompoennacht",
     "group": "Fantasy & magic",
-    "tagline": "Spooky-cute sums",
+    "tagline": "Griezelig leuke sommen",
     "mood": "dark",
     "background": "#1E1530",
     "accent": "#FF8A1F",
@@ -3134,14 +3134,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: a friendly, not scary night with glowing pumpkins and smiling ghosts at the edges. Soft, dreamy, kawaii illustration style in deep purple and orange tones, a dark night-time scene. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Pumpkin Night\" theme of a children's math game. Left: a square app icon of a smiling jack-o-lantern, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of glowing pumpkin, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Pompoennacht\" theme of a children's math game. Left: a square app icon of a smiling jack-o-lantern, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of glowing pumpkin, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "treasure-island",
-    "name": "Treasure Island",
+    "name": "Schateiland",
     "group": "Fantasy & magic",
-    "tagline": "Hunt for the answers",
+    "tagline": "Op jacht naar antwoorden",
     "mood": "light",
     "background": "#FFF6E6",
     "accent": "#D98C1F",
@@ -3180,14 +3180,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: a sandy island with a treasure chest, palm trees and a map. Soft, dreamy, kawaii illustration style in pale orange and orange tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Treasure Island\" theme of a children's math game. Left: a square app icon of a gold coin with a star, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of treasure gold, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Schateiland\" theme of a children's math game. Left: a square app icon of a gold coin with a star, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of treasure gold, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "cosy-bedroom",
-    "name": "Cosy Bedroom",
+    "name": "Knusse slaapkamer",
     "group": "Cosy & home",
-    "tagline": "Snug as a bug",
+    "tagline": "Lekker warm en knus",
     "mood": "light",
     "background": "#FBF3EE",
     "accent": "#E08E79",
@@ -3226,14 +3226,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: a cosy bedroom with fairy lights, plushies and a moon window. Soft, dreamy, kawaii illustration style in pale orange and red tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Cosy Bedroom\" theme of a children's math game. Left: a square app icon of a teddy bear, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of soft knitted blanket, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Knusse slaapkamer\" theme of a children's math game. Left: a square app icon of a teddy bear, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of soft knitted blanket, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "reading-nook",
-    "name": "Reading Nook",
+    "name": "Leeshoekje",
     "group": "Cosy & home",
-    "tagline": "Curl up and count",
+    "tagline": "Kruip erin en tel",
     "mood": "light",
     "background": "#FAF4EA",
     "accent": "#7A9E6B",
@@ -3272,14 +3272,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: a window seat with cushions, plants and stacks of books. Soft, dreamy, kawaii illustration style in pale orange and green tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Reading Nook\" theme of a children's math game. Left: a square app icon of a stack of books, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of soft cushion fabric, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Leeshoekje\" theme of a children's math game. Left: a square app icon of a stack of books, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of soft cushion fabric, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "toy-box",
-    "name": "Toy Box",
+    "name": "Speelgoedkist",
     "group": "Cosy & home",
-    "tagline": "Play and learn",
+    "tagline": "Spelen en leren",
     "mood": "light",
     "background": "#F7F7FF",
     "accent": "#F25F5C",
@@ -3319,14 +3319,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: building blocks, toy trains and teddies at the edges. Soft, dreamy, kawaii illustration style in pale blue and red tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Toy Box\" theme of a children's math game. Left: a square app icon of a toy building block, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of smooth wooden toy block, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Speelgoedkist\" theme of a children's math game. Left: a square app icon of a toy building block, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of smooth wooden toy block, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "tea-party",
-    "name": "Tea Party",
+    "name": "Theekransje",
     "group": "Cosy & home",
-    "tagline": "Tea and sums, please",
+    "tagline": "Thee en sommen, graag",
     "mood": "light",
     "background": "#FFF6F4",
     "accent": "#D96C8A",
@@ -3365,14 +3365,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: a tea party table with teapots, cups and cakes. Soft, dreamy, kawaii illustration style in pale red and red tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Tea Party\" theme of a children's math game. Left: a square app icon of a teapot, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of fine porcelain with little flowers, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Theekransje\" theme of a children's math game. Left: a square app icon of a teapot, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of fine porcelain with little flowers, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "rainy-window",
-    "name": "Rainy Window",
+    "name": "Regenraam",
     "group": "Cosy & home",
-    "tagline": "Cosy days inside",
+    "tagline": "Knusse dagen binnen",
     "mood": "light",
     "background": "#EEF2F6",
     "accent": "#5C7FA3",
@@ -3411,14 +3411,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: a cosy window with raindrops, a plant and a warm lamp. Soft, dreamy, kawaii illustration style in pale blue and blue tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Rainy Window\" theme of a children's math game. Left: a square app icon of a raindrop, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of foggy window glass, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Regenraam\" theme of a children's math game. Left: a square app icon of a raindrop, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of foggy window glass, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "knitting-basket",
-    "name": "Knitting Basket",
+    "name": "Breimand",
     "group": "Cosy & home",
-    "tagline": "Knit together every number",
+    "tagline": "Brei alle getallen aan elkaar",
     "mood": "light",
     "background": "#FBF2EC",
     "accent": "#C76B5A",
@@ -3454,14 +3454,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: balls of yarn and knitted blankets in warm colours. Soft, dreamy, kawaii illustration style in pale orange and red tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Knitting Basket\" theme of a children's math game. Left: a square app icon of a ball of yarn with knitting needles, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of chunky knitted wool, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Breimand\" theme of a children's math game. Left: a square app icon of a ball of yarn with knitting needles, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of chunky knitted wool, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "campfire",
-    "name": "Campfire",
+    "name": "Kampvuur",
     "group": "Cosy & home",
-    "tagline": "Stories by the fire",
+    "tagline": "Verhalen bij het vuur",
     "mood": "dark",
     "background": "#1A2433",
     "accent": "#F5A623",
@@ -3500,14 +3500,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: a campfire, a tent and marshmallows under a starry sky. Soft, dreamy, kawaii illustration style in deep blue and orange tones, a dark night-time scene. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Campfire\" theme of a children's math game. Left: a square app icon of a campfire with marshmallows, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of canvas tent, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Kampvuur\" theme of a children's math game. Left: a square app icon of a campfire with marshmallows, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of canvas tent, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "treehouse",
-    "name": "Treehouse",
+    "name": "Boomhut",
     "group": "Cosy & home",
-    "tagline": "The best hideout",
+    "tagline": "De beste schuilplek",
     "mood": "light",
     "background": "#F1F7EC",
     "accent": "#8B5E3C",
@@ -3546,14 +3546,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: a wooden treehouse with a rope ladder among green leaves. Soft, dreamy, kawaii illustration style in pale green and orange tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Treehouse\" theme of a children's math game. Left: a square app icon of a treehouse, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of treehouse planks, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Boomhut\" theme of a children's math game. Left: a square app icon of a treehouse, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of treehouse planks, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "city-lights",
-    "name": "City Lights",
+    "name": "Stadslichten",
     "group": "Places & journeys",
-    "tagline": "Big city, bright minds",
+    "tagline": "Grote stad, slimme koppen",
     "mood": "dark",
     "background": "#141A2E",
     "accent": "#FFC857",
@@ -3592,14 +3592,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: a cute cartoon city skyline at night with lit windows. Soft, dreamy, kawaii illustration style in deep blue and yellow tones, a dark night-time scene. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"City Lights\" theme of a children's math game. Left: a square app icon of a little city building with lit windows, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of shiny taxi yellow, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Stadslichten\" theme of a children's math game. Left: a square app icon of a little city building with lit windows, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of shiny taxi yellow, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "paris-cafe",
-    "name": "Paris Café",
+    "name": "Café in Parijs",
     "group": "Places & journeys",
-    "tagline": "Bonjour, math!",
+    "tagline": "Bonjour, rekenen!",
     "mood": "light",
     "background": "#FAF4EF",
     "accent": "#D96C6C",
@@ -3638,14 +3638,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: a Parisian café with striped awnings and the Eiffel Tower far away. Soft, dreamy, kawaii illustration style in pale orange and red tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Paris Café\" theme of a children's math game. Left: a square app icon of a croissant, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of striped café awning, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Café in Parijs\" theme of a children's math game. Left: a square app icon of a croissant, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of striped café awning, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "japanese-garden",
-    "name": "Japanese Garden",
+    "name": "Japanse tuin",
     "group": "Places & journeys",
-    "tagline": "Peaceful and precise",
+    "tagline": "Rustig en precies",
     "mood": "light",
     "background": "#F8F4EE",
     "accent": "#C94F4F",
@@ -3684,14 +3684,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: a Japanese garden with a red bridge, a koi pond and lanterns. Soft, dreamy, kawaii illustration style in pale orange and red tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Japanese Garden\" theme of a children's math game. Left: a square app icon of a paper lantern, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of smooth red lacquer, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Japanse tuin\" theme of a children's math game. Left: a square app icon of a paper lantern, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of smooth red lacquer, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "pyramids",
-    "name": "Pyramids",
+    "name": "Piramides",
     "group": "Places & journeys",
-    "tagline": "Ancient maths, new fun",
+    "tagline": "Oud rekenen, nieuw plezier",
     "mood": "light",
     "background": "#FFF4DE",
     "accent": "#D4A017",
@@ -3730,14 +3730,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: pyramids and palm trees under a golden sky. Soft, dreamy, kawaii illustration style in pale yellow and yellow tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Pyramids\" theme of a children's math game. Left: a square app icon of a little pyramid, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of sandstone with gold trim, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Piramides\" theme of a children's math game. Left: a square app icon of a little pyramid, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of sandstone with gold trim, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "carnival",
-    "name": "Carnival",
+    "name": "Kermis",
     "group": "Places & journeys",
-    "tagline": "Roll up for maths!",
+    "tagline": "Kom erbij, kom erbij!",
     "mood": "light",
     "background": "#FFF4F0",
     "accent": "#E63946",
@@ -3777,14 +3777,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: a carnival with a ferris wheel, striped tents and balloons. Soft, dreamy, kawaii illustration style in pale orange and red tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Carnival\" theme of a children's math game. Left: a square app icon of a ferris wheel, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of red and white circus stripes, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Kermis\" theme of a children's math game. Left: a square app icon of a ferris wheel, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of red and white circus stripes, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "train-journey",
-    "name": "Train Journey",
+    "name": "Treinreis",
     "group": "Places & journeys",
-    "tagline": "All aboard!",
+    "tagline": "Instappen!",
     "mood": "light",
     "background": "#F2F6F2",
     "accent": "#2F7D5B",
@@ -3823,14 +3823,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: a little steam train crossing green hills. Soft, dreamy, kawaii illustration style in pale green and green tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Train Journey\" theme of a children's math game. Left: a square app icon of a steam train, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of polished green train enamel, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Treinreis\" theme of a children's math game. Left: a square app icon of a steam train, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of polished green train enamel, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "farm-barn",
-    "name": "Farm Barn",
+    "name": "Boerderij",
     "group": "Places & journeys",
-    "tagline": "Down on the farm",
+    "tagline": "Op de boerderij",
     "mood": "light",
     "background": "#FFF6EC",
     "accent": "#C8412F",
@@ -3869,14 +3869,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: a red barn, fences and hay bales in the countryside. Soft, dreamy, kawaii illustration style in pale orange and red tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Farm Barn\" theme of a children's math game. Left: a square app icon of a red barn, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of red barn wood, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Boerderij\" theme of a children's math game. Left: a square app icon of a red barn, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of red barn wood, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "snowy-village",
-    "name": "Snowy Village",
+    "name": "Sneeuwdorp",
     "group": "Places & journeys",
-    "tagline": "Home sweet home",
+    "tagline": "Thuis is het fijnst",
     "mood": "light",
     "background": "#EEF3FA",
     "accent": "#D9534F",
@@ -3915,14 +3915,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: a snowy village with colourful wooden houses. Soft, dreamy, kawaii illustration style in pale blue and red tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Snowy Village\" theme of a children's math game. Left: a square app icon of a little wooden house with snow on the roof, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of painted wooden sign, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Sneeuwdorp\" theme of a children's math game. Left: a square app icon of a little wooden house with snow on the roof, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of painted wooden sign, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "ruby-palace",
-    "name": "Ruby Palace",
+    "name": "Robijnpaleis",
     "group": "Gems & crafts",
-    "tagline": "Precious and bright",
+    "tagline": "Kostbaar en stralend",
     "mood": "dark",
     "background": "#2A0F18",
     "accent": "#FF4D6D",
@@ -3932,7 +3932,7 @@
       "#FFD6DE"
     ],
     "font": null,
-    "price": "premium",
+    "price": 1500,
     "scene": "a glittering palace hall with red rubies and gold",
     "keys": "cut ruby facets",
     "icon": "a ruby gem",
@@ -3961,14 +3961,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: a glittering palace hall with red rubies and gold. Soft, dreamy, kawaii illustration style in deep red and red tones, a dark night-time scene. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Ruby Palace\" theme of a children's math game. Left: a square app icon of a ruby gem, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of cut ruby facets, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Robijnpaleis\" theme of a children's math game. Left: a square app icon of a ruby gem, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of cut ruby facets, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "emerald-city",
-    "name": "Emerald City",
+    "name": "Smaragdstad",
     "group": "Gems & crafts",
-    "tagline": "Green with genius",
+    "tagline": "Groen van slimheid",
     "mood": "dark",
     "background": "#0F2A1E",
     "accent": "#37D67A",
@@ -3978,7 +3978,7 @@
       "#E8FFD6"
     ],
     "font": null,
-    "price": "premium",
+    "price": 1500,
     "scene": "shining green towers and emerald gems",
     "keys": "cut emerald facets",
     "icon": "an emerald gem",
@@ -4007,14 +4007,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: shining green towers and emerald gems. Soft, dreamy, kawaii illustration style in deep green and green tones, a dark night-time scene. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Emerald City\" theme of a children's math game. Left: a square app icon of an emerald gem, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of cut emerald facets, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Smaragdstad\" theme of a children's math game. Left: a square app icon of an emerald gem, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of cut emerald facets, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "sapphire-velvet",
-    "name": "Sapphire Velvet",
+    "name": "Saffierfluweel",
     "group": "Gems & crafts",
-    "tagline": "Deep blue brilliance",
+    "tagline": "Diepblauwe schittering",
     "mood": "dark",
     "background": "#0F1D3A",
     "accent": "#4D8BFF",
@@ -4024,7 +4024,7 @@
       "#FFFFFF"
     ],
     "font": null,
-    "price": "premium",
+    "price": 1500,
     "scene": "sparkling blue sapphires on deep blue velvet",
     "keys": "cut sapphire facets",
     "icon": "a sapphire gem",
@@ -4053,14 +4053,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: sparkling blue sapphires on deep blue velvet. Soft, dreamy, kawaii illustration style in deep blue and blue tones, a dark night-time scene. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Sapphire Velvet\" theme of a children's math game. Left: a square app icon of a sapphire gem, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of cut sapphire facets, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Saffierfluweel\" theme of a children's math game. Left: a square app icon of a sapphire gem, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of cut sapphire facets, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "stained-glass",
-    "name": "Stained Glass",
+    "name": "Glas-in-lood",
     "group": "Gems & crafts",
-    "tagline": "Colours of learning",
+    "tagline": "Kleuren van het leren",
     "mood": "light",
     "background": "#F6F4F0",
     "accent": "#3A6EA5",
@@ -4100,14 +4100,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: a colourful stained glass window with light shining through. Soft, dreamy, kawaii illustration style in pale yellow and blue tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Stained Glass\" theme of a children's math game. Left: a square app icon of a stained glass star, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of coloured stained glass, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Glas-in-lood\" theme of a children's math game. Left: a square app icon of a stained glass star, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of coloured stained glass, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "origami",
     "name": "Origami",
     "group": "Gems & crafts",
-    "tagline": "Fold, count, repeat",
+    "tagline": "Vouwen, tellen, herhalen",
     "mood": "light",
     "background": "#F7F6F2",
     "accent": "#E4572E",
@@ -4148,9 +4148,9 @@
   },
   {
     "id": "crayon-doodles",
-    "name": "Crayon Doodles",
+    "name": "Krijtkrabbels",
     "group": "Gems & crafts",
-    "tagline": "Draw your own path",
+    "tagline": "Teken je eigen pad",
     "mood": "light",
     "background": "#FFFDF7",
     "accent": "#FF6B6B",
@@ -4190,14 +4190,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: crayon doodles of stars, suns and hearts on white paper. Soft, dreamy, kawaii illustration style in pale yellow and red tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Crayon Doodles\" theme of a children's math game. Left: a square app icon of a box of crayons, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of crayon scribble texture, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Krijtkrabbels\" theme of a children's math game. Left: a square app icon of a box of crayons, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of crayon scribble texture, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "pottery-studio",
-    "name": "Pottery Studio",
+    "name": "Pottenbakkerij",
     "group": "Gems & crafts",
-    "tagline": "Shape your skills",
+    "tagline": "Vorm je vaardigheden",
     "mood": "light",
     "background": "#FBF3EC",
     "accent": "#B5654A",
@@ -4233,14 +4233,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: clay pots, a pottery wheel and plants. Soft, dreamy, kawaii illustration style in pale orange and orange tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Pottery Studio\" theme of a children's math game. Left: a square app icon of a clay pot with a flower, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of smooth terracotta glaze, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Pottenbakkerij\" theme of a children's math game. Left: a square app icon of a clay pot with a flower, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of smooth terracotta glaze, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "football-pitch",
-    "name": "Football Pitch",
+    "name": "Voetbalveld",
     "group": "Sports & play",
-    "tagline": "Score every goal",
+    "tagline": "Scoor elk doelpunt",
     "mood": "light",
     "background": "#EEF7EE",
     "accent": "#2E9E4F",
@@ -4279,14 +4279,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: a green football pitch with goals and cheering flags. Soft, dreamy, kawaii illustration style in pale green and green tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Football Pitch\" theme of a children's math game. Left: a square app icon of a football, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of green pitch grass, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Voetbalveld\" theme of a children's math game. Left: a square app icon of a football, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of green pitch grass, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "playground",
-    "name": "Playground",
+    "name": "Speeltuin",
     "group": "Sports & play",
-    "tagline": "Let's play!",
+    "tagline": "Kom spelen!",
     "mood": "light",
     "background": "#F0F7FF",
     "accent": "#FF8C42",
@@ -4325,14 +4325,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: slides, swings and a sandbox under a sunny sky. Soft, dreamy, kawaii illustration style in pale blue and orange tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Playground\" theme of a children's math game. Left: a square app icon of a playground slide, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of colourful plastic, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Speeltuin\" theme of a children's math game. Left: a square app icon of a playground slide, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of colourful plastic, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "skate-park",
-    "name": "Skate Park",
+    "name": "Skatepark",
     "group": "Sports & play",
-    "tagline": "Roll with it",
+    "tagline": "Rol erin mee",
     "mood": "light",
     "background": "#F3F3F8",
     "accent": "#7B61FF",
@@ -4371,14 +4371,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: colourful ramps and skateboards with friendly graffiti. Soft, dreamy, kawaii illustration style in pale blue and blue tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Skate Park\" theme of a children's math game. Left: a square app icon of a skateboard, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of painted skateboard deck, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Skatepark\" theme of a children's math game. Left: a square app icon of a skateboard, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of painted skateboard deck, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "race-track",
-    "name": "Race Track",
+    "name": "Racebaan",
     "group": "Sports & play",
-    "tagline": "Speed through sums",
+    "tagline": "Race door de sommen",
     "mood": "light",
     "background": "#F4F4F4",
     "accent": "#E63946",
@@ -4414,14 +4414,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: a race track with checkered flags and cartoon race cars. Soft, dreamy, kawaii illustration style in soft white and red tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Race Track\" theme of a children's math game. Left: a square app icon of a race car, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of checkered flag, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Racebaan\" theme of a children's math game. Left: a square app icon of a race car, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of checkered flag, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "swimming-pool",
-    "name": "Swimming Pool",
+    "name": "Zwembad",
     "group": "Sports & play",
-    "tagline": "Make a splash",
+    "tagline": "Maak een plons",
     "mood": "light",
     "background": "#E6F7FB",
     "accent": "#1EA7D6",
@@ -4460,14 +4460,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: a sparkling pool with floats and a diving board. Soft, dreamy, kawaii illustration style in pale teal and blue tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Swimming Pool\" theme of a children's math game. Left: a square app icon of a rubber duck float, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of pool tile mosaic, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Zwembad\" theme of a children's math game. Left: a square app icon of a rubber duck float, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of pool tile mosaic, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "circus-tent",
-    "name": "Circus Tent",
+    "name": "Circustent",
     "group": "Sports & play",
-    "tagline": "The greatest show",
+    "tagline": "De grootste show",
     "mood": "light",
     "background": "#FFF5EE",
     "accent": "#D62828",
@@ -4506,14 +4506,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: a big top circus tent with stars and hoops. Soft, dreamy, kawaii illustration style in pale orange and red tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Circus Tent\" theme of a children's math game. Left: a square app icon of a circus tent, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of red and gold circus stripe, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Circustent\" theme of a children's math game. Left: a square app icon of a circus tent, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of red and gold circus stripe, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "music-stage",
-    "name": "Music Stage",
+    "name": "Muziekpodium",
     "group": "Sports & play",
-    "tagline": "Maths makes music",
+    "tagline": "Rekenen maakt muziek",
     "mood": "dark",
     "background": "#1B1530",
     "accent": "#FF5DA2",
@@ -4552,14 +4552,14 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: a stage with spotlights, music notes and instruments. Soft, dreamy, kawaii illustration style in deep purple and pink tones, a dark night-time scene. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Music Stage\" theme of a children's math game. Left: a square app icon of a music note, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of shiny black and white piano keys, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Muziekpodium\" theme of a children's math game. Left: a square app icon of a music note, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of shiny black and white piano keys, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   },
   {
     "id": "dinosaur-valley",
-    "name": "Dinosaur Valley",
+    "name": "Dinodal",
     "group": "Sports & play",
-    "tagline": "Roar-some maths",
+    "tagline": "Oersterk rekenen",
     "mood": "light",
     "background": "#F1F6E8",
     "accent": "#6BA539",
@@ -4598,7 +4598,7 @@
     },
     "prompts": {
       "background": "Create a portrait phone wallpaper (9:16) for a children's math game: a prehistoric valley with a volcano, ferns and friendly dinosaurs at the edges. Soft, dreamy, kawaii illustration style in pale green and green tones. Keep the middle calm and simple with soft gradients, because numbers and buttons will sit on top; put the details near the edges and along the bottom. No characters in the centre, no text, no numbers, no letters, no user interface.",
-      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Dinosaur Valley\" theme of a children's math game. Left: a square app icon of a dinosaur footprint, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of stone with fossil prints, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
+      "assets": "Create two separate images side by side in one wide landscape picture, with clear empty space between them, for the \"Dinodal\" theme of a children's math game. Left: a square app icon of a dinosaur footprint, kawaii sticker style, thick dark outline, bold simple shapes, centred. Right: one wide rounded rectangular game button (about 16:9) made of stone with fossil prints, calm and plain in the middle with subtle detail at the edges, no text, no numbers, no symbols on it. Nothing else, no shadows. Output a PNG with a fully transparent background."
     }
   }
 ]

@@ -1,9 +1,8 @@
 {
   "name": "Stripes",
-  "tagline": "Always ready to make you smile",
+  "tagline": "Altijd klaar om je te laten lachen",
   "order": 370,
   "price": 3,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

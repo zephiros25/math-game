@@ -1,9 +1,8 @@
 {
   "name": "Bramble",
-  "tagline": "Digs deep for every answer",
+  "tagline": "Graaft diep naar elk antwoord",
   "order": 70,
   "price": 3,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

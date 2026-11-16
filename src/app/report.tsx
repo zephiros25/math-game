@@ -1,5 +1,5 @@
 import { router } from 'expo-router';
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 import { ChunkyButton } from '@/components/chunky-button';
@@ -7,12 +7,12 @@ import { Screen } from '@/components/screen';
 import { feedback } from '@/feedback';
 import { MIN_TRICKY } from '@/game/focus';
 import { bondKey, LEVEL_GROUPS, levelInfo, tableKey } from '@/game/levels';
-import { activePlayer, updateProgress, useDevice, useProgress } from '@/progress';
+import { activePlayer, useDevice, useProgress } from '@/progress';
 import { dailyCounts, factStatus, recentTotals, trickyFacts, useStats, type FactStatus, type Stats } from '@/stats';
 import { useTheme, type Theme } from '@/theme';
 
-// The grown-ups' progress report. The weekly summary is free; the details
-// (activity, skills, fact grids and tricky facts) come with Plus.
+// The grown-ups' progress report: practice this week, tricky facts (with a
+// button to practise them), daily activity, skills and fact maps.
 export default function Report() {
   const t = useTheme();
   const styles = useMemo(() => makeStyles(t), [t]);
@@ -36,27 +36,27 @@ export default function Report() {
           >
             <Text style={styles.back}>‹</Text>
           </Pressable>
-          <Text style={styles.title}>{device.players.length > 1 ? `${player.name}'s progress` : 'Progress'}</Text>
+          <Text style={styles.title}>{device.players.length > 1 ? `Voortgang van ${player.name}` : 'Voortgang'}</Text>
           <View style={styles.backSpacer} />
         </View>
 
         <ScrollView contentContainerStyle={styles.scroll} showsVerticalScrollIndicator={false}>
-          <Text style={styles.heading}>This week</Text>
+          <Text style={styles.heading}>Deze week</Text>
           <View style={styles.tiles}>
-            <Tile value={`${week.daysPlayed}/7`} label="days played" />
-            <Tile value={String(week.n)} label="questions" />
-            <Tile value={week.n ? `${Math.round((week.right / week.n) * 100)}%` : '–'} label="right" />
-            <Tile value={minutes < 1 && week.n ? '<1' : String(minutes)} label={minutes === 1 ? 'minute' : 'minutes'} />
+            <Tile value={`${week.daysPlayed}/7`} label="dagen gespeeld" />
+            <Tile value={String(week.n)} label="vragen" />
+            <Tile value={week.n ? `${Math.round((week.right / week.n) * 100)}%` : '–'} label="goed" />
+            <Tile value={minutes < 1 && week.n ? '<1' : String(minutes)} label={minutes === 1 ? 'minuut' : 'minuten'} />
           </View>
           <View style={styles.card}>
-            <Text style={styles.cardLabel}>Best level</Text>
+            <Text style={styles.cardLabel}>Beste niveau</Text>
             <Text style={styles.cardValue}>
-              {progress.bestLevel > 0 ? `${progress.bestLevel} · ${levelInfo(progress.bestLevel).name}` : 'Not played yet'}
+              {progress.bestLevel > 0 ? `${progress.bestLevel} · ${levelInfo(progress.bestLevel).name}` : 'Nog niet gespeeld'}
             </Text>
             {progress.bestLevel > 0 && <Text style={styles.cardNote}>{levelInfo(progress.bestLevel).example}</Text>}
           </View>
 
-          {device.plus ? <Details stats={stats} /> : <PlusTeaser />}
+          <Details stats={stats} />
         </ScrollView>
       </View>
     </Screen>
@@ -74,26 +74,9 @@ function Tile({ value, label }: { value: string; label: string }) {
   );
 }
 
-function PlusTeaser() {
-  const t = useTheme();
-  const styles = useMemo(() => makeStyles(t), [t]);
-  return (
-    <View style={[styles.card, styles.teaser]}>
-      <Text style={styles.teaserTitle}>🔒 The full report comes with Plus</Text>
-      <Text style={styles.teaserBody}>
-        {'• Which facts are known by heart, and which are still tricky\n• A times-table and number-bond map\n• How each skill is going, and daily activity\n• One tap to practise the tricky facts'}
-      </Text>
-      <Text style={styles.teaserNote}>Answers are recorded from today, so the report is ready whenever you are.</Text>
-      <ChunkyButton label="See Math Run Plus" fontSize={20} height={54} onPress={() => router.push('/plus')} />
-    </View>
-  );
-}
-
 function Details({ stats }: { stats: Stats }) {
   const t = useTheme();
   const styles = useMemo(() => makeStyles(t), [t]);
-  const progress = useProgress();
-  const [practising, setPractising] = useState(false);
   const tricky = trickyFacts(stats, 8);
   const seenTables = Object.keys(stats.facts).some((f) => f.includes('×'));
   const seenBonds = Object.keys(stats.facts).some((f) => f.includes('+'));
@@ -115,17 +98,17 @@ function Details({ stats }: { stats: Stats }) {
     return { title: g.title, n, right, speed: n ? speed / n : 0 };
   }).filter((s) => s.n > 0);
 
+  // Starts a run with just these facts right away.
   const practiseTricky = () => {
     feedback.button();
-    updateProgress({ focus: { kind: 'tricky' } });
-    setPractising(true);
+    router.push({ pathname: '/play', params: { mode: 'tricky' } });
   };
 
   return (
     <>
-      <Text style={styles.heading}>Tricky right now</Text>
+      <Text style={styles.heading}>Nu lastig</Text>
       {tricky.length === 0 ? (
-        <Text style={styles.note}>Nothing tricky yet. Facts show up here once they have been answered wrongly or slowly.</Text>
+        <Text style={styles.note}>Nog niets lastigs. Sommen verschijnen hier zodra ze fout of traag beantwoord zijn.</Text>
       ) : (
         <View style={styles.card}>
           <View style={styles.factChips}>
@@ -135,17 +118,15 @@ function Details({ stats }: { stats: Stats }) {
               </View>
             ))}
           </View>
-          {progress.focus?.kind === 'tricky' || practising ? (
-            <Text style={styles.cardNote}>✓ The next runs practise these facts. Switch back under Practice in settings.</Text>
-          ) : tricky.length >= MIN_TRICKY ? (
-            <ChunkyButton label="🎯 Practise these" fontSize={20} height={52} onPress={practiseTricky} style={styles.cardButton} />
+          {tricky.length >= MIN_TRICKY ? (
+            <ChunkyButton label="🎯 Oefen deze sommen" fontSize={20} height={52} onPress={practiseTricky} style={styles.cardButton} />
           ) : (
-            <Text style={styles.cardNote}>Practice runs start once there are {MIN_TRICKY} tricky facts.</Text>
+            <Text style={styles.cardNote}>Oefenen kan vanaf {MIN_TRICKY} lastige sommen.</Text>
           )}
         </View>
       )}
 
-      <Text style={styles.heading}>Last 14 days</Text>
+      <Text style={styles.heading}>Laatste 14 dagen</Text>
       <View style={[styles.card, styles.chart]}>
         {days.map((d, i) => (
           <View key={i} style={styles.barCol}>
@@ -156,29 +137,29 @@ function Details({ stats }: { stats: Stats }) {
           </View>
         ))}
       </View>
-      <Text style={styles.note}>Questions answered per day.</Text>
+      <Text style={styles.note}>Beantwoorde vragen per dag.</Text>
 
       {skills.length > 0 && (
         <>
-          <Text style={styles.heading}>Skills</Text>
+          <Text style={styles.heading}>Vaardigheden</Text>
           {skills.map((s) => (
             <View key={s.title} style={[styles.card, styles.skill]}>
               <View style={styles.skillText}>
                 <Text style={styles.skillTitle}>{s.title}</Text>
                 <Text style={styles.cardNote}>
-                  {s.n} questions · {Math.round((s.right / s.n) * 100)}% right
+                  {s.n} vragen · {Math.round((s.right / s.n) * 100)}% goed
                 </Text>
               </View>
               <Text style={[styles.speed, { color: s.speed <= 0.6 ? t.correct : s.speed <= 1 ? t.text : t.textSoft }]}>
-                {s.speed <= 0.6 ? 'Quick' : s.speed <= 1 ? 'Steady' : 'Taking time'}
+                {s.speed <= 0.6 ? 'Snel' : s.speed <= 1 ? 'Rustig' : 'Kost tijd'}
               </Text>
             </View>
           ))}
         </>
       )}
 
-      {seenTables && <FactGrid title="Times tables" rows={[2, 3, 4, 5, 6, 7, 8, 9, 10]} cols={10} op="×" stats={stats} />}
-      {seenBonds && <FactGrid title="Adding within 20" rows={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]} cols={10} op="+" stats={stats} />}
+      {seenTables && <FactGrid title="Tafels" rows={[2, 3, 4, 5, 6, 7, 8, 9, 10]} cols={10} op="×" stats={stats} />}
+      {seenBonds && <FactGrid title="Optellen tot 20" rows={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]} cols={10} op="+" stats={stats} />}
       {(seenTables || seenBonds) && (
         <View style={styles.legend}>
           {(['known', 'shaky', 'learning', 'new'] as FactStatus[]).map((s) => (
@@ -194,10 +175,10 @@ function Details({ stats }: { stats: Stats }) {
 }
 
 const STATUS_LABEL: Record<FactStatus, string> = {
-  known: 'Knows by heart',
-  shaky: 'Getting there',
-  learning: 'Still learning',
-  new: 'Not asked yet',
+  known: 'Kent het uit het hoofd',
+  shaky: 'Bijna',
+  learning: 'Nog aan het leren',
+  new: 'Nog niet gevraagd',
 };
 
 function statusColor(t: Theme, status: FactStatus) {
@@ -340,27 +321,6 @@ const makeStyles = (t: Theme) =>
     },
     cardButton: {
       marginTop: 12,
-    },
-    teaser: {
-      marginTop: 16,
-      gap: 8,
-    },
-    teaserTitle: {
-      fontFamily: t.font.bold,
-      fontSize: 18,
-      color: t.text,
-    },
-    teaserBody: {
-      fontFamily: t.font.regular,
-      fontSize: 15,
-      lineHeight: 23,
-      color: t.text,
-    },
-    teaserNote: {
-      fontFamily: t.font.regular,
-      fontSize: 13,
-      color: t.textSoft,
-      marginBottom: 6,
     },
     factChips: {
       flexDirection: 'row',

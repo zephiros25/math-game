@@ -1,9 +1,8 @@
 {
   "name": "Splash",
-  "tagline": "Makes a big splash",
+  "tagline": "Maakt een grote plons",
   "order": 310,
   "price": 3,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

@@ -4,31 +4,29 @@ import { Pressable, ScrollView, StyleSheet, Switch, Text, TextInput, View } from
 
 import { Screen } from '@/components/screen';
 import { checkSound, feedback, type DefaultSetSlot } from '@/feedback';
-import { FOCUS_TABLES, MIN_TRICKY, tablesLabel } from '@/game/focus';
+import { FOCUS_TABLES, practiceLabel } from '@/game/focus';
 import { LEVEL_GROUPS, levelInfo } from '@/game/levels';
 import {
   activePlayer,
   addPlayer,
-  maxPlayers,
+  MAX_PLAYERS,
   removePlayer,
   renamePlayer,
   switchPlayer,
   updateProgress,
   useDevice,
   useProgress,
-  type Focus,
+  type Practice,
 } from '@/progress';
-import { trickyFacts, useStats } from '@/stats';
 import { useTheme, type Theme } from '@/theme';
 
-// The grown-ups' area, behind the parental gate on the home screen: Math Run
-// Plus, the progress report, players, and each player's settings.
+// The grown-ups' area, behind the parental gate on the home screen: the
+// progress report, players, and each player's settings.
 export default function Settings() {
   const t = useTheme();
   const styles = useMemo(() => makeStyles(t), [t]);
   const device = useDevice();
-  const { maxLevel, showPet, focus } = useProgress();
-  const stats = useStats();
+  const { maxLevel, showPet, practice } = useProgress();
   const scroll = useRef<ScrollView>(null);
   const scrolled = useRef(false);
   const [editing, setEditing] = useState<string | null>(null);
@@ -54,22 +52,22 @@ export default function Settings() {
     updateProgress({ maxLevel: level });
   };
 
-  const setFocus = (next: Focus) => {
+  const setPractice = (next: Practice) => {
     feedback.key();
-    if (!device.plus) return router.push('/plus');
-    updateProgress({ focus: next });
+    updateProgress({ practice: next });
   };
 
+  // At least one table always stays selected, so "Tafels oefenen" always works.
   const toggleTable = (table: number) => {
-    const tables = focus?.kind === 'tables' ? focus.tables : [];
-    const next = tables.includes(table) ? tables.filter((x) => x !== table) : [...tables, table];
-    setFocus({ kind: 'tables', tables: next, division: focus?.kind === 'tables' && focus.division });
+    const on = practice.tables.includes(table);
+    if (on && practice.tables.length === 1) return feedback.wrong();
+    setPractice({ ...practice, tables: on ? practice.tables.filter((x) => x !== table) : [...practice.tables, table] });
   };
 
   const newPlayer = async () => {
     feedback.button();
-    if (device.players.length >= maxPlayers(device)) return router.push('/plus');
-    const name = `Player ${device.players.length + 1}`;
+    if (device.players.length >= MAX_PLAYERS) return;
+    const name = `Speler ${device.players.length + 1}`;
     const id = await addPlayer(name);
     startRename(id, name);
   };
@@ -126,21 +124,6 @@ export default function Settings() {
     </Pressable>
   );
 
-  const trickyCount = trickyFacts(stats).length;
-  const focusRow = (selected: boolean, title: string, body: string, next: Focus) => (
-    <Pressable onPress={() => setFocus(next)} style={[styles.row, selected && styles.rowSelected]}>
-      <View style={styles.rowText}>
-        <Text style={styles.rowTitle}>
-          {!device.plus && next !== null ? '🔒 ' : ''}
-          {title}
-        </Text>
-        <Text style={styles.rowExample}>{body}</Text>
-      </View>
-      {selected && <Text style={styles.check}>✓</Text>}
-    </Pressable>
-  );
-  const plusFocus = device.plus ? focus : null;
-
   return (
     <Screen>
       <View style={styles.column}>
@@ -154,20 +137,14 @@ export default function Settings() {
           >
             <Text style={styles.back}>‹</Text>
           </Pressable>
-          <Text style={styles.title}>Grown-ups</Text>
+          <Text style={styles.title}>Voor ouders</Text>
           <View style={styles.backSpacer} />
         </View>
 
         <ScrollView ref={scroll} contentContainerStyle={styles.scroll} showsVerticalScrollIndicator={false} keyboardShouldPersistTaps="handled">
-          {link(
-            '✨',
-            device.plus ? 'Math Run Plus ✓' : 'Math Run Plus',
-            device.plus ? 'Unlocked. Thank you!' : 'Full report, focus practice, more players, every premium theme & pet',
-            () => router.push('/plus'),
-          )}
-          {link('📊', several ? `${player.name}'s progress` : 'Progress report', 'Practice this week, tricky facts and skills', () => router.push('/report'))}
+          {link('📊', several ? `Voortgang van ${player.name}` : 'Voortgang', 'Oefenen deze week, lastige sommen en vaardigheden', () => router.push('/report'))}
 
-          <Text style={[styles.heading, styles.headingSpaced]}>Players</Text>
+          <Text style={[styles.heading, styles.headingSpaced]}>Spelers</Text>
           {device.players.map((p) => {
             const active = p.id === device.active;
             return (
@@ -195,10 +172,10 @@ export default function Settings() {
                   ) : (
                     <Text style={styles.rowTitle}>{p.name}</Text>
                   )}
-                  {active && several && <Text style={styles.rowExample}>Playing now · the settings below are for {p.name}</Text>}
+                  {active && several && <Text style={styles.rowExample}>Speelt nu · de instellingen hieronder zijn voor {p.name}</Text>}
                 </View>
                 <Pressable hitSlop={8} onPress={() => startRename(p.id, p.name)}>
-                  <Text style={styles.smallAction}>Rename</Text>
+                  <Text style={styles.smallAction}>Naam wijzigen</Text>
                 </Pressable>
                 {several && (
                   <Pressable
@@ -210,69 +187,53 @@ export default function Settings() {
                     }}
                   >
                     <Text style={[styles.smallAction, confirmRemove === p.id && { color: t.wrong }]}>
-                      {confirmRemove === p.id ? 'Tap to remove' : 'Remove'}
+                      {confirmRemove === p.id ? 'Tik om te wissen' : 'Wissen'}
                     </Text>
                   </Pressable>
                 )}
               </Pressable>
             );
           })}
-          <Pressable onPress={newPlayer} style={[styles.row, styles.addRow]}>
-            <Text style={styles.rowTitle}>
-              {device.players.length >= maxPlayers(device) && !device.plus ? '🔒 ' : '+ '}Add a player
-            </Text>
-            {!device.plus && <Text style={styles.rowExample}>With Plus: each child gets their own progress</Text>}
-          </Pressable>
-
-          <Text style={[styles.heading, styles.headingSpaced]}>Practice</Text>
-          <Text style={styles.intro}>What runs practise{several ? ` for ${player.name}` : ''}.</Text>
-          {focusRow(plusFocus === null, 'Adapt automatically', 'The game finds the right level (recommended)', null)}
-          {focusRow(
-            plusFocus?.kind === 'tricky',
-            'Tricky facts',
-            trickyCount >= MIN_TRICKY
-              ? `${trickyCount} facts from the progress report`
-              : 'Needs a few runs first: plays normally until some facts turn out tricky',
-            { kind: 'tricky' },
-          )}
-          {focusRow(
-            plusFocus?.kind === 'tables',
-            'Times tables',
-            plusFocus?.kind === 'tables' && plusFocus.tables.length ? tablesLabel(plusFocus.tables) + (plusFocus.division ? ' with ÷' : '') : 'Pick the tables to practise',
-            { kind: 'tables', tables: plusFocus?.kind === 'tables' ? plusFocus.tables : [], division: plusFocus?.kind === 'tables' && plusFocus.division },
-          )}
-          {plusFocus?.kind === 'tables' && (
-            <View style={styles.tableChips}>
-              {FOCUS_TABLES.map((table) => {
-                const on = plusFocus.tables.includes(table);
-                return (
-                  <Pressable key={table} onPress={() => toggleTable(table)} style={[styles.tableChip, on && styles.tableChipOn]}>
-                    <Text style={[styles.tableChipText, on && styles.tableChipTextOn]}>{table}×</Text>
-                  </Pressable>
-                );
-              })}
-            </View>
-          )}
-          {plusFocus?.kind === 'tables' && (
-            <View style={[styles.row, styles.switchRow]}>
-              <View style={styles.rowText}>
-                <Text style={styles.rowTitle}>Include division</Text>
-                <Text style={styles.rowExample}>Off: only 7 × 8 and 8 × 7. On: also 56 ÷ 8.</Text>
-              </View>
-              <Switch
-                value={Boolean(plusFocus.division)}
-                onValueChange={(on) => setFocus({ ...plusFocus, division: on })}
-                trackColor={{ true: t.primary, false: t.track }}
-                thumbColor={t.card}
-              />
-            </View>
+          {device.players.length < MAX_PLAYERS && (
+            <Pressable onPress={newPlayer} style={[styles.row, styles.addRow]}>
+              <Text style={styles.rowTitle}>+ Speler toevoegen</Text>
+              <Text style={styles.rowExample}>Elk kind krijgt eigen munten, huisdieren, thema’s en voortgang</Text>
+            </Pressable>
           )}
 
-          <Text style={[styles.heading, styles.headingSpaced]}>Pet companion</Text>
+          <Text style={[styles.heading, styles.headingSpaced]}>Tafels oefenen</Text>
+          <Text style={styles.intro}>
+            Welke tafels de knop “Tafels oefenen” op het startscherm oefent{several ? ` voor ${player.name}` : ''}. Nu:{' '}
+            {practiceLabel(practice)}.
+          </Text>
+          <View style={styles.tableChips}>
+            {FOCUS_TABLES.map((table) => {
+              const on = practice.tables.includes(table);
+              return (
+                <Pressable key={table} onPress={() => toggleTable(table)} style={[styles.tableChip, on && styles.tableChipOn]}>
+                  <Text style={[styles.tableChipText, on && styles.tableChipTextOn]}>{table}×</Text>
+                </Pressable>
+              );
+            })}
+          </View>
           <View style={[styles.row, styles.switchRow]}>
             <View style={styles.rowText}>
-              <Text style={styles.rowTitle}>Show a pet</Text>
-              <Text style={styles.rowExample}>A little friend who cheers during play. Turn off if it distracts.</Text>
+              <Text style={styles.rowTitle}>Ook delen</Text>
+              <Text style={styles.rowExample}>Uit: alleen 7 × 8 en 8 × 7. Aan: ook 56 ÷ 8.</Text>
+            </View>
+            <Switch
+              value={practice.division}
+              onValueChange={(on) => setPractice({ ...practice, division: on })}
+              trackColor={{ true: t.primary, false: t.track }}
+              thumbColor={t.card}
+            />
+          </View>
+
+          <Text style={[styles.heading, styles.headingSpaced]}>Huisdier</Text>
+          <View style={[styles.row, styles.switchRow]}>
+            <View style={styles.rowText}>
+              <Text style={styles.rowTitle}>Huisdier tonen</Text>
+              <Text style={styles.rowExample}>Een vriendje dat je aanmoedigt. Zet het uit als het afleidt.</Text>
             </View>
             <Switch
               value={showPet}
@@ -285,11 +246,11 @@ export default function Settings() {
             />
           </View>
 
-          <Text style={[styles.heading, styles.headingSpaced]}>Sound check</Text>
+          <Text style={[styles.heading, styles.headingSpaced]}>Geluidstest</Text>
           <Pressable onPress={runSoundCheck} style={styles.row}>
             <View style={styles.rowText}>
-              <Text style={styles.rowTitle}>Play every sound</Text>
-              <Text style={styles.rowExample}>If sounds stay silent, this shows what the phone reports for each one.</Text>
+              <Text style={styles.rowTitle}>Alle geluiden afspelen</Text>
+              <Text style={styles.rowExample}>Blijft het stil? Dan laat dit per geluid zien wat de telefoon meldt.</Text>
             </View>
           </Pressable>
           {soundReport?.map((line, i) => (
@@ -298,13 +259,13 @@ export default function Settings() {
             </Text>
           ))}
 
-          <Text style={[styles.heading, styles.headingSpaced]}>Highest level</Text>
+          <Text style={[styles.heading, styles.headingSpaced]}>Hoogste niveau</Text>
           <Text style={styles.intro}>
-            The game adapts to your child, but never goes above the level you pick here. Choose the last skill they have learned
-            at school; answering fast at that level keeps them there.
+            Het spel past zich aan je kind aan, maar gaat nooit hoger dan het niveau dat je hier kiest. Kies wat je kind op
+            school het laatst geleerd heeft; snel antwoorden op dat niveau houdt het daar.
           </Text>
 
-          {levelRow(null, 'No limit', 'Adapts all the way up to level 30')}
+          {levelRow(null, 'Geen grens', 'Past zich aan tot en met niveau 30')}
 
           {/* Rows sit directly in the scroll content so their layout y is scrollable. */}
           {LEVEL_GROUPS.map((group) => (

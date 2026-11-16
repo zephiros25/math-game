@@ -1,9 +1,8 @@
 {
   "name": "Loch",
-  "tagline": "Pops up to say well done",
+  "tagline": "Duikt op om te zeggen: goed gedaan",
   "order": 920,
   "price": 12,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

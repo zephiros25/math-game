@@ -1,9 +1,8 @@
 {
   "name": "Jade",
-  "tagline": "Brings good fortune",
+  "tagline": "Brengt geluk",
   "order": 940,
   "price": 12,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

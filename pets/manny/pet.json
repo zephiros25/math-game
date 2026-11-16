@@ -1,9 +1,8 @@
 {
   "name": "Manny",
-  "tagline": "The gentlest giant of the sea",
+  "tagline": "De zachtste reus van de zee",
   "order": 390,
   "price": 3,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

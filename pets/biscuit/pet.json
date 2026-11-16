@@ -1,9 +1,8 @@
 {
   "name": "Biscuit",
-  "tagline": "Wiggles its tail at every right answer",
+  "tagline": "Kwispelt bij elk goed antwoord",
   "order": 190,
   "price": 3,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

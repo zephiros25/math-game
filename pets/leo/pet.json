@@ -1,9 +1,8 @@
 {
   "name": "Leo",
-  "tagline": "Roars at every right answer",
+  "tagline": "Brult bij elk goed antwoord",
   "order": 430,
   "price": 5,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

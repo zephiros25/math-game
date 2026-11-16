@@ -1,9 +1,8 @@
 {
   "name": "Chirpy",
-  "tagline": "Sings when you score",
+  "tagline": "Zingt als je scoort",
   "order": 650,
   "price": 3,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

@@ -1,9 +1,8 @@
 {
   "name": "Mango",
-  "tagline": "Brightest beak in the jungle",
+  "tagline": "De mooiste snavel van de jungle",
   "order": 420,
   "price": 5,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

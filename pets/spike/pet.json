@@ -1,9 +1,8 @@
 {
   "name": "Spike",
-  "tagline": "Plates full of numbers",
+  "tagline": "Platen vol getallen",
   "order": 800,
   "price": 8,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

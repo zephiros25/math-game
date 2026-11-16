@@ -1,9 +1,8 @@
 {
   "name": "Acorn",
-  "tagline": "Saves up answers like nuts",
+  "tagline": "Spaart antwoorden zoals nootjes",
   "order": 100,
   "price": 3,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

@@ -1,9 +1,8 @@
 {
-  "name": "Golden",
-  "tagline": "Black velvet and gold leaf",
+  "name": "Goud",
+  "tagline": "Zwart fluweel en bladgoud",
   "order": 70,
-  "price": 0,
-  "premium": true,
+  "price": 1500,
   "dark": true,
   "colors": {
     "background": "#16130F",

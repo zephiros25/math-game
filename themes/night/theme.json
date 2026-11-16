@@ -1,9 +1,8 @@
 {
-  "name": "Night Sky",
-  "tagline": "Count the stars",
+  "name": "Sterrenhemel",
+  "tagline": "Tel de sterren",
   "order": 50,
   "price": 1200,
-  "premium": false,
   "dark": true,
   "colors": {
     "background": "#1B1740",

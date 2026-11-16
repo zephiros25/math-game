@@ -1,9 +1,8 @@
 {
   "name": "Kitsu",
-  "tagline": "Three tails, three times as clever",
+  "tagline": "Drie staarten, drie keer zo slim",
   "order": 930,
   "price": 12,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

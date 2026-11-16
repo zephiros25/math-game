@@ -71,7 +71,7 @@ DEFAULT SOUNDS
 
 === EXISTING THEMES ===
 
-OCEAN
+OCEAAN
    Keys feel like: a soft water bubble · Instrument: a soft vibraphone
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -103,7 +103,7 @@ OCEAN
 
 ----------------------------------------------------------------
 
-MEADOW
+WEIDE
    Keys feel like: a soft wooden block in the grass · Instrument: a gentle kalimba
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -135,7 +135,7 @@ MEADOW
 
 ----------------------------------------------------------------
 
-CANDY
+SNOEP
    Keys feel like: a hard sugar candy · Instrument: a toy piano
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -167,7 +167,7 @@ CANDY
 
 ----------------------------------------------------------------
 
-NIGHT SKY
+STERRENHEMEL
    Keys feel like: soft velvet · Instrument: a dreamy celesta
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -199,7 +199,7 @@ NIGHT SKY
 
 ----------------------------------------------------------------
 
-AURORA
+NOORDERLICHT
    Keys feel like: a small piece of icy glass · Instrument: a shimmering glass harmonica
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -231,7 +231,7 @@ AURORA
 
 ----------------------------------------------------------------
 
-GOLDEN
+GOUD
    Keys feel like: a gold coin on velvet · Instrument: a warm deep bell
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -263,7 +263,7 @@ GOLDEN
 
 ----------------------------------------------------------------
 
-BLOSSOM
+BLOESEM
    Keys feel like: a soft flower petal · Instrument: a koto
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -295,7 +295,7 @@ BLOSSOM
 
 ----------------------------------------------------------------
 
-DIAMOND
+DIAMANT
    Keys feel like: a cut crystal · Instrument: a crystal glass bell
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -329,7 +329,7 @@ DIAMOND
 
 === NATURE ===
 
-FOREST GLADE
+ZONNIG BOS
    Keys feel like: a soft wooden block · Instrument: a warm wooden marimba
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -361,7 +361,7 @@ FOREST GLADE
 
 ----------------------------------------------------------------
 
-MUSHROOM VILLAGE
+PADDENSTOELDORP
    Keys feel like: a soft squishy mushroom cap · Instrument: a gentle kalimba
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -393,7 +393,7 @@ MUSHROOM VILLAGE
 
 ----------------------------------------------------------------
 
-SUNFLOWER FIELD
+ZONNEBLOEMVELD
    Keys feel like: a soft straw basket · Instrument: a bright ukulele
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -425,7 +425,7 @@ SUNFLOWER FIELD
 
 ----------------------------------------------------------------
 
-BAMBOO GROVE
+BAMBOEBOS
    Keys feel like: a hollow bamboo stick · Instrument: soft bamboo wind chimes
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -457,7 +457,7 @@ BAMBOO GROVE
 
 ----------------------------------------------------------------
 
-RAINFOREST
+REGENWOUD
    Keys feel like: a big leaf with a water drop · Instrument: a wooden tongue drum
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -489,7 +489,7 @@ RAINFOREST
 
 ----------------------------------------------------------------
 
-LAVENDER FIELDS
+LAVENDELVELDEN
    Keys feel like: soft linen fabric · Instrument: a gentle harp
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -521,7 +521,7 @@ LAVENDER FIELDS
 
 ----------------------------------------------------------------
 
-BUTTERFLY GARDEN
+VLINDERTUIN
    Keys feel like: a soft flower petal · Instrument: a music box
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -553,7 +553,7 @@ BUTTERFLY GARDEN
 
 ----------------------------------------------------------------
 
-CACTUS DESERT
+CACTUSWOESTIJN
    Keys feel like: a terracotta clay pot · Instrument: a soft handpan
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -585,7 +585,7 @@ CACTUS DESERT
 
 ----------------------------------------------------------------
 
-LILY POND
+LELIEVIJVER
    Keys feel like: a water droplet on a lily pad · Instrument: a soft water-glass bell
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -617,7 +617,7 @@ LILY POND
 
 ----------------------------------------------------------------
 
-MOUNTAIN LAKE
+BERGMEER
    Keys feel like: a smooth river pebble · Instrument: a clear glockenspiel
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -649,7 +649,7 @@ MOUNTAIN LAKE
 
 ----------------------------------------------------------------
 
-FIREFLY NIGHT
+VUURVLIEGJESNACHT
    Keys feel like: soft wood · Instrument: a dreamy celesta
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -681,7 +681,7 @@ FIREFLY NIGHT
 
 ----------------------------------------------------------------
 
-TULIP GARDEN
+TULPENTUIN
    Keys feel like: a painted ceramic tile · Instrument: a music box
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -713,7 +713,7 @@ TULIP GARDEN
 
 ----------------------------------------------------------------
 
-ENCHANTED MOSS
+BETOVERD MOS
    Keys feel like: soft moss · Instrument: an airy kalimba with a magical shimmer
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -745,7 +745,7 @@ ENCHANTED MOSS
 
 ----------------------------------------------------------------
 
-SAVANNA SUNSET
+SAVANNEZON
    Keys feel like: warm sandstone · Instrument: a warm balafon (wooden xylophone)
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -777,7 +777,7 @@ SAVANNA SUNSET
 
 ----------------------------------------------------------------
 
-RAINBOW HILLS
+REGENBOOGLANDEN
    Keys feel like: a soft rubber toy · Instrument: a bright toy xylophone
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -811,7 +811,7 @@ RAINBOW HILLS
 
 === OCEAN & WATER ===
 
-CORAL REEF
+KORAALRIF
    Keys feel like: a small underwater bubble · Instrument: a bubbly vibraphone
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -843,7 +843,7 @@ CORAL REEF
 
 ----------------------------------------------------------------
 
-DEEP SEA
+DIEPZEE
    Keys feel like: a deep, soft underwater bubble · Instrument: a dreamy glass harmonica
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -875,7 +875,7 @@ DEEP SEA
 
 ----------------------------------------------------------------
 
-TROPICAL BEACH
+TROPISCH STRAND
    Keys feel like: a coconut shell · Instrument: a steel drum
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -907,7 +907,7 @@ TROPICAL BEACH
 
 ----------------------------------------------------------------
 
-TIDE POOLS
+GETIJDENPOELEN
    Keys feel like: frosted sea glass · Instrument: glass wind chimes
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -939,7 +939,7 @@ TIDE POOLS
 
 ----------------------------------------------------------------
 
-LIGHTHOUSE BAY
+VUURTORENBAAI
    Keys feel like: weathered wood · Instrument: a small soft ship bell
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -971,7 +971,7 @@ LIGHTHOUSE BAY
 
 ----------------------------------------------------------------
 
-PIRATE COVE
+PIRATENBAAI
    Keys feel like: an old wooden barrel · Instrument: a jolly glockenspiel
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -1003,7 +1003,7 @@ PIRATE COVE
 
 ----------------------------------------------------------------
 
-MERMAID LAGOON
+PARELLAGUNE
    Keys feel like: a pearly seashell · Instrument: a shimmering harp
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -1035,7 +1035,7 @@ MERMAID LAGOON
 
 ----------------------------------------------------------------
 
-WATERFALL OASIS
+WATERVALOASE
    Keys feel like: a wet smooth pebble · Instrument: a watery marimba
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -1067,7 +1067,7 @@ WATERFALL OASIS
 
 ----------------------------------------------------------------
 
-SUBMARINE
+DUIKBOOT
    Keys feel like: a small brass button · Instrument: a soft sonar-like bell ping
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -1099,7 +1099,7 @@ SUBMARINE
 
 ----------------------------------------------------------------
 
-SEASHELL SHORE
+SCHELPENSTRAND
    Keys feel like: a polished seashell · Instrument: soft wind chimes
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -1133,7 +1133,7 @@ SEASHELL SHORE
 
 === SKY & SPACE ===
 
-COTTON CLOUDS
+SUIKERSPINWOLKEN
    Keys feel like: a soft pillow · Instrument: an airy soft synth bell
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -1165,7 +1165,7 @@ COTTON CLOUDS
 
 ----------------------------------------------------------------
 
-HOT AIR BALLOONS
+LUCHTBALLONNEN
    Keys feel like: a soft balloon · Instrument: a cheerful ukulele
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -1197,7 +1197,7 @@ HOT AIR BALLOONS
 
 ----------------------------------------------------------------
 
-ROCKET LAUNCH
+RAKETLANCERING
    Keys feel like: a soft plastic space button · Instrument: a round, soft retro synth
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -1229,7 +1229,7 @@ ROCKET LAUNCH
 
 ----------------------------------------------------------------
 
-PLANETS
+PLANETEN
    Keys feel like: a soft rubber ball · Instrument: a spacey vibraphone
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -1261,7 +1261,7 @@ PLANETS
 
 ----------------------------------------------------------------
 
-NEBULA
+NEVEL
    Keys feel like: a soft glassy bubble · Instrument: a shimmering synth bell
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -1293,7 +1293,7 @@ NEBULA
 
 ----------------------------------------------------------------
 
-MOONLIT NIGHT
+MAANNACHT
    Keys feel like: soft velvet · Instrument: a lullaby celesta
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -1325,7 +1325,7 @@ MOONLIT NIGHT
 
 ----------------------------------------------------------------
 
-SUNRISE
+ZONSOPGANG
    Keys feel like: warm glass · Instrument: a gentle marimba
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -1357,7 +1357,7 @@ SUNRISE
 
 ----------------------------------------------------------------
 
-OBSERVATORY
+STERRENWACHT
    Keys feel like: a brass dial · Instrument: a bright glockenspiel
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -1389,7 +1389,7 @@ OBSERVATORY
 
 ----------------------------------------------------------------
 
-COMET TRAIL
+KOMEET
    Keys feel like: an icy crystal · Instrument: a sparkly synth bell
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -1421,7 +1421,7 @@ COMET TRAIL
 
 ----------------------------------------------------------------
 
-SPACE STATION
+RUIMTESTATION
    Keys feel like: a soft spaceship panel button · Instrument: a friendly soft synth
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -1453,7 +1453,7 @@ SPACE STATION
 
 ----------------------------------------------------------------
 
-KITE DAY
+VLIEGERDAG
    Keys feel like: light kite fabric · Instrument: a bright toy xylophone
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -1485,7 +1485,7 @@ KITE DAY
 
 ----------------------------------------------------------------
 
-PAPER PLANES
+PAPIEREN VLIEGTUIGJES
    Keys feel like: folded paper · Instrument: soft pizzicato strings
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -1519,7 +1519,7 @@ PAPER PLANES
 
 === SEASONS & WEATHER ===
 
-AUTUMN LEAVES
+HERFSTBLADEREN
    Keys feel like: a dry autumn leaf · Instrument: a warm acoustic guitar
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -1551,7 +1551,7 @@ AUTUMN LEAVES
 
 ----------------------------------------------------------------
 
-WINTER WONDERLAND
+WINTERWONDERLAND
    Keys feel like: soft fresh snow · Instrument: a celesta with tiny sleigh bells
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -1583,7 +1583,7 @@ WINTER WONDERLAND
 
 ----------------------------------------------------------------
 
-SPRING SHOWERS
+LENTEREGEN
    Keys feel like: a raindrop · Instrument: a soft kalimba
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -1615,7 +1615,7 @@ SPRING SHOWERS
 
 ----------------------------------------------------------------
 
-SUMMER PICNIC
+ZOMERPICKNICK
    Keys feel like: a light wicker basket · Instrument: a ukulele
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -1647,7 +1647,7 @@ SUMMER PICNIC
 
 ----------------------------------------------------------------
 
-THUNDERSTORM
+ONWEER
    Keys feel like: a soft raindrop on a window · Instrument: a deep warm vibraphone
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -1679,7 +1679,7 @@ THUNDERSTORM
 
 ----------------------------------------------------------------
 
-SNOWY CABIN
+SNEEUWHUT
    Keys feel like: a wooden log · Instrument: a warm music box
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -1711,7 +1711,7 @@ SNOWY CABIN
 
 ----------------------------------------------------------------
 
-PUMPKIN PATCH
+POMPOENVELD
    Keys feel like: a hollow pumpkin · Instrument: a wooden marimba
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -1743,7 +1743,7 @@ PUMPKIN PATCH
 
 ----------------------------------------------------------------
 
-FOGGY MORNING
+MISTIGE OCHTEND
    Keys feel like: a soft pebble · Instrument: a muted soft piano
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -1775,7 +1775,7 @@ FOGGY MORNING
 
 ----------------------------------------------------------------
 
-WINDY DAY
+WINDERIGE DAG
    Keys feel like: a soft puff of air · Instrument: airy wind chimes
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -1807,7 +1807,7 @@ WINDY DAY
 
 ----------------------------------------------------------------
 
-FROZEN LAKE
+BEVROREN MEER
    Keys feel like: clear ice · Instrument: a crystal glass bell
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -1841,7 +1841,7 @@ FROZEN LAKE
 
 === SWEETS & TREATS ===
 
-ICE CREAM PARLOUR
+IJSSALON
    Keys feel like: a soft ice cream scoop · Instrument: a glockenspiel
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -1873,7 +1873,7 @@ ICE CREAM PARLOUR
 
 ----------------------------------------------------------------
 
-BAKERY
+BAKKERIJ
    Keys feel like: soft bread dough · Instrument: a warm toy piano
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -1905,7 +1905,7 @@ BAKERY
 
 ----------------------------------------------------------------
 
-CHOCOLATE FACTORY
+CHOCOLADEFABRIEK
    Keys feel like: a small chocolate square · Instrument: a bubbly marimba
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -1937,7 +1937,7 @@ CHOCOLATE FACTORY
 
 ----------------------------------------------------------------
 
-DONUT SHOP
+DONUTWINKEL
    Keys feel like: a soft squishy donut · Instrument: a bouncy toy xylophone
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -1969,7 +1969,7 @@ DONUT SHOP
 
 ----------------------------------------------------------------
 
-FRUIT MARKET
+FRUITMARKT
    Keys feel like: a crisp apple · Instrument: a bright marimba
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -2001,7 +2001,7 @@ FRUIT MARKET
 
 ----------------------------------------------------------------
 
-BUBBLE TEA
+BUBBELTHEE
    Keys feel like: a tapioca pearl popping · Instrument: a bubbly synth pluck
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -2033,7 +2033,7 @@ BUBBLE TEA
 
 ----------------------------------------------------------------
 
-GINGERBREAD HOUSE
+PEPERKOEKHUISJE
    Keys feel like: a gingerbread cookie · Instrument: a celesta with tiny sleigh bells
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -2065,7 +2065,7 @@ GINGERBREAD HOUSE
 
 ----------------------------------------------------------------
 
-PANCAKE BREAKFAST
+PANNENKOEKENONTBIJT
    Keys feel like: a soft pancake · Instrument: a cheerful toy piano
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -2097,7 +2097,7 @@ PANCAKE BREAKFAST
 
 ----------------------------------------------------------------
 
-LOLLIPOP LAND
+LOLLYLAND
    Keys feel like: a hard candy · Instrument: a music box
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -2129,7 +2129,7 @@ LOLLIPOP LAND
 
 ----------------------------------------------------------------
 
-PIZZA PARTY
+PIZZAFEEST
    Keys feel like: a soft cardboard box · Instrument: a cheerful mandolin
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -2163,7 +2163,7 @@ PIZZA PARTY
 
 === FANTASY & MAGIC ===
 
-DRAGON'S LAIR
+DRAKENHOL
    Keys feel like: a gold coin on stone · Instrument: a warm deep bell
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -2195,7 +2195,7 @@ DRAGON'S LAIR
 
 ----------------------------------------------------------------
 
-WIZARD TOWER
+TOVENAARSTOREN
    Keys feel like: an old book cover · Instrument: a magical celesta
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -2227,7 +2227,7 @@ WIZARD TOWER
 
 ----------------------------------------------------------------
 
-FAIRY GARDEN
+FEEËNTUIN
    Keys feel like: a tiny flower petal · Instrument: tiny fairy bells
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -2259,7 +2259,7 @@ FAIRY GARDEN
 
 ----------------------------------------------------------------
 
-UNICORN CLOUDS
+EENHOORNWOLKEN
    Keys feel like: a soft cloud puff · Instrument: a sparkly harp
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -2291,7 +2291,7 @@ UNICORN CLOUDS
 
 ----------------------------------------------------------------
 
-CASTLE KINGDOM
+KASTEELRIJK
    Keys feel like: carved stone · Instrument: a royal glockenspiel
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -2323,7 +2323,7 @@ CASTLE KINGDOM
 
 ----------------------------------------------------------------
 
-CRYSTAL CAVE
+KRISTALGROT
    Keys feel like: a crystal · Instrument: a glass harmonica
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -2355,7 +2355,7 @@ CRYSTAL CAVE
 
 ----------------------------------------------------------------
 
-ENCHANTED LIBRARY
+TOVERBIBLIOTHEEK
    Keys feel like: a leather book cover · Instrument: a soft harpsichord
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -2387,7 +2387,7 @@ ENCHANTED LIBRARY
 
 ----------------------------------------------------------------
 
-POTION LAB
+TOVERDRANKLAB
    Keys feel like: a small glass bottle · Instrument: a bubbly glass marimba
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -2419,7 +2419,7 @@ POTION LAB
 
 ----------------------------------------------------------------
 
-FLOATING ISLANDS
+ZWEVENDE EILANDEN
    Keys feel like: a mossy stone · Instrument: an airy harp
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -2451,7 +2451,7 @@ FLOATING ISLANDS
 
 ----------------------------------------------------------------
 
-MAGIC LAMP
+WONDERLAMP
    Keys feel like: a brass lamp · Instrument: a shimmering santoor (hammered dulcimer)
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -2483,7 +2483,7 @@ MAGIC LAMP
 
 ----------------------------------------------------------------
 
-PUMPKIN NIGHT
+POMPOENNACHT
    Keys feel like: a hollow pumpkin · Instrument: a spooky-cute celesta
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -2515,7 +2515,7 @@ PUMPKIN NIGHT
 
 ----------------------------------------------------------------
 
-TREASURE ISLAND
+SCHATEILAND
    Keys feel like: a gold coin · Instrument: a steel drum
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -2549,7 +2549,7 @@ TREASURE ISLAND
 
 === COSY & HOME ===
 
-COSY BEDROOM
+KNUSSE SLAAPKAMER
    Keys feel like: a soft plush toy · Instrument: a lullaby music box
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -2581,7 +2581,7 @@ COSY BEDROOM
 
 ----------------------------------------------------------------
 
-READING NOOK
+LEESHOEKJE
    Keys feel like: a book page · Instrument: a soft piano
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -2613,7 +2613,7 @@ READING NOOK
 
 ----------------------------------------------------------------
 
-TOY BOX
+SPEELGOEDKIST
    Keys feel like: a wooden toy block · Instrument: a toy xylophone
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -2645,7 +2645,7 @@ TOY BOX
 
 ----------------------------------------------------------------
 
-TEA PARTY
+THEEKRANSJE
    Keys feel like: a porcelain teacup · Instrument: a delicate porcelain bell
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -2677,7 +2677,7 @@ TEA PARTY
 
 ----------------------------------------------------------------
 
-RAINY WINDOW
+REGENRAAM
    Keys feel like: a raindrop on glass · Instrument: a soft electric piano
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -2709,7 +2709,7 @@ RAINY WINDOW
 
 ----------------------------------------------------------------
 
-KNITTING BASKET
+BREIMAND
    Keys feel like: soft wool yarn · Instrument: a gentle kalimba
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -2741,7 +2741,7 @@ KNITTING BASKET
 
 ----------------------------------------------------------------
 
-CAMPFIRE
+KAMPVUUR
    Keys feel like: a small dry twig · Instrument: an acoustic guitar
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -2773,7 +2773,7 @@ CAMPFIRE
 
 ----------------------------------------------------------------
 
-TREEHOUSE
+BOOMHUT
    Keys feel like: a wooden plank · Instrument: a wooden marimba
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -2807,7 +2807,7 @@ TREEHOUSE
 
 === PLACES & JOURNEYS ===
 
-CITY LIGHTS
+STADSLICHTEN
    Keys feel like: a soft keyboard key · Instrument: a smooth jazz vibraphone
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -2839,7 +2839,7 @@ CITY LIGHTS
 
 ----------------------------------------------------------------
 
-PARIS CAFÉ
+CAFÉ IN PARIJS
    Keys feel like: a small porcelain cup · Instrument: an accordion
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -2871,7 +2871,7 @@ PARIS CAFÉ
 
 ----------------------------------------------------------------
 
-JAPANESE GARDEN
+JAPANSE TUIN
    Keys feel like: a bamboo water fountain knock · Instrument: a koto
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -2903,7 +2903,7 @@ JAPANESE GARDEN
 
 ----------------------------------------------------------------
 
-PYRAMIDS
+PIRAMIDES
    Keys feel like: sandstone · Instrument: an oud
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -2935,7 +2935,7 @@ PYRAMIDS
 
 ----------------------------------------------------------------
 
-CARNIVAL
+KERMIS
    Keys feel like: a soft squeaky toy · Instrument: a carousel organ
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -2967,7 +2967,7 @@ CARNIVAL
 
 ----------------------------------------------------------------
 
-TRAIN JOURNEY
+TREINREIS
    Keys feel like: a ticket punch · Instrument: a friendly train bell
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -2999,7 +2999,7 @@ TRAIN JOURNEY
 
 ----------------------------------------------------------------
 
-FARM BARN
+BOERDERIJ
    Keys feel like: a wooden fence · Instrument: a banjo
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -3031,7 +3031,7 @@ FARM BARN
 
 ----------------------------------------------------------------
 
-SNOWY VILLAGE
+SNEEUWDORP
    Keys feel like: a painted wooden sign · Instrument: a music box with tiny sleigh bells
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -3065,7 +3065,7 @@ SNOWY VILLAGE
 
 === GEMS & CRAFTS ===
 
-RUBY PALACE
+ROBIJNPALEIS
    Keys feel like: a cut ruby · Instrument: a crystal glass bell
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -3097,7 +3097,7 @@ RUBY PALACE
 
 ----------------------------------------------------------------
 
-EMERALD CITY
+SMARAGDSTAD
    Keys feel like: a cut emerald · Instrument: shimmering glass chimes
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -3129,7 +3129,7 @@ EMERALD CITY
 
 ----------------------------------------------------------------
 
-SAPPHIRE VELVET
+SAFFIERFLUWEEL
    Keys feel like: a sapphire on velvet · Instrument: a deep glass bell
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -3161,7 +3161,7 @@ SAPPHIRE VELVET
 
 ----------------------------------------------------------------
 
-STAINED GLASS
+GLAS-IN-LOOD
    Keys feel like: coloured glass · Instrument: a soft tubular bell
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -3225,7 +3225,7 @@ ORIGAMI
 
 ----------------------------------------------------------------
 
-CRAYON DOODLES
+KRIJTKRABBELS
    Keys feel like: a crayon on paper · Instrument: a toy piano
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -3257,7 +3257,7 @@ CRAYON DOODLES
 
 ----------------------------------------------------------------
 
-POTTERY STUDIO
+POTTENBAKKERIJ
    Keys feel like: a clay pot · Instrument: a soft handpan
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -3291,7 +3291,7 @@ POTTERY STUDIO
 
 === SPORTS & PLAY ===
 
-FOOTBALL PITCH
+VOETBALVELD
    Keys feel like: a soft football · Instrument: a cheerful soft brass
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -3323,7 +3323,7 @@ FOOTBALL PITCH
 
 ----------------------------------------------------------------
 
-PLAYGROUND
+SPEELTUIN
    Keys feel like: a soft rubber ball · Instrument: a toy xylophone
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -3355,7 +3355,7 @@ PLAYGROUND
 
 ----------------------------------------------------------------
 
-SKATE PARK
+SKATEPARK
    Keys feel like: a skateboard wheel · Instrument: a funky synth pluck
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -3387,7 +3387,7 @@ SKATE PARK
 
 ----------------------------------------------------------------
 
-RACE TRACK
+RACEBAAN
    Keys feel like: a soft gear-shift click · Instrument: a bright synth
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -3419,7 +3419,7 @@ RACE TRACK
 
 ----------------------------------------------------------------
 
-SWIMMING POOL
+ZWEMBAD
    Keys feel like: a water drop · Instrument: a bubbly vibraphone
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -3451,7 +3451,7 @@ SWIMMING POOL
 
 ----------------------------------------------------------------
 
-CIRCUS TENT
+CIRCUSTENT
    Keys feel like: a soft squeaky clown nose · Instrument: a circus organ
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -3483,7 +3483,7 @@ CIRCUS TENT
 
 ----------------------------------------------------------------
 
-MUSIC STAGE
+MUZIEKPODIUM
    Keys feel like: a piano key · Instrument: a grand piano
 
    Number key tap (generate at the shortest length (0.5 s)):
@@ -3515,7 +3515,7 @@ MUSIC STAGE
 
 ----------------------------------------------------------------
 
-DINOSAUR VALLEY
+DINODAL
    Keys feel like: a small stone · Instrument: a wooden tongue drum
 
    Number key tap (generate at the shortest length (0.5 s)):

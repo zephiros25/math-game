@@ -1,9 +1,8 @@
 {
-  "name": "Sunny",
-  "tagline": "Warm and cosy",
+  "name": "Zonnig",
+  "tagline": "Warm en knus",
   "order": 10,
   "price": 0,
-  "premium": false,
   "dark": false,
   "colors": {
     "background": "#FFF4E6",

@@ -40,7 +40,6 @@ export function defaultPet(name = 'New pet') {
     tagline: '',
     order: 100,
     price: 5,
-    premium: false,
     images: { idle: null, blink: null, talk: null },
     size: 1,
     voice: { pitch: 1, files: [], volume: 0.8 },
@@ -64,7 +63,6 @@ export function validatePet(id, pet, dir) {
   if (typeof pet.tagline !== 'string') err('"tagline" must be text');
   if (!Number.isFinite(pet.order)) err('"order" must be a number');
   if (!Number.isInteger(pet.price) || pet.price < 0) err('"price" must be a whole number of gems (0 = free)');
-  if (typeof pet.premium !== 'boolean') err('"premium" must be true or false');
 
   const fileCheck = (file, exts, what) => {
     if (typeof file !== 'string' || !file) return err(`${what} must be a file name`);

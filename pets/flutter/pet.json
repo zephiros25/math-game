@@ -1,9 +1,8 @@
 {
   "name": "Flutter",
-  "tagline": "Turns every mistake into something beautiful",
+  "tagline": "Maakt van elke fout iets moois",
   "order": 730,
   "price": 3,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

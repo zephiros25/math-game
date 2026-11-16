@@ -1,9 +1,8 @@
 {
-  "name": "Aurora",
-  "tagline": "Northern lights, drifting slowly",
+  "name": "Noorderlicht",
+  "tagline": "Langzaam dansend licht",
   "order": 60,
-  "price": 0,
-  "premium": true,
+  "price": 1500,
   "dark": true,
   "colors": {
     "background": "#0D1F2D",

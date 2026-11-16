@@ -1,9 +1,8 @@
 {
   "name": "Triplet",
-  "tagline": "Three heads are better than one",
+  "tagline": "Drie hoofden weten meer dan één",
   "order": 950,
   "price": 12,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

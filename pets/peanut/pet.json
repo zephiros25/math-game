@@ -1,9 +1,8 @@
 {
   "name": "Peanut",
-  "tagline": "Never forgets a times table",
+  "tagline": "Vergeet nooit een tafel",
   "order": 450,
   "price": 5,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

@@ -1,9 +1,8 @@
 {
   "name": "Lulu",
-  "tagline": "Glides through every sum",
+  "tagline": "Glijdt door elke som",
   "order": 700,
   "price": 3,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

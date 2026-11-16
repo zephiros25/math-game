@@ -1,9 +1,8 @@
 {
   "name": "Rascal",
-  "tagline": "A little mischief, a lot of maths",
+  "tagline": "Een beetje ondeugend, heel veel rekenen",
   "order": 540,
   "price": 5,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

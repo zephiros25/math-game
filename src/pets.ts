@@ -1,7 +1,7 @@
 // Pets: companions that cheer the player on. The pets themselves live as data
 // in the pets/ folder (edited in the Studio) and are compiled into
-// pet-registry.generated.ts. Pets are unlocked with gems earned by playing;
-// `premium` pets will be sold, like premium themes.
+// pet-registry.generated.ts. Pets are unlocked with gems earned by playing
+// (price 0 = free for everyone).
 
 import { PET_LINES, type LineMoment } from '@/pet-lines';
 import { PET_DATA } from '@/pet-registry.generated';
@@ -16,7 +16,6 @@ export type PetData = {
   tagline: string;
   order: number;
   price: number; // gems; 0 = free
-  premium: boolean;
   size: number; // scale on screen, 0.6..1.5
   idle: Asset;
   blink: Asset | null; // eyes closed

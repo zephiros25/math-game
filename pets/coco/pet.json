@@ -1,9 +1,8 @@
 {
   "name": "Coco",
-  "tagline": "Hugs every good answer",
+  "tagline": "Knuffelt elk goed antwoord",
   "order": 510,
   "price": 5,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

@@ -1,9 +1,8 @@
 {
   "name": "Pudding",
-  "tagline": "Squeaks with joy",
+  "tagline": "Piept van blijdschap",
   "order": 220,
   "price": 3,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

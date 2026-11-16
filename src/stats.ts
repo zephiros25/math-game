@@ -165,6 +165,6 @@ export function recentTotals(stats: Stats, days: number) {
 export function dailyCounts(stats: Stats, days: number) {
   return Array.from({ length: days }, (_, i) => {
     const date = new Date(Date.now() - (days - 1 - i) * 86_400_000);
-    return { label: 'SMTWTFS'[date.getDay()], n: stats.days[today(date)]?.n ?? 0 };
+    return { label: 'ZMDWDVZ'[date.getDay()], n: stats.days[today(date)]?.n ?? 0 };
   });
 }

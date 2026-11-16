@@ -1,9 +1,8 @@
 {
   "name": "Swirl",
-  "tagline": "Spirals all the way to the top",
+  "tagline": "Draait zich helemaal naar de top",
   "order": 760,
   "price": 3,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

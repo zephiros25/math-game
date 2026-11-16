@@ -1,9 +1,8 @@
 {
   "name": "Mochi",
-  "tagline": "Soft, bouncy and always cheering",
+  "tagline": "Zacht, veerkrachtig en altijd aan het juichen",
   "order": 20,
   "price": 3,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

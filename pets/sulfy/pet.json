@@ -1,9 +1,8 @@
 {
   "name": "Sulfy",
-  "tagline": "Fiery cuteness!",
+  "tagline": "Vurig schattig!",
   "order": 100,
   "price": 3,
-  "premium": false,
   "images": {
     "idle": "img-idle-2.webp",
     "blink": "img-blink.webp",

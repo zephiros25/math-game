@@ -1,9 +1,8 @@
 {
   "name": "Pebbles",
-  "tagline": "The fluffiest friend around",
+  "tagline": "Het pluizigste vriendje dat er is",
   "order": 260,
   "price": 3,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

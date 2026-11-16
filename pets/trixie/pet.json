@@ -1,9 +1,8 @@
 {
   "name": "Trixie",
-  "tagline": "Three horns, triple the fun",
+  "tagline": "Drie hoorns, drie keer zoveel plezier",
   "order": 790,
   "price": 8,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

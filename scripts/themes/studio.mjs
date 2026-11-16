@@ -296,8 +296,7 @@ async function createThemeFromIdea(id) {
   Object.assign(json, {
     tagline: idea.tagline,
     order: idea.order,
-    price: idea.price === 'premium' ? 0 : idea.price,
-    premium: idea.price === 'premium',
+    price: idea.price,
     dark: idea.mood === 'dark',
     colors: idea.colors,
     keys: { image: null, fit: 'stretch', backspace: false },

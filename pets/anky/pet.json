@@ -1,9 +1,8 @@
 {
   "name": "Anky",
-  "tagline": "Tough as a shell",
+  "tagline": "Zo sterk als een schild",
   "order": 830,
   "price": 8,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

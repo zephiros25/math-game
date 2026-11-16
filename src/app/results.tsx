@@ -63,7 +63,8 @@ export default function Results() {
   const bestStreak = Number(params.bestStreak);
   const newBest = params.newBest === '1';
   const dailyBonus = params.daily === '1';
-  const focus = params.focus; // what a focus run practised, if it was one
+  const focus = params.focus; // what a practice run practised, if it was one
+  const mode = params.mode; // its practice mode, so "Nog een keer" practises the same
   const stars = starsFor(correct, total);
 
   const [showGems, setShowGems] = useState(false);
@@ -99,7 +100,7 @@ export default function Results() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [coins, gems, stars]);
 
-  const headline = stars === 3 ? 'Amazing!' : stars === 2 ? 'Great run!' : stars === 1 ? 'Nice work!' : 'Keep going!';
+  const headline = stars === 3 ? 'Geweldig!' : stars === 2 ? 'Knap gedaan!' : stars === 1 ? 'Goed bezig!' : 'Ga zo door!';
 
   return (
     <Screen>
@@ -128,13 +129,13 @@ export default function Results() {
           </View>
 
           <Animated.View entering={FadeInDown.delay(300)} style={styles.card}>
-            <Stat label="Correct" value={`${correct} / ${total}`} />
+            <Stat label="Goed" value={`${correct} / ${total}`} />
             {focus ? (
-              <Stat label="Practised" value={focus} />
+              <Stat label="Geoefend" value={focus} />
             ) : (
-              <Stat label="Top level" value={`${peak} · ${levelInfo(peak).name}`} highlight={newBest ? 'New best!' : undefined} />
+              <Stat label="Hoogste niveau" value={`${peak} · ${levelInfo(peak).name}`} highlight={newBest ? 'Nieuw record!' : undefined} />
             )}
-            <Stat label="Best streak" value={`🔥 ${bestStreak}`} />
+            <Stat label="Langste reeks" value={`🔥 ${bestStreak}`} />
           </Animated.View>
 
           <View style={styles.rewards}>
@@ -151,7 +152,7 @@ export default function Results() {
           </View>
           {showGems && dailyBonus && (
             <Animated.Text entering={FadeInDown.delay(250)} style={styles.dailyNote}>
-              Includes +2 💎 for your first run today!
+              Inclusief +2 💎 voor je eerste ronde van vandaag!
             </Animated.Text>
           )}
         </View>
@@ -164,16 +165,16 @@ export default function Results() {
 
         <View style={styles.buttons}>
           <ChunkyButton
-            label="PLAY AGAIN"
+            label="NOG EEN KEER"
             height={70}
             edge={7}
             onPress={() => {
               feedback.button();
-              router.replace('/play');
+              router.replace(mode ? { pathname: '/play', params: { mode } } : '/play');
             }}
           />
           <ChunkyButton
-            label="Home"
+            label="Naar start"
             color={t.card}
             edgeColor={t.cardEdge}
             textColor={t.text}

@@ -1,9 +1,8 @@
 {
   "name": "Hootie",
-  "tagline": "Wise beyond its years",
+  "tagline": "Wijzer dan je denkt",
   "order": 90,
   "price": 3,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

@@ -1,9 +1,8 @@
 {
   "name": "Chomp",
-  "tagline": "Snaps up every answer",
+  "tagline": "Hapt elk antwoord weg",
   "order": 490,
   "price": 5,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

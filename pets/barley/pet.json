@@ -1,9 +1,8 @@
 {
   "name": "Barley",
-  "tagline": "Counting sheep has never been this fun",
+  "tagline": "Schaapjes tellen was nog nooit zo leuk",
   "order": 180,
   "price": 3,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

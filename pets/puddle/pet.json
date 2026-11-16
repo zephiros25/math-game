@@ -1,9 +1,8 @@
 {
   "name": "Puddle",
-  "tagline": "Hops from sum to sum",
+  "tagline": "Springt van som naar som",
   "order": 150,
   "price": 3,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

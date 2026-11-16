@@ -10,9 +10,9 @@ import { useSyncExternalStore } from 'react';
 import { GEMS } from '@/game/rewards';
 import { loadStats, removeStats } from '@/stats';
 
-// What a practice run drills instead of the adaptive ladder (a Plus feature).
-// For tables, `division` also asks the matching divisions (56 ÷ 8), off by default.
-export type Focus = { kind: 'tricky' } | { kind: 'tables'; tables: number[]; division?: boolean } | null;
+// What the "Tafels oefenen" button on the home screen practises: the chosen
+// times tables, optionally with the matching divisions (56 ÷ 8).
+export type Practice = { tables: number[]; division: boolean };
 
 export type Progress = {
   coins: number;
@@ -28,21 +28,18 @@ export type Progress = {
   showPet: boolean; // parents can hide the pet without losing the child's choice
   lastRunDay: string | null; // local date of the last finished run (daily gem bonus)
   welcomeGiven: boolean; // the one-time welcome gems
-  focus: Focus;
+  practice: Practice;
 };
 
 export type Player = { id: string; name: string };
 
-// Device-wide: who plays here, who is playing now, and whether Math Run Plus
-// is unlocked (for everyone on the device).
+// Device-wide: who plays here and who is playing now.
 export type Device = {
   players: Player[];
   active: string;
-  plus: boolean;
 };
 
-export const FREE_PLAYERS = 1;
-export const PLUS_PLAYERS = 6;
+export const MAX_PLAYERS = 6;
 
 const DEVICE_KEY = 'device.v1';
 // The first player keeps the storage key from before there were players.
@@ -62,9 +59,10 @@ const DEFAULTS: Progress = {
   showPet: true,
   lastRunDay: null,
   welcomeGiven: false,
-  focus: null,
+  // The tables children usually learn first.
+  practice: { tables: [2, 5, 10], division: false },
 };
-const DEVICE_DEFAULTS: Device = { players: [{ id: 'main', name: 'Player 1' }], active: 'main', plus: false };
+const DEVICE_DEFAULTS: Device = { players: [{ id: 'main', name: 'Speler 1' }], active: 'main' };
 
 let current: Progress = DEFAULTS;
 let device: Device = DEVICE_DEFAULTS;
@@ -81,9 +79,17 @@ async function readJson<T>(key: string, defaults: T): Promise<T> {
   return defaults;
 }
 
+// Older saves kept the chosen times tables in "focus".
+type OldSave = { focus?: { kind?: string; tables?: number[]; division?: boolean } | null };
+
 // Loads a player's progress and report and makes them the active player.
 async function loadPlayer(id: string) {
-  const progress = await readJson(progressKey(id), DEFAULTS);
+  const progress = await readJson<Progress & OldSave>(progressKey(id), DEFAULTS);
+  const old = progress.focus;
+  if (progress.practice === DEFAULTS.practice && old?.kind === 'tables' && old.tables?.length) {
+    progress.practice = { tables: old.tables, division: Boolean(old.division) };
+  }
+  delete progress.focus;
   await loadStats(id);
   current = progress;
   device = { ...device, active: id };
@@ -94,6 +100,8 @@ async function loadPlayer(id: string) {
 
 export async function loadProgress() {
   device = await readJson(DEVICE_KEY, DEVICE_DEFAULTS);
+  // Default names from before the app was in Dutch: "Player 2" → "Speler 2".
+  device = { ...device, players: device.players.map((p) => ({ ...p, name: p.name.replace(/^Player (\d+)$/, 'Speler $1') })) };
   await loadPlayer(device.players.some((p) => p.id === device.active) ? device.active : device.players[0].id);
   return current;
 }
@@ -117,7 +125,7 @@ export function useProgress() {
   return useSyncExternalStore(subscribe, getProgress, getProgress);
 }
 
-// ---------------------------------------------------------------- players and Plus
+// ---------------------------------------------------------------- players
 
 export function getDevice() {
   return device;
@@ -134,7 +142,6 @@ function updateDevice(patch: Partial<Device>) {
 }
 
 export const activePlayer = (d: Device = device) => d.players.find((p) => p.id === d.active) ?? d.players[0];
-export const maxPlayers = (d: Device = device) => (d.plus ? PLUS_PLAYERS : FREE_PLAYERS);
 
 export async function switchPlayer(id: string) {
   if (id === device.active || !device.players.some((p) => p.id === id)) return;
@@ -143,9 +150,9 @@ export async function switchPlayer(id: string) {
 }
 
 export async function addPlayer(name: string) {
-  if (device.players.length >= maxPlayers()) return null;
+  if (device.players.length >= MAX_PLAYERS) return null;
   const id = `p${Date.now().toString(36)}`;
-  updateDevice({ players: [...device.players, { id, name: name.trim() || `Player ${device.players.length + 1}` }] });
+  updateDevice({ players: [...device.players, { id, name: name.trim() || `Speler ${device.players.length + 1}` }] });
   await switchPlayer(id);
   return id;
 }
@@ -161,8 +168,4 @@ export async function removePlayer(id: string) {
   updateDevice({ players: rest });
   AsyncStorage.removeItem(progressKey(id)).catch(() => {});
   removeStats(id);
-}
-
-export function setPlus(plus: boolean) {
-  updateDevice({ plus });
 }

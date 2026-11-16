@@ -1,9 +1,8 @@
 {
-  "name": "Candy",
-  "tagline": "Sprinkles on everything",
+  "name": "Snoep",
+  "tagline": "Overal hagelslag",
   "order": 40,
   "price": 800,
-  "premium": false,
   "dark": false,
   "colors": {
     "background": "#FFF0F6",

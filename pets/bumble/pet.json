@@ -1,9 +1,8 @@
 {
   "name": "Bumble",
-  "tagline": "Big hugs for big wins",
+  "tagline": "Grote knuffels voor grote overwinningen",
   "order": 120,
   "price": 3,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

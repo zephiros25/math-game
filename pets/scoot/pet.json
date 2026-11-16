@@ -1,9 +1,8 @@
 {
   "name": "Scoot",
-  "tagline": "Paddles through every problem",
+  "tagline": "Peddelt door elke som",
   "order": 380,
   "price": 3,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

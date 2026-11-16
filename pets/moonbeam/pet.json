@@ -1,9 +1,8 @@
 {
   "name": "Moonbeam",
-  "tagline": "Hops down from the moon to help you",
+  "tagline": "Huppelt van de maan om je te helpen",
   "order": 990,
   "price": 12,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

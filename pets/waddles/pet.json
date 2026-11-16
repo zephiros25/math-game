@@ -1,9 +1,8 @@
 {
   "name": "Waddles",
-  "tagline": "Always keeps its ducks in a row",
+  "tagline": "Zet altijd alles netjes op een rij",
   "order": 160,
   "price": 3,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

@@ -1,9 +1,8 @@
 {
   "name": "Whiskers",
-  "tagline": "Curious about every number",
+  "tagline": "Benieuwd naar elk getal",
   "order": 200,
   "price": 3,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

@@ -1,9 +1,8 @@
 {
   "name": "Rexy",
-  "tagline": "Tiny arms, huge brain",
+  "tagline": "Kleine armpjes, enorm brein",
   "order": 780,
   "price": 8,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

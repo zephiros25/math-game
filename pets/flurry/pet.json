@@ -1,9 +1,8 @@
 {
   "name": "Flurry",
-  "tagline": "Sees the answer through the snow",
+  "tagline": "Ziet het antwoord door de sneeuw",
   "order": 600,
   "price": 5,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

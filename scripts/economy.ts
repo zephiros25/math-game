@@ -32,7 +32,7 @@ const readPrices = (dir: string, file: string) =>
   readdirSync(dir)
     .filter((d) => !d.startsWith('.'))
     .map((id) => JSON.parse(readFileSync(`${dir}/${id}/${file}`, 'utf8')))
-    .filter((x) => !x.premium && x.price > 0)
+    .filter((x) => x.price > 0)
     .map((x) => x.price as number)
     .sort((a, b) => a - b);
 const themePrices = readPrices('themes', 'theme.json');

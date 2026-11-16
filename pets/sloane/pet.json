@@ -1,9 +1,8 @@
 {
   "name": "Sloane",
-  "tagline": "Takes its time and gets it right",
+  "tagline": "Neemt de tijd en doet het goed",
   "order": 500,
   "price": 5,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

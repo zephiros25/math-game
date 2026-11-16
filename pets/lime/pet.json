@@ -1,9 +1,8 @@
 {
   "name": "Lime",
-  "tagline": "Sticks with it",
+  "tagline": "Zet altijd door",
   "order": 770,
   "price": 3,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

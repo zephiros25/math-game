@@ -1,9 +1,8 @@
 {
   "name": "Gem",
-  "tagline": "Shines brighter with every answer",
+  "tagline": "Straalt feller bij elk antwoord",
   "order": 1020,
   "price": 12,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

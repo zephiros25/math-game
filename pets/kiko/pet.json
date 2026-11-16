@@ -1,9 +1,8 @@
 {
   "name": "Kiko",
-  "tagline": "Swings from number to number",
+  "tagline": "Slingert van getal naar getal",
   "order": 410,
   "price": 5,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

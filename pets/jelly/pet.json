@@ -1,9 +1,8 @@
 {
   "name": "Jelly",
-  "tagline": "Glows when you get it right",
+  "tagline": "Gloeit als je het goed hebt",
   "order": 360,
   "price": 3,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

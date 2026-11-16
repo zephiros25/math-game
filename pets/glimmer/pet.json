@@ -1,9 +1,8 @@
 {
   "name": "Glimmer",
-  "tagline": "Takes your maths to new heights",
+  "tagline": "Tilt je rekenen naar grote hoogte",
   "order": 880,
   "price": 12,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

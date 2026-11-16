@@ -59,7 +59,6 @@ export function defaultTheme(name = 'New theme') {
     tagline: '',
     order: 100,
     price: 500,
-    premium: false,
     dark: false,
     colors: {
       background: '#FFF4E6', backgroundDeep: '#FFE9D1', text: '#3B2A4A', textSoft: '#8A7898',
@@ -120,9 +119,7 @@ export function validateTheme(id, theme, dir) {
   if (typeof theme.tagline !== 'string') err('"tagline" must be text');
   if (!Number.isFinite(theme.order)) err('"order" must be a number');
   if (!Number.isInteger(theme.price) || theme.price < 0) err('"price" must be a whole number of coins (0 = free)');
-  if (typeof theme.premium !== 'boolean') err('"premium" must be true or false');
   if (typeof theme.dark !== 'boolean') err('"dark" must be true or false');
-  if (theme.premium && theme.price > 0) warn('premium themes are bought, not unlocked with coins; "price" is ignored');
 
   const colors = theme.colors ?? {};
   for (const key of COLOR_KEYS) {

@@ -1,9 +1,8 @@
 {
   "name": "Nutmeg",
-  "tagline": "Stuffs its cheeks with numbers",
+  "tagline": "Propt zijn wangen vol getallen",
   "order": 140,
   "price": 3,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

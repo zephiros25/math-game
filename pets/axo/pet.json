@@ -1,9 +1,8 @@
 {
   "name": "Axo",
-  "tagline": "Always grows back stronger",
+  "tagline": "Groeit altijd sterker terug",
   "order": 400,
   "price": 3,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

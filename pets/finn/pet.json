@@ -1,9 +1,8 @@
 {
   "name": "Finn",
-  "tagline": "Leaps through the levels",
+  "tagline": "Springt door de niveaus",
   "order": 280,
   "price": 3,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

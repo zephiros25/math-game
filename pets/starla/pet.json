@@ -1,9 +1,8 @@
 {
   "name": "Starla",
-  "tagline": "A five-star friend",
+  "tagline": "Een vriendin met vijf sterren",
   "order": 340,
   "price": 3,
-  "premium": false,
   "images": {
     "idle": "img-talk.webp",
     "blink": "img-blink.webp",

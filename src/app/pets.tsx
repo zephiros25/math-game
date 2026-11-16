@@ -9,8 +9,7 @@ import { PetView, type PetHandle } from '@/components/pet-view';
 import { Screen } from '@/components/screen';
 import { applyPetVoice, feedback } from '@/feedback';
 import { petById, PETS, type Pet } from '@/pets';
-import { useParentGate } from '@/components/parent-gate';
-import { getProgress, updateProgress, useDevice, useProgress } from '@/progress';
+import { getProgress, updateProgress, useProgress } from '@/progress';
 import { useTheme, type Theme } from '@/theme';
 
 // The pet shop: tap a pet to meet it (it introduces itself in its own
@@ -22,10 +21,8 @@ export default function Pets() {
   const [selectedId, setSelectedId] = useState(progress.pet ?? PETS[0]?.id ?? null);
   const selected = petById(selectedId);
   const petRef = useRef<PetHandle>(null);
-  const { plus } = useDevice();
-  const { gate, ask } = useParentGate();
-  // Plus includes every premium pet.
-  const owns = (pet: Pet) => progress.ownedPets.includes(pet.id) || (pet.premium && plus);
+  // Free pets (price 0) belong to everyone.
+  const owns = (pet: Pet) => progress.ownedPets.includes(pet.id) || pet.price === 0;
 
   // Browsing a pet also loads its voice; leaving restores the chosen pet's.
   useEffect(() => {
@@ -35,7 +32,7 @@ export default function Pets() {
 
   // Greet on arrival.
   useEffect(() => {
-    const id = setTimeout(() => selected && petRef.current?.say(`Hi, I'm ${selected.name}!`), 500);
+    const id = setTimeout(() => selected && petRef.current?.say(`Hoi, ik ben ${selected.name}!`), 500);
     return () => clearTimeout(id);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -50,7 +47,7 @@ export default function Pets() {
     if (pet.id === selected?.id) return petRef.current?.hop();
     feedback.key();
     setSelectedId(pet.id);
-    setTimeout(() => petRef.current?.say(`Hi, I'm ${pet.name}!`), 250);
+    setTimeout(() => petRef.current?.say(`Hoi, ik ben ${pet.name}!`), 250);
   }
 
   function choose() {
@@ -68,33 +65,25 @@ export default function Pets() {
     feedback.fanfare();
     setTimeout(feedback.gem, 350);
     petRef.current?.hop();
-    setTimeout(() => petRef.current?.say("Yay! Let's play together!"), 600);
+    setTimeout(() => petRef.current?.say('Joepie! Laten we samen spelen!'), 600);
   }
 
   const quiet = { color: t.card, edgeColor: t.cardEdge, textColor: t.textSoft, height: 64 };
   let action: React.ReactNode;
   if (chosen) {
-    action = <ChunkyButton label={`✓ ${selected.name} is with you`} fontSize={22} onPress={() => petRef.current?.hop()} {...quiet} />;
+    action = <ChunkyButton label={`✓ ${selected.name} is bij je`} fontSize={22} onPress={() => petRef.current?.hop()} {...quiet} />;
   } else if (owned) {
-    action = <ChunkyButton label={`Take ${selected.name} along`} fontSize={22} onPress={choose} height={64} />;
-  } else if (selected.premium) {
-    action = (
-      <View style={styles.premiumNote}>
-        <Text style={styles.premiumTitle}>★ Comes with Math Run Plus</Text>
-        <Text style={styles.premiumBody}>One purchase unlocks every premium theme and pet, and more for grown-ups.</Text>
-        <ChunkyButton label="Ask a grown-up" fontSize={20} height={52} onPress={() => ask(() => router.push('/plus'))} style={styles.askButton} />
-      </View>
-    );
+    action = <ChunkyButton label={`Neem ${selected.name} mee`} fontSize={22} onPress={choose} height={64} />;
   } else if (shortBy > 0) {
-    action = <ChunkyButton label={`Play to earn ${shortBy} more 💎`} fontSize={22} onPress={() => feedback.wrong()} {...quiet} />;
+    action = <ChunkyButton label={`Speel nog ${shortBy} 💎 bij elkaar`} fontSize={22} onPress={() => feedback.wrong()} {...quiet} />;
   } else {
-    action = <ChunkyButton label={`Unlock for ${selected.price} 💎`} fontSize={24} onPress={unlock} height={64} />;
+    action = <ChunkyButton label={`Vrijspelen voor ${selected.price} 💎`} fontSize={24} onPress={unlock} height={64} />;
   }
 
-  // Development builds can take any pet along without gems or a purchase.
+  // Development builds can take any pet along without gems.
   const devUnlock = __DEV__ && !owned && (
     <Pressable onPress={() => updateProgress({ pet: selected.id, ownedPets: [...progress.ownedPets, selected.id] })}>
-      <Text style={styles.devLink}>Developer: unlock &amp; take along for free</Text>
+      <Text style={styles.devLink}>Ontwikkelaar: gratis vrijspelen en meenemen</Text>
     </Pressable>
   );
 
@@ -111,7 +100,7 @@ export default function Pets() {
           >
             <Text style={styles.back}>‹</Text>
           </Pressable>
-          <Text style={styles.title}>Pets</Text>
+          <Text style={styles.title}>Huisdieren</Text>
           <View style={styles.wallet}>
             <Text style={styles.walletIcon}>💎</Text>
             <Text style={styles.walletText}>{progress.gems}</Text>
@@ -129,29 +118,28 @@ export default function Pets() {
             {PETS.map((pet) => {
               const isSelected = pet.id === selected.id;
               const isOwned = owns(pet);
-              const status = progress.pet === pet.id ? '✓ With you' : isOwned ? 'Owned' : pet.premium ? '★ Premium' : `💎 ${pet.price}`;
+              const status = progress.pet === pet.id ? '✓ Bij je' : isOwned ? 'Van jou' : `💎 ${pet.price}`;
               return (
                 <Pressable key={pet.id} onPress={() => select(pet)} style={styles.tile}>
                   <View style={[styles.tileCard, { borderColor: isSelected ? t.primary : t.cardEdge }]}>
                     <Image source={pet.idle} contentFit="contain" style={styles.tileImage} />
-                    {!isOwned && !pet.premium && <Text style={styles.lock}>🔒</Text>}
+                    {!isOwned && <Text style={styles.lock}>🔒</Text>}
                     {isSelected && <Animated.View entering={ZoomIn.springify()} style={[styles.selectedRing, { borderColor: t.primary }]} />}
                   </View>
                   <Text style={styles.tileName} numberOfLines={1}>
                     {pet.name}
                   </Text>
-                  <Text style={[styles.tileStatus, pet.premium && !isOwned && { color: t.primary }]}>{status}</Text>
+                  <Text style={styles.tileStatus}>{status}</Text>
                 </Pressable>
               );
             })}
           </View>
-          <Text style={styles.hint}>Earn 💎 for every run you finish, +2 for your first run each day, and extra for 10 in a row, a perfect run or a new best level.</Text>
+          <Text style={styles.hint}>Verdien 💎 met elke ronde die je afmaakt, +2 voor je eerste ronde van de dag, en extra voor 10 goed op een rij, een foutloze ronde of een nieuw record.</Text>
         </ScrollView>
 
         {devUnlock}
         {action}
       </View>
-      {gate}
     </Screen>
   );
 }
@@ -282,31 +270,6 @@ const makeStyles = (t: Theme) =>
       color: t.textSoft,
       textAlign: 'center',
       marginTop: 18,
-    },
-    premiumNote: {
-      alignItems: 'center',
-      gap: 4,
-      paddingVertical: 12,
-      paddingHorizontal: 16,
-      borderRadius: 20,
-      backgroundColor: t.card,
-      borderBottomWidth: 4,
-      borderColor: t.cardEdge,
-    },
-    premiumTitle: {
-      fontFamily: t.font.bold,
-      fontSize: 18,
-      color: t.text,
-    },
-    premiumBody: {
-      fontFamily: t.font.medium,
-      fontSize: 14,
-      color: t.textSoft,
-      textAlign: 'center',
-    },
-    askButton: {
-      alignSelf: 'stretch',
-      marginTop: 8,
     },
     devLink: {
       fontFamily: t.font.medium,

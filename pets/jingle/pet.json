@@ -1,9 +1,8 @@
 {
   "name": "Jingle",
-  "tagline": "Leads the way on snowy days",
+  "tagline": "Wijst de weg op sneeuwdagen",
   "order": 630,
   "price": 5,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

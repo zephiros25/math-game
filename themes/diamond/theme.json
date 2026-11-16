@@ -1,9 +1,8 @@
 {
-  "name": "Diamond",
-  "tagline": "Crystal clear, brilliantly bright",
+  "name": "Diamant",
+  "tagline": "Kristalhelder en stralend",
   "order": 85,
-  "price": 0,
-  "premium": true,
+  "price": 1500,
   "dark": false,
   "colors": {
     "background": "#EEF4FB",

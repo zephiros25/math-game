@@ -1,9 +1,8 @@
 {
-  "name": "Meadow",
-  "tagline": "Sunflowers and soft grass",
+  "name": "Weide",
+  "tagline": "Zonnebloemen en zacht gras",
   "order": 30,
   "price": 500,
-  "premium": false,
   "dark": false,
   "colors": {
     "background": "#F2F9EA",

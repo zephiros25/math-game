@@ -1,9 +1,8 @@
 {
-  "name": "Blossom",
-  "tagline": "Cherry petals on the breeze",
+  "name": "Bloesem",
+  "tagline": "Kersenblaadjes op de wind",
   "order": 80,
   "price": 2000,
-  "premium": false,
   "dark": false,
   "colors": {
     "background": "#FFF6F3",

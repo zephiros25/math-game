@@ -1,9 +1,8 @@
 {
   "name": "Plume",
-  "tagline": "Shows off every win",
+  "tagline": "Pronkt met elke overwinning",
   "order": 670,
   "price": 3,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

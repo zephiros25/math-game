@@ -1,9 +1,8 @@
 {
   "name": "Cosmo",
-  "tagline": "Swims through the stars",
+  "tagline": "Zwemt door de sterren",
   "order": 1030,
   "price": 12,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

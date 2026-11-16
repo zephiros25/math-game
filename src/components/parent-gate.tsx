@@ -1,7 +1,6 @@
-// The grown-ups' door: settings, the progress report and Math Run Plus sit
-// behind it (app stores require a parental gate before purchases in kids'
-// apps). It asks for a number written out in words, like "four thousand,
-// three hundred and seven", which young children can't read yet.
+// The grown-ups' door: settings and the progress report sit behind it. It
+// asks for a number written out in Dutch words, like "vierduizend
+// driehonderdzevenenveertig", which young children can't read yet.
 
 import { useMemo, useRef, useState } from 'react';
 import { Modal, Pressable, StyleSheet, Text, View } from 'react-native';
@@ -11,23 +10,27 @@ import { Keypad } from '@/components/keypad';
 import { feedback } from '@/feedback';
 import { useTheme, type Theme } from '@/theme';
 
-const ONES = ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'];
-const TENS = ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'];
+const ONES = ['', 'een', 'twee', 'drie', 'vier', 'vijf', 'zes', 'zeven', 'acht', 'negen', 'tien', 'elf', 'twaalf', 'dertien', 'veertien', 'vijftien', 'zestien', 'zeventien', 'achttien', 'negentien'];
+const TENS = ['', '', 'twintig', 'dertig', 'veertig', 'vijftig', 'zestig', 'zeventig', 'tachtig', 'negentig'];
 
+// 47 → "zevenenveertig", 23 → "drieëntwintig" (ën after a word ending in e).
 function underHundred(n: number) {
   if (n < 20) return ONES[n];
-  return TENS[Math.floor(n / 10)] + (n % 10 ? `-${ONES[n % 10]}` : '');
+  const tens = TENS[Math.floor(n / 10)];
+  const ones = ONES[n % 10];
+  if (!ones) return tens;
+  return `${ones}${ones.endsWith('e') ? 'ën' : 'en'}${tens}`;
 }
 
+// 4347 → "vierduizend driehonderdzevenenveertig"
 export function numberInWords(n: number) {
   const thousands = Math.floor(n / 1000);
   const hundreds = Math.floor((n % 1000) / 100);
   const rest = n % 100;
-  const parts: string[] = [];
-  if (thousands) parts.push(`${ONES[thousands]} thousand`);
-  if (hundreds) parts.push(`${ONES[hundreds]} hundred`);
-  let words = parts.join(', ');
-  if (rest) words += `${words ? ' and ' : ''}${underHundred(rest)}`;
+  const prefix = (count: number) => (count === 1 ? '' : ONES[count]);
+  let words = thousands ? `${prefix(thousands)}duizend` : '';
+  const tail = (hundreds ? `${prefix(hundreds)}honderd` : '') + (rest ? underHundred(rest) : '');
+  if (tail) words += `${words ? ' ' : ''}${tail}`;
   return words;
 }
 
@@ -75,8 +78,8 @@ export function ParentGate({ visible, onPass, onCancel }: Props) {
     <Modal visible={visible} transparent animationType="fade" onRequestClose={onCancel}>
       <View style={styles.backdrop}>
         <View style={styles.sheet}>
-          <Text style={styles.title}>Grown-ups only</Text>
-          <Text style={styles.body}>To continue, type this number:</Text>
+          <Text style={styles.title}>Alleen voor ouders</Text>
+          <Text style={styles.body}>Typ dit getal om verder te gaan:</Text>
           <Text style={styles.words}>{numberInWords(code)}</Text>
           <Animated.View style={[styles.answer, shakeStyle]}>
             <Text style={styles.answerText}>{input.padEnd(4, '·')}</Text>
@@ -89,7 +92,7 @@ export function ParentGate({ visible, onPass, onCancel }: Props) {
               onCancel();
             }}
           >
-            <Text style={styles.cancel}>Cancel</Text>
+            <Text style={styles.cancel}>Annuleren</Text>
           </Pressable>
         </View>
       </View>

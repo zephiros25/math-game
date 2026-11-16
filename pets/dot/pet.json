@@ -1,9 +1,8 @@
 {
   "name": "Dot",
-  "tagline": "Counts all seven spots",
+  "tagline": "Telt alle zeven stippen",
   "order": 710,
   "price": 3,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

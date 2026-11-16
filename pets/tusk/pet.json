@@ -1,9 +1,8 @@
 {
   "name": "Tusk",
-  "tagline": "Big whiskers, bigger brain",
+  "tagline": "Grote snorharen, nog groter brein",
   "order": 590,
   "price": 5,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",

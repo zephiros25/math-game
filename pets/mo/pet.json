@@ -1,9 +1,8 @@
 {
   "name": "Mo",
-  "tagline": "Dives deep for answers",
+  "tagline": "Duikt diep naar antwoorden",
   "order": 620,
   "price": 5,
-  "premium": false,
   "images": {
     "idle": "img-idle.webp",
     "blink": "img-blink.webp",
